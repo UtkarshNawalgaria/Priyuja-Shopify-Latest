@@ -1,0 +1,53 @@
+<offer-list class="product-block block-padding product-block__offer-list">
+  <details>
+    <summary>
+      <span>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 6v.75m0 3v.75m0 3v.75m0 3V18m-9-5.25h5.25M7.5 15h3M3.375 5.25c-.621 0-1.125.504-1.125 1.125v3.026a2.999 2.999 0 0 1 0 5.198v3.026c0 .621.504 1.125 1.125 1.125h17.25c.621 0 1.125-.504 1.125-1.125v-3.026a2.999 2.999 0 0 1 0-5.198V6.375c0-.621-.504-1.125-1.125-1.125H3.375Z" />
+        </svg>
+      </span>
+      <h4>{{ block.settings.header }}</h4>
+    </summary>
+    <div>
+      <div class="offer-list">
+        {% if block.settings.offer_1_code != blank %}
+          <div class="offer-item">
+            <span class="offer-code">{{ block.settings.offer_1_code }}</span>
+            {% if block.settings.offer_1_text != blank %}
+              <p class="offer-text">{{ block.settings.offer_1_text }}</p>
+            {% endif %}
+            <span class="info">Click to Copy</span>
+          </div>
+        {% endif %}
+        {% if block.settings.offer_2_code != blank %}
+          <div class="offer-item">
+            <span class="offer-code">{{ block.settings.offer_2_code }}</span>
+            {% if block.settings.offer_2_text != blank %}
+              <p class="offer-text">{{ block.settings.offer_2_text }}</p>
+            {% endif %}
+            <span class="info">Click to Copy</span>
+          </div>
+        {% endif %}
+        {% if block.settings.offer_3_code != blank %}
+          <div class="offer-item 3">
+            <span class="offer-code">{{ block.settings.offer_3_code }}</span>
+            {% if block.settings.offer_3_text != blank %}
+              <p class="offer-text">{{ block.settings.offer_3_text }}</p>
+            {% endif %}
+            <span class="info">Click to Copy</span>
+          </div>
+        {% endif %}
+        {% if block.settings.offer_4_code != blank %}
+          <div class="offer-item">
+            <span class="offer-code">{{ block.settings.offer_4_code }}</span>
+            {% if block.settings.offer_4_text != blank %}
+              <p class="offer-text">{{ block.settings.offer_4_text }}</p>
+            {% endif %}
+            <span class="info">Click to Copy</span>
+          </div>
+        {% endif %}
+      </div>
+      <p style="font-size: 12px;"><i>*Coupon can be applied at checkout</i></p>
+    </div>
+  </details>
+</offer-list>

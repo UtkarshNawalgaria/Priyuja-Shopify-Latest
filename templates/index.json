@@ -1,0 +1,105 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "slideshow": {
+      "type": "slideshow",
+      "blocks": {
+        "image_tHinMX": {
+          "type": "image",
+          "settings": {
+            "top_subheading": "",
+            "title": "",
+            "title_size": 65,
+            "subheading": "",
+            "link": "",
+            "link_text": "",
+            "link_2": "",
+            "link_text_2": "",
+            "color_accent": "#ffffff",
+            "text_align": "vertical-center horizontal-left",
+            "image": "shopify://shop_images/banarasi-saree.jpg",
+            "parallax_direction": "top",
+            "overlay_opacity": 0
+          }
+        }
+      },
+      "block_order": [
+        "image_tHinMX"
+      ],
+      "settings": {
+        "section_height": "natural",
+        "mobile_height": "500px",
+        "parallax": false,
+        "style": "dots",
+        "autoplay": true,
+        "autoplay_speed": 10,
+        "lazyload_images": true
+      }
+    },
+    "text_and_image_HfiN7w": {
+      "type": "text-and-image",
+      "name": "t:sections.text-and-image.presets.image_with_text.name",
+      "settings": {
+        "image": "shopify://shop_images/1_e25d13d2-98a6-4900-ba4b-cd4eefb67cde.png",
+        "image_mask": "none",
+        "image2_mask": "none",
+        "subtitle": "",
+        "title": "A little about us",
+        "text": "<p>Priyuja is a saree brand co-founded <strong>by Anvi and Rama Nawalgaria</strong>,\u0003</p><p>Built on three generations of textile expertise. From our base in Mumbai, we bring the finest handwoven sarees from Banaras, Jaipur, and Kolkata to boutiques and retailers across the country—making it easy to access heritage weaves with the efficiency of a modern business.</p><p>Our approach combines curated collections, reliable logistics, and video-call buying, so clients can discover, select, and order pieces with confidence—without the usual hassles of sourcing from multiple cities.</p>",
+        "button_label": "Contact Us",
+        "button_link": "",
+        "button_style": "primary",
+        "align_text": "left",
+        "image_width": "50",
+        "layout": "right",
+        "divider": false,
+        "top_padding": true,
+        "bottom_padding": true,
+        "lazyload_images": true
+      }
+    },
+    "17191198064dfa0775": {
+      "type": "apps",
+      "blocks": {
+        "instafeed_app_block_ePxNrf": {
+          "type": "shopify://apps/instafeed/blocks/app-block/c447db20-095d-4a10-9725-b5977662c9d5",
+          "settings": {
+            "title": "Follow @priyuja on Instagram",
+            "title_color": "",
+            "title_size_v2": 0,
+            "alignment": "center",
+            "instafeed_margin_top": 0,
+            "instafeed_margin_bottom": 0,
+            "instafeed_margin_sides": 0,
+            "show_instagram_link": false,
+            "link_alignment": "left",
+            "link_color": "#000000",
+            "background_color": "",
+            "feed_id": "",
+            "html_area": ""
+          }
+        }
+      },
+      "block_order": [
+        "instafeed_app_block_ePxNrf"
+      ],
+      "settings": {
+        "full_width": true,
+        "space_around": true
+      }
+    }
+  },
+  "order": [
+    "slideshow",
+    "text_and_image_HfiN7w",
+    "17191198064dfa0775"
+  ]
+}

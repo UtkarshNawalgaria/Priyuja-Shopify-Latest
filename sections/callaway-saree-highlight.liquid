@@ -1,0 +1,425 @@
+{% comment %}
+  Section: India's Finest – Just a Call Away
+{% endcomment %}
+
+<section class="callaway-{{ section.id }}">
+  <div class="callaway-wrapper">
+
+    <!-- Left main image -->
+    <div class="callaway-main-image-card">
+      {% if section.settings.main_image != blank %}
+        {{ section.settings.main_image | image_url: width: 900 | image_tag: alt: section.settings.main_image_alt, class: 'callaway-main-image' }}
+      {% else %}
+        <div class="callaway-image-placeholder">
+          Upload main image
+        </div>
+      {% endif %}
+    </div>
+
+    <!-- Right content -->
+    <div class="callaway-content">
+
+      <!-- Heading box -->
+      <div class="callaway-heading-box">
+        {% if section.settings.heading_line_1 != blank %}
+          <h2 class="callaway-heading">
+            {{ section.settings.heading_line_1 }}<br/>
+            {{ section.settings.heading_line_2 }}
+          </h2>
+        {% endif %}
+      </div>
+
+      <!-- Description -->
+      {% if section.settings.description != blank %}
+        <div class="callaway-description rte">
+          {{ section.settings.description }}
+        </div>
+      {% endif %}
+
+      <!-- Stat badge -->
+      <div class="callaway-stat-row">
+        {% if section.settings.stat_number != blank or section.settings.stat_label != blank %}
+          <div class="callaway-stat-badge">
+            <div class="callaway-stat-number">
+              {{ section.settings.stat_number }}
+            </div>
+            <div class="callaway-stat-label">
+              {{ section.settings.stat_label }}
+            </div>
+          </div>
+        {% endif %}
+      </div>
+
+      <!-- Thumbnails -->
+      {% if section.blocks.size > 0 %}
+        <div class="callaway-thumbs">
+          {% for block in section.blocks %}
+            {% if block.type == 'thumbnail' %}
+              <div class="callaway-thumb-item" {{ block.shopify_attributes }}>
+                {% if block.settings.thumb_image != blank %}
+                  {{ block.settings.thumb_image | image_url: width: 300 | image_tag: alt: block.settings.thumb_alt, class: 'callaway-thumb-image' }}
+                {% else %}
+                  <div class="callaway-thumb-placeholder">
+                    {{ 'Image ' | append: forloop.index }}
+                  </div>
+                {% endif %}
+              </div>
+            {% endif %}
+          {% endfor %}
+        </div>
+      {% endif %}
+
+    </div>
+  </div>
+
+  <style>
+    .callaway-{{ section.id }} {
+      padding: 40px 20px;
+      background-color: {{ section.settings.bg_color }};
+      {% if section.settings.bg_pattern != blank %}
+        background-image: url({{ section.settings.bg_pattern | image_url: width: 1600 }});
+        background-repeat: repeat;
+        background-size: auto;
+      {% endif %}
+      font-family: var(--font-body-family, -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif);
+    }
+
+    .callaway-{{ section.id }} .callaway-wrapper {
+      max-width: 1180px;
+      margin: 0 auto;
+      display: flex;
+      gap: 32px;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    /* Left main image card */
+    .callaway-{{ section.id }} .callaway-main-image-card {
+      flex: 0 0 340px;
+      max-width: 100%;
+      border-radius: 26px;
+      border: 4px solid {{ section.settings.main_image_border_color }};
+      overflow: hidden;
+      background-color: {{ section.settings.main_image_bg }};
+    }
+
+    .callaway-{{ section.id }} .callaway-main-image {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .callaway-{{ section.id }} .callaway-image-placeholder {
+      padding: 120px 20px;
+      text-align: center;
+      color: #999;
+      font-size: 14px;
+    }
+
+    /* Right content column */
+    .callaway-{{ section.id }} .callaway-content {
+      flex: 1 1 420px;
+      max-width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    /* Heading */
+    .callaway-{{ section.id }} .callaway-heading-box {
+      border: 2px solid {{ section.settings.heading_border_color }};
+      padding: 16px 22px;
+      display: inline-block;
+      max-width: 100%;
+    }
+
+    .callaway-{{ section.id }} .callaway-heading {
+      margin: 0;
+      font-family: {{ section.settings.heading_font_family | default: 'Georgia, "Times New Roman", serif' }};
+      font-size: 30px;
+      line-height: 1.2;
+      color: {{ section.settings.heading_color }};
+      text-align: right;
+    }
+
+    /* Description */
+    .callaway-{{ section.id }} .callaway-description {
+      max-width: 480px;
+      font-size: 14px;
+      line-height: 1.6;
+      color: {{ section.settings.body_text_color }};
+      text-align: right;
+      margin-left: auto;
+    }
+
+    /* Stat badge */
+    .callaway-{{ section.id }} .callaway-stat-row {
+      display: flex;
+      justify-content: flex-start;
+    }
+
+    .callaway-{{ section.id }} .callaway-stat-badge {
+      background-color: {{ section.settings.stat_bg_color }};
+      color: {{ section.settings.stat_text_color }};
+      padding: 12px 30px;
+      border-radius: 12px;
+      display: inline-flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 2px;
+    }
+
+    .callaway-{{ section.id }} .callaway-stat-number {
+      font-size: 26px;
+      font-weight: 700;
+    }
+
+    .callaway-{{ section.id }} .callaway-stat-label {
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    /* Thumbnails */
+    .callaway-{{ section.id }} .callaway-thumbs {
+      margin-top: 16px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      justify-content: flex-start;
+    }
+
+    .callaway-{{ section.id }} .callaway-thumb-item {
+      width: 90px;
+      height: 110px;
+      border-radius: 18px;
+      overflow: hidden;
+      background-color: {{ section.settings.thumb_bg }};
+      flex: 0 0 auto;
+    }
+
+    .callaway-{{ section.id }} .callaway-thumb-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .callaway-{{ section.id }} .callaway-thumb-placeholder {
+      width: 100%;
+      height: 100%;
+      font-size: 11px;
+      color: #999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 6px;
+    }
+
+    /* Responsive */
+    @media screen and (max-width: 991px) {
+      .callaway-{{ section.id }} .callaway-wrapper {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .callaway-{{ section.id }} .callaway-content {
+        align-items: center;
+      }
+
+      .callaway-{{ section.id }} .callaway-heading-box,
+      .callaway-{{ section.id }} .callaway-description,
+      .callaway-{{ section.id }} .callaway-stat-row,
+      .callaway-{{ section.id }} .callaway-thumbs {
+        margin-left: 0;
+        margin-right: 0;
+        text-align: center;
+      }
+
+      .callaway-{{ section.id }} .callaway-heading {
+        text-align: center;
+      }
+
+      .callaway-{{ section.id }} .callaway-description {
+        text-align: center;
+      }
+
+      .callaway-{{ section.id }} .callaway-stat-row {
+        justify-content: center;
+      }
+
+      .callaway-{{ section.id }} .callaway-thumbs {
+        justify-content: center;
+      }
+    }
+
+    @media screen and (max-width: 575px) {
+      .callaway-{{ section.id }} {
+        padding: 30px 15px;
+      }
+
+      .callaway-{{ section.id }} .callaway-main-image-card {
+        flex-basis: 100%;
+      }
+
+      .callaway-{{ section.id }} .callaway-heading {
+        font-size: 24px;
+      }
+
+      .callaway-{{ section.id }} .callaway-stat-badge {
+        padding: 10px 22px;
+      }
+
+      .callaway-{{ section.id }} .callaway-thumb-item {
+        width: 74px;
+        height: 92px;
+      }
+    }
+  </style>
+</section>
+
+{% schema %}
+{
+  "name": "Call-away saree highlight",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "main_image",
+      "label": "Main saree image"
+    },
+    {
+      "type": "text",
+      "id": "main_image_alt",
+      "label": "Main image alt text",
+      "default": "Handwoven saree"
+    },
+    {
+      "type": "color",
+      "id": "main_image_border_color",
+      "label": "Main image border color",
+      "default": "#7b0014"
+    },
+    {
+      "type": "color",
+      "id": "main_image_bg",
+      "label": "Main image background color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "text",
+      "id": "heading_line_1",
+      "label": "Heading line 1",
+      "default": "India's Finest,"
+    },
+    {
+      "type": "text",
+      "id": "heading_line_2",
+      "label": "Heading line 2",
+      "default": "Just a Call Away"
+    },
+    {
+      "type": "text",
+      "id": "heading_font_family",
+      "label": "Heading font family (CSS value)",
+      "default": "Georgia, \"Times New Roman\", serif"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading text color",
+      "default": "#b01927"
+    },
+    {
+      "type": "color",
+      "id": "heading_border_color",
+      "label": "Heading box border color",
+      "default": "#b01927"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Description",
+      "default": "<p>Explore handwoven sarees from Banaras, Jaipur, and Kolkata with ease—curated collections, reliable delivery, and video-call ordering for boutiques and retailers around the world.</p>"
+    },
+    {
+      "type": "color",
+      "id": "body_text_color",
+      "label": "Description text color",
+      "default": "#6b4c3a"
+    },
+    {
+      "type": "text",
+      "id": "stat_number",
+      "label": "Stat number",
+      "default": "10k+"
+    },
+    {
+      "type": "text",
+      "id": "stat_label",
+      "label": "Stat label",
+      "default": "Clients strong"
+    },
+    {
+      "type": "color",
+      "id": "stat_bg_color",
+      "label": "Stat badge background color",
+      "default": "#b01927"
+    },
+    {
+      "type": "color",
+      "id": "stat_text_color",
+      "label": "Stat badge text color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "thumb_bg",
+      "label": "Thumbnail background color",
+      "default": "#f2e6df"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Section background color",
+      "default": "#f8f1ea"
+    },
+    {
+      "type": "image_picker",
+      "id": "bg_pattern",
+      "label": "Background pattern image",
+      "info": "Optional subtle pattern behind the section."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "thumbnail",
+      "name": "Thumbnail image",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "thumb_image",
+          "label": "Thumbnail image"
+        },
+        {
+          "type": "text",
+          "id": "thumb_alt",
+          "label": "Thumbnail alt text",
+          "default": "Saree thumbnail"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 6,
+  "presets": [
+    {
+      "name": "Call-away saree highlight",
+      "category": "Image"
+    }
+  ]
+}
+{% endschema %}

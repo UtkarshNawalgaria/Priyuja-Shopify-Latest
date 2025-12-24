@@ -1,0 +1,223 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "price": {
+          "type": "price",
+          "settings": {}
+        },
+        "related_products_kFgtbC": {
+          "type": "related_products",
+          "settings": {
+            "heading": ""
+          }
+        },
+        "sales_point": {
+          "type": "sales_point",
+          "settings": {
+            "icon": "globe",
+            "text": "Free Shipping all over India",
+            "show_icon": true
+          }
+        },
+        "sales_point_UVzzeq": {
+          "type": "sales_point",
+          "settings": {
+            "icon": "truck",
+            "text": "COD Available",
+            "show_icon": true
+          }
+        },
+        "sales_point_B6bRbj": {
+          "type": "sales_point",
+          "settings": {
+            "icon": "package",
+            "text": "Easy Returns",
+            "show_icon": true
+          }
+        },
+        "quantity_selector_XeJGQA": {
+          "type": "quantity_selector",
+          "settings": {}
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": false,
+            "surface_pickup_enable": true,
+            "show_gift_card_recipient": true
+          }
+        },
+        "separator_CVFcCe": {
+          "type": "separator",
+          "settings": {}
+        },
+        "offer_list_WthdjK": {
+          "type": "offer_list",
+          "settings": {
+            "header": "Our Offers",
+            "offer_1_code": "FIRST10",
+            "offer_1_text": "Get 10% off on all products",
+            "offer_2_code": "",
+            "offer_2_text": "",
+            "offer_3_code": "",
+            "offer_3_text": ""
+          }
+        },
+        "product_specification_t7GN7t": {
+          "type": "product_specification",
+          "settings": {
+            "heading": "Product Specification",
+            "field_list": "Fabric,Color,Weave,Border,Pallu,Occasion,Loom"
+          }
+        },
+        "sales_point_color_note": {
+          "type": "sales_point",
+          "settings": {
+            "icon": "package",
+            "text": "*Note - The colors seen in the image may vary from the actual product due to different computer screen resolutions and displays.",
+            "show_icon": false
+          }
+        },
+        "description": {
+          "type": "description",
+          "settings": {
+            "is_tab": true
+          }
+        },
+        "tab": {
+          "type": "tab",
+          "settings": {
+            "title": "Shipping information",
+            "content": "<h5><strong>What is the cost of shipping?</strong></h5><p>Shipping is Free all over India.</p>",
+            "page": "shipping-policy"
+          }
+        },
+        "tab_VQqH6J": {
+          "type": "tab",
+          "settings": {
+            "title": "Return and Refund Policy",
+            "content": "<p>1. Once your order is delivered, you can raise a return or refund request by sending an email or whatsapp.</p><p>2. Returns are only accepted if the product we delivered is defected in some case. You will have to send a video showing the defect.</p><p>2. You will be able to raise a return for your product within <strong>5 days</strong> of the product being delivered to you.</p><p>3. In case of return, refund will be initiated to your source of payment, within <strong>3-5</strong> working days after the item has been picked up.</p>",
+            "page": "shipping-policy"
+          }
+        },
+        "text_with_image_4F3GJb": {
+          "type": "text_with_image",
+          "settings": {
+            "heading": "Visit Our Store",
+            "text": "2nd Floor, Flameproof House, B-39, Off New Link Rd, Veera Desai Industrial Estate, Andheri West, Mumbai, Maharashtra 400053",
+            "image": "shopify://shop_images/Priyuja_Store.png"
+          }
+        },
+        "share": {
+          "type": "share",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "price",
+        "related_products_kFgtbC",
+        "sales_point",
+        "sales_point_UVzzeq",
+        "sales_point_B6bRbj",
+        "quantity_selector_XeJGQA",
+        "buy_buttons",
+        "separator_CVFcCe",
+        "offer_list_WthdjK",
+        "product_specification_t7GN7t",
+        "sales_point_color_note",
+        "description",
+        "tab",
+        "tab_VQqH6J",
+        "text_with_image_4F3GJb",
+        "share"
+      ],
+      "settings": {
+        "sku_enable": true,
+        "image_position": "left",
+        "image_size": "large",
+        "product_zoom_enable": true,
+        "thumbnail_position": "beside",
+        "thumbnail_height": "flexible",
+        "thumbnail_arrows": true,
+        "mobile_layout": "partial",
+        "enable_video_looping": true,
+        "product_video_style": "muted"
+      }
+    },
+    "sub": {
+      "type": "product-full-width",
+      "disabled": true,
+      "settings": {
+        "max_width": true
+      }
+    },
+    "product-recommendations": {
+      "type": "product-recommendations",
+      "settings": {
+        "product_recommendations_heading": "You may also like",
+        "related_count": 5,
+        "products_per_row": 5
+      }
+    },
+    "1719414030206c37f9": {
+      "type": "apps",
+      "blocks": {
+        "judge_me_reviews_review_widget_9YPfKK": {
+          "type": "shopify://apps/judge-me-reviews/blocks/review_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "judge_me_reviews_review_widget_9YPfKK"
+      ],
+      "settings": {
+        "full_width": false,
+        "space_around": false
+      }
+    },
+    "recently-viewed": {
+      "type": "recently-viewed",
+      "disabled": true,
+      "settings": {
+        "recent_count": 5
+      }
+    },
+    "collection-return": {
+      "type": "collection-return",
+      "disabled": true,
+      "settings": {}
+    },
+    "featured_collection_pJHYU9": {
+      "type": "featured-collection",
+      "settings": {
+        "title": "Featured collection",
+        "home_featured_products": "sarees",
+        "per_row": 4,
+        "rows": 1,
+        "mobile_scrollable": true,
+        "view_all": true,
+        "divider": false
+      }
+    }
+  },
+  "order": [
+    "main",
+    "sub",
+    "product-recommendations",
+    "1719414030206c37f9",
+    "recently-viewed",
+    "collection-return",
+    "featured_collection_pJHYU9"
+  ]
+}

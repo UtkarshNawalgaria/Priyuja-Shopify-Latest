@@ -1,0 +1,118 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "type": "footer",
+  "name": "t:sections.footer-group.name",
+  "sections": {
+    "footer-promotions": {
+      "type": "footer-promotions",
+      "blocks": {
+        "footer-promotions-0": {
+          "type": "promotion",
+          "settings": {
+            "enable_image": true,
+            "image_mask": "none",
+            "title": "Site-wide promotion",
+            "text": "<p>Use this section to promote content throughout every page of your site. Add images for further impact.<\/p>",
+            "button_label": "Optional button",
+            "button_link": ""
+          }
+        },
+        "footer-promotions-1": {
+          "type": "promotion",
+          "settings": {
+            "enable_image": true,
+            "image_mask": "none",
+            "title": "Site-wide promotion",
+            "text": "<p>Use this section to promote content throughout every page of your site. Add images for further impact.<\/p>",
+            "button_label": "Optional button",
+            "button_link": ""
+          }
+        },
+        "footer-promotions-2": {
+          "type": "promotion",
+          "settings": {
+            "enable_image": true,
+            "image_mask": "none",
+            "title": "Site-wide promotion",
+            "text": "<p>Use this section to promote content throughout every page of your site. Add images for further impact.<\/p>",
+            "button_label": "Optional button",
+            "button_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "footer-promotions-0",
+        "footer-promotions-1",
+        "footer-promotions-2"
+      ],
+      "disabled": true,
+      "settings": {
+        "hide_homepage": false
+      }
+    },
+    "footer": {
+      "type": "footer",
+      "blocks": {
+        "footer-0": {
+          "type": "logo_social",
+          "settings": {
+            "logo": "shopify:\/\/shop_images\/White.png",
+            "desktop_logo_height": 80,
+            "container_width": 95
+          }
+        },
+        "footer-1": {
+          "type": "menu",
+          "settings": {
+            "show_footer_title": true,
+            "menu": "new-footer-menu",
+            "container_width": 35
+          }
+        },
+        "menu_a8QKRq": {
+          "type": "menu",
+          "settings": {
+            "show_footer_title": true,
+            "menu": "policies",
+            "container_width": 35
+          }
+        },
+        "custom_xNVTCq": {
+          "type": "custom",
+          "settings": {
+            "show_footer_title": true,
+            "title": "Contact Info",
+            "text": "<p><strong>Address<\/strong> - B-39, 2nd Floor, Flameproof House, Veera Desai Industrial Estate, New Link Road, Andheri West, Mumbai, 400053<\/p><p><strong>Phone Number<\/strong> - +919112044277<\/p><p><strong>Registered Business Name<\/strong> - Olivecloud Tech Private Limited<\/p>",
+            "container_width": 25
+          }
+        }
+      },
+      "block_order": [
+        "footer-0",
+        "footer-1",
+        "menu_a8QKRq",
+        "custom_xNVTCq"
+      ],
+      "settings": {
+        "show_locale_selector": true,
+        "show_currency_selector": true,
+        "show_currency_flags": true,
+        "show_payment_icons": true,
+        "show_copyright": true,
+        "copyright_text": "Powered by Olivecloud"
+      }
+    }
+  },
+  "order": [
+    "footer-promotions",
+    "footer"
+  ]
+}

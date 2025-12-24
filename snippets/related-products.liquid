@@ -1,0 +1,33 @@
+{% assign related_products = product.metafields.custom.related_products.value %}
+{% assign related_products_count = related_products | reverse | reverse | size %}
+
+{% if related_products_count > 0 %}
+  <div class="product-block related-products" {{ block.shopify_attributes }}>
+    {% if block.settings.heading %}
+      <p class="related-products__title">{{ block.settings.heading }}</p>
+    {% endif %}
+    <div class="products_list">
+      {%- for _product in related_products -%}
+        {% liquid
+          assign is_current_product = false
+          if product == _product
+            assign is_current_product = true
+          endif
+          assign first_image = _product.media[0]
+        %}
+        <div class="related-products__item">
+          <a href="{{ _product.url }}">
+            <div
+              {% if is_current_product %}
+                class="current"
+              {% endif %}
+            >
+              {{ first_image | image_url: height: 100 | image_tag }}
+            </div>
+            <span>{{ _product.metafields.custom.color }}</span>
+          </a>
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+{% endif %}

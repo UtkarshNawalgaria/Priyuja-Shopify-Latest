@@ -1,0 +1,53 @@
+{% if template == "index" %}
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Priyuja",
+      "url": "https://www.priyuja.com/",
+      "logo": "https://www.priyuja.com/cdn/shop/files/priyuja-logo.png?v=1717520650&width=140",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+919112044277",
+        "contactType": "Customer Service",
+        "areaServed": "IN",  // India
+        "availableLanguage": "English"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "B-39, 2nd Floor, Flameproof House, Veera Desai Industrial Estate, New Link Road",
+        "addressLocality": "Andheri West",
+        "addressRegion": "Mumbai",
+        "postalCode": "400053",
+        "addressCountry": "IN"  // India
+      },
+      "sameAs": [
+        "https://www.facebook.com/priyujafashion",
+        "https://templatewww.youtube.com/channel/UCCHsx0d5pGMjxw3O_vBr8Ug",
+        "https://www.instagram.com/priyujafashion/",
+        "https://in.pinterest.com/priyujafashion/"
+      ]
+    }
+  </script>
+{% endif %}
+
+{% if template == 'page.contact' %}
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Priyuja Saree Store",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "B-39, 2nd Floor, Flameproof House, Veera Desai Industrial Estate, New Link Road",
+        "addressLocality": "Andheri West",
+        "addressRegion": "Mumbai",
+        "postalCode": "400053",
+        "addressCountry": "IN"
+      },
+      "telephone": "+919112044277",
+      "openingHours": "Mo-Sa 10:00-22:00",
+      "url": "https://www.priyuja.com/"
+    }
+  </script>
+{% endif %}

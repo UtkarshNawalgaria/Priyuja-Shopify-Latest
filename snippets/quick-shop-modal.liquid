@@ -1,0 +1,58 @@
+<div
+  id="QuickShopModal-{{ product.id }}"
+  class="modal modal--square modal--quick-shop"
+  data-product-id="{{ product.id }}"
+>
+  <div class="modal__inner">
+    <div class="modal__centered">
+      <div class="modal__centered-content">
+        <div id="QuickShopHolder-{{ product.handle }}"></div>
+      </div>
+
+      <button type="button" class="modal__close js-modal-close text-link">
+        <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-close" viewBox="0 0 64 64">
+          <title>icon-X</title><path d="m19 17.61 27.12 27.13m0-27.12L19 44.74"/>
+        </svg>
+        <span class="icon__fallback-text">{{ 'general.accessibility.close_modal' | t | json }}</span>
+      </button>
+    </div>
+  </div>
+</div>
+
+<style>
+  .payment-buttons .add-to-cart {
+    min-height: 50px;
+    width: 100%;
+    display: block;
+    max-width: 100%;
+    letter-spacing: normal;
+    border-color: #a91c0c;
+  }
+  .shopify-payment-button__button shopify-payment-button__button--unbranded {
+    border-color: var(--colorTextBody);
+    letter-spacing: normal;
+    font-weight: 500;
+    border-radius: 6px;
+  }
+  [data-button_style='square']
+    .shopify-payment-button
+    .shopify-payment-button__button--unbranded:not(.btn--secondary):not(.btn--tertiary):not(.btn--inverse):not(
+      .btn--body
+    ):not(.btn--static) {
+    letter-spacing: normal;
+    font-weight: 500;
+    border-radius: 6px;
+  }
+  h4.product-specification__heading {
+    letter-spacing: 1px;
+  }
+  .product__quantity label {
+    margin: 0;
+    letter-spacing: 1px;
+    font-weight: 500;
+  }
+  .label,
+  label:not(.variant__button-label):not(.text-label) {
+    letter-spacing: 1px;
+  }
+</style>

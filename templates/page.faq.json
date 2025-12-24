@@ -1,0 +1,63 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {}
+    },
+    "faq": {
+      "type": "faq",
+      "blocks": {
+        "faq-0": {
+          "type": "rich-text",
+          "settings": {
+            "title": "Shipping",
+            "text": ""
+          }
+        },
+        "faq-1": {
+          "type": "question",
+          "settings": {
+            "title": "Does Priyuja.com offer Cash On Delivery (COD)?",
+            "text": "<p>Yes, COD is available for selected locations\/pincodes in India only. COD limit is upto 18000 INR.<p>"
+          }
+        },
+        "faq-2": {
+          "type": "question",
+          "settings": {
+            "title": "The order status is 'Delivered' but not received it. What should I do?",
+            "text": "<p>Check with your neighbor\/front desk, etc. if someone accepted the <br\/>package. Try to contact the courier to cross check if someone has signed the package. If no one accepted delivery email us on info@priyuja.com.<\/p><p><br\/>Once you get the tracking details of the shipping we request you to estimate us if the product doesn't delivered within 10-15 days of the <br\/>dispatched,So that we can coordinate with our logistics partner.<\/p><p><br\/>If there is no update about the delivery we will consider the order has been delivered,hence you cannot apply for the refund.<\/p>"
+          }
+        },
+        "faq-3": {
+          "type": "question",
+          "settings": {
+            "title": "How to track the order once shipped?",
+            "text": "<p>You'll receive an email with the tracking details, you can check on the courier website and track the order with the tracking number.<\/p><p><\/p>"
+          }
+        },
+        "faq-4": {
+          "type": "question",
+          "settings": {
+            "title": "What is the process for Refund\/Replace?",
+            "text": "<p>Please follow the below process<\/p><ul><li>To return an item, send us an email at <a href=\"mailto:info@priyuja.com\" title=\"mailto:info@priyuja.com\">info@priyuja.com<\/a> or reach out to us on Whatsapp.<\/li><li>Share a photo showing the condition of the item with a detailed reason for Refund\/Replace.<\/li><\/ul><p>Our Return team and our fitting experts will get in touch with you accordingly.<\/p><p>A quality check is performed the day we receive the outfit back. If the <br\/>outfit passes the quality check, we will issue an exchange or refund on <br\/>the same source of the payment.<\/p>"
+          }
+        },
+      },
+      "block_order": ["faq-0", "faq-1", "faq-2", "faq-3", "faq-4"],
+      "settings": {
+        "title": "Frequently Asked Questions"
+      }
+    }
+  },
+  "order": ["main", "faq"]
+}
