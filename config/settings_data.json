@@ -81,6 +81,7 @@
     "predictive_search_show_price": true,
     "show_breadcrumbs": true,
     "show_breadcrumbs_collection_link": true,
+    "wholesale_mode_enabled": true,
     "checkout_logo_position": "left",
     "checkout_logo_size": "small",
     "checkout_body_background_color": "#ffffff",

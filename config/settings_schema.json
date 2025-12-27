@@ -1053,5 +1053,68 @@
         "label": "t:settings_schema.extras.settings.disable_animations.label"
       }
     ]
+  },
+  {
+    "name": "Wholesale / B2B",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "wholesale_mode_enabled",
+        "label": "Enable wholesale mode",
+        "default": false
+      },
+      {
+        "type": "checkbox",
+        "id": "wholesale_require_login",
+        "label": "Require login to view wholesale areas",
+        "default": true
+      },
+      {
+        "type": "textarea",
+        "id": "wholesale_collection_handles",
+        "label": "Wholesale collection handles (comma-separated)",
+        "default": "wholesale,b2b,private"
+      },
+      {
+        "type": "radio",
+        "id": "wholesale_redirect_target",
+        "label": "Redirect non-logged-in users to",
+        "options": [
+          {
+            "value": "home",
+            "label": "Home page"
+          },
+          {
+            "value": "login",
+            "label": "Login page"
+          }
+        ],
+        "default": "home"
+      },
+      {
+        "type": "checkbox",
+        "id": "hide_prices_when_logged_out",
+        "label": "Hide prices when user is logged out",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "wholesale_apply_url",
+        "label": "Wholesale apply page URL",
+        "default": "/pages/wholesale"
+      },
+      {
+        "type": "text",
+        "id": "wholesale_login_url",
+        "label": "Login URL",
+        "default": "/account/login"
+      },
+      {
+        "type": "text",
+        "id": "wholesale_customer_tag",
+        "label": "Wholesale customer tag (optional)",
+        "default": "wholesale"
+      }
+    ]
   }
 ]

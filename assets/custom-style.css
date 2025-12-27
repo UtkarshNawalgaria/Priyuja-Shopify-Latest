@@ -135,7 +135,6 @@ footer.site-footer {
 .grid-product__image-mask {
   overflow: hidden;
   position: relative;
-  border-radius: 10px 0 10px 0;
 }
 
 .btn--secondary,
