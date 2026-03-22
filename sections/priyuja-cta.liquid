@@ -1,0 +1,325 @@
+{%- render 'priyuja-fonts' -%}
+
+<style>
+  #shopify-section-{{ section.id }} {
+    --cream: #F7F2E8;
+    --maroon: #6B1628;
+    --maroon-light: #8B2035;
+    --maroon-deep: #4A0F1C;
+    --gold: #C4922A;
+    --gold-light: #D4A84A;
+    --dark: #1C1209;
+    --text-mid: #6B5040;
+    --font-heading: 'Cormorant Garamond', serif;
+    --font-body: 'DM Sans', sans-serif;
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-cta {
+    background: var(--maroon);
+    padding: 100px 48px;
+    font-family: var(--font-body);
+    position: relative;
+    overflow: hidden;
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-cta__deco-1,
+  #shopify-section-{{ section.id }} .priyuja-cta__deco-2 {
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 50%;
+    pointer-events: none;
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-cta__deco-1 {
+    top: -200px;
+    right: -100px;
+    width: 500px;
+    height: 500px;
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-cta__deco-2 {
+    bottom: -150px;
+    left: -100px;
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-cta__inner {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-cta__label {
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 16px;
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-cta__title {
+    font-family: var(--font-heading);
+    font-size: 48px;
+    font-weight: 400;
+    line-height: 1.2;
+    color: #fff;
+    margin: 0 0 20px;
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-cta__title em {
+    font-style: italic;
+    color: var(--gold);
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-cta__body {
+    font-size: 16px;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.75);
+    margin-bottom: 40px;
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-cta__actions {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    margin-bottom: 60px;
+    flex-wrap: wrap;
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-cta__btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 16px 40px;
+    background: var(--gold);
+    color: #fff;
+    font-family: var(--font-body);
+    font-size: 15px;
+    font-weight: 500;
+    text-decoration: none;
+    border-radius: 50px;
+    transition: background 0.3s ease, transform 0.3s ease;
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-cta__btn-primary:hover {
+    background: var(--gold-light);
+    transform: translateY(-2px);
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-cta__btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 16px 40px;
+    background: transparent;
+    color: #fff;
+    font-family: var(--font-body);
+    font-size: 15px;
+    font-weight: 500;
+    text-decoration: none;
+    border: 1.5px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50px;
+    transition: background 0.3s ease, border-color 0.3s ease;
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-cta__btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.5);
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-cta__contacts {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-cta__contact {
+    text-align: center;
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-cta__contact-label {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 6px;
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-cta__contact-value {
+    font-size: 15px;
+    color: rgba(255, 255, 255, 0.85);
+  }
+
+  @media (max-width: 768px) {
+    #shopify-section-{{ section.id }} .priyuja-cta {
+      padding: 60px 24px;
+    }
+
+    #shopify-section-{{ section.id }} .priyuja-cta__title {
+      font-size: 32px;
+    }
+
+    #shopify-section-{{ section.id }} .priyuja-cta__actions {
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    #shopify-section-{{ section.id }} .priyuja-cta__btn-primary,
+    #shopify-section-{{ section.id }} .priyuja-cta__btn-secondary {
+      justify-content: center;
+    }
+
+    #shopify-section-{{ section.id }} .priyuja-cta__contacts {
+      gap: 24px;
+    }
+  }
+</style>
+
+<div class="priyuja-cta">
+  <div class="priyuja-cta__deco-1"></div>
+  <div class="priyuja-cta__deco-2"></div>
+
+  <div class="priyuja-cta__inner">
+    <div class="priyuja-cta__label reveal">{{ section.settings.section_label }}</div>
+
+    <h2 class="priyuja-cta__title reveal">
+      {{ section.settings.h2_line1 }}<br>
+      <em>{{ section.settings.h2_line2 }}</em>
+    </h2>
+
+    <p class="priyuja-cta__body reveal">{{ section.settings.body }}</p>
+
+    <div class="priyuja-cta__actions reveal">
+      <a href="{{ section.settings.primary_cta_url }}" class="priyuja-cta__btn-primary" target="_blank" rel="noopener">
+        {{ section.settings.primary_cta_text }}
+      </a>
+      <a href="{{ section.settings.secondary_cta_url }}" class="priyuja-cta__btn-secondary">
+        {{ section.settings.secondary_cta_text }}
+      </a>
+    </div>
+
+    {%- if section.blocks.size > 0 -%}
+      <div class="priyuja-cta__contacts reveal">
+        {%- for block in section.blocks -%}
+          <div class="priyuja-cta__contact" {{ block.shopify_attributes }}>
+            <div class="priyuja-cta__contact-label">{{ block.settings.label }}</div>
+            <div class="priyuja-cta__contact-value">{{ block.settings.value }}</div>
+          </div>
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
+  </div>
+</div>
+
+<script>
+  (function() {
+    var section = document.getElementById('shopify-section-{{ section.id }}');
+    if (!section) return;
+    var reveals = section.querySelectorAll('.reveal');
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    reveals.forEach(function(el, i) {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(24px)';
+      el.style.transition = 'opacity 0.6s ease ' + (i * 0.1) + 's, transform 0.6s ease ' + (i * 0.1) + 's';
+      observer.observe(el);
+    });
+    var style = document.createElement('style');
+    style.textContent = '#shopify-section-{{ section.id }} .reveal.visible { opacity: 1 !important; transform: translateY(0) !important; }';
+    document.head.appendChild(style);
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Priyuja - CTA",
+  "tag": "section",
+  "class": "priyuja-section",
+  "max_blocks": 4,
+  "settings": [
+    {
+      "type": "text",
+      "id": "section_label",
+      "label": "Section Label",
+      "default": "Get Started"
+    },
+    {
+      "type": "text",
+      "id": "h2_line1",
+      "label": "Heading Line 1",
+      "default": "Ready to Stock"
+    },
+    {
+      "type": "text",
+      "id": "h2_line2",
+      "label": "Heading Line 2 (italic, gold)",
+      "default": "Beautiful Sarees?"
+    },
+    {
+      "type": "textarea",
+      "id": "body",
+      "label": "Body Text",
+      "default": "Join 500+ boutique owners who trust Priyuja for authentic, wholesale sarees."
+    },
+    {
+      "type": "text",
+      "id": "primary_cta_text",
+      "label": "Primary CTA Text",
+      "default": "Start on WhatsApp"
+    },
+    {
+      "type": "url",
+      "id": "primary_cta_url",
+      "label": "Primary CTA URL"
+    },
+    {
+      "type": "text",
+      "id": "secondary_cta_text",
+      "label": "Secondary CTA Text",
+      "default": "Call Us Now"
+    },
+    {
+      "type": "url",
+      "id": "secondary_cta_url",
+      "label": "Secondary CTA URL"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "contact_detail",
+      "name": "Contact Detail",
+      "settings": [
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Label",
+          "default": "Contact"
+        },
+        {
+          "type": "text",
+          "id": "value",
+          "label": "Value",
+          "default": "Contact value"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Priyuja - CTA"
+    }
+  ]
+}
+{% endschema %}

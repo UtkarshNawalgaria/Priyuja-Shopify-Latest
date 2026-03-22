@@ -1,0 +1,285 @@
+{%- render 'priyuja-fonts' -%}
+
+<style>
+  #shopify-section-{{ section.id }} {
+    --cream: #F7F2E8;
+    --maroon: #6B1628;
+    --maroon-light: #8B2035;
+    --gold: #C4922A;
+    --gold-light: #D4A84A;
+    --gold-pale: #F0E0B0;
+    --dark: #1C1209;
+    --text-mid: #6B5040;
+    --text-light: #9A7A60;
+    --font-heading: 'Cormorant Garamond', serif;
+    --font-body: 'DM Sans', sans-serif;
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-hiw {
+    background: #fff;
+    padding: 100px 48px;
+    font-family: var(--font-body);
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-hiw__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    max-width: 1200px;
+    margin: 0 auto 60px;
+    gap: 40px;
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-hiw__label {
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 16px;
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-hiw__title {
+    font-family: var(--font-heading);
+    font-size: 44px;
+    font-weight: 400;
+    line-height: 1.2;
+    color: var(--dark);
+    margin: 0;
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-hiw__title em {
+    font-style: italic;
+    color: var(--maroon);
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-hiw__descriptor {
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--text-mid);
+    max-width: 360px;
+    text-align: right;
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-hiw__cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-hiw__card {
+    background: var(--cream);
+    border-radius: 16px;
+    padding: 36px 28px;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-hiw__card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-hiw__card-step {
+    position: absolute;
+    top: 12px;
+    right: 16px;
+    font-family: var(--font-heading);
+    font-size: 80px;
+    font-weight: 700;
+    color: rgba(107, 22, 40, 0.06);
+    line-height: 1;
+    pointer-events: none;
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-hiw__card-icon {
+    font-size: 36px;
+    margin-bottom: 20px;
+    display: block;
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-hiw__card-title {
+    font-family: var(--font-heading);
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--dark);
+    margin-bottom: 12px;
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-hiw__card-desc {
+    font-size: 14px;
+    line-height: 1.7;
+    color: var(--text-mid);
+    margin-bottom: 20px;
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-hiw__card-detail {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--gold);
+    padding-top: 16px;
+    border-top: 1px solid rgba(196, 146, 42, 0.2);
+  }
+
+  @media (max-width: 1100px) {
+    #shopify-section-{{ section.id }} .priyuja-hiw__cards {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 768px) {
+    #shopify-section-{{ section.id }} .priyuja-hiw {
+      padding: 60px 24px;
+    }
+
+    #shopify-section-{{ section.id }} .priyuja-hiw__header {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    #shopify-section-{{ section.id }} .priyuja-hiw__descriptor {
+      text-align: left;
+    }
+
+    #shopify-section-{{ section.id }} .priyuja-hiw__title {
+      font-size: 32px;
+    }
+
+    #shopify-section-{{ section.id }} .priyuja-hiw__cards {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+  }
+</style>
+
+<div class="priyuja-hiw" id="how-it-works">
+  <div class="priyuja-hiw__header reveal">
+    <div>
+      <div class="priyuja-hiw__label">{{ section.settings.section_label }}</div>
+      <h2 class="priyuja-hiw__title">
+        {{ section.settings.h2_line1 }}<br>
+        <em>{{ section.settings.h2_line2 }}</em>
+      </h2>
+    </div>
+    {%- if section.settings.descriptor != blank -%}
+      <p class="priyuja-hiw__descriptor">{{ section.settings.descriptor }}</p>
+    {%- endif -%}
+  </div>
+
+  <div class="priyuja-hiw__cards">
+    {%- for block in section.blocks -%}
+      {%- assign step_num = forloop.index | prepend: '0' | slice: -2, 2 -%}
+      <div class="priyuja-hiw__card reveal" {{ block.shopify_attributes }}>
+        <div class="priyuja-hiw__card-step">{{ step_num }}</div>
+        <span class="priyuja-hiw__card-icon">{{ block.settings.icon }}</span>
+        <div class="priyuja-hiw__card-title">{{ block.settings.title }}</div>
+        <div class="priyuja-hiw__card-desc">{{ block.settings.description }}</div>
+        {%- if block.settings.detail != blank -%}
+          <div class="priyuja-hiw__card-detail">{{ block.settings.detail }}</div>
+        {%- endif -%}
+      </div>
+    {%- endfor -%}
+  </div>
+</div>
+
+<script>
+  (function() {
+    var section = document.getElementById('shopify-section-{{ section.id }}');
+    if (!section) return;
+    var reveals = section.querySelectorAll('.reveal');
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    reveals.forEach(function(el, i) {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(24px)';
+      el.style.transition = 'opacity 0.6s ease ' + (i * 0.1) + 's, transform 0.6s ease ' + (i * 0.1) + 's';
+      observer.observe(el);
+    });
+    var style = document.createElement('style');
+    style.textContent = '#shopify-section-{{ section.id }} .reveal.visible { opacity: 1 !important; transform: translateY(0) !important; }';
+    document.head.appendChild(style);
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Priyuja - How It Works",
+  "tag": "section",
+  "class": "priyuja-section",
+  "max_blocks": 4,
+  "settings": [
+    {
+      "type": "text",
+      "id": "section_label",
+      "label": "Section Label",
+      "default": "The Process"
+    },
+    {
+      "type": "text",
+      "id": "h2_line1",
+      "label": "Heading Line 1",
+      "default": "How Ordering"
+    },
+    {
+      "type": "text",
+      "id": "h2_line2",
+      "label": "Heading Line 2 (italic)",
+      "default": "Works"
+    },
+    {
+      "type": "textarea",
+      "id": "descriptor",
+      "label": "Description (right side)",
+      "default": "From your first WhatsApp message to doorstep delivery — our streamlined process is designed for busy boutique owners."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "step",
+      "name": "Step",
+      "settings": [
+        {
+          "type": "text",
+          "id": "icon",
+          "label": "Icon (emoji)",
+          "default": "💬"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Step Title",
+          "default": "Step Title"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Step Description",
+          "default": "Step description text goes here."
+        },
+        {
+          "type": "text",
+          "id": "detail",
+          "label": "Step Detail (small text)",
+          "default": "Additional detail"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Priyuja - How It Works"
+    }
+  ]
+}
+{% endschema %}

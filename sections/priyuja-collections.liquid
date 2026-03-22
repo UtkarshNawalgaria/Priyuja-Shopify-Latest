@@ -1,0 +1,359 @@
+{%- render 'priyuja-fonts' -%}
+
+<style>
+  #shopify-section-{{ section.id }} {
+    --cream: #F7F2E8;
+    --maroon: #6B1628;
+    --maroon-light: #8B2035;
+    --maroon-deep: #4A0F1C;
+    --gold: #C4922A;
+    --gold-light: #D4A84A;
+    --dark: #1C1209;
+    --text-mid: #6B5040;
+    --text-light: #9A7A60;
+    --font-heading: 'Cormorant Garamond', serif;
+    --font-body: 'DM Sans', sans-serif;
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-collections {
+    background: var(--maroon-deep);
+    padding: 100px 48px;
+    font-family: var(--font-body);
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-collections__inner {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-collections__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 60px;
+    gap: 40px;
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-collections__label {
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 16px;
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-collections__title {
+    font-family: var(--font-heading);
+    font-size: 44px;
+    font-weight: 400;
+    line-height: 1.2;
+    color: #fff;
+    margin: 0;
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-collections__title em {
+    font-style: italic;
+    color: var(--gold);
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-collections__subtitle {
+    font-size: 15px;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.6);
+    max-width: 360px;
+    text-align: right;
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-collections__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+    gap: 20px;
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-collections__card {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    cursor: pointer;
+    min-height: 280px;
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-collections__card:first-child {
+    grid-row: 1 / 3;
+    min-height: 580px;
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-collections__card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: transform 0.6s ease;
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-collections__card:hover img {
+    transform: scale(1.05);
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-collections__card-placeholder {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: linear-gradient(135deg, var(--maroon) 0%, var(--gold) 100%);
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-collections__card-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.1) 50%, rgba(0, 0, 0, 0.05) 100%);
+    z-index: 1;
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-collections__card-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 28px;
+    z-index: 2;
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-collections__card-origin {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--gold-light);
+    margin-bottom: 6px;
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-collections__card-name {
+    font-family: var(--font-heading);
+    font-size: 24px;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 6px;
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-collections__card-price {
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.7);
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-collections__cta-wrap {
+    text-align: center;
+    margin-top: 48px;
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-collections__cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 16px 40px;
+    background: var(--gold);
+    color: #fff;
+    font-family: var(--font-body);
+    font-size: 15px;
+    font-weight: 500;
+    text-decoration: none;
+    border-radius: 50px;
+    transition: background 0.3s ease, transform 0.3s ease;
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-collections__cta:hover {
+    background: var(--gold-light);
+    transform: translateY(-2px);
+  }
+
+  @media (max-width: 768px) {
+    #shopify-section-{{ section.id }} .priyuja-collections {
+      padding: 60px 24px;
+    }
+
+    #shopify-section-{{ section.id }} .priyuja-collections__header {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    #shopify-section-{{ section.id }} .priyuja-collections__subtitle {
+      text-align: left;
+    }
+
+    #shopify-section-{{ section.id }} .priyuja-collections__title {
+      font-size: 32px;
+    }
+
+    #shopify-section-{{ section.id }} .priyuja-collections__grid {
+      grid-template-columns: 1fr;
+    }
+
+    #shopify-section-{{ section.id }} .priyuja-collections__card:first-child {
+      grid-row: auto;
+      min-height: 300px;
+    }
+
+    #shopify-section-{{ section.id }} .priyuja-collections__card {
+      min-height: 250px;
+    }
+  }
+</style>
+
+<div class="priyuja-collections" id="collections">
+  <div class="priyuja-collections__inner">
+    <div class="priyuja-collections__header reveal">
+      <div>
+        <div class="priyuja-collections__label">{{ section.settings.section_label }}</div>
+        <h2 class="priyuja-collections__title">
+          {{ section.settings.h2_line1 }}<br>
+          <em>{{ section.settings.h2_line2 }}</em>
+        </h2>
+      </div>
+      {%- if section.settings.subtitle != blank -%}
+        <p class="priyuja-collections__subtitle">{{ section.settings.subtitle }}</p>
+      {%- endif -%}
+    </div>
+
+    <div class="priyuja-collections__grid">
+      {%- for block in section.blocks -%}
+        <div class="priyuja-collections__card reveal" {{ block.shopify_attributes }}>
+          {%- if block.settings.image != blank -%}
+            <img src="{{ block.settings.image | image_url: width: 800 }}"
+                 alt="{{ block.settings.name }}"
+                 loading="lazy"
+                 width="800"
+                 height="600">
+          {%- else -%}
+            <div class="priyuja-collections__card-placeholder"></div>
+          {%- endif -%}
+          <div class="priyuja-collections__card-overlay"></div>
+          <div class="priyuja-collections__card-content">
+            <div class="priyuja-collections__card-origin">{{ block.settings.origin }}</div>
+            <div class="priyuja-collections__card-name">{{ block.settings.name }}</div>
+            <div class="priyuja-collections__card-price">{{ block.settings.price }}</div>
+          </div>
+        </div>
+      {%- endfor -%}
+    </div>
+
+    {%- if section.settings.cta_text != blank -%}
+      <div class="priyuja-collections__cta-wrap">
+        <a href="{{ section.settings.cta_url }}" class="priyuja-collections__cta" target="_blank" rel="noopener">
+          {{ section.settings.cta_text }}
+        </a>
+      </div>
+    {%- endif -%}
+  </div>
+</div>
+
+<script>
+  (function() {
+    var section = document.getElementById('shopify-section-{{ section.id }}');
+    if (!section) return;
+    var reveals = section.querySelectorAll('.reveal');
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    reveals.forEach(function(el, i) {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(24px)';
+      el.style.transition = 'opacity 0.6s ease ' + (i * 0.1) + 's, transform 0.6s ease ' + (i * 0.1) + 's';
+      observer.observe(el);
+    });
+    var style = document.createElement('style');
+    style.textContent = '#shopify-section-{{ section.id }} .reveal.visible { opacity: 1 !important; transform: translateY(0) !important; }';
+    document.head.appendChild(style);
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Priyuja - Collections",
+  "tag": "section",
+  "class": "priyuja-section",
+  "max_blocks": 6,
+  "settings": [
+    {
+      "type": "text",
+      "id": "section_label",
+      "label": "Section Label",
+      "default": "Our Collections"
+    },
+    {
+      "type": "text",
+      "id": "h2_line1",
+      "label": "Heading Line 1",
+      "default": "Curated Collections"
+    },
+    {
+      "type": "text",
+      "id": "h2_line2",
+      "label": "Heading Line 2 (italic, gold)",
+      "default": "for Every Boutique"
+    },
+    {
+      "type": "textarea",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "From the silk looms of Varanasi to the powerlooms of Surat — each collection is handpicked for quality, design, and wholesale value."
+    },
+    {
+      "type": "text",
+      "id": "cta_text",
+      "label": "CTA Button Text",
+      "default": "View All Collections on WhatsApp"
+    },
+    {
+      "type": "url",
+      "id": "cta_url",
+      "label": "CTA Button URL"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "collection_card",
+      "name": "Collection Card",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Collection Image"
+        },
+        {
+          "type": "text",
+          "id": "origin",
+          "label": "Origin Label",
+          "default": "Varanasi, Uttar Pradesh"
+        },
+        {
+          "type": "text",
+          "id": "name",
+          "label": "Collection Name",
+          "default": "Banarasi Silk Sarees"
+        },
+        {
+          "type": "text",
+          "id": "price",
+          "label": "Price Text",
+          "default": "From ₹2,500 per piece wholesale"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Priyuja - Collections"
+    }
+  ]
+}
+{% endschema %}

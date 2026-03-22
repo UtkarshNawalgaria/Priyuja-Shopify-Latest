@@ -1,0 +1,107 @@
+{%- render 'priyuja-fonts' -%}
+
+<style>
+  #shopify-section-{{ section.id }} {
+    --cream: #F7F2E8;
+    --maroon: #6B1628;
+    --gold: #C4922A;
+    --gold-light: #D4A84A;
+    --dark: #1C1209;
+    --font-body: 'DM Sans', sans-serif;
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-trust-bar {
+    background: var(--dark);
+    overflow: hidden;
+    padding: 0;
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-trust-bar__track {
+    display: flex;
+    align-items: center;
+    animation: priyuja-scroll-{{ section.id }} 30s linear infinite;
+    width: max-content;
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-trust-bar__item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 18px 40px;
+    white-space: nowrap;
+    font-family: var(--font-body);
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.8);
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-trust-bar__icon {
+    font-size: 18px;
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-trust-bar__text strong {
+    color: var(--gold-light);
+    font-weight: 600;
+  }
+
+  @keyframes priyuja-scroll-{{ section.id }} {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+</style>
+
+<div class="priyuja-trust-bar">
+  <div class="priyuja-trust-bar__track">
+    {%- for i in (1..2) -%}
+      {%- for block in section.blocks -%}
+        <div class="priyuja-trust-bar__item" {{ block.shopify_attributes }}>
+          <span class="priyuja-trust-bar__icon">{{ block.settings.icon }}</span>
+          <span class="priyuja-trust-bar__text">
+            <strong>{{ block.settings.text_bold }}</strong> {{ block.settings.text_rest }}
+          </span>
+        </div>
+      {%- endfor -%}
+    {%- endfor -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Priyuja - Trust Bar",
+  "tag": "section",
+  "class": "priyuja-section",
+  "max_blocks": 6,
+  "settings": [],
+  "blocks": [
+    {
+      "type": "trust_item",
+      "name": "Trust Item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "icon",
+          "label": "Icon (emoji)",
+          "default": "⭐"
+        },
+        {
+          "type": "text",
+          "id": "text_bold",
+          "label": "Bold Text",
+          "default": "Bold text"
+        },
+        {
+          "type": "text",
+          "id": "text_rest",
+          "label": "Rest of Text",
+          "default": "description text"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Priyuja - Trust Bar"
+    }
+  ]
+}
+{% endschema %}

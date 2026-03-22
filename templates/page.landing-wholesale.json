@@ -1,0 +1,586 @@
+{
+  "sections": {
+    "priyuja-nav": {
+      "type": "priyuja-nav",
+      "settings": {
+        "logo_text": "Priyuja",
+        "nav_link_1_label": "Our Legacy",
+        "nav_link_1_url": "#legacy",
+        "nav_link_2_label": "How It Works",
+        "nav_link_2_url": "#how-it-works",
+        "nav_link_3_label": "Collections",
+        "nav_link_3_url": "#collections",
+        "nav_link_4_label": "Terms",
+        "nav_link_4_url": "#terms",
+        "nav_link_5_label": "",
+        "nav_link_5_url": "",
+        "nav_link_6_label": "",
+        "nav_link_6_url": "",
+        "cta_text": "WhatsApp Us",
+        "cta_url": "https://wa.me/919112044277?text=Hi%20Priyuja%2C%20I%27d%20like%20to%20know%20more%20about%20your%20wholesale%20saree%20collection."
+      }
+    },
+    "priyuja-hero": {
+      "type": "priyuja-hero",
+      "settings": {
+        "eyebrow": "Wholesale Sarees — Direct from Varanasi & Surat",
+        "h1_line1": "Curated Sarees for",
+        "h1_line2": "Discerning Boutiques",
+        "h1_line3": "Across India",
+        "description": "Three generations of textile expertise, now serving boutique owners with handpicked wholesale sarees. Browse via video call, order with confidence, receive within 24 hours.",
+        "primary_cta_text": "Start on WhatsApp",
+        "primary_cta_url": "https://wa.me/919112044277?text=Hi%20Priyuja%2C%20I%27m%20a%20boutique%20owner%20and%20I%27d%20like%20to%20explore%20your%20wholesale%20collection.",
+        "secondary_cta_text": "See How It Works",
+        "secondary_cta_url": "#how-it-works",
+        "image_tag_origin": "Handpicked from",
+        "image_tag_name": "Varanasi & Surat",
+        "stat_1_number": "20+",
+        "stat_1_label": "Years of Legacy",
+        "stat_2_number": "500+",
+        "stat_2_label": "Boutiques Served",
+        "stat_3_number": "24hr",
+        "stat_3_label": "Dispatch Promise"
+      }
+    },
+    "priyuja-trust-bar": {
+      "type": "priyuja-trust-bar",
+      "settings": {},
+      "blocks": {
+        "trust-1": {
+          "type": "trust_item",
+          "settings": {
+            "icon": "🏭",
+            "text_bold": "Varanasi & Surat",
+            "text_rest": "Sourced Directly"
+          }
+        },
+        "trust-2": {
+          "type": "trust_item",
+          "settings": {
+            "icon": "⚡",
+            "text_bold": "24-Hour",
+            "text_rest": "Dispatch Guarantee"
+          }
+        },
+        "trust-3": {
+          "type": "trust_item",
+          "settings": {
+            "icon": "👨‍👩‍👦",
+            "text_bold": "3 Generations",
+            "text_rest": "of Textile Expertise"
+          }
+        },
+        "trust-4": {
+          "type": "trust_item",
+          "settings": {
+            "icon": "📹",
+            "text_bold": "Free Video Call",
+            "text_rest": "— No Showroom Visit"
+          }
+        },
+        "trust-5": {
+          "type": "trust_item",
+          "settings": {
+            "icon": "📋",
+            "text_bold": "GST Registered",
+            "text_rest": "— 27AADCO1764H1ZE"
+          }
+        }
+      },
+      "block_order": ["trust-1", "trust-2", "trust-3", "trust-4", "trust-5"]
+    },
+    "priyuja-legacy": {
+      "type": "priyuja-legacy",
+      "settings": {
+        "section_label": "Our Story",
+        "h2_line1": "A Legacy Woven in",
+        "h2_line2": "Tradition & Trust",
+        "paragraph_1": "For over two decades, the Nawalgaria family has been at the heart of India's textile trade. What began as a small operation in the bustling markets of Varanasi has grown into a trusted wholesale network serving hundreds of boutiques across India.",
+        "paragraph_2": "Founded by Anvi and Rama Nawalgaria, Priyuja brings three generations of textile knowledge to every piece we curate. We personally visit the looms and workshops of Varanasi and Surat, selecting only the finest weaves that meet our exacting standards.",
+        "paragraph_3": "Today, from our base in Mumbai, we serve boutique owners who value quality, authenticity, and a partner who understands the business of beautiful sarees.",
+        "badge_number": "20+",
+        "badge_label": "Years in Textiles"
+      },
+      "blocks": {
+        "pillar-1": {
+          "type": "pillar",
+          "settings": {
+            "title": "Direct Sourcing",
+            "description": "Personal relationships with master weavers in Varanasi and manufacturers in Surat"
+          }
+        },
+        "pillar-2": {
+          "type": "pillar",
+          "settings": {
+            "title": "Quality Assurance",
+            "description": "Every piece inspected before it reaches your boutique"
+          }
+        },
+        "pillar-3": {
+          "type": "pillar",
+          "settings": {
+            "title": "Fair Pricing",
+            "description": "Manufacturer-direct pricing with no middleman markups"
+          }
+        },
+        "pillar-4": {
+          "type": "pillar",
+          "settings": {
+            "title": "Business Partnership",
+            "description": "We grow when you grow — dedicated support for your success"
+          }
+        }
+      },
+      "block_order": ["pillar-1", "pillar-2", "pillar-3", "pillar-4"]
+    },
+    "priyuja-how-it-works": {
+      "type": "priyuja-how-it-works",
+      "settings": {
+        "section_label": "The Process",
+        "h2_line1": "How Ordering",
+        "h2_line2": "Works",
+        "descriptor": "From your first WhatsApp message to doorstep delivery — our streamlined process is designed for busy boutique owners."
+      },
+      "blocks": {
+        "step-1": {
+          "type": "step",
+          "settings": {
+            "icon": "💬",
+            "title": "Connect on WhatsApp",
+            "description": "Send us a message and tell us about your boutique, your customer base, and the styles you're looking for.",
+            "detail": "Response within 30 minutes during business hours"
+          }
+        },
+        "step-2": {
+          "type": "step",
+          "settings": {
+            "icon": "📹",
+            "title": "Browse via Video Call",
+            "description": "We'll schedule a video call where you can see our entire collection live — ask questions, compare fabrics, and select pieces.",
+            "detail": "No showroom visit required"
+          }
+        },
+        "step-3": {
+          "type": "step",
+          "settings": {
+            "icon": "✅",
+            "title": "Confirm & Pay",
+            "description": "Finalize your selection, confirm quantities, and complete payment. First order MOQ is just 15 pieces — mix and match any designs.",
+            "detail": "Advance payment • No COD"
+          }
+        },
+        "step-4": {
+          "type": "step",
+          "settings": {
+            "icon": "🚚",
+            "title": "24-Hour Dispatch",
+            "description": "Your order is carefully packed and dispatched within 24 hours of payment confirmation. Pan-India delivery to your doorstep.",
+            "detail": "Tracked shipping • Pan-India delivery"
+          }
+        }
+      },
+      "block_order": ["step-1", "step-2", "step-3", "step-4"]
+    },
+    "priyuja-collections": {
+      "type": "priyuja-collections",
+      "settings": {
+        "section_label": "Our Collections",
+        "h2_line1": "Curated Collections",
+        "h2_line2": "for Every Boutique",
+        "subtitle": "From the silk looms of Varanasi to the powerlooms of Surat — each collection is handpicked for quality, design, and wholesale value.",
+        "cta_text": "View All Collections on WhatsApp",
+        "cta_url": "https://wa.me/919112044277?text=Hi%20Priyuja%2C%20I%27d%20like%20to%20see%20your%20full%20collection%20catalog."
+      },
+      "blocks": {
+        "col-1": {
+          "type": "collection_card",
+          "settings": {
+            "origin": "Varanasi, Uttar Pradesh",
+            "name": "Banarasi Silk Sarees",
+            "price": "From ₹2,500 per piece wholesale"
+          }
+        },
+        "col-2": {
+          "type": "collection_card",
+          "settings": {
+            "origin": "Surat, Gujarat",
+            "name": "Georgette Sarees",
+            "price": "From ₹1,000 per piece wholesale"
+          }
+        },
+        "col-3": {
+          "type": "collection_card",
+          "settings": {
+            "origin": "Varanasi, Uttar Pradesh",
+            "name": "Organza Sarees",
+            "price": "From ₹1,800 per piece wholesale"
+          }
+        },
+        "col-4": {
+          "type": "collection_card",
+          "settings": {
+            "origin": "Surat, Gujarat",
+            "name": "Chiffon Sarees",
+            "price": "From ₹1,200 per piece wholesale"
+          }
+        },
+        "col-5": {
+          "type": "collection_card",
+          "settings": {
+            "origin": "Varanasi, Uttar Pradesh",
+            "name": "Tussar Silk Sarees",
+            "price": "From ₹2,000 per piece wholesale"
+          }
+        }
+      },
+      "block_order": ["col-1", "col-2", "col-3", "col-4", "col-5"]
+    },
+    "priyuja-why-us": {
+      "type": "priyuja-why-us",
+      "settings": {
+        "section_label": "Why Priyuja",
+        "h2_line1": "Why Boutiques Choose",
+        "h2_line2": "Priyuja"
+      },
+      "blocks": {
+        "why-1": {
+          "type": "reason",
+          "settings": {
+            "icon": "🏭",
+            "title": "Direct Manufacturer Access",
+            "description": "Skip the middlemen. We source directly from master weavers in Varanasi and trusted manufacturers in Surat, ensuring authentic products at the best wholesale prices."
+          }
+        },
+        "why-2": {
+          "type": "reason",
+          "settings": {
+            "icon": "📹",
+            "title": "The Video Call Difference",
+            "description": "See every piece live before you buy. Our video call service lets you examine fabrics, colors, and craftsmanship from the comfort of your shop — no travel needed."
+          }
+        },
+        "why-3": {
+          "type": "reason",
+          "settings": {
+            "icon": "🔀",
+            "title": "No Set System",
+            "description": "Unlike traditional wholesalers, we don't force you into fixed sets. Mix and match any designs, fabrics, and price points to create the perfect inventory for your boutique."
+          }
+        },
+        "why-4": {
+          "type": "reason",
+          "settings": {
+            "icon": "⚡",
+            "title": "24-Hour Dispatch",
+            "description": "Time is money in retail. Once payment is confirmed, your order is packed and dispatched within 24 hours. No waiting, no delays, no excuses."
+          }
+        },
+        "why-5": {
+          "type": "reason",
+          "settings": {
+            "icon": "🔄",
+            "title": "Effortless Reordering",
+            "description": "After your first order of 15 pieces, there's no minimum quantity. Restock bestsellers one piece at a time — perfect for testing new styles with minimal risk."
+          }
+        },
+        "why-6": {
+          "type": "reason",
+          "settings": {
+            "icon": "🤝",
+            "title": "Business Support",
+            "description": "We're more than suppliers — we're partners. Get advice on trending styles, seasonal picks, and pricing strategies to help your boutique thrive."
+          }
+        }
+      },
+      "block_order": ["why-1", "why-2", "why-3", "why-4", "why-5", "why-6"]
+    },
+    "priyuja-terms": {
+      "type": "priyuja-terms",
+      "settings": {
+        "section_label": "Business Terms",
+        "h2_line1": "Transparent Terms for",
+        "h2_line2": "Trusted Partnerships",
+        "intro": "We believe in clear, straightforward business terms. No hidden charges, no surprises — just honest wholesale partnerships built on mutual trust.",
+        "bottom_note": "<p><strong>Important:</strong> All prices are exclusive of GST (5% on sarees). Shipping charges are additional and depend on order weight and destination. For bulk orders above 50 pieces, special pricing is available — contact us on WhatsApp for a custom quote.</p>"
+      },
+      "blocks": {
+        "term-1": {
+          "type": "term_card",
+          "settings": {
+            "icon": "📦",
+            "title": "Order Requirements",
+            "item_1_label": "First Order MOQ",
+            "item_1_text": "15 pieces minimum — mix and match any designs, no fixed sets",
+            "item_2_label": "Repeat Orders",
+            "item_2_text": "No minimum quantity — reorder even a single piece",
+            "item_3_label": "Pricing",
+            "item_3_text": "Starts from ₹1,000 per saree (varies by collection)",
+            "item_4_label": "Catalog",
+            "item_4_text": "Browse our full range via scheduled video call",
+            "item_5_label": "",
+            "item_5_text": ""
+          }
+        },
+        "term-2": {
+          "type": "term_card",
+          "settings": {
+            "icon": "💳",
+            "title": "Payment Terms",
+            "item_1_label": "Payment Mode",
+            "item_1_text": "100% advance payment before dispatch",
+            "item_2_label": "COD",
+            "item_2_text": "Not available — advance payment only",
+            "item_3_label": "Methods",
+            "item_3_text": "Bank transfer (NEFT/RTGS), UPI, and online payment",
+            "item_4_label": "Invoice",
+            "item_4_text": "GST invoice provided with every order",
+            "item_5_label": "",
+            "item_5_text": ""
+          }
+        },
+        "term-3": {
+          "type": "term_card",
+          "settings": {
+            "icon": "🚚",
+            "title": "Shipping & Delivery",
+            "item_1_label": "Dispatch Time",
+            "item_1_text": "Within 24 hours of payment confirmation",
+            "item_2_label": "Delivery",
+            "item_2_text": "Pan-India delivery via trusted courier partners",
+            "item_3_label": "Tracking",
+            "item_3_text": "Tracking details shared on WhatsApp after dispatch",
+            "item_4_label": "Packaging",
+            "item_4_text": "Secure packaging to ensure sarees arrive in perfect condition",
+            "item_5_label": "",
+            "item_5_text": ""
+          }
+        },
+        "term-4": {
+          "type": "term_card",
+          "settings": {
+            "icon": "📋",
+            "title": "Business Details",
+            "item_1_label": "Registered As",
+            "item_1_text": "Olivecloud Tech Private Limited",
+            "item_2_label": "GST Number",
+            "item_2_text": "27AADCO1764H1ZE",
+            "item_3_label": "Location",
+            "item_3_text": "Mumbai, Maharashtra",
+            "item_4_label": "Sourcing",
+            "item_4_text": "Varanasi (UP) and Surat (Gujarat)",
+            "item_5_label": "",
+            "item_5_text": ""
+          }
+        }
+      },
+      "block_order": ["term-1", "term-2", "term-3", "term-4"]
+    },
+    "priyuja-testimonials": {
+      "type": "priyuja-testimonials",
+      "settings": {
+        "section_label": "Testimonials",
+        "h2_line1": "Trusted by Boutiques",
+        "h2_line2": "Across India"
+      },
+      "blocks": {
+        "testimonial-1": {
+          "type": "testimonial",
+          "settings": {
+            "stars": "5",
+            "quote": "The quality of Banarasi sarees from Priyuja is exceptional. My customers always come back asking for more. The video call browsing makes it so easy to select the right pieces.",
+            "initials": "RP",
+            "name": "Rajeshwari P.",
+            "location": "Boutique Owner, Coimbatore"
+          }
+        },
+        "testimonial-2": {
+          "type": "testimonial",
+          "settings": {
+            "stars": "5",
+            "quote": "What I love about Priyuja is the no-set system. I can mix and match designs based on what my customers want. The 24-hour dispatch is a game changer for restocking.",
+            "initials": "SM",
+            "name": "Sunita M.",
+            "location": "Boutique Owner, Jaipur"
+          }
+        },
+        "testimonial-3": {
+          "type": "testimonial",
+          "settings": {
+            "stars": "5",
+            "quote": "Working with Priyuja feels like a partnership, not just a supplier relationship. They understand the boutique business and always recommend the right styles for my market.",
+            "initials": "AK",
+            "name": "Anjali K.",
+            "location": "Boutique Owner, Bangalore"
+          }
+        },
+        "testimonial-4": {
+          "type": "testimonial",
+          "settings": {
+            "stars": "4",
+            "quote": "I was skeptical about ordering sarees without seeing them in person, but the video call experience changed my mind. The quality matches what I was shown every single time.",
+            "initials": "ND",
+            "name": "Nandini D.",
+            "location": "Shop Owner, Pune"
+          }
+        },
+        "testimonial-5": {
+          "type": "testimonial",
+          "settings": {
+            "stars": "5",
+            "quote": "From the first order of 15 pieces to now ordering regularly — Priyuja has become my most reliable supplier. The prices are fair and the quality is consistent.",
+            "initials": "PB",
+            "name": "Priya B.",
+            "location": "Boutique Owner, Hyderabad"
+          }
+        },
+        "testimonial-6": {
+          "type": "testimonial",
+          "settings": {
+            "stars": "5",
+            "quote": "The GST billing and professional invoicing make it easy to manage my accounts. Finally, a wholesale supplier that operates transparently and professionally.",
+            "initials": "MG",
+            "name": "Meera G.",
+            "location": "Shop Owner, Ahmedabad"
+          }
+        }
+      },
+      "block_order": ["testimonial-1", "testimonial-2", "testimonial-3", "testimonial-4", "testimonial-5", "testimonial-6"]
+    },
+    "priyuja-cta": {
+      "type": "priyuja-cta",
+      "settings": {
+        "section_label": "Get Started",
+        "h2_line1": "Ready to Stock",
+        "h2_line2": "Beautiful Sarees?",
+        "body": "Join 500+ boutique owners who trust Priyuja for authentic, wholesale sarees. Start with just 15 pieces — no fixed sets, no showroom visits, just great sarees delivered to your door.",
+        "primary_cta_text": "Start on WhatsApp",
+        "primary_cta_url": "https://wa.me/919112044277?text=Hi%20Priyuja%2C%20I%27m%20a%20boutique%20owner%20and%20I%27d%20like%20to%20place%20my%20first%20wholesale%20order.",
+        "secondary_cta_text": "Call Us Now",
+        "secondary_cta_url": "tel:+919112044277"
+      },
+      "blocks": {
+        "contact-1": {
+          "type": "contact_detail",
+          "settings": {
+            "label": "WhatsApp & Phone",
+            "value": "+91 91120 44277"
+          }
+        },
+        "contact-2": {
+          "type": "contact_detail",
+          "settings": {
+            "label": "Instagram",
+            "value": "@priyujafashion"
+          }
+        },
+        "contact-3": {
+          "type": "contact_detail",
+          "settings": {
+            "label": "Office",
+            "value": "Mumbai, Maharashtra"
+          }
+        },
+        "contact-4": {
+          "type": "contact_detail",
+          "settings": {
+            "label": "Dispatch From",
+            "value": "Varanasi & Surat"
+          }
+        }
+      },
+      "block_order": ["contact-1", "contact-2", "contact-3", "contact-4"]
+    },
+    "priyuja-footer": {
+      "type": "priyuja-footer",
+      "settings": {
+        "brand_name": "Priyuja",
+        "brand_description": "Wholesale sarees sourced directly from the master weavers of Varanasi and trusted manufacturers of Surat. Three generations of textile expertise, serving boutiques across India.",
+        "registered_name": "Olivecloud Tech Private Limited",
+        "gst_number": "27AADCO1764H1ZE",
+        "instagram_url": "https://instagram.com/priyujafashion",
+        "facebook_url": "",
+        "youtube_url": "",
+        "pinterest_url": "",
+        "copyright_text": "© 2024 Priyuja. All rights reserved."
+      },
+      "blocks": {
+        "footer-col-1": {
+          "type": "footer_column",
+          "settings": {
+            "heading": "Quick Links",
+            "link_1_label": "Our Legacy",
+            "link_1_url": "#legacy",
+            "link_2_label": "How It Works",
+            "link_2_url": "#how-it-works",
+            "link_3_label": "Collections",
+            "link_3_url": "#collections",
+            "link_4_label": "Business Terms",
+            "link_4_url": "#terms",
+            "link_5_label": "",
+            "link_5_url": "",
+            "link_6_label": "",
+            "link_6_url": ""
+          }
+        },
+        "footer-col-2": {
+          "type": "footer_column",
+          "settings": {
+            "heading": "Collections",
+            "link_1_label": "Banarasi Silk",
+            "link_1_url": "#collections",
+            "link_2_label": "Georgette",
+            "link_2_url": "#collections",
+            "link_3_label": "Organza",
+            "link_3_url": "#collections",
+            "link_4_label": "Chiffon",
+            "link_4_url": "#collections",
+            "link_5_label": "Tussar Silk",
+            "link_5_url": "#collections",
+            "link_6_label": "",
+            "link_6_url": ""
+          }
+        },
+        "footer-col-3": {
+          "type": "footer_column",
+          "settings": {
+            "heading": "Contact",
+            "link_1_label": "WhatsApp: +91 91120 44277",
+            "link_1_url": "https://wa.me/919112044277",
+            "link_2_label": "Instagram: @priyujafashion",
+            "link_2_url": "https://instagram.com/priyujafashion",
+            "link_3_label": "Mumbai, Maharashtra",
+            "link_3_url": "#",
+            "link_4_label": "",
+            "link_4_url": "",
+            "link_5_label": "",
+            "link_5_url": "",
+            "link_6_label": "",
+            "link_6_url": ""
+          }
+        }
+      },
+      "block_order": ["footer-col-1", "footer-col-2", "footer-col-3"]
+    },
+    "priyuja-whatsapp-float": {
+      "type": "priyuja-whatsapp-float",
+      "settings": {
+        "whatsapp_url": "https://wa.me/919112044277?text=Hi%20Priyuja%2C%20I%27m%20interested%20in%20your%20wholesale%20saree%20collection.",
+        "tooltip_text": "Chat with us"
+      }
+    }
+  },
+  "order": [
+    "priyuja-nav",
+    "priyuja-hero",
+    "priyuja-trust-bar",
+    "priyuja-legacy",
+    "priyuja-how-it-works",
+    "priyuja-collections",
+    "priyuja-why-us",
+    "priyuja-terms",
+    "priyuja-testimonials",
+    "priyuja-cta",
+    "priyuja-footer",
+    "priyuja-whatsapp-float"
+  ]
+}

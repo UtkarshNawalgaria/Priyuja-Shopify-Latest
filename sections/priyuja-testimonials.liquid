@@ -1,0 +1,269 @@
+{%- render 'priyuja-fonts' -%}
+
+<style>
+  #shopify-section-{{ section.id }} {
+    --cream: #F7F2E8;
+    --maroon: #6B1628;
+    --maroon-light: #8B2035;
+    --gold: #C4922A;
+    --gold-light: #D4A84A;
+    --dark: #1C1209;
+    --text-mid: #6B5040;
+    --text-light: #9A7A60;
+    --font-heading: 'Cormorant Garamond', serif;
+    --font-body: 'DM Sans', sans-serif;
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-testimonials {
+    background: var(--dark);
+    padding: 100px 48px;
+    font-family: var(--font-body);
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-testimonials__inner {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-testimonials__label {
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 16px;
+    text-align: center;
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-testimonials__title {
+    font-family: var(--font-heading);
+    font-size: 44px;
+    font-weight: 400;
+    line-height: 1.2;
+    color: #fff;
+    margin: 0 0 60px;
+    text-align: center;
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-testimonials__title em {
+    font-style: italic;
+    color: var(--gold);
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-testimonials__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-testimonials__card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    padding: 32px 28px;
+    transition: transform 0.3s ease, background 0.3s ease;
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-testimonials__card:hover {
+    transform: translateY(-4px);
+    background: rgba(255, 255, 255, 0.08);
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-testimonials__stars {
+    color: var(--gold);
+    font-size: 16px;
+    margin-bottom: 16px;
+    letter-spacing: 2px;
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-testimonials__quote {
+    font-size: 14px;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.75);
+    margin-bottom: 24px;
+    font-style: italic;
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-testimonials__author {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-testimonials__avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--maroon);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 600;
+    color: #fff;
+    flex-shrink: 0;
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-testimonials__name {
+    font-weight: 600;
+    color: #fff;
+    font-size: 14px;
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-testimonials__location {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.5);
+    margin-top: 2px;
+  }
+
+  @media (max-width: 1100px) {
+    #shopify-section-{{ section.id }} .priyuja-testimonials__grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 768px) {
+    #shopify-section-{{ section.id }} .priyuja-testimonials {
+      padding: 60px 24px;
+    }
+
+    #shopify-section-{{ section.id }} .priyuja-testimonials__title {
+      font-size: 32px;
+    }
+
+    #shopify-section-{{ section.id }} .priyuja-testimonials__grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+
+<div class="priyuja-testimonials">
+  <div class="priyuja-testimonials__inner">
+    <div class="priyuja-testimonials__label reveal">{{ section.settings.section_label }}</div>
+    <h2 class="priyuja-testimonials__title reveal">
+      {{ section.settings.h2_line1 }}<br>
+      <em>{{ section.settings.h2_line2 }}</em>
+    </h2>
+
+    <div class="priyuja-testimonials__grid">
+      {%- for block in section.blocks -%}
+        <div class="priyuja-testimonials__card reveal" {{ block.shopify_attributes }}>
+          <div class="priyuja-testimonials__stars">
+            {%- assign star_count = block.settings.stars | plus: 0 -%}
+            {%- for i in (1..star_count) -%}&#9733;{%- endfor -%}
+          </div>
+          <div class="priyuja-testimonials__quote">"{{ block.settings.quote }}"</div>
+          <div class="priyuja-testimonials__author">
+            <div class="priyuja-testimonials__avatar">{{ block.settings.initials }}</div>
+            <div>
+              <div class="priyuja-testimonials__name">{{ block.settings.name }}</div>
+              <div class="priyuja-testimonials__location">{{ block.settings.location }}</div>
+            </div>
+          </div>
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
+
+<script>
+  (function() {
+    var section = document.getElementById('shopify-section-{{ section.id }}');
+    if (!section) return;
+    var reveals = section.querySelectorAll('.reveal');
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    reveals.forEach(function(el, i) {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(24px)';
+      el.style.transition = 'opacity 0.6s ease ' + (i * 0.1) + 's, transform 0.6s ease ' + (i * 0.1) + 's';
+      observer.observe(el);
+    });
+    var style = document.createElement('style');
+    style.textContent = '#shopify-section-{{ section.id }} .reveal.visible { opacity: 1 !important; transform: translateY(0) !important; }';
+    document.head.appendChild(style);
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Priyuja - Testimonials",
+  "tag": "section",
+  "class": "priyuja-section",
+  "max_blocks": 6,
+  "settings": [
+    {
+      "type": "text",
+      "id": "section_label",
+      "label": "Section Label",
+      "default": "Testimonials"
+    },
+    {
+      "type": "text",
+      "id": "h2_line1",
+      "label": "Heading Line 1",
+      "default": "Trusted by Boutiques"
+    },
+    {
+      "type": "text",
+      "id": "h2_line2",
+      "label": "Heading Line 2 (italic)",
+      "default": "Across India"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "testimonial",
+      "name": "Testimonial",
+      "settings": [
+        {
+          "type": "select",
+          "id": "stars",
+          "label": "Star Rating",
+          "options": [
+            { "value": "3", "label": "3 Stars" },
+            { "value": "4", "label": "4 Stars" },
+            { "value": "5", "label": "5 Stars" }
+          ],
+          "default": "5"
+        },
+        {
+          "type": "textarea",
+          "id": "quote",
+          "label": "Quote Text",
+          "default": "Amazing quality and service!"
+        },
+        {
+          "type": "text",
+          "id": "initials",
+          "label": "Reviewer Initials",
+          "default": "AB"
+        },
+        {
+          "type": "text",
+          "id": "name",
+          "label": "Reviewer Name",
+          "default": "Reviewer Name"
+        },
+        {
+          "type": "text",
+          "id": "location",
+          "label": "Reviewer Location",
+          "default": "Boutique Owner, City"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Priyuja - Testimonials"
+    }
+  ]
+}
+{% endschema %}

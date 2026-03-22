@@ -1,0 +1,379 @@
+{%- render 'priyuja-fonts' -%}
+
+<style>
+  #shopify-section-{{ section.id }} {
+    --cream: #F7F2E8;
+    --maroon: #6B1628;
+    --maroon-light: #8B2035;
+    --gold: #C4922A;
+    --gold-light: #D4A84A;
+    --dark: #1C1209;
+    --text-mid: #6B5040;
+    --text-light: #9A7A60;
+    --font-heading: 'Cormorant Garamond', serif;
+    --font-body: 'DM Sans', sans-serif;
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-legacy {
+    background: var(--cream);
+    padding: 100px 48px;
+    font-family: var(--font-body);
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-legacy__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    max-width: 1200px;
+    margin: 0 auto;
+    align-items: center;
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-legacy__images {
+    position: relative;
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-legacy__main-image {
+    width: 100%;
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-legacy__main-image img {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    display: block;
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-legacy__main-image-placeholder {
+    width: 100%;
+    height: 500px;
+    background: linear-gradient(135deg, var(--maroon) 0%, var(--gold) 100%);
+    border-radius: 12px;
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-legacy__accent-image {
+    position: absolute;
+    bottom: -30px;
+    right: -30px;
+    width: 200px;
+    height: 250px;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 4px solid var(--cream);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-legacy__accent-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-legacy__accent-placeholder {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, var(--gold) 0%, var(--maroon) 100%);
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-legacy__badge {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    padding: 16px 20px;
+    border-radius: 10px;
+    text-align: center;
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-legacy__badge-number {
+    font-family: var(--font-heading);
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--maroon);
+    line-height: 1;
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-legacy__badge-label {
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--text-light);
+    letter-spacing: 0.5px;
+    margin-top: 4px;
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-legacy__label {
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 16px;
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-legacy__title {
+    font-family: var(--font-heading);
+    font-size: 44px;
+    font-weight: 400;
+    line-height: 1.2;
+    color: var(--dark);
+    margin: 0 0 32px;
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-legacy__title em {
+    font-style: italic;
+    color: var(--maroon);
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-legacy__text p {
+    font-size: 15px;
+    line-height: 1.8;
+    color: var(--text-mid);
+    margin: 0 0 16px;
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-legacy__pillars {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-top: 40px;
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-legacy__pillar {
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 10px;
+    border: 1px solid rgba(196, 146, 42, 0.15);
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-legacy__pillar-title {
+    font-family: var(--font-heading);
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--dark);
+    margin-bottom: 6px;
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-legacy__pillar-desc {
+    font-size: 13px;
+    line-height: 1.6;
+    color: var(--text-light);
+  }
+
+  @media (max-width: 768px) {
+    #shopify-section-{{ section.id }} .priyuja-legacy {
+      padding: 60px 24px;
+    }
+
+    #shopify-section-{{ section.id }} .priyuja-legacy__grid {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+
+    #shopify-section-{{ section.id }} .priyuja-legacy__accent-image,
+    #shopify-section-{{ section.id }} .priyuja-legacy__badge {
+      display: none;
+    }
+
+    #shopify-section-{{ section.id }} .priyuja-legacy__title {
+      font-size: 32px;
+    }
+
+    #shopify-section-{{ section.id }} .priyuja-legacy__pillars {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+
+<div class="priyuja-legacy" id="legacy">
+  <div class="priyuja-legacy__grid">
+    <div class="priyuja-legacy__images reveal">
+      <div class="priyuja-legacy__main-image">
+        {%- if section.settings.main_image != blank -%}
+          <img src="{{ section.settings.main_image | image_url: width: 800 }}"
+               alt="{{ section.settings.h2_line1 }}"
+               loading="lazy"
+               width="800"
+               height="500">
+        {%- else -%}
+          <div class="priyuja-legacy__main-image-placeholder"></div>
+        {%- endif -%}
+
+        {%- if section.settings.badge_number != blank -%}
+          <div class="priyuja-legacy__badge">
+            <div class="priyuja-legacy__badge-number">{{ section.settings.badge_number }}</div>
+            <div class="priyuja-legacy__badge-label">{{ section.settings.badge_label }}</div>
+          </div>
+        {%- endif -%}
+      </div>
+
+      {%- if section.settings.accent_image != blank -%}
+        <div class="priyuja-legacy__accent-image">
+          <img src="{{ section.settings.accent_image | image_url: width: 400 }}"
+               alt="Accent"
+               loading="lazy"
+               width="400"
+               height="500">
+        </div>
+      {%- else -%}
+        <div class="priyuja-legacy__accent-image">
+          <div class="priyuja-legacy__accent-placeholder"></div>
+        </div>
+      {%- endif -%}
+    </div>
+
+    <div class="priyuja-legacy__content">
+      <div class="priyuja-legacy__label reveal">{{ section.settings.section_label }}</div>
+
+      <h2 class="priyuja-legacy__title reveal">
+        {{ section.settings.h2_line1 }}<br>
+        <em>{{ section.settings.h2_line2 }}</em>
+      </h2>
+
+      <div class="priyuja-legacy__text reveal">
+        {%- if section.settings.paragraph_1 != blank -%}
+          <p>{{ section.settings.paragraph_1 }}</p>
+        {%- endif -%}
+        {%- if section.settings.paragraph_2 != blank -%}
+          <p>{{ section.settings.paragraph_2 }}</p>
+        {%- endif -%}
+        {%- if section.settings.paragraph_3 != blank -%}
+          <p>{{ section.settings.paragraph_3 }}</p>
+        {%- endif -%}
+      </div>
+
+      {%- if section.blocks.size > 0 -%}
+        <div class="priyuja-legacy__pillars">
+          {%- for block in section.blocks -%}
+            <div class="priyuja-legacy__pillar reveal" {{ block.shopify_attributes }}>
+              <div class="priyuja-legacy__pillar-title">{{ block.settings.title }}</div>
+              <div class="priyuja-legacy__pillar-desc">{{ block.settings.description }}</div>
+            </div>
+          {%- endfor -%}
+        </div>
+      {%- endif -%}
+    </div>
+  </div>
+</div>
+
+<script>
+  (function() {
+    var section = document.getElementById('shopify-section-{{ section.id }}');
+    if (!section) return;
+    var reveals = section.querySelectorAll('.reveal');
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    reveals.forEach(function(el, i) {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(24px)';
+      el.style.transition = 'opacity 0.6s ease ' + (i * 0.1) + 's, transform 0.6s ease ' + (i * 0.1) + 's';
+      observer.observe(el);
+    });
+    var style = document.createElement('style');
+    style.textContent = '#shopify-section-{{ section.id }} .reveal.visible { opacity: 1 !important; transform: translateY(0) !important; }';
+    document.head.appendChild(style);
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Priyuja - Legacy",
+  "tag": "section",
+  "class": "priyuja-section",
+  "max_blocks": 4,
+  "settings": [
+    {
+      "type": "text",
+      "id": "section_label",
+      "label": "Section Label",
+      "default": "Our Story"
+    },
+    {
+      "type": "text",
+      "id": "h2_line1",
+      "label": "Heading Line 1",
+      "default": "A Legacy Woven in"
+    },
+    {
+      "type": "text",
+      "id": "h2_line2",
+      "label": "Heading Line 2 (italic)",
+      "default": "Tradition & Trust"
+    },
+    {
+      "type": "textarea",
+      "id": "paragraph_1",
+      "label": "Paragraph 1",
+      "default": "For over two decades, the Nawalgaria family has been at the heart of India's textile trade."
+    },
+    {
+      "type": "textarea",
+      "id": "paragraph_2",
+      "label": "Paragraph 2",
+      "default": "Founded by Anvi and Rama Nawalgaria, Priyuja brings three generations of textile knowledge to every piece we curate."
+    },
+    {
+      "type": "textarea",
+      "id": "paragraph_3",
+      "label": "Paragraph 3",
+      "default": "Today, from our base in Mumbai, we serve boutique owners who value quality, authenticity, and a partner who understands the business of beautiful sarees."
+    },
+    {
+      "type": "image_picker",
+      "id": "main_image",
+      "label": "Main Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "accent_image",
+      "label": "Accent Image (overlapping)"
+    },
+    {
+      "type": "text",
+      "id": "badge_number",
+      "label": "Badge Number",
+      "default": "20+"
+    },
+    {
+      "type": "text",
+      "id": "badge_label",
+      "label": "Badge Label",
+      "default": "Years in Textiles"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "pillar",
+      "name": "Pillar",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Pillar Title",
+          "default": "Pillar Title"
+        },
+        {
+          "type": "text",
+          "id": "description",
+          "label": "Pillar Description",
+          "default": "Short description of this pillar"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Priyuja - Legacy"
+    }
+  ]
+}
+{% endschema %}

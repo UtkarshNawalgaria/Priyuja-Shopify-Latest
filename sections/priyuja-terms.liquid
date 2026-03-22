@@ -1,0 +1,341 @@
+{%- render 'priyuja-fonts' -%}
+
+<style>
+  #shopify-section-{{ section.id }} {
+    --cream: #F7F2E8;
+    --maroon: #6B1628;
+    --maroon-light: #8B2035;
+    --gold: #C4922A;
+    --gold-light: #D4A84A;
+    --dark: #1C1209;
+    --text-mid: #6B5040;
+    --text-light: #9A7A60;
+    --font-heading: 'Cormorant Garamond', serif;
+    --font-body: 'DM Sans', sans-serif;
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-terms {
+    background: var(--cream);
+    padding: 100px 48px;
+    font-family: var(--font-body);
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-terms__inner {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-terms__label {
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 16px;
+    text-align: center;
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-terms__title {
+    font-family: var(--font-heading);
+    font-size: 44px;
+    font-weight: 400;
+    line-height: 1.2;
+    color: var(--dark);
+    margin: 0 0 20px;
+    text-align: center;
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-terms__title em {
+    font-style: italic;
+    color: var(--maroon);
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-terms__intro {
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--text-mid);
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 60px;
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-terms__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-terms__card {
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-terms__card-header {
+    background: var(--maroon);
+    color: #fff;
+    padding: 18px 24px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: var(--font-heading);
+    font-size: 20px;
+    font-weight: 600;
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-terms__card-header-icon {
+    font-size: 22px;
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-terms__card-body {
+    padding: 8px 0;
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-terms__item {
+    padding: 14px 24px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--text-mid);
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-terms__item:last-child {
+    border-bottom: none;
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-terms__item-label {
+    color: var(--gold);
+    font-weight: 600;
+    margin-right: 4px;
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-terms__item::before {
+    content: "— ";
+    color: var(--gold);
+    font-weight: 600;
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-terms__note {
+    margin-top: 40px;
+    padding: 24px 28px;
+    background: rgba(196, 146, 42, 0.1);
+    border: 1px solid rgba(196, 146, 42, 0.25);
+    border-radius: 10px;
+    font-size: 14px;
+    line-height: 1.7;
+    color: var(--text-mid);
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-terms__note strong {
+    color: var(--dark);
+  }
+
+  @media (max-width: 768px) {
+    #shopify-section-{{ section.id }} .priyuja-terms {
+      padding: 60px 24px;
+    }
+
+    #shopify-section-{{ section.id }} .priyuja-terms__title {
+      font-size: 32px;
+    }
+
+    #shopify-section-{{ section.id }} .priyuja-terms__grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+
+<div class="priyuja-terms" id="terms">
+  <div class="priyuja-terms__inner">
+    <div class="priyuja-terms__label reveal">{{ section.settings.section_label }}</div>
+    <h2 class="priyuja-terms__title reveal">
+      {{ section.settings.h2_line1 }}<br>
+      <em>{{ section.settings.h2_line2 }}</em>
+    </h2>
+    {%- if section.settings.intro != blank -%}
+      <p class="priyuja-terms__intro reveal">{{ section.settings.intro }}</p>
+    {%- endif -%}
+
+    <div class="priyuja-terms__grid">
+      {%- for block in section.blocks -%}
+        <div class="priyuja-terms__card reveal" {{ block.shopify_attributes }}>
+          <div class="priyuja-terms__card-header">
+            <span class="priyuja-terms__card-header-icon">{{ block.settings.icon }}</span>
+            {{ block.settings.title }}
+          </div>
+          <div class="priyuja-terms__card-body">
+            {%- for i in (1..5) -%}
+              {%- assign label_key = 'item_' | append: i | append: '_label' -%}
+              {%- assign text_key = 'item_' | append: i | append: '_text' -%}
+              {%- assign label = block.settings[label_key] -%}
+              {%- assign text = block.settings[text_key] -%}
+              {%- if label != blank -%}
+                <div class="priyuja-terms__item">
+                  <span class="priyuja-terms__item-label">{{ label }}:</span>
+                  {{ text }}
+                </div>
+              {%- endif -%}
+            {%- endfor -%}
+          </div>
+        </div>
+      {%- endfor -%}
+    </div>
+
+    {%- if section.settings.bottom_note != blank -%}
+      <div class="priyuja-terms__note reveal">
+        {{ section.settings.bottom_note }}
+      </div>
+    {%- endif -%}
+  </div>
+</div>
+
+<script>
+  (function() {
+    var section = document.getElementById('shopify-section-{{ section.id }}');
+    if (!section) return;
+    var reveals = section.querySelectorAll('.reveal');
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    reveals.forEach(function(el, i) {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(24px)';
+      el.style.transition = 'opacity 0.6s ease ' + (i * 0.1) + 's, transform 0.6s ease ' + (i * 0.1) + 's';
+      observer.observe(el);
+    });
+    var style = document.createElement('style');
+    style.textContent = '#shopify-section-{{ section.id }} .reveal.visible { opacity: 1 !important; transform: translateY(0) !important; }';
+    document.head.appendChild(style);
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Priyuja - Terms",
+  "tag": "section",
+  "class": "priyuja-section",
+  "max_blocks": 4,
+  "settings": [
+    {
+      "type": "text",
+      "id": "section_label",
+      "label": "Section Label",
+      "default": "Business Terms"
+    },
+    {
+      "type": "text",
+      "id": "h2_line1",
+      "label": "Heading Line 1",
+      "default": "Transparent Terms for"
+    },
+    {
+      "type": "text",
+      "id": "h2_line2",
+      "label": "Heading Line 2 (italic)",
+      "default": "Trusted Partnerships"
+    },
+    {
+      "type": "textarea",
+      "id": "intro",
+      "label": "Intro Description",
+      "default": "We believe in clear, straightforward business terms. No hidden charges, no surprises — just honest wholesale partnerships built on mutual trust."
+    },
+    {
+      "type": "richtext",
+      "id": "bottom_note",
+      "label": "Bottom Note"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "term_card",
+      "name": "Term Card",
+      "settings": [
+        {
+          "type": "text",
+          "id": "icon",
+          "label": "Icon (emoji)",
+          "default": "📦"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Card Title",
+          "default": "Card Title"
+        },
+        {
+          "type": "text",
+          "id": "item_1_label",
+          "label": "Item 1 Label",
+          "default": "Label"
+        },
+        {
+          "type": "text",
+          "id": "item_1_text",
+          "label": "Item 1 Text",
+          "default": "Description text"
+        },
+        {
+          "type": "text",
+          "id": "item_2_label",
+          "label": "Item 2 Label",
+          "default": ""
+        },
+        {
+          "type": "text",
+          "id": "item_2_text",
+          "label": "Item 2 Text",
+          "default": ""
+        },
+        {
+          "type": "text",
+          "id": "item_3_label",
+          "label": "Item 3 Label",
+          "default": ""
+        },
+        {
+          "type": "text",
+          "id": "item_3_text",
+          "label": "Item 3 Text",
+          "default": ""
+        },
+        {
+          "type": "text",
+          "id": "item_4_label",
+          "label": "Item 4 Label",
+          "default": ""
+        },
+        {
+          "type": "text",
+          "id": "item_4_text",
+          "label": "Item 4 Text",
+          "default": ""
+        },
+        {
+          "type": "text",
+          "id": "item_5_label",
+          "label": "Item 5 Label",
+          "default": ""
+        },
+        {
+          "type": "text",
+          "id": "item_5_text",
+          "label": "Item 5 Text",
+          "default": ""
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Priyuja - Terms"
+    }
+  ]
+}
+{% endschema %}
