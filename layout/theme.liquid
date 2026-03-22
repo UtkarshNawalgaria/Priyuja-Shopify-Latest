@@ -147,14 +147,18 @@
 
     <div id="PageContainer" class="page-container">
       <div class="transition-body">
-        {%- sections 'header-group' -%}
-        {%- sections 'popup-group' -%}
+        {% if template.name != "index" or settings.use_landing_page == false %}
+          {%- sections 'header-group' -%}
+          {%- sections 'popup-group' -%}
+        {% endif %}
 
         <main class="main-content" id="MainContent">
           {{ content_for_layout }}
         </main>
 
-        {%- sections 'footer-group' -%}
+        {% if template.name != "index" or settings.use_landing_page == false %}
+          {%- sections 'footer-group' -%}
+        {% endif %}
       </div>
     </div>
 

@@ -1,5 +1,17 @@
 {%- render 'priyuja-fonts' -%}
 
+{% comment %} Desktop logo {% endcomment %}
+{%- assign width = section.settings.desktop_logo_width | times: 2 -%}
+{%- assign height = section.settings.desktop_logo_width | divided_by: section.settings.logo.aspect_ratio -%}
+{%- capture sizes -%}{{ section.settings.desktop_logo_width }}px{%- endcapture -%}
+{%- capture widths -%}{{ section.settings.desktop_logo_width }}, {{ section.settings.desktop_logo_width | times: 2 }}{%- endcapture -%}
+
+{% comment %} Mobile logo {% endcomment %}
+{%- assign mobile_width = section.settings.mobile_logo_width | times: 2 -%}
+{%- assign mobile_height = section.settings.mobile_logo_width | divided_by: section.settings.logo.aspect_ratio -%}
+{%- capture mobile_sizes -%}{{ section.settings.mobile_logo_width }}px{%- endcapture -%}
+{%- capture mobile_widths -%}{{ section.settings.mobile_logo_width }}, {{ section.settings.mobile_logo_width | times: 2 }}{%- endcapture -%}
+
 <style>
   #shopify-section-{{ section.id }} {
     --cream: #F7F2E8;
@@ -24,11 +36,16 @@
     font-family: var(--font-body);
   }
 
+  #shopify-section-{{ section.id }} .priyuja-site-logo {
+    margin-left: -25px;
+    padding-bottom: 10px;
+  }
+
   #shopify-section-{{ section.id }} .priyuja-hero__content {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 120px 64px 80px;
+    padding: 80px 64px;
   }
 
   #shopify-section-{{ section.id }} .priyuja-hero__eyebrow {
@@ -182,8 +199,13 @@
       min-height: auto;
     }
 
+    #shopify-section-{{ section.id }} .priyuja-site-logo {
+      margin-left: 0;
+      padding-bottom: 10px;
+    }
+
     #shopify-section-{{ section.id }} .priyuja-hero__content {
-      padding: 100px 24px 60px;
+      padding: 20px 24px;
     }
 
     #shopify-section-{{ section.id }} .priyuja-hero__title {
@@ -216,6 +238,14 @@
 
 <div class="priyuja-hero">
   <div class="priyuja-hero__content">
+    <div class="priyuja-site-logo">
+      <a href="{{ routes.root_url }}">
+        {{ section.settings.logo
+          | image_url: width: section.settings.desktop_logo_width
+          | image_tag: alt: section.settings.logo.alt | default: shop.name
+        }}
+      </a>
+    </div>
     <div class="priyuja-hero__eyebrow reveal">{{ section.settings.eyebrow }}</div>
 
     <h1 class="priyuja-hero__title reveal">
@@ -309,6 +339,38 @@
   "tag": "section",
   "class": "priyuja-section",
   "settings": [
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "t:sections.header.blocks.logo.settings.logo.label"
+    },
+    {
+      "type": "image_picker",
+      "id": "logo-inverted",
+      "label": "t:sections.header.blocks.logo.settings.logo-inverted.label",
+      "info": "t:sections.header.blocks.logo.settings.logo-inverted.info"
+    },
+    {
+      "type": "range",
+      "id": "desktop_logo_width",
+      "label": "t:sections.header.blocks.logo.settings.desktop_logo_width.label",
+      "default": 200,
+      "min": 100,
+      "max": 400,
+      "step": 10,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "mobile_logo_width",
+      "label": "t:sections.header.blocks.logo.settings.mobile_logo_width.label",
+      "default": 140,
+      "min": 60,
+      "max": 200,
+      "step": 10,
+      "unit": "px",
+      "info": "t:sections.header.blocks.logo.settings.mobile_logo_width.info"
+    },
     {
       "type": "text",
       "id": "eyebrow",

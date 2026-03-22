@@ -16,6 +16,12 @@
         "label": "Show Catalog Mode",
         "default": false,
         "info": "Enable this to hide all prices and 'Add to Cart' buttons from"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_landing_page",
+        "label": "Use Landing Page",
+        "default": false
       }
     ]
   },
