@@ -535,6 +535,37 @@
         "whatsapp_url": "https://wa.me/919112044277?text=Hi%20Priyuja%2C%20I%27m%20interested%20in%20your%20wholesale%20saree%20collection.",
         "tooltip_text": "Chat with us"
       }
+    },
+    "advanced_content_FwDF4W": {
+      "type": "advanced-content",
+      "blocks": {
+        "image_K4J9cQ": {
+          "type": "image",
+          "settings": {
+            "link": "",
+            "width": "50%",
+            "alignment": "center"
+          }
+        },
+        "liquid_4F7M3q": {
+          "type": "liquid",
+          "settings": {
+            "code": "<h3>Business Information</h3>\n<p><strong>Company Name</strong>: OLIVECLOUD TECH PVT LTD</p>",
+            "width": "50%",
+            "alignment": "center"
+          }
+        }
+      },
+      "block_order": [
+        "image_K4J9cQ",
+        "liquid_4F7M3q"
+      ],
+      "name": "t:sections.advanced-content.presets.custom_content.name",
+      "settings": {
+        "full_width": false,
+        "space_around": true,
+        "lazyload_images": true
+      }
     }
   },
   "order": [
@@ -547,6 +578,7 @@
     "priyuja-terms",
     "priyuja-testimonials",
     "priyuja-cta",
-    "priyuja-whatsapp-float"
+    "priyuja-whatsapp-float",
+    "advanced_content_FwDF4W"
   ]
 }
