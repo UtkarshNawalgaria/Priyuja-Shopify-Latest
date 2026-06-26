@@ -1,0 +1,24 @@
+{
+  "sections": {
+    "fabric-page": {
+      "type": "priyuja-fabric-page",
+      "settings": {
+        "term_1_label": "First order MOQ",
+        "term_1_value": "15 pieces — mix & match",
+        "term_2_label": "Pricing",
+        "term_2_value": "From ₹1,000 per saree",
+        "term_3_label": "Payment",
+        "term_3_value": "100% advance · no COD",
+        "term_4_label": "Dispatch",
+        "term_4_value": "Within 24 hrs · pan-India",
+        "term_5_label": "Invoice",
+        "term_5_value": "GST invoice every order",
+        "term_6_label": "Reorders",
+        "term_6_value": "No minimum quantity"
+      }
+    }
+  },
+  "order": [
+    "fabric-page"
+  ]
+}

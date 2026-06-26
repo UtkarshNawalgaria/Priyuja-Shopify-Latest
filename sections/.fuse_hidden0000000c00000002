@@ -1,0 +1,481 @@
+{%- render 'priyuja-fonts' -%}
+
+{% comment %} Desktop logo {% endcomment %}
+{%- assign width = section.settings.desktop_logo_width | times: 2 -%}
+{%- assign height = section.settings.desktop_logo_width | divided_by: section.settings.logo.aspect_ratio -%}
+{%- capture sizes -%}{{ section.settings.desktop_logo_width }}px{%- endcapture -%}
+{%- capture widths -%}{{ section.settings.desktop_logo_width }}, {{ section.settings.desktop_logo_width | times: 2 }}{%- endcapture -%}
+
+{% comment %} Mobile logo {% endcomment %}
+{%- assign mobile_width = section.settings.mobile_logo_width | times: 2 -%}
+{%- assign mobile_height = section.settings.mobile_logo_width | divided_by: section.settings.logo.aspect_ratio -%}
+{%- capture mobile_sizes -%}{{ section.settings.mobile_logo_width }}px{%- endcapture -%}
+{%- capture mobile_widths -%}{{ section.settings.mobile_logo_width }}, {{ section.settings.mobile_logo_width | times: 2 }}{%- endcapture -%}
+
+<style>
+  #shopify-section-{{ section.id }} {
+    --cream: #F7F2E8;
+    --maroon: #6B1628;
+    --maroon-light: #8B2035;
+    --maroon-deep: #4A0F1C;
+    --gold: #C4922A;
+    --gold-light: #D4A84A;
+    --gold-pale: #F0E0B0;
+    --dark: #1C1209;
+    --text-mid: #6B5040;
+    --text-light: #9A7A60;
+    --font-heading: 'Cormorant Garamond', serif;
+    --font-body: 'DM Sans', sans-serif;
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-hero {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 100vh;
+    background: var(--cream);
+    font-family: var(--font-body);
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-site-logo {
+    margin-left: -25px;
+    padding-bottom: 10px;
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-hero__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 80px 64px;
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-hero__eyebrow {
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 24px;
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-hero__title {
+    font-family: var(--font-heading);
+    font-size: 56px;
+    font-weight: 400;
+    line-height: 1.15;
+    color: var(--dark);
+    margin: 0 0 24px;
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-hero__title em {
+    font-style: italic;
+    color: var(--maroon);
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-hero__desc {
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--text-mid);
+    max-width: 480px;
+    margin-bottom: 40px;
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-hero__actions {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    margin-bottom: 60px;
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-hero__btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 16px 32px;
+    background: var(--maroon);
+    color: #fff;
+    font-family: var(--font-body);
+    font-size: 15px;
+    font-weight: 500;
+    text-decoration: none;
+    border-radius: 50px;
+    transition: background 0.3s ease, transform 0.3s ease;
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-hero__btn-primary:hover {
+    background: var(--maroon-light);
+    transform: translateY(-2px);
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-hero__btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 16px 32px;
+    background: transparent;
+    color: var(--dark);
+    font-family: var(--font-body);
+    font-size: 15px;
+    font-weight: 500;
+    text-decoration: none;
+    border: 1.5px solid var(--dark);
+    border-radius: 50px;
+    transition: background 0.3s ease, color 0.3s ease;
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-hero__btn-secondary:hover {
+    background: var(--dark);
+    color: #fff;
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-hero__stats {
+    display: flex;
+    gap: 40px;
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-hero__stat {
+    text-align: center;
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-hero__stat-number {
+    font-family: var(--font-heading);
+    font-size: 36px;
+    font-weight: 600;
+    color: var(--maroon);
+    line-height: 1;
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-hero__stat-label {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--text-light);
+    letter-spacing: 0.5px;
+    margin-top: 4px;
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-hero__image {
+    position: relative;
+    overflow: hidden;
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-hero__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-hero__image-placeholder {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, var(--maroon-deep) 0%, var(--maroon) 50%, var(--gold) 100%);
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-hero__image-tag {
+    position: absolute;
+    bottom: 24px;
+    left: 24px;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    padding: 12px 20px;
+    border-radius: 8px;
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-hero__image-tag-origin {
+    font-size: 11px;
+    color: var(--text-light);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-hero__image-tag-name {
+    font-family: var(--font-heading);
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--dark);
+  }
+
+  @media (max-width: 768px) {
+    #shopify-section-{{ section.id }} .priyuja-hero {
+      grid-template-columns: 1fr;
+      min-height: auto;
+    }
+
+    #shopify-section-{{ section.id }} .priyuja-site-logo {
+      margin-left: 0;
+      padding-bottom: 10px;
+    }
+
+    #shopify-section-{{ section.id }} .priyuja-hero__content {
+      padding: 20px 24px;
+    }
+
+    #shopify-section-{{ section.id }} .priyuja-hero__title {
+      font-size: 36px;
+    }
+
+    #shopify-section-{{ section.id }} .priyuja-hero__image {
+      display: none;
+    }
+
+    #shopify-section-{{ section.id }} .priyuja-hero__actions {
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    #shopify-section-{{ section.id }} .priyuja-hero__btn-primary,
+    #shopify-section-{{ section.id }} .priyuja-hero__btn-secondary {
+      justify-content: center;
+    }
+
+    #shopify-section-{{ section.id }} .priyuja-hero__stats {
+      gap: 24px;
+    }
+
+    #shopify-section-{{ section.id }} .priyuja-hero__stat-number {
+      font-size: 28px;
+    }
+  }
+</style>
+
+<div class="priyuja-hero">
+  <div class="priyuja-hero__content">
+    <div class="priyuja-site-logo">
+      <a href="{{ routes.root_url }}">
+        {{ section.settings.logo
+          | image_url: width: section.settings.desktop_logo_width
+          | image_tag: alt: section.settings.logo.alt | default: shop.name
+        }}
+      </a>
+    </div>
+    <div class="priyuja-hero__eyebrow reveal">{{ section.settings.eyebrow }}</div>
+
+    <h1 class="priyuja-hero__title reveal">
+      {{ section.settings.h1_line1 }}<br>
+      <em>{{ section.settings.h1_line2 }}</em><br>
+      {{ section.settings.h1_line3 }}
+    </h1>
+
+    <p class="priyuja-hero__desc reveal">{{ section.settings.description }}</p>
+
+    <div class="priyuja-hero__actions reveal">
+      <a href="{{ section.settings.primary_cta_url }}" class="priyuja-hero__btn-primary" target="_blank" rel="noopener">
+        {{ section.settings.primary_cta_text }}
+      </a>
+      <a href="{{ section.settings.secondary_cta_url }}" class="priyuja-hero__btn-secondary">
+        {{ section.settings.secondary_cta_text }}
+      </a>
+    </div>
+
+    <div class="priyuja-hero__stats reveal">
+      <div class="priyuja-hero__stat">
+        <div class="priyuja-hero__stat-number">{{ section.settings.stat_1_number }}</div>
+        <div class="priyuja-hero__stat-label">{{ section.settings.stat_1_label }}</div>
+      </div>
+      <div class="priyuja-hero__stat">
+        <div class="priyuja-hero__stat-number">{{ section.settings.stat_2_number }}</div>
+        <div class="priyuja-hero__stat-label">{{ section.settings.stat_2_label }}</div>
+      </div>
+      <div class="priyuja-hero__stat">
+        <div class="priyuja-hero__stat-number">{{ section.settings.stat_3_number }}</div>
+        <div class="priyuja-hero__stat-label">{{ section.settings.stat_3_label }}</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="priyuja-hero__image">
+    {%- if section.settings.hero_image != blank -%}
+      <img src="{{ section.settings.hero_image | image_url: width: 1200 }}"
+           alt="{{ section.settings.h1_line2 }}"
+           loading="eager"
+           width="1200"
+           height="1600">
+    {%- else -%}
+      <div class="priyuja-hero__image-placeholder"></div>
+    {%- endif -%}
+
+    {%- if section.settings.image_tag_name != blank -%}
+      <div class="priyuja-hero__image-tag">
+        <div class="priyuja-hero__image-tag-origin">{{ section.settings.image_tag_origin }}</div>
+        <div class="priyuja-hero__image-tag-name">{{ section.settings.image_tag_name }}</div>
+      </div>
+    {%- endif -%}
+  </div>
+</div>
+
+<script>
+  (function() {
+    var section = document.getElementById('shopify-section-{{ section.id }}');
+    if (!section) return;
+    var reveals = section.querySelectorAll('.reveal');
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    reveals.forEach(function(el, i) {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(24px)';
+      el.style.transition = 'opacity 0.6s ease ' + (i * 0.1) + 's, transform 0.6s ease ' + (i * 0.1) + 's';
+      observer.observe(el);
+    });
+    document.addEventListener('DOMContentLoaded', function() {
+      var visibles = section.querySelectorAll('.reveal.visible');
+      visibles.forEach(function(el) {
+        el.style.opacity = '1';
+        el.style.transform = 'translateY(0)';
+      });
+    });
+    var style = document.createElement('style');
+    style.textContent = '#shopify-section-{{ section.id }} .reveal.visible { opacity: 1 !important; transform: translateY(0) !important; }';
+    document.head.appendChild(style);
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Priyuja - Hero",
+  "tag": "section",
+  "class": "priyuja-section",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "t:sections.header.blocks.logo.settings.logo.label"
+    },
+    {
+      "type": "image_picker",
+      "id": "logo-inverted",
+      "label": "t:sections.header.blocks.logo.settings.logo-inverted.label",
+      "info": "t:sections.header.blocks.logo.settings.logo-inverted.info"
+    },
+    {
+      "type": "range",
+      "id": "desktop_logo_width",
+      "label": "t:sections.header.blocks.logo.settings.desktop_logo_width.label",
+      "default": 200,
+      "min": 100,
+      "max": 400,
+      "step": 10,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "mobile_logo_width",
+      "label": "t:sections.header.blocks.logo.settings.mobile_logo_width.label",
+      "default": 140,
+      "min": 60,
+      "max": 200,
+      "step": 10,
+      "unit": "px",
+      "info": "t:sections.header.blocks.logo.settings.mobile_logo_width.info"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow Text",
+      "default": "Wholesale Sarees — Direct from Varanasi & Surat"
+    },
+    {
+      "type": "text",
+      "id": "h1_line1",
+      "label": "Heading Line 1",
+      "default": "Curated Sarees for"
+    },
+    {
+      "type": "text",
+      "id": "h1_line2",
+      "label": "Heading Line 2 (italic)",
+      "default": "Discerning Boutiques"
+    },
+    {
+      "type": "text",
+      "id": "h1_line3",
+      "label": "Heading Line 3",
+      "default": "Across India"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
+      "default": "Three generations of textile expertise, now serving boutique owners with handpicked wholesale sarees. Browse via video call, order with confidence, receive within 24 hours."
+    },
+    {
+      "type": "text",
+      "id": "primary_cta_text",
+      "label": "Primary CTA Text",
+      "default": "Start on WhatsApp"
+    },
+    {
+      "type": "url",
+      "id": "primary_cta_url",
+      "label": "Primary CTA URL"
+    },
+    {
+      "type": "text",
+      "id": "secondary_cta_text",
+      "label": "Secondary CTA Text",
+      "default": "See How It Works"
+    },
+    {
+      "type": "url",
+      "id": "secondary_cta_url",
+      "label": "Secondary CTA URL"
+    },
+    {
+      "type": "image_picker",
+      "id": "hero_image",
+      "label": "Hero Image"
+    },
+    {
+      "type": "text",
+      "id": "image_tag_origin",
+      "label": "Image Tag Origin",
+      "default": "Handpicked from"
+    },
+    {
+      "type": "text",
+      "id": "image_tag_name",
+      "label": "Image Tag Name",
+      "default": "Varanasi & Surat"
+    },
+    {
+      "type": "text",
+      "id": "stat_1_number",
+      "label": "Stat 1 Number",
+      "default": "20+"
+    },
+    {
+      "type": "text",
+      "id": "stat_1_label",
+      "label": "Stat 1 Label",
+      "default": "Years of Legacy"
+    },
+    {
+      "type": "text",
+      "id": "stat_2_number",
+      "label": "Stat 2 Number",
+      "default": "500+"
+    },
+    {
+      "type": "text",
+      "id": "stat_2_label",
+      "label": "Stat 2 Label",
+      "default": "Boutiques Served"
+    },
+    {
+      "type": "text",
+      "id": "stat_3_number",
+      "label": "Stat 3 Number",
+      "default": "24hr"
+    },
+    {
+      "type": "text",
+      "id": "stat_3_label",
+      "label": "Stat 3 Label",
+      "default": "Dispatch Promise"
+    }
+  ]
+}
+{% endschema %}

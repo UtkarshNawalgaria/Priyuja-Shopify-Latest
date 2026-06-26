@@ -1,0 +1,612 @@
+{%- render 'priyuja-fonts' -%}
+
+{%- assign fabric = page.metafields.custom.fabric.value -%}
+{%- if fabric == blank -%}
+  <div style="padding:60px 28px;text-align:center;font-family:'DM Sans',sans-serif;color:#6B5040;">
+    <p>No fabric metaobject assigned to this page. Go to the page editor and select a <strong>custom.fabric</strong> metaobject reference.</p>
+  </div>
+  {%- break -%}
+{%- endif -%}
+
+{%- assign fabric_name = fabric.name -%}
+{%- assign whatsapp_link = section.settings.whatsapp_url | default: 'https://wa.me/919112044277' -%}
+
+<style>
+  #shopify-section-{{ section.id }} {
+    --maroon: #6B1628;
+    --maroon-deep: #4A0F1C;
+    --maroon-light: #8B2035;
+    --gold: #C4922A;
+    --gold-light: #D4A84A;
+    --gold-pale: #F0E0B0;
+    --cream: #F7F2E8;
+    --dark: #1C1209;
+    --text-mid: #6B5040;
+    --text-light: #9A7A60;
+    --line: #E6DCC8;
+    --card: #FFFFFF;
+    --surface: #FFFCF6;
+    --font-heading: 'Cormorant Garamond', serif;
+    --font-body: 'DM Sans', sans-serif;
+  }
+
+  #shopify-section-{{ section.id }} * { box-sizing: border-box; }
+
+  /* --- Layout --- */
+  .priyuja-fp { font-family: var(--font-body); color: var(--dark); line-height: 1.65; }
+  .priyuja-fp h2, .priyuja-fp h3, .priyuja-fp h4 { font-family: var(--font-heading); color: var(--maroon); margin: 0; line-height: 1.12; }
+  .priyuja-fp__wrap { max-width: 1180px; margin: 0 auto; padding: 0 28px; }
+  .priyuja-fp__eyebrow { font-family: var(--font-body); letter-spacing: 2.5px; text-transform: uppercase; font-size: 12px; font-weight: 700; color: var(--gold); }
+  .priyuja-fp__sec { padding: 46px 0; border-bottom: 1px solid var(--line); }
+  .priyuja-fp__btn { display: inline-block; padding: 13px 26px; border-radius: 7px; font-weight: 700; font-size: 14px; text-decoration: none; border: 1.5px solid var(--maroon); font-family: var(--font-body); cursor: pointer; transition: background 0.3s ease, transform 0.3s ease; }
+  .priyuja-fp__btn--primary { background: var(--maroon); color: #fff; }
+  .priyuja-fp__btn--primary:hover { background: var(--maroon-light); transform: translateY(-2px); }
+  .priyuja-fp__btn--ghost { background: transparent; color: var(--maroon); }
+  .priyuja-fp__btn--ghost:hover { background: var(--maroon); color: #fff; }
+  .priyuja-fp__btn--gold { background: var(--gold); border-color: var(--gold); color: var(--maroon-deep); }
+  .priyuja-fp__btn--gold:hover { background: var(--gold-light); transform: translateY(-2px); }
+  .priyuja-fp__grid { display: grid; gap: 18px; }
+  .priyuja-fp__card { background: var(--card); border: 1px solid var(--line); border-radius: 12px; overflow: hidden; }
+
+  /* --- Breadcrumb --- */
+  .priyuja-fp__breadcrumb { padding: 18px 0 0; font-size: 13px; color: var(--text-light); }
+  .priyuja-fp__breadcrumb a { color: var(--text-light); text-decoration: none; }
+  .priyuja-fp__breadcrumb a:hover { color: var(--maroon); }
+  .priyuja-fp__breadcrumb span { color: var(--maroon); }
+
+  /* --- Hero --- */
+  .priyuja-fp__hero-grid { display: grid; grid-template-columns: 1.05fr 0.95fr; align-items: center; gap: 40px; }
+  .priyuja-fp__hero h1 { font-family: var(--font-heading); font-size: 50px; color: var(--maroon); margin: 10px 0 6px; line-height: 1.12; }
+  .priyuja-fp__hero-tagline { font-size: 18px; color: var(--text-mid); max-width: 520px; line-height: 1.6; }
+  .priyuja-fp__hero-ctas { display: flex; gap: 12px; margin-top: 24px; flex-wrap: wrap; }
+  .priyuja-fp__trust { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 18px; }
+  .priyuja-fp__trust span { font-size: 12px; font-weight: 600; color: var(--text-mid); background: var(--surface); border: 1px solid var(--line); border-radius: 20px; padding: 6px 12px; }
+  .priyuja-fp__hero-img { border-radius: 12px; overflow: hidden; }
+  .priyuja-fp__hero-img img { width: 100%; height: 420px; object-fit: cover; display: block; border-radius: 12px; }
+  .priyuja-fp__hero-img-placeholder { width: 100%; height: 420px; background: linear-gradient(135deg, var(--maroon-deep) 0%, var(--maroon) 50%, var(--gold) 100%); border-radius: 12px; }
+
+  /* --- Quick facts --- */
+  .priyuja-fp__facts-grid { grid-template-columns: repeat(4, 1fr); }
+  .priyuja-fp__fact { padding: 18px; }
+  .priyuja-fp__fact-label { font-size: 12px; color: var(--text-light); text-transform: uppercase; letter-spacing: 1px; }
+  .priyuja-fp__fact-value { font-size: 18px; color: var(--maroon); font-family: var(--font-heading); font-weight: 600; margin-top: 4px; }
+
+  /* --- About --- */
+  .priyuja-fp__about-grid { display: grid; grid-template-columns: 0.85fr 1.15fr; align-items: center; gap: 40px; }
+  .priyuja-fp__about-img img { width: 100%; height: 340px; object-fit: cover; display: block; border-radius: 12px; }
+  .priyuja-fp__about-img-placeholder { width: 100%; height: 340px; background: linear-gradient(135deg, var(--maroon-deep) 0%, var(--maroon) 50%, var(--gold) 100%); border-radius: 12px; }
+  .priyuja-fp__about-body { color: var(--text-mid); }
+  .priyuja-fp__about-body h2 { font-size: 34px; margin: 8px 0 12px; }
+
+  /* --- How it's made --- */
+  .priyuja-fp__howmade h2 { font-size: 34px; margin-top: 6px; }
+  .priyuja-fp__howmade-body { color: var(--text-mid); max-width: 820px; line-height: 1.8; }
+
+  /* --- Types --- */
+  .priyuja-fp__types-grid { grid-template-columns: repeat(4, 1fr); }
+  .priyuja-fp__type-img img { width: 100%; height: 160px; object-fit: cover; display: block; }
+  .priyuja-fp__type-img-placeholder { width: 100%; height: 160px; background: linear-gradient(135deg, var(--cream), var(--line)); }
+  .priyuja-fp__type-body { padding: 14px; }
+  .priyuja-fp__type-body h4 { font-size: 19px; }
+  .priyuja-fp__type-body p { font-size: 13px; color: var(--text-mid); margin: 6px 0 0; }
+
+  /* --- Lookbook --- */
+  .priyuja-fp__lookbook-grid { grid-template-columns: repeat(3, 1fr); }
+  .priyuja-fp__lookbook-img img { width: 100%; height: 260px; object-fit: cover; display: block; border-radius: 8px; }
+
+  /* --- Styling & Care --- */
+  .priyuja-fp__sc-grid { grid-template-columns: 1fr 1fr; }
+  .priyuja-fp__sc-card { padding: 22px; }
+  .priyuja-fp__sc-card h3 { font-size: 24px; margin: 6px 0 10px; }
+  .priyuja-fp__sc-body { font-size: 14px; color: var(--text-mid); line-height: 1.7; }
+
+  /* --- Wholesale terms --- */
+  .priyuja-fp__terms { background: var(--maroon); border: none; }
+  .priyuja-fp__terms h2 { color: #fff; font-size: 32px; margin-bottom: 24px; }
+  .priyuja-fp__terms-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; color: #f3e7d8; }
+  .priyuja-fp__terms-grid strong { color: var(--gold-light); display: block; margin-bottom: 4px; }
+
+  /* --- How ordering works --- */
+  .priyuja-fp__process-grid { grid-template-columns: repeat(4, 1fr); }
+  .priyuja-fp__step-num { color: var(--gold); font-family: var(--font-heading); font-size: 30px; font-weight: 700; }
+  .priyuja-fp__step-title { font-weight: 700; color: var(--dark); margin: 6px 0 4px; }
+  .priyuja-fp__step-desc { font-size: 13px; color: var(--text-mid); margin: 0; }
+
+  /* --- FAQ --- */
+  .priyuja-fp__faq-list { max-width: 820px; }
+  .priyuja-fp__faq-item { background: var(--card); border: 1px solid var(--line); border-radius: 12px; margin-bottom: 10px; overflow: hidden; }
+  .priyuja-fp__faq-q { display: flex; justify-content: space-between; align-items: center; padding: 16px 18px; cursor: pointer; font-weight: 700; color: var(--dark); font-size: 15px; background: none; border: none; width: 100%; text-align: left; font-family: var(--font-body); }
+  .priyuja-fp__faq-q:hover { background: var(--surface); }
+  .priyuja-fp__faq-icon { color: var(--gold); font-size: 20px; font-weight: 700; transition: transform 0.3s ease; flex-shrink: 0; margin-left: 12px; }
+  .priyuja-fp__faq-a { padding: 0 18px 16px; color: var(--text-mid); font-size: 14px; line-height: 1.7; display: none; }
+  .priyuja-fp__faq-item.active .priyuja-fp__faq-a { display: block; }
+  .priyuja-fp__faq-item.active .priyuja-fp__faq-icon { transform: rotate(45deg); }
+
+  /* --- Related --- */
+  .priyuja-fp__related-links { display: flex; gap: 10px; flex-wrap: wrap; }
+  .priyuja-fp__related-link { display: inline-block; padding: 9px 16px; font-size: 13px; border-radius: 7px; font-weight: 700; text-decoration: none; border: 1.5px solid var(--maroon); color: var(--maroon); background: transparent; font-family: var(--font-body); transition: background 0.3s, color 0.3s; }
+  .priyuja-fp__related-link:hover { background: var(--maroon); color: #fff; }
+
+  /* --- CTA band --- */
+  .priyuja-fp__cta-band { background: var(--maroon-deep); border: none; text-align: center; padding: 60px 0; }
+  .priyuja-fp__cta-band h2 { color: #fff; font-size: 36px; }
+  .priyuja-fp__cta-band p { color: var(--gold-pale); max-width: 560px; margin: 10px auto 22px; }
+
+  /* --- Responsive --- */
+  @media (max-width: 760px) {
+    .priyuja-fp__hero-grid { grid-template-columns: 1fr !important; }
+    .priyuja-fp__hero h1 { font-size: 34px; }
+    .priyuja-fp__facts-grid { grid-template-columns: repeat(2, 1fr); }
+    .priyuja-fp__about-grid { grid-template-columns: 1fr; }
+    .priyuja-fp__types-grid { grid-template-columns: repeat(2, 1fr); }
+    .priyuja-fp__lookbook-grid { grid-template-columns: repeat(2, 1fr); }
+    .priyuja-fp__sc-grid { grid-template-columns: 1fr; }
+    .priyuja-fp__terms-grid { grid-template-columns: 1fr; }
+    .priyuja-fp__process-grid { grid-template-columns: repeat(2, 1fr); }
+    .priyuja-fp__sec { padding: 32px 0; }
+    .priyuja-fp__wrap { padding: 0 18px; }
+    .priyuja-fp__cta-band h2 { font-size: 28px; }
+  }
+</style>
+
+<div class="priyuja-fp">
+
+  <!-- ===== 1. BREADCRUMB ===== -->
+  <div class="priyuja-fp__wrap priyuja-fp__breadcrumb">
+    <a href="{{ routes.root_url }}">Home</a>
+    &nbsp;›&nbsp;
+    <a href="{{ routes.root_url }}pages/wholesale-banarasi-sarees">Wholesale Banarasi Sarees</a>
+    &nbsp;›&nbsp;
+    <span>{{ fabric_name }}</span>
+  </div>
+
+  <!-- ===== 2. HERO ===== -->
+  <section class="priyuja-fp__sec priyuja-fp__hero">
+    <div class="priyuja-fp__wrap priyuja-fp__hero-grid">
+      <div>
+        {%- if fabric.eyebrow != blank -%}
+          <div class="priyuja-fp__eyebrow reveal">{{ fabric.eyebrow }} &middot; Wholesale</div>
+        {%- endif -%}
+        <h1 class="reveal">{{ fabric_name }}</h1>
+        {%- if fabric.hero_tagline != blank -%}
+          <p class="priyuja-fp__hero-tagline reveal">{{ fabric.hero_tagline }}</p>
+        {%- endif -%}
+        <div class="priyuja-fp__hero-ctas reveal">
+          <a class="priyuja-fp__btn priyuja-fp__btn--primary" href="{{ whatsapp_link }}" target="_blank" rel="noopener">Enquire on WhatsApp</a>
+          <a class="priyuja-fp__btn priyuja-fp__btn--ghost" href="{{ section.settings.video_call_url | default: whatsapp_link }}" target="_blank" rel="noopener">Book a video call</a>
+        </div>
+        <div class="priyuja-fp__trust reveal">
+          <span>🧵 Pure silk</span>
+          <span>🏭 Woven in Varanasi</span>
+          <span>📦 MOQ 15 pcs</span>
+          <span>📋 GST invoice</span>
+          <span>⚡ 24-hr dispatch</span>
+        </div>
+      </div>
+      <div class="priyuja-fp__hero-img">
+        {%- if fabric.hero_image != blank -%}
+          <img
+            src="{{ fabric.hero_image | image_url: width: 800 }}"
+            alt="{{ fabric_name }}"
+            loading="eager"
+            width="800"
+            height="560"
+          >
+        {%- else -%}
+          <div class="priyuja-fp__hero-img-placeholder"></div>
+        {%- endif -%}
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 3. QUICK FACTS ===== -->
+  {%- if fabric.quick_facts != blank and fabric.quick_facts.value.size > 0 -%}
+    <section class="priyuja-fp__sec">
+      <div class="priyuja-fp__wrap">
+        <div class="priyuja-fp__eyebrow reveal" style="margin-bottom: 18px;">At a glance</div>
+        <div class="priyuja-fp__grid priyuja-fp__facts-grid">
+          {%- for fact in fabric.quick_facts.value -%}
+            <div class="priyuja-fp__card priyuja-fp__fact reveal">
+              <div class="priyuja-fp__fact-label">{{ fact.label }}</div>
+              <div class="priyuja-fp__fact-value">{{ fact.value }}</div>
+            </div>
+          {%- endfor -%}
+        </div>
+      </div>
+    </section>
+  {%- endif -%}
+
+  <!-- ===== 4. ABOUT THE WEAVE ===== -->
+  {%- if fabric.about_body != blank -%}
+    <section class="priyuja-fp__sec">
+      <div class="priyuja-fp__wrap priyuja-fp__about-grid">
+        <div class="priyuja-fp__about-img">
+          {%- if fabric.about_image != blank -%}
+            <img
+              src="{{ fabric.about_image | image_url: width: 700 }}"
+              alt="{{ fabric.about_heading | default: fabric_name }}"
+              loading="lazy"
+              width="700"
+              height="500"
+            >
+          {%- else -%}
+            <div class="priyuja-fp__about-img-placeholder"></div>
+          {%- endif -%}
+        </div>
+        <div class="priyuja-fp__about-body">
+          <div class="priyuja-fp__eyebrow reveal">About the weave</div>
+          <h2 class="reveal">{{ fabric.about_heading | default: fabric_name }}</h2>
+          <div class="reveal">{{ fabric.about_body }}</div>
+        </div>
+      </div>
+    </section>
+  {%- endif -%}
+
+  <!-- ===== 5. HOW IT'S MADE ===== -->
+  {%- if fabric.how_its_made != blank -%}
+    <section class="priyuja-fp__sec priyuja-fp__howmade">
+      <div class="priyuja-fp__wrap">
+        <div class="priyuja-fp__eyebrow reveal">The craft</div>
+        <h2 class="reveal">How {{ fabric_name }} is made</h2>
+        <div class="priyuja-fp__howmade-body reveal" style="margin-top: 16px;">
+          {{ fabric.how_its_made }}
+        </div>
+      </div>
+    </section>
+  {%- endif -%}
+
+  <!-- ===== 6. VARIETY / TYPES ===== -->
+  {%- if fabric.types != blank and fabric.types.value.size > 0 -%}
+    <section class="priyuja-fp__sec">
+      <div class="priyuja-fp__wrap">
+        <div class="priyuja-fp__eyebrow reveal">Variety</div>
+        <h2 class="reveal" style="font-size: 34px; margin-top: 6px; margin-bottom: 18px;">Types of {{ fabric_name }}</h2>
+        <div class="priyuja-fp__grid priyuja-fp__types-grid">
+          {%- for type_entry in fabric.types.value -%}
+            <div class="priyuja-fp__card reveal">
+              <div class="priyuja-fp__type-img">
+                {%- if type_entry.image != blank -%}
+                  <img
+                    src="{{ type_entry.image | image_url: width: 400 }}"
+                    alt="{{ type_entry.title }}"
+                    loading="lazy"
+                    width="400"
+                    height="260"
+                  >
+                {%- else -%}
+                  <div class="priyuja-fp__type-img-placeholder"></div>
+                {%- endif -%}
+              </div>
+              <div class="priyuja-fp__type-body">
+                <h4>{{ type_entry.title }}</h4>
+                {%- if type_entry.description != blank -%}
+                  <p>{{ type_entry.description }}</p>
+                {%- endif -%}
+              </div>
+            </div>
+          {%- endfor -%}
+        </div>
+      </div>
+    </section>
+  {%- endif -%}
+
+  <!-- ===== 7. LOOKBOOK ===== -->
+  {%- if fabric.gallery != blank and fabric.gallery.value.size > 0 -%}
+    <section class="priyuja-fp__sec">
+      <div class="priyuja-fp__wrap">
+        <div class="priyuja-fp__eyebrow reveal">Lookbook</div>
+        <h2 class="reveal" style="font-size: 34px; margin-top: 6px; margin-bottom: 18px;">In our collection</h2>
+        <div class="priyuja-fp__grid priyuja-fp__lookbook-grid">
+          {%- for gallery_img in fabric.gallery.value -%}
+            <div class="priyuja-fp__lookbook-img reveal">
+              <img
+                src="{{ gallery_img | image_url: width: 500 }}"
+                alt="{{ fabric_name }} — {{ forloop.index }}"
+                loading="lazy"
+                width="500"
+                height="380"
+              >
+            </div>
+          {%- endfor -%}
+        </div>
+      </div>
+    </section>
+  {%- endif -%}
+
+  <!-- ===== 8. STYLING & CARE ===== -->
+  {%- if fabric.styling_tips != blank or fabric.care_tips != blank -%}
+    <section class="priyuja-fp__sec">
+      <div class="priyuja-fp__wrap">
+        <div class="priyuja-fp__eyebrow reveal">For boutique owners</div>
+        <h2 class="reveal" style="font-size: 34px; margin-top: 6px;">Styling & care your customers will thank you for</h2>
+        <p class="reveal" style="color: var(--text-mid); max-width: 760px; margin: -6px 0 18px;">Know how to style and care for each fabric so you can guide your customers with confidence — and keep every saree in perfect condition before it reaches them.</p>
+        <div class="priyuja-fp__grid priyuja-fp__sc-grid">
+          {%- if fabric.styling_tips != blank -%}
+            <div class="priyuja-fp__card priyuja-fp__sc-card reveal">
+              <div class="priyuja-fp__eyebrow">Styling guidance to pass on</div>
+              <h3>How to style {{ fabric_name }}</h3>
+              <div class="priyuja-fp__sc-body">{{ fabric.styling_tips }}</div>
+            </div>
+          {%- endif -%}
+          {%- if fabric.care_tips != blank -%}
+            <div class="priyuja-fp__card priyuja-fp__sc-card reveal">
+              <div class="priyuja-fp__eyebrow">Care & handling</div>
+              <h3>Storing, handling & care</h3>
+              <div class="priyuja-fp__sc-body">{{ fabric.care_tips }}</div>
+            </div>
+          {%- endif -%}
+        </div>
+      </div>
+    </section>
+  {%- endif -%}
+
+  <!-- ===== 9. WHOLESALE TERMS (STATIC) ===== -->
+  <section class="priyuja-fp__sec priyuja-fp__terms">
+    <div class="priyuja-fp__wrap">
+      <h2 class="reveal">Wholesale terms</h2>
+      <div class="priyuja-fp__terms-grid reveal">
+        <div><strong>{{ section.settings.term_1_label | default: 'First order MOQ' }}</strong>{{ section.settings.term_1_value | default: '15 pieces — mix & match' }}</div>
+        <div><strong>{{ section.settings.term_2_label | default: 'Pricing' }}</strong>{{ section.settings.term_2_value | default: 'From ₹1,000 per saree' }}</div>
+        <div><strong>{{ section.settings.term_3_label | default: 'Payment' }}</strong>{{ section.settings.term_3_value | default: '100% advance · no COD' }}</div>
+        <div><strong>{{ section.settings.term_4_label | default: 'Dispatch' }}</strong>{{ section.settings.term_4_value | default: 'Within 24 hrs · pan-India' }}</div>
+        <div><strong>{{ section.settings.term_5_label | default: 'Invoice' }}</strong>{{ section.settings.term_5_value | default: 'GST invoice every order' }}</div>
+        <div><strong>{{ section.settings.term_6_label | default: 'Reorders' }}</strong>{{ section.settings.term_6_value | default: 'No minimum quantity' }}</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 10. HOW ORDERING WORKS (STATIC) ===== -->
+  <section class="priyuja-fp__sec">
+    <div class="priyuja-fp__wrap">
+      <div class="priyuja-fp__eyebrow reveal">The process</div>
+      <h2 class="reveal" style="font-size: 34px; margin-top: 6px; margin-bottom: 18px;">How wholesale ordering works</h2>
+      <div class="priyuja-fp__grid priyuja-fp__process-grid">
+        <div class="priyuja-fp__card reveal" style="padding: 18px;">
+          <div class="priyuja-fp__step-num">01</div>
+          <div class="priyuja-fp__step-title">Message on WhatsApp</div>
+          <p class="priyuja-fp__step-desc">Tell us about your boutique.</p>
+        </div>
+        <div class="priyuja-fp__card reveal" style="padding: 18px;">
+          <div class="priyuja-fp__step-num">02</div>
+          <div class="priyuja-fp__step-title">Browse on video call</div>
+          <p class="priyuja-fp__step-desc">See pieces live, select.</p>
+        </div>
+        <div class="priyuja-fp__card reveal" style="padding: 18px;">
+          <div class="priyuja-fp__step-num">03</div>
+          <div class="priyuja-fp__step-title">Confirm & pay</div>
+          <p class="priyuja-fp__step-desc">Advance payment, GST invoice.</p>
+        </div>
+        <div class="priyuja-fp__card reveal" style="padding: 18px;">
+          <div class="priyuja-fp__step-num">04</div>
+          <div class="priyuja-fp__step-title">24-hr dispatch</div>
+          <p class="priyuja-fp__step-desc">Tracked, pan-India.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 11. FAQ ACCORDION ===== -->
+  {%- if fabric.faqs != blank and fabric.faqs.value.size > 0 -%}
+    <section class="priyuja-fp__sec">
+      <div class="priyuja-fp__wrap">
+        <div class="priyuja-fp__eyebrow reveal">FAQs</div>
+        <h2 class="reveal" style="font-size: 34px; margin-top: 6px; margin-bottom: 18px;">Common questions</h2>
+        <div class="priyuja-fp__faq-list">
+          {%- for faq_entry in fabric.faqs.value -%}
+            <div class="priyuja-fp__faq-item reveal">
+              <button class="priyuja-fp__faq-q" aria-expanded="false" aria-controls="faq-{{ section.id }}-{{ forloop.index }}">
+                {{ faq_entry.question }}
+                <span class="priyuja-fp__faq-icon">+</span>
+              </button>
+              <div class="priyuja-fp__faq-a" id="faq-{{ section.id }}-{{ forloop.index }}" role="region">
+                {{ faq_entry.answer }}
+              </div>
+            </div>
+          {%- endfor -%}
+        </div>
+      </div>
+    </section>
+  {%- endif -%}
+
+  <!-- ===== 12. RELATED FABRICS (AUTO) ===== -->
+  {%- assign all_fabrics = shop.metaobjects.fabric.values -%}
+  {%- if all_fabrics.size > 1 -%}
+    <section class="priyuja-fp__sec">
+      <div class="priyuja-fp__wrap">
+        <div class="priyuja-fp__eyebrow reveal">Explore more</div>
+        <h2 class="reveal" style="font-size: 30px; margin-top: 6px; margin-bottom: 18px;">Other wholesale Banarasi fabrics</h2>
+        <div class="priyuja-fp__related-links reveal">
+          {%- for other_fabric in all_fabrics -%}
+            {%- if other_fabric.name != fabric_name -%}
+              {%- assign fabric_handle = other_fabric.system.handle -%}
+              <a class="priyuja-fp__related-link" href="{{ routes.root_url }}pages/{{ fabric_handle }}-banarasi-silk-saree-wholesaler">
+                {{ other_fabric.name }}
+              </a>
+            {%- endif -%}
+          {%- endfor -%}
+        </div>
+      </div>
+    </section>
+  {%- endif -%}
+
+  <!-- ===== 13. CTA BAND (STATIC + fabric name) ===== -->
+  <section class="priyuja-fp__sec priyuja-fp__cta-band">
+    <div class="priyuja-fp__wrap">
+      <h2 class="reveal">Ready to stock {{ fabric_name }} for your boutique?</h2>
+      <p class="reveal">Start with 15 pieces, mix & match. See the live collection on a video call.</p>
+      <a class="priyuja-fp__btn priyuja-fp__btn--gold reveal" href="{{ whatsapp_link }}" target="_blank" rel="noopener">Enquire on WhatsApp</a>
+    </div>
+  </section>
+
+</div>
+
+<!-- ===== FAQ JSON-LD ===== -->
+{%- if fabric.faqs != blank and fabric.faqs.value.size > 0 -%}
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {%- for faq_entry in fabric.faqs.value -%}
+          {
+            "@type": "Question",
+            "name": {{ faq_entry.question | json }},
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": {{ faq_entry.answer | strip_html | json }}
+            }
+          }{%- unless forloop.last -%},{%- endunless -%}
+        {%- endfor -%}
+      ]
+    }
+  </script>
+{%- endif -%}
+
+<!-- ===== Reveal animation ===== -->
+<script>
+  (function() {
+    var section = document.getElementById('shopify-section-{{ section.id }}');
+    if (!section) return;
+    var reveals = section.querySelectorAll('.reveal');
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    reveals.forEach(function(el, i) {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(24px)';
+      el.style.transition = 'opacity 0.6s ease ' + (i * 0.05) + 's, transform 0.6s ease ' + (i * 0.05) + 's';
+      observer.observe(el);
+    });
+    var style = document.createElement('style');
+    style.textContent = '#shopify-section-{{ section.id }} .reveal.visible { opacity: 1 !important; transform: translateY(0) !important; }';
+    document.head.appendChild(style);
+  })();
+</script>
+
+<!-- ===== FAQ accordion interaction ===== -->
+<script>
+  (function() {
+    var section = document.getElementById('shopify-section-{{ section.id }}');
+    if (!section) return;
+    var faqItems = section.querySelectorAll('.priyuja-fp__faq-item');
+    faqItems.forEach(function(item) {
+      var btn = item.querySelector('.priyuja-fp__faq-q');
+      btn.addEventListener('click', function() {
+        var isActive = item.classList.contains('active');
+        faqItems.forEach(function(other) { other.classList.remove('active'); other.querySelector('.priyuja-fp__faq-q').setAttribute('aria-expanded', 'false'); });
+        if (!isActive) {
+          item.classList.add('active');
+          btn.setAttribute('aria-expanded', 'true');
+        }
+      });
+      btn.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); btn.click(); }
+      });
+    });
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Priyuja - Fabric Page",
+  "tag": "section",
+  "class": "priyuja-section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "CTA Links"
+    },
+    {
+      "type": "url",
+      "id": "whatsapp_url",
+      "label": "WhatsApp URL"
+    },
+    {
+      "type": "url",
+      "id": "video_call_url",
+      "label": "Video Call URL (defaults to WhatsApp)"
+    },
+    {
+      "type": "header",
+      "content": "Wholesale Terms"
+    },
+    {
+      "type": "text",
+      "id": "term_1_label",
+      "label": "Term 1 Label",
+      "default": "First order MOQ"
+    },
+    {
+      "type": "text",
+      "id": "term_1_value",
+      "label": "Term 1 Value",
+      "default": "15 pieces — mix & match"
+    },
+    {
+      "type": "text",
+      "id": "term_2_label",
+      "label": "Term 2 Label",
+      "default": "Pricing"
+    },
+    {
+      "type": "text",
+      "id": "term_2_value",
+      "label": "Term 2 Value",
+      "default": "From ₹1,000 per saree"
+    },
+    {
+      "type": "text",
+      "id": "term_3_label",
+      "label": "Term 3 Label",
+      "default": "Payment"
+    },
+    {
+      "type": "text",
+      "id": "term_3_value",
+      "label": "Term 3 Value",
+      "default": "100% advance · no COD"
+    },
+    {
+      "type": "text",
+      "id": "term_4_label",
+      "label": "Term 4 Label",
+      "default": "Dispatch"
+    },
+    {
+      "type": "text",
+      "id": "term_4_value",
+      "label": "Term 4 Value",
+      "default": "Within 24 hrs · pan-India"
+    },
+    {
+      "type": "text",
+      "id": "term_5_label",
+      "label": "Term 5 Label",
+      "default": "Invoice"
+    },
+    {
+      "type": "text",
+      "id": "term_5_value",
+      "label": "Term 5 Value",
+      "default": "GST invoice every order"
+    },
+    {
+      "type": "text",
+      "id": "term_6_label",
+      "label": "Term 6 Label",
+      "default": "Reorders"
+    },
+    {
+      "type": "text",
+      "id": "term_6_value",
+      "label": "Term 6 Value",
+      "default": "No minimum quantity"
+    }
+  ]
+}
+{% endschema %}
