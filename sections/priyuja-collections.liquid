@@ -78,6 +78,9 @@
     overflow: hidden;
     cursor: pointer;
     min-height: 280px;
+    text-decoration: none;
+    display: block;
+    color: inherit;
   }
 
   #shopify-section-{{ section.id }} .priyuja-collections__card:first-child {
@@ -221,7 +224,7 @@
 
     <div class="priyuja-collections__grid">
       {%- for block in section.blocks -%}
-        <div class="priyuja-collections__card reveal" {{ block.shopify_attributes }}>
+        {%- if block.settings.url != blank -%}<a href="{{ block.settings.url }}" class="priyuja-collections__card reveal" {{ block.shopify_attributes }}>{%- else -%}<div class="priyuja-collections__card reveal" {{ block.shopify_attributes }}>{%- endif -%}
           {%- if block.settings.image != blank -%}
             <img src="{{ block.settings.image | image_url: width: 800 }}"
                  alt="{{ block.settings.name }}"
@@ -237,7 +240,7 @@
             <div class="priyuja-collections__card-name">{{ block.settings.name }}</div>
             <div class="priyuja-collections__card-price">{{ block.settings.price }}</div>
           </div>
-        </div>
+        {%- if block.settings.url != blank -%}</a>{%- else -%}</div>{%- endif -%}
       {%- endfor -%}
     </div>
 
@@ -346,6 +349,11 @@
           "id": "price",
           "label": "Price Text",
           "default": "From ₹2,500 per piece wholesale"
+        },
+        {
+          "type": "url",
+          "id": "url",
+          "label": "Card Link URL"
         }
       ]
     }

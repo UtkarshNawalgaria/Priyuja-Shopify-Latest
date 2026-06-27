@@ -1,0 +1,887 @@
+{%- render 'priyuja-fonts' -%}
+
+{%- assign wa_link = section.settings.whatsapp_url | default: 'https://wa.me/919112044277' -%}
+
+<style>
+  #shopify-section-{{ section.id }} {
+    --maroon: #6B1628;
+    --maroon-deep: #4A0F1C;
+    --maroon-light: #8B2035;
+    --gold: #C4922A;
+    --gold-light: #D4A84A;
+    --gold-pale: #F0E0B0;
+    --cream: #F7F2E8;
+    --dark: #1C1209;
+    --text-mid: #6B5040;
+    --text-light: #9A7A60;
+    --line: #E6DCC8;
+    --card: #FFFFFF;
+    --surface: #FFFCF6;
+    --font-heading: 'Cormorant Garamond', serif;
+    --font-body: 'DM Sans', sans-serif;
+  }
+  #shopify-section-{{ section.id }} * { box-sizing: border-box; }
+
+  .pvs { font-family: var(--font-body); color: var(--dark); line-height: 1.65; }
+  .pvs h2, .pvs h3, .pvs h4 { font-family: var(--font-heading); color: var(--maroon); margin: 0; line-height: 1.12; }
+  .pvs__wrap { max-width: 1180px; margin: 0 auto; padding: 0 28px; }
+  .pvs__eyebrow { font-family: var(--font-body); letter-spacing: 2.5px; text-transform: uppercase; font-size: 12px; font-weight: 700; color: var(--gold); }
+  .pvs__sec { padding: 54px 0; border-bottom: 1px solid var(--line); }
+  .pvs__btn { display: inline-block; padding: 13px 26px; border-radius: 7px; font-weight: 700; font-size: 14px; text-decoration: none; border: 1.5px solid var(--maroon); font-family: var(--font-body); cursor: pointer; transition: background 0.3s ease, transform 0.3s ease; }
+  .pvs__btn--primary { background: var(--maroon); color: #fff; }
+  .pvs__btn--primary:hover { background: var(--maroon-light); transform: translateY(-2px); }
+  .pvs__btn--ghost { background: transparent; color: var(--maroon); }
+  .pvs__btn--ghost:hover { background: var(--maroon); color: #fff; }
+  .pvs__btn--gold { background: var(--gold); border-color: var(--gold); color: var(--maroon-deep); }
+  .pvs__btn--gold:hover { background: var(--gold-light); transform: translateY(-2px); }
+  .pvs__grid { display: grid; gap: 20px; }
+  .pvs__card { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 22px; }
+  .pvs__trust { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 22px; }
+  .pvs__trust span { font-size: 12.5px; font-weight: 600; color: var(--text-mid); background: var(--surface); border: 1px solid var(--line); border-radius: 20px; padding: 7px 13px; }
+  .pvs__num { color: var(--gold); font-family: var(--font-heading); font-size: 30px; font-weight: 700; }
+  .pvs__placeholder { display: none; background: var(--gold-pale); border: 1px dashed var(--gold); color: #6b4a05; font-size: 12px; border-radius: 6px; padding: 2px 8px; font-weight: 600; }
+  .pvs__img-ph { width: 100%; background: linear-gradient(135deg, var(--maroon-deep) 0%, var(--maroon) 50%, var(--gold) 100%); border-radius: 12px; }
+
+  /* Topbar */
+  .pvs__topbar { background: var(--maroon-deep); color: #f3e7d8; font-size: 12.5px; text-align: center; padding: 9px 14px; letter-spacing: .3px; }
+  .pvs__topbar strong { color: var(--gold-light); font-weight: 700; }
+
+  /* Hero */
+  .pvs__hero-grid { grid-template-columns: 1.05fr 0.95fr; align-items: center; }
+  .pvs__hero h1 { font-family: var(--font-heading); font-size: 50px; color: var(--maroon); margin: 10px 0 14px; line-height: 1.12; }
+  .pvs__hero-sub { font-size: 19px; color: var(--text-mid); max-width: 560px; line-height: 1.6; }
+  .pvs__hero-ctas { display: flex; gap: 12px; margin-top: 26px; flex-wrap: wrap; }
+  .pvs__hero-img img { width: 100%; height: 440px; object-fit: cover; display: block; border-radius: 12px; }
+
+  /* Store intro */
+  .pvs__store-grid { grid-template-columns: 0.9fr 1.1fr; align-items: center; }
+  .pvs__store-img img { width: 100%; height: 340px; object-fit: cover; display: block; border-radius: 12px; }
+
+  /* Custom colour */
+  .pvs__custom { background: var(--maroon); border: none; color: #f3e7d8; }
+  .pvs__custom h2 { color: #fff; }
+  .pvs__custom-intro { color: #f0e0c8; font-size: 18px; max-width: 760px; margin: 0 auto; text-align: center; }
+  .pvs__custom-steps { grid-template-columns: repeat(4, 1fr); margin-top: 26px; }
+  .pvs__custom-step { background: var(--maroon-deep); border-color: var(--maroon-light); color: #f3e7d8; }
+  .pvs__custom-step strong { color: var(--gold-light); }
+  .pvs__custom-step p { font-size: 14px; color: #e7d3bf; margin-top: 6px; }
+  .pvs__swatch-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(80px, 1fr)); gap: 12px; margin-top: 26px; max-width: 760px; margin-left: auto; margin-right: auto; }
+  .pvs__swatch { border-radius: 10px; overflow: hidden; text-align: center; }
+  .pvs__swatch-color { width: 100%; height: 60px; border-radius: 8px 8px 0 0; }
+  .pvs__swatch-name { font-size: 11px; font-weight: 600; color: #f3e7d8; padding: 4px 2px; letter-spacing: .3px; }
+
+  /* Offer cards */
+  .pvs__offer-grid { grid-template-columns: repeat(3, 1fr); }
+  .pvs__offer-card h3 { font-size: 21px; }
+  .pvs__offer-card p { font-size: 14px; color: var(--text-mid); margin-top: 6px; }
+
+  /* Advantages */
+  .pvs__adv-grid { grid-template-columns: repeat(3, 1fr); }
+  .pvs__adv-card h3 { font-size: 20px; }
+  .pvs__adv-card p { font-size: 14px; color: var(--text-mid); margin-top: 6px; }
+
+  /* Wholesale terms */
+  .pvs__terms { background: var(--maroon); border: none; }
+  .pvs__terms h2 { color: #fff; font-size: 32px; margin-bottom: 10px; }
+  .pvs__terms-grid { grid-template-columns: repeat(3, 1fr); color: #f3e7d8; }
+  .pvs__terms-grid strong { color: var(--gold-light); display: block; margin-bottom: 4px; }
+
+  /* Process steps */
+  .pvs__process-grid { grid-template-columns: repeat(4, 1fr); }
+
+  /* Visit */
+  .pvs__visit-grid { grid-template-columns: 1fr 1fr; }
+  .pvs__map-embed { width: 100%; height: 200px; border: 0; border-radius: 8px; margin-top: 12px; }
+
+  /* FAQ */
+  .pvs__faq-list { max-width: 840px; margin: 22px auto 0; }
+  .pvs__faq-item { background: var(--card); border: 1px solid var(--line); border-radius: 12px; margin-bottom: 12px; overflow: hidden; }
+  .pvs__faq-q { display: flex; justify-content: space-between; align-items: center; padding: 16px 18px; cursor: pointer; font-weight: 700; color: var(--dark); font-size: 15px; background: none; border: none; width: 100%; text-align: left; font-family: var(--font-body); }
+  .pvs__faq-q:hover { background: var(--surface); }
+  .pvs__faq-icon { color: var(--gold); font-size: 20px; font-weight: 700; transition: transform 0.3s ease; flex-shrink: 0; margin-left: 12px; }
+  .pvs__faq-a { padding: 0 18px 16px; color: var(--text-mid); font-size: 14px; line-height: 1.7; display: none; }
+  .pvs__faq-item.active .pvs__faq-a { display: block; }
+  .pvs__faq-item.active .pvs__faq-icon { transform: rotate(45deg); }
+
+  /* CTA band */
+  .pvs__cta-band { background: var(--maroon-deep); border: none; text-align: center; padding: 60px 0; }
+  .pvs__cta-band h2 { color: #fff; font-size: 36px; }
+  .pvs__cta-band p { color: var(--gold-pale); max-width: 600px; margin: 12px auto 24px; }
+
+  /* Responsive */
+  @media (max-width: 820px) {
+    .pvs__hero-grid, .pvs__store-grid, .pvs__visit-grid { grid-template-columns: 1fr !important; }
+    .pvs__hero h1 { font-size: 34px; }
+    .pvs__custom-steps { grid-template-columns: repeat(2, 1fr); }
+    .pvs__offer-grid { grid-template-columns: 1fr; }
+    .pvs__adv-grid { grid-template-columns: repeat(2, 1fr); }
+    .pvs__terms-grid { grid-template-columns: 1fr; }
+    .pvs__process-grid { grid-template-columns: repeat(2, 1fr); }
+    .pvs__sec { padding: 36px 0; }
+    .pvs__wrap { padding: 0 18px; }
+    .pvs__cta-band h2 { font-size: 28px; }
+    .pvs__swatch-grid { grid-template-columns: repeat(auto-fill, minmax(65px, 1fr)); }
+  }
+</style>
+
+<div class="pvs">
+
+  <!-- ===== 1. TOPBAR ===== -->
+  <div class="pvs__topbar">
+    {{ section.settings.topbar_text }}
+  </div>
+
+  <!-- ===== 2. HERO ===== -->
+  <section class="pvs__sec pvs__hero" style="border: none;">
+    <div class="pvs__wrap pvs__grid pvs__hero-grid">
+      <div>
+        <div class="pvs__eyebrow reveal">{{ section.settings.hero_eyebrow | default: 'Direct from Varanasi · Wholesale for boutiques' }}</div>
+        <h1 class="reveal">{{ section.settings.hero_heading | default: 'Wholesale Banarasi Saree Manufacturer in Varanasi' }}</h1>
+        <p class="pvs__hero-sub reveal">{{ section.settings.hero_subheading }}</p>
+        <div class="pvs__hero-ctas reveal">
+          <a class="pvs__btn pvs__btn--primary" href="{{ wa_link }}" target="_blank" rel="noopener">Enquire on WhatsApp</a>
+          <a class="pvs__btn pvs__btn--ghost" href="#pvs-custom">See Custom Colour</a>
+        </div>
+        <div class="pvs__trust reveal">
+          <span>🧵 Pure handloom silk</span>
+          <span>🎨 Custom colour shade card</span>
+          <span>🏭 Direct from Varanasi looms</span>
+          <span>📦 MOQ 15 pieces</span>
+          <span>📋 GST invoice</span>
+          <span>⚡ 24-hr dispatch</span>
+        </div>
+      </div>
+      <div class="pvs__hero-img">
+        {%- if section.settings.hero_image != blank -%}
+          <img src="{{ section.settings.hero_image | image_url: width: 800 }}" alt="{{ section.settings.hero_heading }}" loading="eager" width="800" height="560">
+        {%- else -%}
+          <div class="pvs__img-ph" style="height:440px;"></div>
+        {%- endif -%}
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 3. OUR VARANASI STORE ===== -->
+  <section class="pvs__sec">
+    <div class="pvs__wrap pvs__grid pvs__store-grid">
+      <div class="pvs__store-img">
+        {%- if section.settings.store_image != blank -%}
+          <img src="{{ section.settings.store_image | image_url: width: 700 }}" alt="Priyuja Varanasi Store" loading="lazy" width="700" height="500">
+        {%- else -%}
+          <div class="pvs__img-ph" style="height:340px;"></div>
+        {%- endif -%}
+      </div>
+      <div>
+        <div class="pvs__eyebrow reveal">{{ section.settings.store_eyebrow | default: 'Now at the source' }}</div>
+        <h2 class="reveal" style="font-size:34px;margin:8px 0 14px;">{{ section.settings.store_heading | default: 'A Priyuja store in Varanasi' }}</h2>
+        <p class="reveal" style="color:var(--text-mid);">{{ section.settings.store_body_1 | default: 'For years we served boutiques from our Mumbai base. Now, with our own store in Varanasi, we are right where the handloom Banarasi saree is born. That means we select straight from the weavers, see fresh designs first, and pass on true at-source value to you — alongside the same trusted terms, GST billing and 24-hour dispatch you already know us for.' }}</p>
+        <p class="reveal" style="color:var(--text-mid);">{{ section.settings.store_body_2 | default: 'You get the heritage handloom sarees from Varanasi, plus our wider range of other fabrics, all from one wholesale partner.' }}</p>
+        {%- if section.settings.store_address != blank -%}
+          <p class="reveal" style="color:var(--text-mid);margin-top:14px;">📍 {{ section.settings.store_address }}</p>
+        {%- else -%}
+          <p style="margin-top:14px;"><span style="background:var(--gold-pale);border:1px dashed var(--gold);color:#6b4a05;font-size:12px;border-radius:6px;padding:2px 8px;font-weight:600;">⚠ Add the real Varanasi store address in section settings</span></p>
+        {%- endif -%}
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 4. CUSTOM COLOUR ===== -->
+  <section class="pvs__sec pvs__custom" id="pvs-custom">
+    <div class="pvs__wrap">
+      <div style="text-align:center;margin-bottom:8px;">
+        <div class="pvs__eyebrow reveal" style="color:var(--gold-light);">{{ section.settings.custom_eyebrow | default: 'Only possible from Varanasi' }}</div>
+        <h2 class="reveal" style="font-size:38px;margin:8px 0 12px;">{{ section.settings.custom_heading | default: 'Choose your own colour' }}</h2>
+        <p class="pvs__custom-intro reveal">{{ section.settings.custom_intro | default: 'Pick any shade from our colour chart and we weave it to order at our Varanasi looms — in the exact colour your customers are asking for. This is something we simply could not offer from Mumbai. It lets your boutique stand apart with colours no one else is stocking.' }}</p>
+      </div>
+
+      {%- comment -%} Custom colour steps {%- endcomment -%}
+      {%- assign custom_steps = section.blocks | where: 'type', 'custom_step' -%}
+      {%- if custom_steps.size > 0 -%}
+        <div class="pvs__grid pvs__custom-steps">
+          {%- for block in custom_steps -%}
+            <div class="pvs__card pvs__custom-step reveal" {{ block.shopify_attributes }}>
+              <div class="pvs__num">{{ block.settings.step_number | default: forloop.index | prepend: '0' | slice: -2, 2 }}</div>
+              <strong>{{ block.settings.step_title }}</strong>
+              <p>{{ block.settings.step_text }}</p>
+            </div>
+          {%- endfor -%}
+        </div>
+      {%- endif -%}
+
+      {%- comment -%} Colour swatch grid {%- endcomment -%}
+      {%- assign swatches = section.blocks | where: 'type', 'colour_swatch' -%}
+      {%- if swatches.size > 0 -%}
+        <div class="pvs__swatch-grid reveal">
+          {%- for block in swatches -%}
+            <div class="pvs__swatch" {{ block.shopify_attributes }}>
+              <div class="pvs__swatch-color" style="background-color: {{ block.settings.swatch_color }};"></div>
+              <div class="pvs__swatch-name">{{ block.settings.swatch_name }}</div>
+            </div>
+          {%- endfor -%}
+        </div>
+      {%- endif -%}
+
+      <div style="text-align:center;margin-top:22px;">
+        {%- if section.settings.custom_min_per_shade != blank -%}
+          <p class="reveal" style="color:#e7d3bf;font-size:14px;">Minimum per custom shade: {{ section.settings.custom_min_per_shade }}. Lead time: {{ section.settings.custom_lead_time | default: 'To be confirmed' }}.</p>
+        {%- else -%}
+          <p><span style="background:var(--gold-pale);border:1px dashed var(--gold);color:#6b4a05;font-size:12px;border-radius:6px;padding:2px 8px;font-weight:600;">⚠ Confirm: minimum pieces per custom shade & typical lead-time</span></p>
+        {%- endif -%}
+        <div style="margin-top:16px;"><a class="pvs__btn pvs__btn--gold reveal" href="{{ wa_link }}" target="_blank" rel="noopener">Ask about custom colour</a></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 5. WHAT WE OFFER ===== -->
+  <section class="pvs__sec" id="pvs-offer">
+    <div class="pvs__wrap">
+      <div style="text-align:center;max-width:720px;margin:0 auto 10px;">
+        <div class="pvs__eyebrow reveal">{{ section.settings.offer_eyebrow | default: 'From our Varanasi store' }}</div>
+        <h2 class="reveal" style="font-size:34px;margin-top:8px;">{{ section.settings.offer_heading | default: 'Handloom Banarasi silks, and much more' }}</h2>
+        <p class="reveal" style="color:var(--text-mid);">{{ section.settings.offer_subheading | default: 'Pure handloom Banarasi silks woven in Varanasi, plus the full Priyuja range of other fabrics — all wholesale, all from one partner.' }}</p>
+      </div>
+      {%- assign offer_cards = section.blocks | where: 'type', 'offer_card' -%}
+      {%- if offer_cards.size > 0 -%}
+        <div class="pvs__grid pvs__offer-grid" style="margin-top:22px;">
+          {%- for block in offer_cards -%}
+            <div class="pvs__card pvs__offer-card reveal" {{ block.shopify_attributes }}>
+              <h3>{{ block.settings.title }}</h3>
+              <p>{{ block.settings.text }}</p>
+            </div>
+          {%- endfor -%}
+        </div>
+      {%- endif -%}
+      {%- if section.settings.fabric_collections_url != blank -%}
+        <p class="reveal" style="text-align:center;margin-top:18px;"><a href="{{ section.settings.fabric_collections_url }}" style="font-weight:700;color:var(--maroon);">Browse all fabric collections →</a></p>
+      {%- endif -%}
+    </div>
+  </section>
+
+  <!-- ===== 6. AT-SOURCE ADVANTAGES ===== -->
+  <section class="pvs__sec">
+    <div class="pvs__wrap">
+      <div class="pvs__eyebrow reveal" style="text-align:center;">{{ section.settings.adv_eyebrow | default: 'Why buy from our Varanasi store' }}</div>
+      <h2 class="reveal" style="font-size:34px;text-align:center;margin-top:8px;">{{ section.settings.adv_heading | default: 'At-source advantages' }}</h2>
+      {%- assign adv_cards = section.blocks | where: 'type', 'advantage_card' -%}
+      {%- if adv_cards.size > 0 -%}
+        <div class="pvs__grid pvs__adv-grid" style="margin-top:24px;">
+          {%- for block in adv_cards -%}
+            <div class="pvs__card pvs__adv-card reveal" {{ block.shopify_attributes }}>
+              <h3>{{ block.settings.title }}</h3>
+              <p>{{ block.settings.text }}</p>
+            </div>
+          {%- endfor -%}
+        </div>
+      {%- endif -%}
+    </div>
+  </section>
+
+  <!-- ===== 7. WHOLESALE TERMS ===== -->
+  <section class="pvs__sec pvs__terms">
+    <div class="pvs__wrap">
+      <h2 class="reveal">Wholesale terms</h2>
+      <div class="pvs__grid pvs__terms-grid reveal">
+        <div><strong>{{ section.settings.term_1_label | default: 'First order MOQ' }}</strong>{{ section.settings.term_1_value | default: '15 pieces — mix & match any designs' }}</div>
+        <div><strong>{{ section.settings.term_2_label | default: 'Reorders' }}</strong>{{ section.settings.term_2_value | default: 'No minimum quantity' }}</div>
+        <div><strong>{{ section.settings.term_3_label | default: 'Custom colour' }}</strong>{{ section.settings.term_3_value | default: 'Minimum applies per shade' }}</div>
+        <div><strong>{{ section.settings.term_4_label | default: 'Payment' }}</strong>{{ section.settings.term_4_value | default: '100% advance · no COD' }}</div>
+        <div><strong>{{ section.settings.term_5_label | default: 'Dispatch' }}</strong>{{ section.settings.term_5_value | default: 'Ready stock within 24 hours, pan-India' }}</div>
+        <div><strong>{{ section.settings.term_6_label | default: 'Invoice' }}</strong>{{ section.settings.term_6_value | default: 'GST invoice on every order' }}</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 8. HOW ORDERING WORKS ===== -->
+  <section class="pvs__sec" id="pvs-how">
+    <div class="pvs__wrap">
+      <div class="pvs__eyebrow reveal" style="text-align:center;">The process</div>
+      <h2 class="reveal" style="font-size:34px;text-align:center;margin-top:8px;">How ordering works</h2>
+      {%- assign order_steps = section.blocks | where: 'type', 'order_step' -%}
+      {%- if order_steps.size > 0 -%}
+        <div class="pvs__grid pvs__process-grid" style="margin-top:24px;">
+          {%- for block in order_steps -%}
+            <div class="pvs__card reveal" {{ block.shopify_attributes }}>
+              <div class="pvs__num">{{ block.settings.step_number | default: forloop.index | prepend: '0' | slice: -2, 2 }}</div>
+              <strong>{{ block.settings.step_title }}</strong>
+              <p style="font-size:14px;color:var(--text-mid);">{{ block.settings.step_text }}</p>
+            </div>
+          {%- endfor -%}
+        </div>
+      {%- endif -%}
+    </div>
+  </section>
+
+  <!-- ===== 9. VISIT / VIDEO CALL ===== -->
+  <section class="pvs__sec" id="pvs-visit">
+    <div class="pvs__wrap pvs__grid pvs__visit-grid">
+      <div class="pvs__card">
+        <div class="pvs__eyebrow">Visit our store</div>
+        <h3 class="reveal" style="font-size:24px;margin:6px 0 10px;">Priyuja — Varanasi</h3>
+        {%- if section.settings.store_address != blank -%}
+          <p class="reveal" style="color:var(--text-mid);">{{ section.settings.store_address }}<br>Varanasi, Uttar Pradesh</p>
+        {%- else -%}
+          <p><span style="background:var(--gold-pale);border:1px dashed var(--gold);color:#6b4a05;font-size:12px;border-radius:6px;padding:2px 8px;font-weight:600;">⚠ Add full Varanasi store address</span><br><span style="color:var(--text-mid);">Varanasi, Uttar Pradesh</span></p>
+        {%- endif -%}
+        <p class="reveal" style="color:var(--text-mid);">Phone / WhatsApp: +91 91120 44277<br>GSTIN: 27AADCO1764H1ZE</p>
+        {%- if section.settings.map_embed_url != blank -%}
+          <iframe class="pvs__map-embed" src="{{ section.settings.map_embed_url }}" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Priyuja Varanasi Store Map"></iframe>
+        {%- else -%}
+          <div class="pvs__img-ph" style="height:200px;margin-top:12px;display:flex;align-items:center;justify-content:center;color:var(--text-light);font-size:13px;">Google Map embed — add URL in settings</div>
+        {%- endif -%}
+      </div>
+      <div class="pvs__card">
+        <div class="pvs__eyebrow">Can't travel?</div>
+        <h3 class="reveal" style="font-size:24px;margin:6px 0 10px;">Book a video-call buying session</h3>
+        <p class="reveal" style="color:var(--text-mid);">See the full collection live from your shop, pick ready stock or a custom shade, and confirm — no need to come to Varanasi.</p>
+        {%- if section.settings.video_call_hours != blank -%}
+          <p class="reveal" style="color:var(--text-mid);">Slots: {{ section.settings.video_call_hours }}</p>
+        {%- else -%}
+          <p>Slots: <span style="background:var(--gold-pale);border:1px dashed var(--gold);color:#6b4a05;font-size:12px;border-radius:6px;padding:2px 8px;font-weight:600;">⚠ Add call hours</span></p>
+        {%- endif -%}
+        <a class="pvs__btn pvs__btn--primary reveal" href="{{ wa_link }}" target="_blank" rel="noopener" style="margin-top:6px;">Book a video call</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 10. FAQ ACCORDION ===== -->
+  {%- assign faqs = section.blocks | where: 'type', 'faq' -%}
+  {%- if faqs.size > 0 -%}
+    <section class="pvs__sec" id="pvs-faq">
+      <div class="pvs__wrap">
+        <div class="pvs__eyebrow reveal" style="text-align:center;">FAQs</div>
+        <h2 class="reveal" style="font-size:34px;text-align:center;margin-top:8px;">Common questions</h2>
+        <div class="pvs__faq-list">
+          {%- for block in faqs -%}
+            <div class="pvs__faq-item reveal" {{ block.shopify_attributes }}>
+              <button class="pvs__faq-q" aria-expanded="false" aria-controls="pvs-faq-{{ section.id }}-{{ forloop.index }}">
+                {{ block.settings.question }}
+                <span class="pvs__faq-icon">+</span>
+              </button>
+              <div class="pvs__faq-a" id="pvs-faq-{{ section.id }}-{{ forloop.index }}" role="region">
+                {{ block.settings.answer }}
+              </div>
+            </div>
+          {%- endfor -%}
+        </div>
+      </div>
+    </section>
+  {%- endif -%}
+
+  <!-- ===== 11. CTA BAND ===== -->
+  <section class="pvs__sec pvs__cta-band">
+    <div class="pvs__wrap">
+      <h2 class="reveal">{{ section.settings.cta_heading | default: 'Stock colours no one else has' }}</h2>
+      <p class="reveal">{{ section.settings.cta_body | default: 'Handloom Banarasi sarees direct from our Varanasi store, plus custom colours woven to order. Start with 15 pieces.' }}</p>
+      <a class="pvs__btn pvs__btn--gold reveal" href="{{ wa_link }}" target="_blank" rel="noopener">Enquire on WhatsApp</a>
+    </div>
+  </section>
+
+</div>
+
+<!-- ===== FAQPage JSON-LD ===== -->
+{%- if faqs.size > 0 -%}
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {%- for block in faqs -%}
+          {
+            "@type": "Question",
+            "name": {{ block.settings.question | json }},
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": {{ block.settings.answer | strip_html | json }}
+            }
+          }{%- unless forloop.last -%},{%- endunless -%}
+        {%- endfor -%}
+      ]
+    }
+  </script>
+{%- endif -%}
+
+<!-- ===== LocalBusiness JSON-LD ===== -->
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Priyuja — Varanasi Store",
+    "description": "Wholesale Banarasi saree manufacturer in Varanasi. Pure handloom Banarasi silk sarees and custom-colour weaves, wholesale to boutiques across India.",
+    "telephone": "+91-91120-44277",
+    "url": "{{ shop.url }}{{ page.url }}",
+    "areaServed": {
+      "@type": "Country",
+      "name": "IN"
+    },
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Varanasi",
+      "addressRegion": "Uttar Pradesh",
+      "addressCountry": "IN"
+      {%- if section.settings.store_address != blank -%}
+        ,"streetAddress": {{ section.settings.store_address | json }}
+      {%- endif -%}
+    },
+    "parentOrganization": {
+      "@type": "Organization",
+      "name": "Olivecloud Tech Pvt Ltd",
+      "taxID": "27AADCO1764H1ZE"
+    }
+  }
+</script>
+
+<!-- ===== Reveal animation ===== -->
+<script>
+  (function() {
+    var section = document.getElementById('shopify-section-{{ section.id }}');
+    if (!section) return;
+    var reveals = section.querySelectorAll('.reveal');
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    reveals.forEach(function(el, i) {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(24px)';
+      el.style.transition = 'opacity 0.6s ease ' + (i * 0.05) + 's, transform 0.6s ease ' + (i * 0.05) + 's';
+      observer.observe(el);
+    });
+    var style = document.createElement('style');
+    style.textContent = '#shopify-section-{{ section.id }} .reveal.visible { opacity: 1 !important; transform: translateY(0) !important; }';
+    document.head.appendChild(style);
+  })();
+</script>
+
+<!-- ===== FAQ accordion ===== -->
+<script>
+  (function() {
+    var section = document.getElementById('shopify-section-{{ section.id }}');
+    if (!section) return;
+    var faqItems = section.querySelectorAll('.pvs__faq-item');
+    faqItems.forEach(function(item) {
+      var btn = item.querySelector('.pvs__faq-q');
+      btn.addEventListener('click', function() {
+        var isActive = item.classList.contains('active');
+        faqItems.forEach(function(other) { other.classList.remove('active'); other.querySelector('.pvs__faq-q').setAttribute('aria-expanded', 'false'); });
+        if (!isActive) {
+          item.classList.add('active');
+          btn.setAttribute('aria-expanded', 'true');
+        }
+      });
+      btn.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); btn.click(); }
+      });
+    });
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Priyuja - Varanasi Store",
+  "tag": "section",
+  "class": "priyuja-section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "WhatsApp CTA"
+    },
+    {
+      "type": "url",
+      "id": "whatsapp_url",
+      "label": "WhatsApp URL"
+    },
+    {
+      "type": "header",
+      "content": "Topbar"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "topbar_text",
+      "label": "Topbar Text",
+      "default": "Wholesale only · <strong>Now open in Varanasi</strong> · Custom colour from our shade card · GST invoice · 24-hour dispatch"
+    },
+    {
+      "type": "header",
+      "content": "Hero"
+    },
+    {
+      "type": "text",
+      "id": "hero_eyebrow",
+      "label": "Eyebrow",
+      "default": "Direct from Varanasi · Wholesale for boutiques"
+    },
+    {
+      "type": "text",
+      "id": "hero_heading",
+      "label": "H1 Heading",
+      "default": "Wholesale Banarasi Saree Manufacturer in Varanasi"
+    },
+    {
+      "type": "textarea",
+      "id": "hero_subheading",
+      "label": "Sub-paragraph",
+      "default": "Our Varanasi store puts us at the source. We supply pure handloom Banarasi silk sarees — and our full range of other fabrics — wholesale to boutiques across India. And because we are right at the looms, you can now choose your own colour from our shade card and have it woven to order."
+    },
+    {
+      "type": "image_picker",
+      "id": "hero_image",
+      "label": "Hero Image"
+    },
+    {
+      "type": "header",
+      "content": "Our Varanasi Store"
+    },
+    {
+      "type": "image_picker",
+      "id": "store_image",
+      "label": "Store Image"
+    },
+    {
+      "type": "text",
+      "id": "store_eyebrow",
+      "label": "Eyebrow",
+      "default": "Now at the source"
+    },
+    {
+      "type": "text",
+      "id": "store_heading",
+      "label": "Heading",
+      "default": "A Priyuja store in Varanasi"
+    },
+    {
+      "type": "textarea",
+      "id": "store_body_1",
+      "label": "Body Paragraph 1",
+      "default": "For years we served boutiques from our Mumbai base. Now, with our own store in Varanasi, we are right where the handloom Banarasi saree is born. That means we select straight from the weavers, see fresh designs first, and pass on true at-source value to you — alongside the same trusted terms, GST billing and 24-hour dispatch you already know us for."
+    },
+    {
+      "type": "textarea",
+      "id": "store_body_2",
+      "label": "Body Paragraph 2",
+      "default": "You get the heritage handloom sarees from Varanasi, plus our wider range of other fabrics, all from one wholesale partner."
+    },
+    {
+      "type": "text",
+      "id": "store_address",
+      "label": "⚠ Store Address (leave blank until confirmed)",
+      "info": "Full Varanasi store address. Shown in the store section, visit card, and LocalBusiness schema."
+    },
+    {
+      "type": "header",
+      "content": "Custom Colour Section"
+    },
+    {
+      "type": "text",
+      "id": "custom_eyebrow",
+      "label": "Eyebrow",
+      "default": "Only possible from Varanasi"
+    },
+    {
+      "type": "text",
+      "id": "custom_heading",
+      "label": "Heading",
+      "default": "Choose your own colour"
+    },
+    {
+      "type": "textarea",
+      "id": "custom_intro",
+      "label": "Intro Text",
+      "default": "Pick any shade from our colour chart and we weave it to order at our Varanasi looms — in the exact colour your customers are asking for. This is something we simply could not offer from Mumbai. It lets your boutique stand apart with colours no one else is stocking."
+    },
+    {
+      "type": "text",
+      "id": "custom_min_per_shade",
+      "label": "⚠ Minimum pieces per custom shade",
+      "info": "Leave blank until confirmed. Shown in custom colour section."
+    },
+    {
+      "type": "text",
+      "id": "custom_lead_time",
+      "label": "⚠ Typical lead time (days)",
+      "info": "Leave blank until confirmed."
+    },
+    {
+      "type": "header",
+      "content": "What We Offer"
+    },
+    {
+      "type": "text",
+      "id": "offer_eyebrow",
+      "label": "Eyebrow",
+      "default": "From our Varanasi store"
+    },
+    {
+      "type": "text",
+      "id": "offer_heading",
+      "label": "Heading",
+      "default": "Handloom Banarasi silks, and much more"
+    },
+    {
+      "type": "textarea",
+      "id": "offer_subheading",
+      "label": "Subheading",
+      "default": "Pure handloom Banarasi silks woven in Varanasi, plus the full Priyuja range of other fabrics — all wholesale, all from one partner."
+    },
+    {
+      "type": "url",
+      "id": "fabric_collections_url",
+      "label": "Fabric Collections Link"
+    },
+    {
+      "type": "header",
+      "content": "At-Source Advantages"
+    },
+    {
+      "type": "text",
+      "id": "adv_eyebrow",
+      "label": "Eyebrow",
+      "default": "Why buy from our Varanasi store"
+    },
+    {
+      "type": "text",
+      "id": "adv_heading",
+      "label": "Heading",
+      "default": "At-source advantages"
+    },
+    {
+      "type": "header",
+      "content": "Wholesale Terms"
+    },
+    {
+      "type": "text",
+      "id": "term_1_label",
+      "label": "Term 1 Label",
+      "default": "First order MOQ"
+    },
+    {
+      "type": "text",
+      "id": "term_1_value",
+      "label": "Term 1 Value",
+      "default": "15 pieces — mix & match any designs"
+    },
+    {
+      "type": "text",
+      "id": "term_2_label",
+      "label": "Term 2 Label",
+      "default": "Reorders"
+    },
+    {
+      "type": "text",
+      "id": "term_2_value",
+      "label": "Term 2 Value",
+      "default": "No minimum quantity"
+    },
+    {
+      "type": "text",
+      "id": "term_3_label",
+      "label": "Term 3 Label",
+      "default": "Custom colour"
+    },
+    {
+      "type": "text",
+      "id": "term_3_value",
+      "label": "Term 3 Value",
+      "default": "Minimum applies per shade"
+    },
+    {
+      "type": "text",
+      "id": "term_4_label",
+      "label": "Term 4 Label",
+      "default": "Payment"
+    },
+    {
+      "type": "text",
+      "id": "term_4_value",
+      "label": "Term 4 Value",
+      "default": "100% advance · no COD"
+    },
+    {
+      "type": "text",
+      "id": "term_5_label",
+      "label": "Term 5 Label",
+      "default": "Dispatch"
+    },
+    {
+      "type": "text",
+      "id": "term_5_value",
+      "label": "Term 5 Value",
+      "default": "Ready stock within 24 hours, pan-India"
+    },
+    {
+      "type": "text",
+      "id": "term_6_label",
+      "label": "Term 6 Label",
+      "default": "Invoice"
+    },
+    {
+      "type": "text",
+      "id": "term_6_value",
+      "label": "Term 6 Value",
+      "default": "GST invoice on every order"
+    },
+    {
+      "type": "header",
+      "content": "Visit / Video Call"
+    },
+    {
+      "type": "text",
+      "id": "map_embed_url",
+      "label": "Google Map Embed URL",
+      "info": "Paste the 'src' URL from a Google Maps embed iframe."
+    },
+    {
+      "type": "text",
+      "id": "video_call_hours",
+      "label": "⚠ Video Call Slot Hours",
+      "info": "Leave blank until confirmed. E.g. 'Mon–Sat, 10 AM – 6 PM IST'."
+    },
+    {
+      "type": "header",
+      "content": "CTA Band"
+    },
+    {
+      "type": "text",
+      "id": "cta_heading",
+      "label": "CTA Heading",
+      "default": "Stock colours no one else has"
+    },
+    {
+      "type": "textarea",
+      "id": "cta_body",
+      "label": "CTA Body",
+      "default": "Handloom Banarasi sarees direct from our Varanasi store, plus custom colours woven to order. Start with 15 pieces."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "custom_step",
+      "name": "Custom Colour Step",
+      "settings": [
+        {
+          "type": "text",
+          "id": "step_number",
+          "label": "Step Number",
+          "default": "01"
+        },
+        {
+          "type": "text",
+          "id": "step_title",
+          "label": "Step Title",
+          "default": "Step title"
+        },
+        {
+          "type": "textarea",
+          "id": "step_text",
+          "label": "Step Description",
+          "default": "Step description."
+        }
+      ]
+    },
+    {
+      "type": "colour_swatch",
+      "name": "Colour Swatch",
+      "settings": [
+        {
+          "type": "color",
+          "id": "swatch_color",
+          "label": "Swatch Colour",
+          "default": "#6B1628"
+        },
+        {
+          "type": "text",
+          "id": "swatch_name",
+          "label": "Shade Name",
+          "default": "Maroon"
+        }
+      ]
+    },
+    {
+      "type": "offer_card",
+      "name": "Offer Card",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Card Title",
+          "default": "Card title"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Card Text",
+          "default": "Card description."
+        }
+      ]
+    },
+    {
+      "type": "advantage_card",
+      "name": "Advantage Card",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Card Title",
+          "default": "Advantage"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Card Text",
+          "default": "Advantage description."
+        }
+      ]
+    },
+    {
+      "type": "order_step",
+      "name": "Order Step",
+      "settings": [
+        {
+          "type": "text",
+          "id": "step_number",
+          "label": "Step Number",
+          "default": "01"
+        },
+        {
+          "type": "text",
+          "id": "step_title",
+          "label": "Step Title",
+          "default": "Step title"
+        },
+        {
+          "type": "textarea",
+          "id": "step_text",
+          "label": "Step Description",
+          "default": "Step description."
+        }
+      ]
+    },
+    {
+      "type": "faq",
+      "name": "FAQ",
+      "settings": [
+        {
+          "type": "text",
+          "id": "question",
+          "label": "Question",
+          "default": "Question?"
+        },
+        {
+          "type": "textarea",
+          "id": "answer",
+          "label": "Answer",
+          "default": "Answer text."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Priyuja - Varanasi Store"
+    }
+  ]
+}
+{% endschema %}
