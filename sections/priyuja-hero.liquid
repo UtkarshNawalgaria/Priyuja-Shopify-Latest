@@ -1,12 +1,8 @@
-{%- render 'priyuja-fonts' -%}
-
-{% comment %} Desktop logo {% endcomment %}
 {%- assign width = section.settings.desktop_logo_width | times: 2 -%}
 {%- assign height = section.settings.desktop_logo_width | divided_by: section.settings.logo.aspect_ratio -%}
 {%- capture sizes -%}{{ section.settings.desktop_logo_width }}px{%- endcapture -%}
 {%- capture widths -%}{{ section.settings.desktop_logo_width }}, {{ section.settings.desktop_logo_width | times: 2 }}{%- endcapture -%}
 
-{% comment %} Mobile logo {% endcomment %}
 {%- assign mobile_width = section.settings.mobile_logo_width | times: 2 -%}
 {%- assign mobile_height = section.settings.mobile_logo_width | divided_by: section.settings.logo.aspect_ratio -%}
 {%- capture mobile_sizes -%}{{ section.settings.mobile_logo_width }}px{%- endcapture -%}
@@ -14,38 +10,286 @@
 
 <style>
   #shopify-section-{{ section.id }} {
-    --cream: #F7F2E8;
-    --maroon: #6B1628;
-    --maroon-light: #8B2035;
-    --maroon-deep: #4A0F1C;
-    --gold: #C4922A;
-    --gold-light: #D4A84A;
-    --gold-pale: #F0E0B0;
-    --dark: #1C1209;
-    --text-mid: #6B5040;
-    --text-light: #9A7A60;
-    --font-heading: 'Cormorant Garamond', serif;
-    --font-body: 'DM Sans', sans-serif;
+    --cream: var(--priyuja-cream);
+    --maroon: var(--priyuja-maroon);
+    --maroon-light: var(--priyuja-maroon-light);
+    --maroon-deep: var(--priyuja-maroon-deep);
+    --gold: var(--priyuja-gold);
+    --gold-light: var(--priyuja-gold-light);
+    --gold-pale: var(--priyuja-gold-pale);
+    --dark: var(--priyuja-dark);
+    --text-mid: var(--priyuja-text-mid);
+    --text-light: var(--priyuja-text-light);
+    --font-heading: var(--priyuja-font-heading);
+    --font-body: var(--priyuja-font-body);
   }
 
   #shopify-section-{{ section.id }} .priyuja-hero {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    min-height: 100vh;
     background: var(--cream);
     font-family: var(--font-body);
   }
 
+  /* ── Nav bar ── */
+  #shopify-section-{{ section.id }} .priyuja-hero__nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 64px;
+    border-bottom: 1px solid rgba(28, 18, 9, 0.08);
+  }
+
   #shopify-section-{{ section.id }} .priyuja-site-logo {
-    margin-left: -25px;
-    padding-bottom: 10px;
+    flex-shrink: 0;
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-site-logo img {
+    display: block;
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-hero__menu {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-hero__menu-item {
+    position: relative;
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-hero__menu-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--dark);
+    text-decoration: none;
+    padding: 8px 0;
+    transition: color 0.2s ease;
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-hero__menu-link:hover {
+    color: var(--maroon);
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-hero__menu-chevron {
+    width: 14px;
+    height: 14px;
+    stroke: var(--text-light);
+    transition: transform 0.2s ease;
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-hero__menu-item:hover .priyuja-hero__menu-chevron {
+    transform: rotate(180deg);
+    stroke: var(--maroon);
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-hero__menu-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 10px 22px;
+    background: var(--maroon);
+    color: #fff;
+    font-size: 13px;
+    font-weight: 500;
+    text-decoration: none;
+    border-radius: 50px;
+    transition: background 0.3s ease, transform 0.3s ease;
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-hero__menu-cta:hover {
+    background: var(--maroon-light);
+    transform: translateY(-2px);
+  }
+
+  /* ── Mega menu ── */
+  #shopify-section-{{ section.id }} .priyuja-hero__mega {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    min-width: 520px;
+    background: #fff;
+    border: 1px solid rgba(28, 18, 9, 0.1);
+    border-radius: 12px;
+    box-shadow: 0 12px 40px rgba(28, 18, 9, 0.12);
+    padding: 24px 28px;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.25s ease, transform 0.25s ease;
+    transform: translateX(-50%) translateY(8px);
+    z-index: 100;
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-hero__menu-item:hover .priyuja-hero__mega {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateX(-50%) translateY(0);
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-hero__mega-title {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 14px;
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-hero__mega-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 6px;
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-hero__mega-link {
+    display: block;
+    padding: 10px 14px;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--dark);
+    text-decoration: none;
+    border-radius: 8px;
+    transition: background 0.2s ease, color 0.2s ease;
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-hero__mega-link:hover {
+    background: var(--cream);
+    color: var(--maroon);
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-hero__mega-desc {
+    font-size: 12px;
+    font-weight: 400;
+    color: var(--text-light);
+    margin-top: 2px;
+  }
+
+  /* ── Mobile hamburger ── */
+  #shopify-section-{{ section.id }} .priyuja-hero__hamburger {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 6px;
+    color: var(--dark);
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-hero__hamburger svg {
+    width: 26px;
+    height: 26px;
+    stroke: currentColor;
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-hero__mobile-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.4);
+    z-index: 998;
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-hero__mobile-drawer {
+    display: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 320px;
+    max-width: 85vw;
+    background: #fff;
+    z-index: 999;
+    padding: 24px;
+    overflow-y: auto;
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-hero__mobile-drawer.open {
+    transform: translateX(0);
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-hero__mobile-close {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    background: none;
+    border: 1px solid rgba(28,18,9,0.1);
+    border-radius: 50%;
+    cursor: pointer;
+    margin-left: auto;
+    margin-bottom: 20px;
+    color: var(--dark);
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-hero__mobile-close svg {
+    width: 18px;
+    height: 18px;
+    stroke: currentColor;
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-hero__mobile-nav {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-hero__mobile-nav-item {
+    border-bottom: 1px solid rgba(28,18,9,0.08);
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-hero__mobile-nav-link {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 0;
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--dark);
+    text-decoration: none;
+    font-family: var(--font-body);
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-hero__mobile-sub {
+    display: none;
+    padding: 0 0 12px 12px;
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-hero__mobile-sub.open {
+    display: block;
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-hero__mobile-sub a {
+    display: block;
+    padding: 8px 0;
+    font-size: 14px;
+    color: var(--text-mid);
+    text-decoration: none;
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-hero__mobile-sub a:hover {
+    color: var(--maroon);
+  }
+
+  /* ── Hero grid ── */
+  #shopify-section-{{ section.id }} .priyuja-hero__grid {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    align-items: center;
+    padding: 0 64px;
+    min-height: calc(100vh - 70px);
   }
 
   #shopify-section-{{ section.id }} .priyuja-hero__content {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 80px 64px;
+    padding: 60px 0;
   }
 
   #shopify-section-{{ section.id }} .priyuja-hero__eyebrow {
@@ -152,8 +396,19 @@
     margin-top: 4px;
   }
 
+  /* ── Hero image (square) ── */
   #shopify-section-{{ section.id }} .priyuja-hero__image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 0 40px 20px;
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-hero__image-wrap {
     position: relative;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    border-radius: 12px;
     overflow: hidden;
   }
 
@@ -161,6 +416,7 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
+    display: block;
   }
 
   #shopify-section-{{ section.id }} .priyuja-hero__image-placeholder {
@@ -171,8 +427,8 @@
 
   #shopify-section-{{ section.id }} .priyuja-hero__image-tag {
     position: absolute;
-    bottom: 24px;
-    left: 24px;
+    bottom: 18px;
+    left: 18px;
     background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(10px);
     padding: 12px 20px;
@@ -193,19 +449,34 @@
     color: var(--dark);
   }
 
-  @media (max-width: 768px) {
-    #shopify-section-{{ section.id }} .priyuja-hero {
+  /* ── Responsive ── */
+  @media (max-width: 900px) {
+    #shopify-section-{{ section.id }} .priyuja-hero__nav {
+      padding: 14px 24px;
+    }
+
+    #shopify-section-{{ section.id }} .priyuja-hero__menu,
+    #shopify-section-{{ section.id }} .priyuja-hero__menu-cta-desktop {
+      display: none;
+    }
+
+    #shopify-section-{{ section.id }} .priyuja-hero__hamburger {
+      display: block;
+    }
+
+    #shopify-section-{{ section.id }} .priyuja-hero__mobile-overlay.open,
+    #shopify-section-{{ section.id }} .priyuja-hero__mobile-drawer {
+      display: block;
+    }
+
+    #shopify-section-{{ section.id }} .priyuja-hero__grid {
       grid-template-columns: 1fr;
+      padding: 0 24px;
       min-height: auto;
     }
 
-    #shopify-section-{{ section.id }} .priyuja-site-logo {
-      margin-left: 0;
-      padding-bottom: 10px;
-    }
-
     #shopify-section-{{ section.id }} .priyuja-hero__content {
-      padding: 20px 24px;
+      padding: 30px 0;
     }
 
     #shopify-section-{{ section.id }} .priyuja-hero__title {
@@ -213,7 +484,11 @@
     }
 
     #shopify-section-{{ section.id }} .priyuja-hero__image {
-      display: none;
+      padding: 0 0 30px;
+    }
+
+    #shopify-section-{{ section.id }} .priyuja-hero__image-wrap {
+      aspect-ratio: 4 / 3;
     }
 
     #shopify-section-{{ section.id }} .priyuja-hero__actions {
@@ -237,7 +512,8 @@
 </style>
 
 <div class="priyuja-hero">
-  <div class="priyuja-hero__content">
+  <!-- ── Nav bar ── -->
+  <nav class="priyuja-hero__nav" aria-label="Main navigation">
     <div class="priyuja-site-logo">
       <a href="{{ routes.root_url }}">
         {{ section.settings.logo
@@ -246,58 +522,170 @@
         }}
       </a>
     </div>
-    <div class="priyuja-hero__eyebrow reveal">{{ section.settings.eyebrow }}</div>
 
-    <h1 class="priyuja-hero__title reveal">
-      {{ section.settings.h1_line1 }}<br>
-      <em>{{ section.settings.h1_line2 }}</em><br>
-      {{ section.settings.h1_line3 }}
-    </h1>
+    {%- assign menu_items = section.blocks | where: 'type', 'menu_item' -%}
 
-    <p class="priyuja-hero__desc reveal">{{ section.settings.description }}</p>
+    <!-- Desktop menu -->
+    <ul class="priyuja-hero__menu" role="menubar">
+      {%- for block in menu_items -%}
+        {%- assign has_mega = false -%}
+        {%- if block.settings.mega_menu != blank -%}
+          {%- assign mega_links = linklists[block.settings.mega_menu].links -%}
+          {%- if mega_links.size > 0 -%}
+            {%- assign has_mega = true -%}
+          {%- endif -%}
+        {%- endif -%}
 
-    <div class="priyuja-hero__actions reveal">
-      <a href="{{ section.settings.primary_cta_url }}" class="priyuja-hero__btn-primary" target="_blank" rel="noopener">
-        {{ section.settings.primary_cta_text }}
-      </a>
-      <a href="{{ section.settings.secondary_cta_url }}" class="priyuja-hero__btn-secondary">
-        {{ section.settings.secondary_cta_text }}
-      </a>
-    </div>
+        <li class="priyuja-hero__menu-item" role="none" {{ block.shopify_attributes }}>
+          <a class="priyuja-hero__menu-link"
+             href="{{ block.settings.url | default: '#' }}"
+             role="menuitem"
+             {%- if has_mega %} aria-haspopup="true" aria-expanded="false"{% endif -%}>
+            {{ block.settings.label }}
+            {%- if has_mega -%}
+              <svg class="priyuja-hero__menu-chevron" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            {%- endif -%}
+          </a>
 
-    <div class="priyuja-hero__stats reveal">
-      <div class="priyuja-hero__stat">
-        <div class="priyuja-hero__stat-number">{{ section.settings.stat_1_number }}</div>
-        <div class="priyuja-hero__stat-label">{{ section.settings.stat_1_label }}</div>
-      </div>
-      <div class="priyuja-hero__stat">
-        <div class="priyuja-hero__stat-number">{{ section.settings.stat_2_number }}</div>
-        <div class="priyuja-hero__stat-label">{{ section.settings.stat_2_label }}</div>
-      </div>
-      <div class="priyuja-hero__stat">
-        <div class="priyuja-hero__stat-number">{{ section.settings.stat_3_number }}</div>
-        <div class="priyuja-hero__stat-label">{{ section.settings.stat_3_label }}</div>
-      </div>
-    </div>
+          {%- if has_mega -%}
+            <div class="priyuja-hero__mega" role="menu">
+              {%- if block.settings.mega_title != blank -%}
+                <div class="priyuja-hero__mega-title">{{ block.settings.mega_title }}</div>
+              {%- endif -%}
+              <div class="priyuja-hero__mega-grid">
+                {%- for link in mega_links -%}
+                  <a class="priyuja-hero__mega-link" href="{{ link.url }}" role="menuitem">
+                    {{ link.title }}
+                  </a>
+                {%- endfor -%}
+              </div>
+            </div>
+          {%- endif -%}
+        </li>
+      {%- endfor -%}
+
+      {%- if section.settings.nav_cta_text != blank -%}
+        <li role="none" class="priyuja-hero__menu-cta-desktop">
+          <a class="priyuja-hero__menu-cta"
+             href="{{ section.settings.nav_cta_url | default: '#' }}"
+             target="_blank"
+             rel="noopener"
+             role="menuitem">
+            {{ section.settings.nav_cta_text }}
+          </a>
+        </li>
+      {%- endif -%}
+    </ul>
+
+    <!-- Mobile hamburger -->
+    <button class="priyuja-hero__hamburger" aria-label="Open menu" data-mobile-menu-open>
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </nav>
+
+  <!-- Mobile drawer -->
+  <div class="priyuja-hero__mobile-overlay" data-mobile-overlay></div>
+  <div class="priyuja-hero__mobile-drawer" data-mobile-drawer>
+    <button class="priyuja-hero__mobile-close" aria-label="Close menu" data-mobile-menu-close>
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+    <ul class="priyuja-hero__mobile-nav">
+      {%- for block in menu_items -%}
+        {%- assign has_mega = false -%}
+        {%- if block.settings.mega_menu != blank -%}
+          {%- assign mega_links = linklists[block.settings.mega_menu].links -%}
+          {%- if mega_links.size > 0 -%}
+            {%- assign has_mega = true -%}
+          {%- endif -%}
+        {%- endif -%}
+
+        <li class="priyuja-hero__mobile-nav-item">
+          {%- if has_mega -%}
+            <button class="priyuja-hero__mobile-nav-link" data-mobile-toggle>
+              {{ block.settings.label }}
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="priyuja-hero__mobile-sub">
+              {%- for link in mega_links -%}
+                <a href="{{ link.url }}">{{ link.title }}</a>
+              {%- endfor -%}
+            </div>
+          {%- else -%}
+            <a class="priyuja-hero__mobile-nav-link" href="{{ block.settings.url | default: '#' }}">
+              {{ block.settings.label }}
+            </a>
+          {%- endif -%}
+        </li>
+      {%- endfor -%}
+
+      {%- if section.settings.nav_cta_text != blank -%}
+        <li style="padding-top: 16px;">
+          <a class="priyuja-hero__menu-cta" href="{{ section.settings.nav_cta_url | default: '#' }}" target="_blank" rel="noopener" style="display: flex; justify-content: center;">
+            {{ section.settings.nav_cta_text }}
+          </a>
+        </li>
+      {%- endif -%}
+    </ul>
   </div>
 
-  <div class="priyuja-hero__image">
-    {%- if section.settings.hero_image != blank -%}
-      <img src="{{ section.settings.hero_image | image_url: width: 1200 }}"
-           alt="{{ section.settings.h1_line2 }}"
-           loading="eager"
-           width="1200"
-           height="1600">
-    {%- else -%}
-      <div class="priyuja-hero__image-placeholder"></div>
-    {%- endif -%}
+  <!-- ── Hero grid ── -->
+  <div class="priyuja-hero__grid">
+    <div class="priyuja-hero__content">
+      <div class="priyuja-hero__eyebrow reveal">{{ section.settings.eyebrow }}</div>
 
-    {%- if section.settings.image_tag_name != blank -%}
-      <div class="priyuja-hero__image-tag">
-        <div class="priyuja-hero__image-tag-origin">{{ section.settings.image_tag_origin }}</div>
-        <div class="priyuja-hero__image-tag-name">{{ section.settings.image_tag_name }}</div>
+      <h1 class="priyuja-hero__title reveal">
+        {{ section.settings.h1_line1 }}<br>
+        <em>{{ section.settings.h1_line2 }}</em><br>
+        {{ section.settings.h1_line3 }}
+      </h1>
+
+      <p class="priyuja-hero__desc reveal">{{ section.settings.description }}</p>
+
+      <div class="priyuja-hero__actions reveal">
+        <a href="{{ section.settings.primary_cta_url }}" class="priyuja-hero__btn-primary" target="_blank" rel="noopener">
+          {{ section.settings.primary_cta_text }}
+        </a>
+        <a href="{{ section.settings.secondary_cta_url }}" class="priyuja-hero__btn-secondary">
+          {{ section.settings.secondary_cta_text }}
+        </a>
       </div>
-    {%- endif -%}
+
+      <div class="priyuja-hero__stats reveal">
+        <div class="priyuja-hero__stat">
+          <div class="priyuja-hero__stat-number">{{ section.settings.stat_1_number }}</div>
+          <div class="priyuja-hero__stat-label">{{ section.settings.stat_1_label }}</div>
+        </div>
+        <div class="priyuja-hero__stat">
+          <div class="priyuja-hero__stat-number">{{ section.settings.stat_2_number }}</div>
+          <div class="priyuja-hero__stat-label">{{ section.settings.stat_2_label }}</div>
+        </div>
+        <div class="priyuja-hero__stat">
+          <div class="priyuja-hero__stat-number">{{ section.settings.stat_3_number }}</div>
+          <div class="priyuja-hero__stat-label">{{ section.settings.stat_3_label }}</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="priyuja-hero__image">
+      <div class="priyuja-hero__image-wrap">
+        {%- if section.settings.hero_image != blank -%}
+          <img src="{{ section.settings.hero_image | image_url: width: 1200 }}"
+               alt="{{ section.settings.h1_line2 }}"
+               loading="eager"
+               width="1200"
+               height="1200">
+        {%- else -%}
+          <div class="priyuja-hero__image-placeholder"></div>
+        {%- endif -%}
+
+        {%- if section.settings.image_tag_name != blank -%}
+          <div class="priyuja-hero__image-tag">
+            <div class="priyuja-hero__image-tag-origin">{{ section.settings.image_tag_origin }}</div>
+            <div class="priyuja-hero__image-tag-name">{{ section.settings.image_tag_name }}</div>
+          </div>
+        {%- endif -%}
+      </div>
+    </div>
   </div>
 </div>
 
@@ -305,6 +693,8 @@
   (function() {
     var section = document.getElementById('shopify-section-{{ section.id }}');
     if (!section) return;
+
+    // Reveal animations
     var reveals = section.querySelectorAll('.reveal');
     var observer = new IntersectionObserver(function(entries) {
       entries.forEach(function(entry) {
@@ -320,16 +710,41 @@
       el.style.transition = 'opacity 0.6s ease ' + (i * 0.1) + 's, transform 0.6s ease ' + (i * 0.1) + 's';
       observer.observe(el);
     });
-    document.addEventListener('DOMContentLoaded', function() {
-      var visibles = section.querySelectorAll('.reveal.visible');
-      visibles.forEach(function(el) {
-        el.style.opacity = '1';
-        el.style.transform = 'translateY(0)';
-      });
-    });
     var style = document.createElement('style');
     style.textContent = '#shopify-section-{{ section.id }} .reveal.visible { opacity: 1 !important; transform: translateY(0) !important; }';
     document.head.appendChild(style);
+
+    // Mobile menu
+    var openBtn = section.querySelector('[data-mobile-menu-open]');
+    var closeBtn = section.querySelector('[data-mobile-menu-close]');
+    var overlay = section.querySelector('[data-mobile-overlay]');
+    var drawer = section.querySelector('[data-mobile-drawer]');
+
+    function openMenu() {
+      overlay.classList.add('open');
+      drawer.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeMenu() {
+      overlay.classList.remove('open');
+      drawer.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    if (openBtn) openBtn.addEventListener('click', openMenu);
+    if (closeBtn) closeBtn.addEventListener('click', closeMenu);
+    if (overlay) overlay.addEventListener('click', closeMenu);
+
+    // Mobile sub-menu toggles
+    var toggles = section.querySelectorAll('[data-mobile-toggle]');
+    toggles.forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var sub = btn.nextElementSibling;
+        if (sub) sub.classList.toggle('open');
+        var svg = btn.querySelector('svg');
+        if (svg) svg.style.transform = sub && sub.classList.contains('open') ? 'rotate(180deg)' : '';
+      });
+    });
   })();
 </script>
 
@@ -339,6 +754,10 @@
   "tag": "section",
   "class": "priyuja-section",
   "settings": [
+    {
+      "type": "header",
+      "content": "Logo"
+    },
     {
       "type": "image_picker",
       "id": "logo",
@@ -370,6 +789,25 @@
       "step": 10,
       "unit": "px",
       "info": "t:sections.header.blocks.logo.settings.mobile_logo_width.info"
+    },
+    {
+      "type": "header",
+      "content": "Nav CTA button"
+    },
+    {
+      "type": "text",
+      "id": "nav_cta_text",
+      "label": "CTA Button Text",
+      "default": "WhatsApp"
+    },
+    {
+      "type": "url",
+      "id": "nav_cta_url",
+      "label": "CTA Button URL"
+    },
+    {
+      "type": "header",
+      "content": "Hero content"
     },
     {
       "type": "text",
@@ -424,6 +862,10 @@
       "label": "Secondary CTA URL"
     },
     {
+      "type": "header",
+      "content": "Hero image"
+    },
+    {
       "type": "image_picker",
       "id": "hero_image",
       "label": "Hero Image"
@@ -439,6 +881,10 @@
       "id": "image_tag_name",
       "label": "Image Tag Name",
       "default": "Varanasi & Kolkata"
+    },
+    {
+      "type": "header",
+      "content": "Stats"
     },
     {
       "type": "text",
@@ -475,6 +921,42 @@
       "id": "stat_3_label",
       "label": "Stat 3 Label",
       "default": "Dispatch Promise"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "menu_item",
+      "name": "Menu Item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Label",
+          "default": "Menu item"
+        },
+        {
+          "type": "url",
+          "id": "url",
+          "label": "Link URL"
+        },
+        {
+          "type": "link_list",
+          "id": "mega_menu",
+          "label": "Mega Menu",
+          "info": "Select a Shopify navigation menu to show as a dropdown. Leave empty for a simple link."
+        },
+        {
+          "type": "text",
+          "id": "mega_title",
+          "label": "Mega Menu Title",
+          "info": "Optional heading above mega menu links."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Priyuja - Hero"
     }
   ]
 }

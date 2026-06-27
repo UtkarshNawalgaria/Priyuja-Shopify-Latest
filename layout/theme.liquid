@@ -42,6 +42,8 @@
 
     {%- render 'font-face' -%}
     {%- render 'css-variables' -%}
+    {%- render 'priyuja-fonts' -%}
+    {%- render 'priyuja-variables' -%}
 
     {{ 'theme.css' | asset_url | stylesheet_tag: preload: true }}
     {{ 'custom-style.css' | asset_url | stylesheet_tag: preload: true }}

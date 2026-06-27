@@ -1,0 +1,40 @@
+{
+  "sections": {
+    "saree-types": {
+      "type": "priyuja-saree-types",
+      "settings": {},
+      "blocks": {
+        "faq_1": {
+          "type": "faq",
+          "settings": {
+            "question": "How many types of Banarasi sarees are there?",
+            "answer": "Banarasi sarees come in many weaves; we supply twelve core fabrics — Katan silk, georgette, organza, tissue, cotton silk, chiffon, tussar, chiniya, satin, crepe, chanderi and linen."
+          }
+        },
+        "faq_2": {
+          "type": "faq",
+          "settings": {
+            "question": "Which Banarasi fabric is best for weddings?",
+            "answer": "Pure Katan silk and tissue are the richest, most popular choices for bridal and wedding wear."
+          }
+        },
+        "faq_3": {
+          "type": "faq",
+          "settings": {
+            "question": "Which Banarasi sarees are best for everyday boutique sales?",
+            "answer": "Georgette, cotton silk and chiffon are lightweight, broadly flattering and the fastest-moving everyday categories."
+          }
+        },
+        "faq_4": {
+          "type": "faq",
+          "settings": {
+            "question": "Do you supply all these fabrics wholesale?",
+            "answer": "Yes — every fabric here is available wholesale to boutiques, with a 15-piece first-order minimum, GST invoice and 24-hour dispatch."
+          }
+        }
+      },
+      "block_order": ["faq_1", "faq_2", "faq_3", "faq_4"]
+    }
+  },
+  "order": ["saree-types"]
+}

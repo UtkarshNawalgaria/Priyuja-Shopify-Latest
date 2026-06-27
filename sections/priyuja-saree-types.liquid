@@ -1,0 +1,427 @@
+{%- assign wa_link = section.settings.whatsapp_url | default: 'https://wa.me/919112044277' -%}
+
+<style>
+  #shopify-section-{{ section.id }} {
+    --maroon: var(--priyuja-maroon);
+    --maroon-deep: var(--priyuja-maroon-deep);
+    --maroon-light: var(--priyuja-maroon-light);
+    --gold: var(--priyuja-gold);
+    --gold-light: var(--priyuja-gold-light);
+    --gold-pale: var(--priyuja-gold-pale);
+    --cream: var(--priyuja-cream);
+    --dark: var(--priyuja-dark);
+    --text-mid: var(--priyuja-text-mid);
+    --text-light: var(--priyuja-text-light);
+    --line: var(--priyuja-line, #E6DCC8);
+    --card: var(--priyuja-card, #FFFFFF);
+    --surface: var(--priyuja-surface, #FFFCF6);
+    --font-heading: var(--priyuja-font-heading);
+    --font-body: var(--priyuja-font-body);
+  }
+  #shopify-section-{{ section.id }} * { box-sizing: border-box; }
+
+  .pst { font-family: var(--font-body); color: var(--dark); line-height: 1.65; background: var(--cream); }
+  .pst h1, .pst h2, .pst h3 { font-family: var(--font-heading); color: var(--maroon); margin: 0; line-height: 1.12; }
+  .pst__wrap { max-width: 1180px; margin: 0 auto; padding: 0 28px; }
+  .pst__eyebrow { letter-spacing: 2.5px; text-transform: uppercase; font-size: 12px; font-weight: 700; color: var(--gold); }
+  .pst__sec { padding: 48px 0; border-bottom: 1px solid var(--line); }
+
+  /* Breadcrumb */
+  .pst__crumb { font-size: 13px; color: var(--text-light); padding-top: 18px; }
+  .pst__crumb a { color: var(--text-light); text-decoration: none; }
+  .pst__crumb a:hover { color: var(--maroon); }
+  .pst__crumb span { color: var(--maroon); }
+
+  /* Intro */
+  .pst__intro { max-width: 780px; }
+  .pst__intro h1 { font-size: 48px; margin: 10px 0 14px; }
+  .pst__intro-lead { font-size: 18px; color: var(--text-mid); line-height: 1.6; }
+  .pst__intro-sub { color: var(--text-mid); }
+
+  /* Grid */
+  .pst__grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; margin-top: 28px; }
+  .pst__card { display: block; background: var(--card); border: 1px solid var(--line); border-radius: 12px; overflow: hidden; text-decoration: none; color: inherit; transition: box-shadow 0.15s ease, transform 0.15s ease; }
+  .pst__card:hover { box-shadow: 0 10px 28px rgba(74, 15, 28, 0.10); transform: translateY(-2px); }
+  .pst__card-img { aspect-ratio: 4 / 5; overflow: hidden; background: var(--surface); }
+  .pst__card-img img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s ease; }
+  .pst__card:hover .pst__card-img img { transform: scale(1.04); }
+  .pst__card-img-ph { width: 100%; height: 100%; background: repeating-linear-gradient(45deg, #efe7d6, #efe7d6 10px, #f3ecdd 10px, #f3ecdd 20px); display: flex; align-items: center; justify-content: center; color: var(--text-light); font-size: 12px; text-align: center; padding: 10px; }
+  .pst__card-body { padding: 14px 16px; }
+  .pst__card-body h3 { font-size: 21px; margin: 0 0 4px; }
+  .pst__card-body p { font-size: 13px; color: var(--text-mid); margin: 0; }
+  .pst__card-more { display: inline-block; margin-top: 8px; font-size: 13px; font-weight: 700; color: var(--gold); }
+
+  /* How to choose */
+  .pst__choose { max-width: 780px; }
+  .pst__choose h2 { font-size: 30px; margin: 6px 0 10px; }
+  .pst__choose p { color: var(--text-mid); }
+
+  /* FAQ */
+  .pst__faq-list { max-width: 840px; margin-top: 18px; }
+  .pst__faq-item { background: var(--card); border: 1px solid var(--line); border-radius: 10px; margin-bottom: 10px; overflow: hidden; }
+  .pst__faq-q { display: flex; justify-content: space-between; align-items: center; padding: 14px 18px; cursor: pointer; font-weight: 700; color: var(--dark); font-size: 15px; background: none; border: none; width: 100%; text-align: left; font-family: var(--font-body); }
+  .pst__faq-q:hover { background: var(--surface); }
+  .pst__faq-icon { color: var(--gold); font-size: 20px; font-weight: 700; transition: transform 0.3s ease; flex-shrink: 0; margin-left: 12px; }
+  .pst__faq-a { padding: 0 18px 14px; color: var(--text-mid); font-size: 14px; line-height: 1.7; display: none; }
+  .pst__faq-item.active .pst__faq-a { display: block; }
+  .pst__faq-item.active .pst__faq-icon { transform: rotate(45deg); }
+
+  /* CTA band */
+  .pst__cta { background: var(--maroon-deep); border: none; text-align: center; padding: 56px 0; }
+  .pst__cta h2 { color: #fff; font-size: 34px; }
+  .pst__cta p { color: var(--gold-pale); max-width: 560px; margin: 10px auto 22px; }
+  .pst__btn { display: inline-block; padding: 13px 26px; border-radius: 7px; font-weight: 700; font-size: 14px; text-decoration: none; font-family: var(--font-body); cursor: pointer; transition: background 0.3s ease, transform 0.3s ease; }
+  .pst__btn--gold { background: var(--gold); border: 1.5px solid var(--gold); color: var(--maroon-deep); }
+  .pst__btn--gold:hover { background: var(--gold-light); transform: translateY(-2px); }
+
+  @media (max-width: 900px) {
+    .pst__grid { grid-template-columns: repeat(2, 1fr); }
+    .pst__intro h1 { font-size: 36px; }
+  }
+  @media (max-width: 520px) {
+    .pst__grid { grid-template-columns: 1fr; }
+    .pst__sec { padding: 32px 0; }
+    .pst__wrap { padding: 0 18px; }
+  }
+</style>
+
+<div class="pst">
+
+  <!-- ===== BREADCRUMB ===== -->
+  <div class="pst__wrap pst__crumb">
+    <a href="{{ routes.root_url }}">Home</a> ›
+    <a href="{{ routes.root_url }}pages/wholesale-banarasi-sarees">Wholesale Banarasi Sarees</a> ›
+    <span>Types of Banarasi Sarees</span>
+  </div>
+
+  <!-- ===== INTRO ===== -->
+  <section class="pst__sec" style="border:none;padding-top:24px;">
+    <div class="pst__wrap">
+      <div class="pst__intro">
+        <div class="pst__eyebrow reveal">{{ section.settings.eyebrow | default: 'Fabric guide' }}</div>
+        <h1 class="reveal">{{ section.settings.heading | default: 'Types of Banarasi Sarees' }}</h1>
+        <p class="pst__intro-lead reveal">{{ section.settings.intro_paragraph_1 | default: "A Banarasi saree isn't one fabric — it's a whole family of weaves, each with its own feel, drape and best occasion. From the pure-silk richness of Katan to the breathable ease of linen, here are the varieties we weave and supply, with a page for each explaining how it's made, how to style it and how to care for it." }}</p>
+        <p class="pst__intro-sub reveal">{{ section.settings.intro_paragraph_2 | default: 'Tap any fabric to explore it in detail. Everything here is available wholesale to boutiques, with a 15-piece first-order minimum, GST invoicing and 24-hour dispatch.' }}</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FABRIC GRID (auto from metaobjects) ===== -->
+  <section class="pst__sec">
+    <div class="pst__wrap">
+      <div class="pst__eyebrow reveal">{{ section.settings.grid_eyebrow | default: 'All varieties' }}</div>
+      <h2 class="reveal" style="font-size:30px;margin-top:6px;">{{ section.settings.grid_heading | default: 'Explore each Banarasi fabric' }}</h2>
+
+      <div class="pst__grid">
+        {%- assign fabric_entries = shop.metaobjects.fabric.values -%}
+        {%- for fabric in fabric_entries -%}
+          {%- assign card_url = fabric.page_url | default: '#' -%}
+          <a class="pst__card reveal" href="{{ card_url }}">
+            <div class="pst__card-img">
+              {%- if fabric.hero_image != blank -%}
+                <img
+                  src="{{ fabric.hero_image | image_url: width: 600 }}"
+                  alt="{{ fabric.name }}"
+                  loading="lazy"
+                  width="600"
+                  height="750">
+              {%- elsif fabric.about_image != blank -%}
+                <img
+                  src="{{ fabric.about_image | image_url: width: 600 }}"
+                  alt="{{ fabric.name }}"
+                  loading="lazy"
+                  width="600"
+                  height="750">
+              {%- else -%}
+                <div class="pst__card-img-ph">{{ fabric.name }}</div>
+              {%- endif -%}
+            </div>
+            <div class="pst__card-body">
+              <h3>{{ fabric.name }}</h3>
+              {%- if fabric.hero_tagline != blank -%}
+                <p>{{ fabric.hero_tagline | truncate: 80 }}</p>
+              {%- endif -%}
+              <span class="pst__card-more">Explore →</span>
+            </div>
+          </a>
+        {%- endfor -%}
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== HOW TO CHOOSE ===== -->
+  <section class="pst__sec">
+    <div class="pst__wrap">
+      <div class="pst__choose">
+        <div class="pst__eyebrow reveal">{{ section.settings.choose_eyebrow | default: 'A quick guide' }}</div>
+        <h2 class="reveal">{{ section.settings.choose_heading | default: 'How to choose the right Banarasi fabric' }}</h2>
+        <p class="reveal">{{ section.settings.choose_body | default: "For weddings and bridal ranges, pure silks like Katan and tissue carry the richest look. For everyday and office sarees that move quickly in a boutique, georgette, cotton silk and chiffon are the easy sellers. Tussar and linen suit customers who love texture and natural tones, while satin and crepe bring a sleek, contemporary feel. Chanderi and organza sit in between — light and elegant for festive daytime wear." }}</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FAQ ACCORDION ===== -->
+  {%- assign faqs = section.blocks | where: 'type', 'faq' -%}
+  {%- if faqs.size > 0 -%}
+    <section class="pst__sec">
+      <div class="pst__wrap">
+        <div class="pst__eyebrow reveal">FAQs</div>
+        <h2 class="reveal" style="font-size:30px;margin-top:6px;">About Banarasi saree types</h2>
+        <div class="pst__faq-list">
+          {%- for block in faqs -%}
+            <div class="pst__faq-item reveal" {{ block.shopify_attributes }}>
+              <button class="pst__faq-q" aria-expanded="false" aria-controls="pst-faq-{{ section.id }}-{{ forloop.index }}">
+                {{ block.settings.question }}
+                <span class="pst__faq-icon">+</span>
+              </button>
+              <div class="pst__faq-a" id="pst-faq-{{ section.id }}-{{ forloop.index }}" role="region">
+                {{ block.settings.answer }}
+              </div>
+            </div>
+          {%- endfor -%}
+        </div>
+      </div>
+    </section>
+  {%- endif -%}
+
+  <!-- ===== CTA BAND ===== -->
+  <section class="pst__sec pst__cta">
+    <div class="pst__wrap">
+      <h2 class="reveal">{{ section.settings.cta_heading | default: 'Found the fabrics for your boutique?' }}</h2>
+      <p class="reveal">{{ section.settings.cta_body | default: 'See any of these collections live on a video call and order from 15 pieces.' }}</p>
+      <a class="pst__btn pst__btn--gold reveal" href="{{ wa_link }}" target="_blank" rel="noopener">Enquire on WhatsApp</a>
+    </div>
+  </section>
+
+</div>
+
+<!-- ===== ItemList JSON-LD ===== -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "Types of Banarasi Sarees",
+  "description": "All varieties of Banarasi sarees available wholesale from Priyuja.",
+  "numberOfItems": {{ fabric_entries.size }},
+  "itemListElement": [
+    {%- for fabric in fabric_entries -%}
+      {
+        "@type": "ListItem",
+        "position": {{ forloop.index }},
+        "name": {{ fabric.name | json }},
+        "url": "{{ shop.url }}{{ fabric.page_url }}"
+      }{%- unless forloop.last -%},{%- endunless -%}
+    {%- endfor -%}
+  ]
+}
+</script>
+
+<!-- ===== BreadcrumbList JSON-LD ===== -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "{{ shop.url }}" },
+    { "@type": "ListItem", "position": 2, "name": "Wholesale Banarasi Sarees", "item": "{{ shop.url }}/pages/wholesale-banarasi-sarees" },
+    { "@type": "ListItem", "position": 3, "name": "Types of Banarasi Sarees", "item": "{{ shop.url }}{{ page.url }}" }
+  ]
+}
+</script>
+
+<!-- ===== FAQPage JSON-LD ===== -->
+{%- if faqs.size > 0 -%}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {%- for block in faqs -%}
+        {
+          "@type": "Question",
+          "name": {{ block.settings.question | json }},
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": {{ block.settings.answer | strip_html | json }}
+          }
+        }{%- unless forloop.last -%},{%- endunless -%}
+      {%- endfor -%}
+    ]
+  }
+  </script>
+{%- endif -%}
+
+<!-- ===== Reveal animation ===== -->
+<script>
+  (function() {
+    var section = document.getElementById('shopify-section-{{ section.id }}');
+    if (!section) return;
+    var reveals = section.querySelectorAll('.reveal');
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    reveals.forEach(function(el, i) {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(24px)';
+      el.style.transition = 'opacity 0.6s ease ' + (i * 0.04) + 's, transform 0.6s ease ' + (i * 0.04) + 's';
+      observer.observe(el);
+    });
+    var style = document.createElement('style');
+    style.textContent = '#shopify-section-{{ section.id }} .reveal.visible { opacity: 1 !important; transform: translateY(0) !important; }';
+    document.head.appendChild(style);
+  })();
+</script>
+
+<!-- ===== FAQ accordion ===== -->
+<script>
+  (function() {
+    var section = document.getElementById('shopify-section-{{ section.id }}');
+    if (!section) return;
+    var faqItems = section.querySelectorAll('.pst__faq-item');
+    faqItems.forEach(function(item) {
+      var btn = item.querySelector('.pst__faq-q');
+      btn.addEventListener('click', function() {
+        var isActive = item.classList.contains('active');
+        faqItems.forEach(function(other) { other.classList.remove('active'); other.querySelector('.pst__faq-q').setAttribute('aria-expanded', 'false'); });
+        if (!isActive) {
+          item.classList.add('active');
+          btn.setAttribute('aria-expanded', 'true');
+        }
+      });
+      btn.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); btn.click(); }
+      });
+    });
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Priyuja - Saree Types Hub",
+  "tag": "section",
+  "class": "priyuja-section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "WhatsApp CTA"
+    },
+    {
+      "type": "url",
+      "id": "whatsapp_url",
+      "label": "WhatsApp URL"
+    },
+    {
+      "type": "header",
+      "content": "Intro"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "Fabric guide"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "H1 Heading",
+      "default": "Types of Banarasi Sarees"
+    },
+    {
+      "type": "textarea",
+      "id": "intro_paragraph_1",
+      "label": "Intro paragraph 1",
+      "default": "A Banarasi saree isn't one fabric — it's a whole family of weaves, each with its own feel, drape and best occasion. From the pure-silk richness of Katan to the breathable ease of linen, here are the varieties we weave and supply, with a page for each explaining how it's made, how to style it and how to care for it."
+    },
+    {
+      "type": "textarea",
+      "id": "intro_paragraph_2",
+      "label": "Intro paragraph 2",
+      "default": "Tap any fabric to explore it in detail. Everything here is available wholesale to boutiques, with a 15-piece first-order minimum, GST invoicing and 24-hour dispatch."
+    },
+    {
+      "type": "header",
+      "content": "Fabric Grid"
+    },
+    {
+      "type": "text",
+      "id": "grid_eyebrow",
+      "label": "Grid Eyebrow",
+      "default": "All varieties"
+    },
+    {
+      "type": "text",
+      "id": "grid_heading",
+      "label": "Grid Heading",
+      "default": "Explore each Banarasi fabric"
+    },
+    {
+      "type": "header",
+      "content": "How to Choose"
+    },
+    {
+      "type": "text",
+      "id": "choose_eyebrow",
+      "label": "Eyebrow",
+      "default": "A quick guide"
+    },
+    {
+      "type": "text",
+      "id": "choose_heading",
+      "label": "Heading",
+      "default": "How to choose the right Banarasi fabric"
+    },
+    {
+      "type": "textarea",
+      "id": "choose_body",
+      "label": "Body",
+      "default": "For weddings and bridal ranges, pure silks like Katan and tissue carry the richest look. For everyday and office sarees that move quickly in a boutique, georgette, cotton silk and chiffon are the easy sellers. Tussar and linen suit customers who love texture and natural tones, while satin and crepe bring a sleek, contemporary feel. Chanderi and organza sit in between — light and elegant for festive daytime wear."
+    },
+    {
+      "type": "header",
+      "content": "CTA Band"
+    },
+    {
+      "type": "text",
+      "id": "cta_heading",
+      "label": "CTA Heading",
+      "default": "Found the fabrics for your boutique?"
+    },
+    {
+      "type": "textarea",
+      "id": "cta_body",
+      "label": "CTA Body",
+      "default": "See any of these collections live on a video call and order from 15 pieces."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "faq",
+      "name": "FAQ",
+      "settings": [
+        {
+          "type": "text",
+          "id": "question",
+          "label": "Question",
+          "default": "Question?"
+        },
+        {
+          "type": "textarea",
+          "id": "answer",
+          "label": "Answer",
+          "default": "Answer text."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Priyuja - Saree Types Hub"
+    }
+  ]
+}
+{% endschema %}

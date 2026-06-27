@@ -1,18 +1,16 @@
-{%- render 'priyuja-fonts' -%}
-
 <style>
   #shopify-section-{{ section.id }} {
-    --cream: #F7F2E8;
-    --maroon: #6B1628;
-    --maroon-light: #8B2035;
-    --maroon-deep: #4A0F1C;
-    --gold: #C4922A;
-    --gold-light: #D4A84A;
-    --dark: #1C1209;
-    --text-mid: #6B5040;
-    --text-light: #9A7A60;
-    --font-heading: 'Cormorant Garamond', serif;
-    --font-body: 'DM Sans', sans-serif;
+    --cream: var(--priyuja-cream);
+    --maroon: var(--priyuja-maroon);
+    --maroon-light: var(--priyuja-maroon-light);
+    --maroon-deep: var(--priyuja-maroon-deep);
+    --gold: var(--priyuja-gold);
+    --gold-light: var(--priyuja-gold-light);
+    --dark: var(--priyuja-dark);
+    --text-mid: var(--priyuja-text-mid);
+    --text-light: var(--priyuja-text-light);
+    --font-heading: var(--priyuja-font-heading);
+    --font-body: var(--priyuja-font-body);
   }
 
   #shopify-section-{{ section.id }} .priyuja-collections {

@@ -1,13 +1,11 @@
-{%- render 'priyuja-fonts' -%}
-
 <style>
   #shopify-section-{{ section.id }} {
-    --cream: #F7F2E8;
-    --maroon: #6B1628;
-    --gold: #C4922A;
-    --gold-light: #D4A84A;
-    --dark: #1C1209;
-    --font-body: 'DM Sans', sans-serif;
+    --cream: var(--priyuja-cream);
+    --maroon: var(--priyuja-maroon);
+    --gold: var(--priyuja-gold);
+    --gold-light: var(--priyuja-gold-light);
+    --dark: var(--priyuja-dark);
+    --font-body: var(--priyuja-font-body);
   }
 
   #shopify-section-{{ section.id }} .priyuja-trust-bar {
