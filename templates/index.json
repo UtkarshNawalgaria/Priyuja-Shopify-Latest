@@ -196,9 +196,10 @@
         "col-1": {
           "type": "collection_card",
           "settings": {
+            "image": "shopify://shop_images/banarasi_silk_sarees.webp",
             "origin": "Varanasi, Uttar Pradesh",
             "name": "Banarasi Silk Sarees",
-            "price": "From ₹2,500 per piece wholesale"
+            "price": ""
           }
         },
         "col-2": {
