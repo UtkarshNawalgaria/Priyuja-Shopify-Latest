@@ -236,7 +236,7 @@
         <div class="priyuja-fp__about-body">
           <div class="priyuja-fp__eyebrow reveal">About the weave</div>
           <h2 class="reveal">{{ fabric.about_heading | default: fabric_name }}</h2>
-          <div class="reveal">{{ fabric.about_body }}</div>
+          <div class="reveal">{{ fabric.about_body | metafield_tag }}</div>
         </div>
       </div>
     </section>
@@ -249,7 +249,7 @@
         <div class="priyuja-fp__eyebrow reveal">The craft</div>
         <h2 class="reveal">How {{ fabric_name }} is made</h2>
         <div class="priyuja-fp__howmade-body reveal" style="margin-top: 16px;">
-          {{ fabric.how_its_made }}
+          {{ fabric.how_its_made | metafield_tag }}
         </div>
       </div>
     </section>
@@ -325,14 +325,14 @@
             <div class="priyuja-fp__card priyuja-fp__sc-card reveal">
               <div class="priyuja-fp__eyebrow">Styling guidance to pass on</div>
               <h3>How to style {{ fabric_name }}</h3>
-              <div class="priyuja-fp__sc-body">{{ fabric.styling_tips }}</div>
+              <div class="priyuja-fp__sc-body">{{ fabric.styling_tips | metafield_tag }}</div>
             </div>
           {%- endif -%}
           {%- if fabric.care_tips != blank -%}
             <div class="priyuja-fp__card priyuja-fp__sc-card reveal">
               <div class="priyuja-fp__eyebrow">Care & handling</div>
               <h3>Storing, handling & care</h3>
-              <div class="priyuja-fp__sc-body">{{ fabric.care_tips }}</div>
+              <div class="priyuja-fp__sc-body">{{ fabric.care_tips | metafield_tag }}</div>
             </div>
           {%- endif -%}
         </div>
@@ -399,7 +399,7 @@
                 <span class="priyuja-fp__faq-icon">+</span>
               </button>
               <div class="priyuja-fp__faq-a" id="faq-{{ section.id }}-{{ forloop.index }}" role="region">
-                {{ faq_entry.answer }}
+                {{ faq_entry.answer | metafield_tag }}
               </div>
             </div>
           {%- endfor -%}
