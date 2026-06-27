@@ -207,7 +207,7 @@
           "settings": {
             "origin": "Kolkata, West Bengal",
             "name": "Georgette Sarees",
-            "price": "From ₹1,000 per piece wholesale"
+            "price": ""
           }
         },
         "col-3": {
@@ -215,15 +215,15 @@
           "settings": {
             "origin": "Varanasi, Uttar Pradesh",
             "name": "Organza Sarees",
-            "price": "From ₹1,800 per piece wholesale"
+            "price": ""
           }
         },
         "col-4": {
           "type": "collection_card",
           "settings": {
-            "origin": "Kolkata, West Bengal",
-            "name": "Chiffon Sarees",
-            "price": "From ₹1,200 per piece wholesale"
+            "origin": "Varanasi, Uttar Pradesh",
+            "name": "Paper Silk Sarees",
+            "price": ""
           }
         },
         "col-5": {
@@ -231,7 +231,7 @@
           "settings": {
             "origin": "Varanasi, Uttar Pradesh",
             "name": "Tussar Silk Sarees",
-            "price": "From ₹2,000 per piece wholesale"
+            "price": ""
           }
         }
       },
