@@ -11,10 +11,36 @@
   "sections": {
     "priyuja-hero": {
       "type": "priyuja-hero",
+      "blocks": {
+        "menu_item_6dXJcE": {
+          "type": "menu_item",
+          "settings": {
+            "label": "Sarees",
+            "url": "",
+            "mega_menu": "sarees",
+            "mega_title": ""
+          }
+        },
+        "menu_item_DQLiAr": {
+          "type": "menu_item",
+          "settings": {
+            "label": "Our Stores",
+            "url": "",
+            "mega_menu": "stores",
+            "mega_title": ""
+          }
+        }
+      },
+      "block_order": [
+        "menu_item_6dXJcE",
+        "menu_item_DQLiAr"
+      ],
       "settings": {
         "logo": "shopify://shop_images/priyuja-logo.png",
         "desktop_logo_width": 200,
         "mobile_logo_width": 140,
+        "nav_cta_text": "WhatsApp",
+        "nav_cta_url": "",
         "eyebrow": "Wholesale Sarees — Direct from Varanasi & Kolkata",
         "h1_line1": "Curated Sarees for",
         "h1_line2": "Discerning Boutiques",
@@ -199,7 +225,8 @@
             "image": "shopify://shop_images/banarasi_silk_sarees.webp",
             "origin": "Varanasi, Uttar Pradesh",
             "name": "Banarasi Silk Sarees",
-            "price": ""
+            "price": "",
+            "url": ""
           }
         },
         "col-2": {
@@ -207,7 +234,8 @@
           "settings": {
             "origin": "Kolkata, West Bengal",
             "name": "Georgette Sarees",
-            "price": ""
+            "price": "",
+            "url": ""
           }
         },
         "col-3": {
@@ -215,7 +243,8 @@
           "settings": {
             "origin": "Varanasi, Uttar Pradesh",
             "name": "Organza Sarees",
-            "price": ""
+            "price": "",
+            "url": ""
           }
         },
         "col-4": {
@@ -223,7 +252,8 @@
           "settings": {
             "origin": "Varanasi, Uttar Pradesh",
             "name": "Paper Silk Sarees",
-            "price": ""
+            "price": "",
+            "url": ""
           }
         },
         "col-5": {
@@ -231,7 +261,8 @@
           "settings": {
             "origin": "Varanasi, Uttar Pradesh",
             "name": "Tussar Silk Sarees",
-            "price": ""
+            "price": "",
+            "url": ""
           }
         }
       },
