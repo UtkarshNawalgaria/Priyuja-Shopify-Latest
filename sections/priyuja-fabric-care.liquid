@@ -1,0 +1,127 @@
+{%- assign fabric = page.metafields.custom.fabric.value -%}
+{%- if fabric == blank -%}{%- break -%}{%- endif -%}
+{%- assign fabric_name = fabric.name -%}
+
+{%- if fabric.styling_tips == blank and fabric.care_tips == blank -%}{%- break -%}{%- endif -%}
+
+<style>
+  #shopify-section-{{ section.id }} {
+    --maroon: var(--priyuja-maroon);
+    --maroon-deep: var(--priyuja-maroon-deep);
+    --maroon-light: var(--priyuja-maroon-light);
+    --gold: var(--priyuja-gold);
+    --gold-light: var(--priyuja-gold-light);
+    --gold-pale: var(--priyuja-gold-pale);
+    --cream: var(--priyuja-cream);
+    --dark: var(--priyuja-dark);
+    --text-mid: var(--priyuja-text-mid);
+    --text-light: var(--priyuja-text-light);
+    --line: var(--priyuja-line, #E6DCC8);
+    --card: var(--priyuja-card, #FFFFFF);
+    --surface: var(--priyuja-surface, #FFFCF6);
+    --font-heading: var(--priyuja-font-heading);
+    --font-body: var(--priyuja-font-body);
+    --section-max-width: {%- case section.settings.container_width -%}{%- when 'narrow' -%}840px{%- when 'wide' -%}1400px{%- when 'full' -%}100%{%- else -%}1180px{%- endcase -%};
+    --section-v-pad: {%- case section.settings.section_padding -%}{%- when 'none' -%}0{%- when 'small' -%}32px{%- when 'large' -%}96px{%- else -%}46px{%- endcase -%};
+    --section-v-pad-mobile: {%- case section.settings.section_padding -%}{%- when 'none' -%}0{%- when 'small' -%}20px{%- when 'large' -%}64px{%- else -%}32px{%- endcase -%};
+    --heading-font-size: {%- case section.settings.heading_size -%}{%- when 'small' -%}24px{%- when 'large' -%}44px{%- else -%}34px{%- endcase -%};
+  }
+
+  #shopify-section-{{ section.id }} * { box-sizing: border-box; }
+
+  #shopify-section-{{ section.id }} .priyuja-fp-care { font-family: var(--font-body); color: var(--dark); line-height: 1.65; padding: var(--section-v-pad) 0; border-bottom: 1px solid var(--line); }
+  #shopify-section-{{ section.id }} .priyuja-fp-care__wrap { max-width: var(--section-max-width); margin: 0 auto; padding: 0 28px; }
+  #shopify-section-{{ section.id }} .priyuja-fp-care__eyebrow { font-family: var(--font-body); letter-spacing: 2.5px; text-transform: uppercase; font-size: 12px; font-weight: 700; color: var(--gold); }
+  #shopify-section-{{ section.id }} .priyuja-fp-care h2 { font-family: var(--font-heading); color: var(--maroon); font-size: var(--heading-font-size); margin: 6px 0 0; line-height: 1.12; }
+  #shopify-section-{{ section.id }} .priyuja-fp-care__intro { color: var(--text-mid); margin: -6px 0 18px; }
+  #shopify-section-{{ section.id }} .priyuja-fp-care__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+  #shopify-section-{{ section.id }} .priyuja-fp-care__card { background: var(--card); border: 1px solid var(--line); border-radius: 12px; overflow: hidden; padding: 22px; }
+  #shopify-section-{{ section.id }} .priyuja-fp-care__card h3 { font-family: var(--font-heading); color: var(--maroon); font-size: 24px; margin: 6px 0 10px; line-height: 1.12; }
+  #shopify-section-{{ section.id }} .priyuja-fp-care__body { font-size: 14px; color: var(--text-mid); line-height: 1.7; }
+
+  @media (max-width: 760px) {
+    #shopify-section-{{ section.id }} .priyuja-fp-care__grid { grid-template-columns: 1fr; }
+    #shopify-section-{{ section.id }} .priyuja-fp-care { padding: var(--section-v-pad-mobile) 0; }
+    #shopify-section-{{ section.id }} .priyuja-fp-care__wrap { padding: 0 18px; }
+  }
+</style>
+
+<section class="priyuja-fp-care">
+  <div class="priyuja-fp-care__wrap">
+    <div class="priyuja-fp-care__eyebrow reveal">For boutique owners</div>
+    <h2 class="reveal">Styling & care your customers will thank you for</h2>
+    <p class="priyuja-fp-care__intro reveal">Know how to style and care for each fabric so you can guide your customers with confidence — and keep every saree in perfect condition before it reaches them.</p>
+    <div class="priyuja-fp-care__grid">
+      {%- if fabric.styling_tips != blank -%}
+        <div class="priyuja-fp-care__card reveal">
+          <div class="priyuja-fp-care__eyebrow">Styling guidance to pass on</div>
+          <h3>How to style {{ fabric_name }}</h3>
+          <div class="priyuja-fp-care__body">{{ fabric.styling_tips | metafield_tag }}</div>
+        </div>
+      {%- endif -%}
+      {%- if fabric.care_tips != blank -%}
+        <div class="priyuja-fp-care__card reveal">
+          <div class="priyuja-fp-care__eyebrow">Care & handling</div>
+          <h3>Storing, handling & care</h3>
+          <div class="priyuja-fp-care__body">{{ fabric.care_tips | metafield_tag }}</div>
+        </div>
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+
+{%- render 'priyuja-reveal', section_id: section.id -%}
+
+{% schema %}
+{
+  "name": "Fabric — Styling & Care",
+  "tag": "div",
+  "class": "priyuja-section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "select",
+      "id": "container_width",
+      "label": "Container width",
+      "options": [
+        { "value": "narrow", "label": "Narrow (840px)" },
+        { "value": "default", "label": "Default (1180px)" },
+        { "value": "wide", "label": "Wide (1400px)" },
+        { "value": "full", "label": "Full width (100%)" }
+      ],
+      "default": "default"
+    },
+    {
+      "type": "select",
+      "id": "section_padding",
+      "label": "Section padding",
+      "options": [
+        { "value": "none", "label": "None" },
+        { "value": "small", "label": "Small" },
+        { "value": "medium", "label": "Medium" },
+        { "value": "large", "label": "Large" }
+      ],
+      "default": "medium"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "label": "Heading size",
+      "options": [
+        { "value": "small", "label": "Small (24px)" },
+        { "value": "medium", "label": "Medium (default)" },
+        { "value": "large", "label": "Large (44px)" }
+      ],
+      "default": "medium"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Fabric — Styling & Care"
+    }
+  ]
+}
+{% endschema %}

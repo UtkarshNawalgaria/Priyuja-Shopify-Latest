@@ -149,8 +149,9 @@
 
     <div id="PageContainer" class="page-container">
       <div class="transition-body">
+        {%- sections 'header-group' -%}
+
         {% if template.name != "index" or settings.use_landing_page == false %}
-          {%- sections 'header-group' -%}
           {%- sections 'popup-group' -%}
         {% endif %}
 

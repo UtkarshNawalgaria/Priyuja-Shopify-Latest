@@ -1,0 +1,100 @@
+<style>
+  #shopify-section-{{ section.id }} {
+    --maroon: var(--priyuja-maroon);
+    --gold: var(--priyuja-gold);
+    --cream: var(--priyuja-cream);
+    --dark: var(--priyuja-dark);
+    --text-mid: var(--priyuja-text-mid);
+    --font-heading: var(--priyuja-font-heading);
+    --font-body: var(--priyuja-font-body);
+    --section-max-width: {%- case section.settings.container_width -%}{%- when 'narrow' -%}840px{%- when 'wide' -%}1400px{%- when 'full' -%}100%{%- else -%}1180px{%- endcase -%};
+    --section-v-pad-top: {%- case section.settings.section_padding -%}{%- when 'none' -%}0{%- when 'small' -%}16px{%- when 'large' -%}48px{%- else -%}24px{%- endcase -%};
+    --section-v-pad-bottom: {%- case section.settings.section_padding -%}{%- when 'none' -%}0{%- when 'small' -%}24px{%- when 'large' -%}72px{%- else -%}48px{%- endcase -%};
+    --heading-font-size: {%- case section.settings.heading_size -%}{%- when 'small' -%}36px{%- when 'large' -%}56px{%- else -%}48px{%- endcase -%};
+  }
+  #shopify-section-{{ section.id }} .pst-intro { background: var(--cream); font-family: var(--font-body); padding: var(--section-v-pad-top) 0 var(--section-v-pad-bottom); }
+  #shopify-section-{{ section.id }} .pst-intro__wrap { max-width: var(--section-max-width); margin: 0 auto; padding: 0 28px; }
+  #shopify-section-{{ section.id }} .pst-intro__inner { }
+  #shopify-section-{{ section.id }} .pst-intro__eyebrow { letter-spacing: 2.5px; text-transform: uppercase; font-size: 12px; font-weight: 700; color: var(--gold); }
+  #shopify-section-{{ section.id }} .pst-intro h1 { font-family: var(--font-heading); font-size: var(--heading-font-size); color: var(--maroon); margin: 10px 0 14px; line-height: 1.12; }
+  #shopify-section-{{ section.id }} .pst-intro__lead { font-size: 18px; color: var(--text-mid); line-height: 1.6; }
+  #shopify-section-{{ section.id }} .pst-intro__sub { color: var(--text-mid); }
+  @media (max-width: 520px) {
+    #shopify-section-{{ section.id }} {
+      --section-v-pad-top: {%- case section.settings.section_padding -%}{%- when 'none' -%}0{%- when 'small' -%}10px{%- when 'large' -%}32px{%- else -%}18px{%- endcase -%};
+      --section-v-pad-bottom: {%- case section.settings.section_padding -%}{%- when 'none' -%}0{%- when 'small' -%}18px{%- when 'large' -%}48px{%- else -%}32px{%- endcase -%};
+      --heading-font-size: {%- case section.settings.heading_size -%}{%- when 'small' -%}28px{%- when 'large' -%}42px{%- else -%}36px{%- endcase -%};
+    }
+    #shopify-section-{{ section.id }} .pst-intro h1 { font-size: var(--heading-font-size); }
+    #shopify-section-{{ section.id }} .pst-intro__wrap { padding: 0 18px; }
+    #shopify-section-{{ section.id }} .pst-intro { padding: var(--section-v-pad-top) 0 var(--section-v-pad-bottom); }
+  }
+</style>
+
+<div class="pst-intro">
+  <div class="pst-intro__wrap">
+    <div class="pst-intro__inner">
+      <div class="pst-intro__eyebrow reveal">{{ section.settings.eyebrow | default: 'Fabric guide' }}</div>
+      <h1 class="reveal">{{ section.settings.heading | default: 'Types of Banarasi Sarees' }}</h1>
+      <p class="pst-intro__lead reveal">{{ section.settings.paragraph_1 | default: "A Banarasi saree isn't one fabric — it's a whole family of weaves, each with its own feel, drape and best occasion. From the pure-silk richness of Katan to the breathable ease of linen, here are the varieties we weave and supply, with a page for each explaining how it's made, how to style it and how to care for it." }}</p>
+      <p class="pst-intro__sub reveal">{{ section.settings.paragraph_2 | default: 'Tap any fabric to explore it in detail. Everything here is available wholesale to boutiques, with a 15-piece first-order minimum, GST invoicing and 24-hour dispatch.' }}</p>
+    </div>
+  </div>
+</div>
+
+{%- render 'priyuja-reveal', section_id: section.id -%}
+
+{% schema %}
+{
+  "name": "Priyuja - Saree Intro",
+  "tag": "section",
+  "class": "priyuja-section",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Fabric guide" },
+    { "type": "text", "id": "heading", "label": "H1 Heading", "default": "Types of Banarasi Sarees" },
+    { "type": "textarea", "id": "paragraph_1", "label": "Intro paragraph 1", "default": "A Banarasi saree isn't one fabric — it's a whole family of weaves, each with its own feel, drape and best occasion. From the pure-silk richness of Katan to the breathable ease of linen, here are the varieties we weave and supply, with a page for each explaining how it's made, how to style it and how to care for it." },
+    { "type": "textarea", "id": "paragraph_2", "label": "Intro paragraph 2", "default": "Tap any fabric to explore it in detail. Everything here is available wholesale to boutiques, with a 15-piece first-order minimum, GST invoicing and 24-hour dispatch." },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "select",
+      "id": "container_width",
+      "label": "Container width",
+      "options": [
+        { "value": "narrow", "label": "Narrow (840px)" },
+        { "value": "default", "label": "Default (1180px)" },
+        { "value": "wide", "label": "Wide (1400px)" },
+        { "value": "full", "label": "Full width" }
+      ],
+      "default": "default"
+    },
+    {
+      "type": "select",
+      "id": "section_padding",
+      "label": "Section padding",
+      "options": [
+        { "value": "none", "label": "None" },
+        { "value": "small", "label": "Small" },
+        { "value": "medium", "label": "Medium" },
+        { "value": "large", "label": "Large" }
+      ],
+      "default": "medium"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "label": "Heading size",
+      "options": [
+        { "value": "small", "label": "Small" },
+        { "value": "medium", "label": "Medium" },
+        { "value": "large", "label": "Large" }
+      ],
+      "default": "medium"
+    }
+  ],
+  "blocks": [],
+  "presets": [{ "name": "Priyuja - Saree Intro" }]
+}
+{% endschema %}

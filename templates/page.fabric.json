@@ -1,8 +1,91 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
-    "fabric-page": {
-      "type": "priyuja-fabric-page",
+    "breadcrumb": {
+      "type": "priyuja-breadcrumb",
       "settings": {
+        "mid_label": "Banarasi Saree Types",
+        "mid_url": "/pages/wholesale-banarasi-sarees",
+        "current_label": "",
+        "section_padding": "medium"
+      }
+    },
+    "hero": {
+      "type": "priyuja-fabric-hero",
+      "settings": {
+        "whatsapp_url": "",
+        "video_call_url": "",
+        "container_width": "wide",
+        "section_padding": "medium",
+        "reverse_columns": false,
+        "heading_size": "medium"
+      }
+    },
+    "facts": {
+      "type": "priyuja-fabric-facts",
+      "settings": {
+        "whatsapp_url": "",
+        "container_width": "default",
+        "section_padding": "medium",
+        "desktop_columns": 4,
+        "heading_size": "medium"
+      }
+    },
+    "about": {
+      "type": "priyuja-fabric-about",
+      "settings": {
+        "container_width": "default",
+        "section_padding": "medium",
+        "reverse_columns": false,
+        "heading_size": "medium"
+      }
+    },
+    "process": {
+      "type": "priyuja-fabric-process",
+      "settings": {
+        "container_width": "wide",
+        "section_padding": "medium",
+        "heading_size": "medium"
+      }
+    },
+    "types": {
+      "type": "priyuja-fabric-types",
+      "settings": {
+        "container_width": "default",
+        "section_padding": "medium",
+        "desktop_columns": 4,
+        "heading_size": "medium"
+      }
+    },
+    "lookbook": {
+      "type": "priyuja-fabric-lookbook",
+      "settings": {
+        "container_width": "default",
+        "section_padding": "medium",
+        "desktop_columns": 3,
+        "heading_size": "medium"
+      }
+    },
+    "care": {
+      "type": "priyuja-fabric-care",
+      "settings": {
+        "container_width": "default",
+        "section_padding": "medium",
+        "heading_size": "medium"
+      }
+    },
+    "terms": {
+      "type": "priyuja-wholesale-terms-grid",
+      "settings": {
+        "heading": "Wholesale terms",
         "term_1_label": "First order MOQ",
         "term_1_value": "15 pieces — mix & match",
         "term_2_label": "Pricing",
@@ -16,9 +99,59 @@
         "term_6_label": "Reorders",
         "term_6_value": "No minimum quantity"
       }
+    },
+    "how-it-works": {
+      "type": "priyuja-how-it-works",
+      "settings": {
+        "section_label": "The Process",
+        "h2_line1": "How Ordering",
+        "h2_line2": "Works",
+        "descriptor": "From your first WhatsApp message to doorstep delivery — our streamlined process is designed for busy boutique owners."
+      }
+    },
+    "faq": {
+      "type": "priyuja-fabric-faq",
+      "settings": {
+        "eyebrow": "FAQs",
+        "heading": "Common questions",
+        "container_width": "narrow",
+        "section_padding": "medium",
+        "heading_size": "medium"
+      }
+    },
+    "related": {
+      "type": "priyuja-fabric-related",
+      "settings": {
+        "container_width": "default",
+        "section_padding": "medium"
+      }
+    },
+    "cta": {
+      "type": "priyuja-cta-band",
+      "settings": {
+        "heading": "Ready to stock this fabric?",
+        "body": "Message us on WhatsApp to browse the collection via video call, get wholesale rates, and place your first order.",
+        "cta_text": "Enquire on WhatsApp",
+        "cta_url": "",
+        "container_width": "default",
+        "section_padding": "medium",
+        "heading_size": "medium"
+      }
     }
   },
   "order": [
-    "fabric-page"
+    "breadcrumb",
+    "hero",
+    "facts",
+    "about",
+    "process",
+    "types",
+    "lookbook",
+    "care",
+    "terms",
+    "how-it-works",
+    "faq",
+    "related",
+    "cta"
   ]
 }

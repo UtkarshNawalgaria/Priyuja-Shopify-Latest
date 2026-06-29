@@ -1,0 +1,138 @@
+{%- assign fabric = page.metafields.custom.fabric.value -%}
+{%- if fabric == blank -%}{%- break -%}{%- endif -%}
+{%- assign fabric_name = fabric.name -%}
+
+{%- if fabric.about_body == blank -%}{%- break -%}{%- endif -%}
+
+<style>
+  #shopify-section-{{ section.id }} {
+    --maroon: var(--priyuja-maroon);
+    --maroon-deep: var(--priyuja-maroon-deep);
+    --maroon-light: var(--priyuja-maroon-light);
+    --gold: var(--priyuja-gold);
+    --gold-light: var(--priyuja-gold-light);
+    --gold-pale: var(--priyuja-gold-pale);
+    --cream: var(--priyuja-cream);
+    --dark: var(--priyuja-dark);
+    --text-mid: var(--priyuja-text-mid);
+    --text-light: var(--priyuja-text-light);
+    --line: var(--priyuja-line, #E6DCC8);
+    --card: var(--priyuja-card, #FFFFFF);
+    --surface: var(--priyuja-surface, #FFFCF6);
+    --font-heading: var(--priyuja-font-heading);
+    --font-body: var(--priyuja-font-body);
+    --section-max-width: {%- case section.settings.container_width -%}{%- when 'narrow' -%}840px{%- when 'wide' -%}1400px{%- when 'full' -%}100%{%- else -%}1180px{%- endcase -%};
+    --section-v-pad: {%- case section.settings.section_padding -%}{%- when 'none' -%}0{%- when 'small' -%}32px{%- when 'large' -%}96px{%- else -%}46px{%- endcase -%};
+    --section-v-pad-mobile: {%- case section.settings.section_padding -%}{%- when 'none' -%}0{%- when 'small' -%}20px{%- when 'large' -%}64px{%- else -%}32px{%- endcase -%};
+    --heading-font-size: {%- case section.settings.heading_size -%}{%- when 'small' -%}24px{%- when 'large' -%}44px{%- else -%}34px{%- endcase -%};
+  }
+
+  #shopify-section-{{ section.id }} * { box-sizing: border-box; }
+
+  #shopify-section-{{ section.id }} .priyuja-fp-about { font-family: var(--font-body); color: var(--dark); line-height: 1.65; padding: var(--section-v-pad) 0; border-bottom: 1px solid var(--line); }
+  #shopify-section-{{ section.id }} .priyuja-fp-about__wrap { max-width: var(--section-max-width); margin: 0 auto; padding: 0 28px; }
+  #shopify-section-{{ section.id }} .priyuja-fp-about__eyebrow { font-family: var(--font-body); letter-spacing: 2.5px; text-transform: uppercase; font-size: 12px; font-weight: 700; color: var(--gold); }
+  #shopify-section-{{ section.id }} .priyuja-fp-about__grid { display: grid; grid-template-columns: 0.85fr 1.15fr; align-items: center; gap: 40px; }
+  #shopify-section-{{ section.id }} .priyuja-fp-about__img img { width: 100%; height: 340px; object-fit: cover; display: block; border-radius: 12px; }
+  #shopify-section-{{ section.id }} .priyuja-fp-about__img-placeholder { width: 100%; height: 340px; background: linear-gradient(135deg, var(--maroon-deep) 0%, var(--maroon) 50%, var(--gold) 100%); border-radius: 12px; }
+  #shopify-section-{{ section.id }} .priyuja-fp-about__body { color: var(--text-mid); }
+  #shopify-section-{{ section.id }} .priyuja-fp-about__body h2 { font-family: var(--font-heading); color: var(--maroon); font-size: var(--heading-font-size); margin: 8px 0 12px; line-height: 1.12; }
+
+  @media (max-width: 760px) {
+    #shopify-section-{{ section.id }} .priyuja-fp-about__grid { grid-template-columns: 1fr; }
+    #shopify-section-{{ section.id }} .priyuja-fp-about { padding: var(--section-v-pad-mobile) 0; }
+    #shopify-section-{{ section.id }} .priyuja-fp-about__wrap { padding: 0 18px; }
+  }
+</style>
+
+<section class="priyuja-fp-about">
+  <div class="priyuja-fp-about__wrap priyuja-fp-about__grid">
+    <div class="priyuja-fp-about__img">
+      {%- if fabric.about_image != blank -%}
+        <img
+          src="{{ fabric.about_image | image_url: width: 700 }}"
+          alt="{{ fabric.about_heading | default: fabric_name }}"
+          loading="lazy"
+          width="700"
+          height="500"
+        >
+      {%- else -%}
+        <div class="priyuja-fp-about__img-placeholder"></div>
+      {%- endif -%}
+    </div>
+    <div class="priyuja-fp-about__body">
+      <div class="priyuja-fp-about__eyebrow reveal">About the weave</div>
+      <h2 class="reveal">{{ fabric.about_heading | default: fabric_name }}</h2>
+      <div class="reveal">{{ fabric.about_body | metafield_tag }}</div>
+    </div>
+  </div>
+</section>
+
+{%- if section.settings.reverse_columns -%}
+<style>
+#shopify-section-{{ section.id }} .priyuja-fp-about__grid { direction: rtl; }
+#shopify-section-{{ section.id }} .priyuja-fp-about__grid > * { direction: ltr; }
+</style>
+{%- endif -%}
+
+{%- render 'priyuja-reveal', section_id: section.id -%}
+
+{% schema %}
+{
+  "name": "Fabric — About",
+  "tag": "div",
+  "class": "priyuja-section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "select",
+      "id": "container_width",
+      "label": "Container width",
+      "options": [
+        { "value": "narrow", "label": "Narrow (840px)" },
+        { "value": "default", "label": "Default (1180px)" },
+        { "value": "wide", "label": "Wide (1400px)" },
+        { "value": "full", "label": "Full width (100%)" }
+      ],
+      "default": "default"
+    },
+    {
+      "type": "select",
+      "id": "section_padding",
+      "label": "Section padding",
+      "options": [
+        { "value": "none", "label": "None" },
+        { "value": "small", "label": "Small" },
+        { "value": "medium", "label": "Medium" },
+        { "value": "large", "label": "Large" }
+      ],
+      "default": "medium"
+    },
+    {
+      "type": "checkbox",
+      "id": "reverse_columns",
+      "label": "Reverse column order",
+      "default": false
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "label": "Heading size",
+      "options": [
+        { "value": "small", "label": "Small (24px)" },
+        { "value": "medium", "label": "Medium (default)" },
+        { "value": "large", "label": "Large (44px)" }
+      ],
+      "default": "medium"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Fabric — About"
+    }
+  ]
+}
+{% endschema %}

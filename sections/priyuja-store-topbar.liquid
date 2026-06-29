@@ -1,0 +1,78 @@
+<style>
+  #shopify-section-{{ section.id }} {
+    --maroon: var(--priyuja-maroon);
+    --maroon-deep: var(--priyuja-maroon-deep);
+    --maroon-light: var(--priyuja-maroon-light);
+    --gold: var(--priyuja-gold);
+    --gold-light: var(--priyuja-gold-light);
+    --gold-pale: var(--priyuja-gold-pale);
+    --cream: var(--priyuja-cream);
+    --dark: var(--priyuja-dark);
+    --text-mid: var(--priyuja-text-mid);
+    --text-light: var(--priyuja-text-light);
+    --line: var(--priyuja-line, #E6DCC8);
+    --card: var(--priyuja-card, #FFFFFF);
+    --surface: var(--priyuja-surface, #FFFCF6);
+    --font-heading: var(--priyuja-font-heading);
+    --font-body: var(--priyuja-font-body);
+    --section-max-width: {%- case section.settings.container_width -%}{%- when 'narrow' -%}840px{%- when 'wide' -%}1400px{%- when 'full' -%}100%{%- else -%}1180px{%- endcase -%};
+    --section-v-pad: {%- case section.settings.section_padding -%}{%- when 'none' -%}0{%- when 'small' -%}32px{%- when 'large' -%}96px{%- else -%}9px{%- endcase -%};
+  }
+  #shopify-section-{{ section.id }} * { box-sizing: border-box; }
+
+  .pvs-topbar { background: var(--maroon-deep); color: #f3e7d8; font-size: 12.5px; text-align: center; padding: var(--section-v-pad) 14px; letter-spacing: .3px; font-family: var(--font-body); line-height: 1.65; max-width: var(--section-max-width); margin: 0 auto; }
+  .pvs-topbar strong { color: var(--gold-light); font-weight: 700; }
+</style>
+
+<div class="pvs-topbar">
+  {{ section.settings.topbar_text }}
+</div>
+
+{% schema %}
+{
+  "name": "Priyuja - Store Topbar",
+  "tag": "section",
+  "class": "priyuja-section",
+  "settings": [
+    {
+      "type": "inline_richtext",
+      "id": "topbar_text",
+      "label": "Topbar Text",
+      "default": "Wholesale only · <strong>Now open in Varanasi</strong> · Custom colour from our shade card · GST invoice · 24-hour dispatch"
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "select",
+      "id": "container_width",
+      "label": "Container width",
+      "options": [
+        { "value": "narrow", "label": "Narrow (840px)" },
+        { "value": "default", "label": "Default (1180px)" },
+        { "value": "wide", "label": "Wide (1400px)" },
+        { "value": "full", "label": "Full width (100%)" }
+      ],
+      "default": "default"
+    },
+    {
+      "type": "select",
+      "id": "section_padding",
+      "label": "Section padding",
+      "options": [
+        { "value": "none", "label": "None" },
+        { "value": "small", "label": "Small" },
+        { "value": "medium", "label": "Medium" },
+        { "value": "large", "label": "Large" }
+      ],
+      "default": "medium"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Priyuja - Store Topbar"
+    }
+  ]
+}
+{% endschema %}

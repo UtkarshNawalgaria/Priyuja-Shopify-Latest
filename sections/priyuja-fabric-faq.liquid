@@ -1,0 +1,270 @@
+<style>
+  #shopify-section-{{ section.id }} {
+    --maroon: var(--priyuja-maroon);
+    --maroon-deep: var(--priyuja-maroon-deep);
+    --gold: var(--priyuja-gold);
+    --gold-light: var(--priyuja-gold-light);
+    --gold-pale: var(--priyuja-gold-pale);
+    --cream: var(--priyuja-cream);
+    --dark: var(--priyuja-dark);
+    --text-mid: var(--priyuja-text-mid);
+    --text-light: var(--priyuja-text-light);
+    --line: var(--priyuja-line, #E6DCC8);
+    --card: var(--priyuja-card, #FFFFFF);
+    --surface: var(--priyuja-surface, #FFFCF6);
+    --font-heading: var(--priyuja-font-heading);
+    --font-body: var(--priyuja-font-body);
+    --section-max-width: {%- case section.settings.container_width -%}{%- when 'narrow' -%}840px{%- when 'wide' -%}1400px{%- when 'full' -%}100%{%- else -%}1180px{%- endcase -%};
+    --section-v-pad: {%- case section.settings.section_padding -%}{%- when 'none' -%}0{%- when 'small' -%}32px{%- when 'large' -%}96px{%- else -%}72px{%- endcase -%};
+    --heading-font-size: {%- case section.settings.heading_size -%}{%- when 'small' -%}28px{%- when 'large' -%}44px{%- else -%}36px{%- endcase -%};
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-faq {
+    background: var(--cream);
+    padding: var(--section-v-pad) 24px;
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-faq__inner {
+    max-width: var(--section-max-width);
+    margin: 0 auto;
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-faq__eyebrow {
+    text-align: center;
+    font-family: var(--font-body);
+    font-size: 13px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--maroon);
+    margin-bottom: 10px;
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-faq__heading {
+    text-align: center;
+    font-family: var(--font-heading);
+    font-size: var(--heading-font-size);
+    color: var(--dark);
+    margin: 0 0 40px;
+    font-weight: 400;
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-faq__item {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    margin-bottom: 12px;
+    overflow: hidden;
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-faq__question {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 24px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: var(--font-body);
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--dark);
+    text-align: left;
+    transition: background 0.2s ease;
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-faq__question:hover {
+    background: var(--surface);
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-faq__icon {
+    color: var(--gold);
+    font-size: 22px;
+    font-weight: 700;
+    transition: transform 0.3s ease;
+    flex-shrink: 0;
+    margin-left: 16px;
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-faq__item.active .priyuja-faq__icon {
+    transform: rotate(45deg);
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-faq__answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease;
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-faq__answer-inner {
+    padding: 0 24px 20px;
+    font-family: var(--font-body);
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--text-mid);
+  }
+
+  @media (max-width: 749px) {
+    #shopify-section-{{ section.id }} {
+      --section-v-pad: {%- case section.settings.section_padding -%}{%- when 'none' -%}0{%- when 'small' -%}20px{%- when 'large' -%}64px{%- else -%}48px{%- endcase -%};
+      --heading-font-size: {%- case section.settings.heading_size -%}{%- when 'small' -%}22px{%- when 'large' -%}34px{%- else -%}28px{%- endcase -%};
+    }
+
+    #shopify-section-{{ section.id }} .priyuja-faq {
+      padding: var(--section-v-pad) 16px;
+    }
+
+    #shopify-section-{{ section.id }} .priyuja-faq__heading {
+      font-size: var(--heading-font-size);
+      margin-bottom: 28px;
+    }
+
+    #shopify-section-{{ section.id }} .priyuja-faq__question {
+      padding: 16px 18px;
+      font-size: 15px;
+    }
+
+    #shopify-section-{{ section.id }} .priyuja-faq__answer-inner {
+      padding: 0 18px 16px;
+    }
+  }
+</style>
+
+{%- assign fabric = page.metafields.custom.fabric.value -%}
+{%- assign faq_items = fabric.faqs.value -%}
+
+{%- if faq_items != blank and faq_items.size > 0 -%}
+<div class="priyuja-faq">
+  <div class="priyuja-faq__inner">
+    {%- if section.settings.eyebrow != blank -%}
+      <p class="priyuja-faq__eyebrow reveal">{{ section.settings.eyebrow }}</p>
+    {%- endif -%}
+    <h2 class="priyuja-faq__heading reveal">{{ section.settings.heading }}</h2>
+
+    {%- for faq_entry in faq_items -%}
+      <div class="priyuja-faq__item reveal">
+        <button class="priyuja-faq__question" aria-expanded="false" aria-controls="faq-{{ section.id }}-{{ forloop.index }}">
+          <span>{{ faq_entry.question }}</span>
+          <span class="priyuja-faq__icon">+</span>
+        </button>
+        <div class="priyuja-faq__answer" id="faq-{{ section.id }}-{{ forloop.index }}" role="region">
+          <div class="priyuja-faq__answer-inner">{{ faq_entry.answer | metafield_tag }}</div>
+        </div>
+      </div>
+    {%- endfor -%}
+  </div>
+</div>
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {%- for faq_entry in faq_items -%}
+        {
+          "@type": "Question",
+          "name": {{ faq_entry.question | json }},
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": {{ faq_entry.answer | strip_html | json }}
+          }
+        }{%- unless forloop.last -%},{%- endunless -%}
+      {%- endfor -%}
+    ]
+  }
+</script>
+
+<script>
+  (function() {
+    var section = document.getElementById('shopify-section-{{ section.id }}');
+    if (!section) return;
+    var items = section.querySelectorAll('.priyuja-faq__item');
+    items.forEach(function(item) {
+      var btn = item.querySelector('.priyuja-faq__question');
+      var answer = item.querySelector('.priyuja-faq__answer');
+      btn.addEventListener('click', function() {
+        var isActive = item.classList.contains('active');
+        items.forEach(function(other) {
+          other.classList.remove('active');
+          other.querySelector('.priyuja-faq__question').setAttribute('aria-expanded', 'false');
+          other.querySelector('.priyuja-faq__answer').style.maxHeight = null;
+        });
+        if (!isActive) {
+          item.classList.add('active');
+          btn.setAttribute('aria-expanded', 'true');
+          answer.style.maxHeight = answer.scrollHeight + 'px';
+        }
+      });
+    });
+  })();
+</script>
+{%- endif -%}
+
+{%- render 'priyuja-reveal', section_id: section.id -%}
+
+{% schema %}
+{
+  "name": "Priyuja Fabric FAQ",
+  "tag": "section",
+  "class": "priyuja-faq-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "FAQs"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Common questions"
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "select",
+      "id": "container_width",
+      "label": "Container width",
+      "options": [
+        { "value": "narrow", "label": "Narrow (840px)" },
+        { "value": "default", "label": "Default (1180px)" },
+        { "value": "wide", "label": "Wide (1400px)" },
+        { "value": "full", "label": "Full width" }
+      ],
+      "default": "narrow"
+    },
+    {
+      "type": "select",
+      "id": "section_padding",
+      "label": "Section padding",
+      "options": [
+        { "value": "none", "label": "None" },
+        { "value": "small", "label": "Small" },
+        { "value": "medium", "label": "Medium" },
+        { "value": "large", "label": "Large" }
+      ],
+      "default": "medium"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "label": "Heading size",
+      "options": [
+        { "value": "small", "label": "Small" },
+        { "value": "medium", "label": "Medium" },
+        { "value": "large", "label": "Large" }
+      ],
+      "default": "medium"
+    }
+  ],
+  "blocks": [],
+  "presets": [
+    {
+      "name": "Priyuja Fabric FAQ"
+    }
+  ]
+}
+{% endschema %}

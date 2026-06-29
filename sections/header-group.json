@@ -11,70 +11,42 @@
   "type": "header",
   "name": "t:sections.header-group.name",
   "sections": {
-    "announcement": {
-      "type": "announcement",
+    "priyuja-header": {
+      "type": "priyuja-header",
       "blocks": {
-        "announcement-0": {
-          "type": "announcement",
+        "menu_item_sarees": {
+          "type": "menu_item",
           "settings": {
-            "text": "Use CODE - FIRST10",
-            "link_text": "Get 10% OFF First Purchase",
-            "link": ""
+            "label": "Sarees",
+            "url": "",
+            "mega_menu": "sarees",
+            "mega_title": ""
           }
         },
-        "announcement_JctViF": {
-          "type": "announcement",
+        "menu_item_stores": {
+          "type": "menu_item",
           "settings": {
-            "text": "Free Shipping all over India",
-            "link_text": "",
-            "link": ""
+            "label": "Our Stores",
+            "url": "",
+            "mega_menu": "stores",
+            "mega_title": ""
           }
         }
       },
       "block_order": [
-        "announcement-0",
-        "announcement_JctViF"
+        "menu_item_sarees",
+        "menu_item_stores"
       ],
-      "disabled": true,
       "settings": {
-        "announcement_compact": true
-      }
-    },
-    "header": {
-      "type": "header",
-      "blocks": {
-        "header-0": {
-          "type": "logo",
-          "settings": {
-            "logo": "shopify://shop_images/priyuja-logo.png",
-            "desktop_logo_width": 140,
-            "mobile_logo_width": 160
-          }
-        }
-      },
-      "block_order": [
-        "header-0"
-      ],
-      "custom_css": [],
-      "settings": {
-        "main_menu_link_list": "new-main-menu",
-        "hover_menu": true,
-        "mega_menu_images": true,
-        "main_menu_alignment": "center",
-        "header_style": "sticky",
-        "sticky_index": false,
-        "sticky_collection": false,
-        "show_cart": false,
-        "toolbar_menu": "",
-        "toolbar_social": false,
-        "show_locale_selector": true,
-        "show_currency_selector": false,
-        "show_currency_flags": false
+        "logo": "shopify://shop_images/priyuja-logo.png",
+        "desktop_logo_width": 200,
+        "mobile_logo_width": 140,
+        "nav_cta_text": "WhatsApp",
+        "nav_cta_url": ""
       }
     }
   },
   "order": [
-    "announcement",
-    "header"
+    "priyuja-header"
   ]
 }

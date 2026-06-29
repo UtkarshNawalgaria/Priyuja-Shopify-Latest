@@ -1,0 +1,222 @@
+{%- assign wa_link = section.settings.whatsapp_url | default: 'https://wa.me/919112044277' -%}
+
+<style>
+  #shopify-section-{{ section.id }} {
+    --maroon: var(--priyuja-maroon);
+    --maroon-deep: var(--priyuja-maroon-deep);
+    --maroon-light: var(--priyuja-maroon-light);
+    --gold: var(--priyuja-gold);
+    --gold-light: var(--priyuja-gold-light);
+    --gold-pale: var(--priyuja-gold-pale);
+    --cream: var(--priyuja-cream);
+    --dark: var(--priyuja-dark);
+    --text-mid: var(--priyuja-text-mid);
+    --text-light: var(--priyuja-text-light);
+    --line: var(--priyuja-line, #E6DCC8);
+    --card: var(--priyuja-card, #FFFFFF);
+    --surface: var(--priyuja-surface, #FFFCF6);
+    --font-heading: var(--priyuja-font-heading);
+    --font-body: var(--priyuja-font-body);
+    --section-max-width: {%- case section.settings.container_width -%}{%- when 'narrow' -%}840px{%- when 'wide' -%}1400px{%- when 'full' -%}100%{%- else -%}1180px{%- endcase -%};
+    --section-v-pad: {%- case section.settings.section_padding -%}{%- when 'none' -%}0{%- when 'small' -%}32px{%- when 'large' -%}96px{%- else -%}54px{%- endcase -%};
+    --heading-font-size: {%- case section.settings.heading_size -%}{%- when 'small' -%}38px{%- when 'large' -%}60px{%- else -%}50px{%- endcase -%};
+  }
+  #shopify-section-{{ section.id }} * { box-sizing: border-box; }
+
+  .pvs-hero { font-family: var(--font-body); color: var(--dark); line-height: 1.65; background: var(--cream); padding: var(--section-v-pad) 0; }
+  .pvs-hero h1, .pvs-hero h2, .pvs-hero h3 { font-family: var(--font-heading); color: var(--maroon); margin: 0; line-height: 1.12; }
+  .pvs-hero__wrap { max-width: var(--section-max-width); margin: 0 auto; padding: 0 28px; }
+  .pvs-hero__eyebrow { font-family: var(--font-body); letter-spacing: 2.5px; text-transform: uppercase; font-size: 12px; font-weight: 700; color: var(--gold); }
+  .pvs-hero__grid { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 20px; align-items: center; }
+  .pvs-hero h1 { font-size: var(--heading-font-size); margin: 10px 0 14px; }
+  .pvs-hero__sub { font-size: 19px; color: var(--text-mid); max-width: 560px; line-height: 1.6; }
+  .pvs-hero__ctas { display: flex; gap: 12px; margin-top: 26px; flex-wrap: wrap; }
+  .pvs-hero__btn { display: inline-block; padding: 13px 26px; border-radius: 7px; font-weight: 700; font-size: 14px; text-decoration: none; border: 1.5px solid var(--maroon); font-family: var(--font-body); cursor: pointer; transition: background 0.3s ease, transform 0.3s ease; }
+  .pvs-hero__btn--primary { background: var(--maroon); color: #fff; }
+  .pvs-hero__btn--primary:hover { background: var(--maroon-light); transform: translateY(-2px); }
+  .pvs-hero__btn--ghost { background: transparent; color: var(--maroon); }
+  .pvs-hero__btn--ghost:hover { background: var(--maroon); color: #fff; }
+  .pvs-hero__img img { width: 100%; height: 440px; object-fit: cover; display: block; border-radius: 12px; }
+  .pvs-hero__img-ph { width: 100%; background: linear-gradient(135deg, var(--maroon-deep) 0%, var(--maroon) 50%, var(--gold) 100%); border-radius: 12px; }
+  .pvs-hero__trust { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 22px; }
+  .pvs-hero__trust span { font-size: 12.5px; font-weight: 600; color: var(--text-mid); background: var(--surface); border: 1px solid var(--line); border-radius: 20px; padding: 7px 13px; }
+
+  @media (max-width: 820px) {
+    .pvs-hero__grid { grid-template-columns: 1fr !important; }
+    .pvs-hero h1 { font-size: clamp(28px, var(--heading-font-size) * 0.68, var(--heading-font-size)); }
+    .pvs-hero { padding: calc(var(--section-v-pad) * 0.65) 0; }
+    .pvs-hero__wrap { padding: 0 18px; }
+  }
+</style>
+{%- if section.settings.reverse_columns -%}
+<style>
+  #shopify-section-{{ section.id }} .pvs-hero__grid { direction: rtl; }
+  #shopify-section-{{ section.id }} .pvs-hero__grid > * { direction: ltr; }
+</style>
+{%- endif -%}
+
+<section class="pvs-hero">
+  <div class="pvs-hero__wrap pvs-hero__grid">
+    <div>
+      <div class="pvs-hero__eyebrow reveal">{{ section.settings.eyebrow | default: 'Direct from Varanasi · Wholesale for boutiques' }}</div>
+      <h1 class="reveal">{{ section.settings.heading | default: 'Wholesale Banarasi Saree Manufacturer in Varanasi' }}</h1>
+      <p class="pvs-hero__sub reveal">{{ section.settings.subheading }}</p>
+      <div class="pvs-hero__ctas reveal">
+        <a class="pvs-hero__btn pvs-hero__btn--primary" href="{{ wa_link }}" target="_blank" rel="noopener">Enquire on WhatsApp</a>
+        <a class="pvs-hero__btn pvs-hero__btn--ghost" href="{{ section.settings.anchor_target | default: '#pvs-custom' }}">{{ section.settings.anchor_text | default: 'See Custom Colour' }}</a>
+      </div>
+      <div class="pvs-hero__trust reveal">
+        <span>🧵 Pure handloom silk</span>
+        <span>🎨 Custom colour shade card</span>
+        <span>🏭 Direct from Varanasi looms</span>
+        <span>📦 MOQ 15 pieces</span>
+        <span>📋 GST invoice</span>
+        <span>⚡ 24-hr dispatch</span>
+      </div>
+    </div>
+    <div class="pvs-hero__img">
+      {%- if section.settings.hero_image != blank -%}
+        <img src="{{ section.settings.hero_image | image_url: width: 800 }}" alt="{{ section.settings.heading }}" loading="eager" width="800" height="560">
+      {%- else -%}
+        <div class="pvs-hero__img-ph" style="height:440px;"></div>
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Priyuja — Varanasi Store",
+    "description": "Wholesale Banarasi saree manufacturer in Varanasi. Pure handloom Banarasi silk sarees and custom-colour weaves, wholesale to boutiques across India.",
+    "telephone": "+91-91120-44277",
+    "url": "{{ shop.url }}{{ page.url }}",
+    "areaServed": {
+      "@type": "Country",
+      "name": "IN"
+    },
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Varanasi",
+      "addressRegion": "Uttar Pradesh",
+      "addressCountry": "IN"
+      {%- if section.settings.store_address != blank -%}
+        ,"streetAddress": {{ section.settings.store_address | json }}
+      {%- endif -%}
+    },
+    "parentOrganization": {
+      "@type": "Organization",
+      "name": "Olivecloud Tech Pvt Ltd",
+      "taxID": "27AADCO1764H1ZE"
+    }
+  }
+</script>
+
+{%- render 'priyuja-reveal', section_id: section.id -%}
+
+{% schema %}
+{
+  "name": "Priyuja - Store Hero",
+  "tag": "section",
+  "class": "priyuja-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "Direct from Varanasi · Wholesale for boutiques"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "H1 Heading",
+      "default": "Wholesale Banarasi Saree Manufacturer in Varanasi"
+    },
+    {
+      "type": "textarea",
+      "id": "subheading",
+      "label": "Sub-paragraph",
+      "default": "Our Varanasi store puts us at the source. We supply pure handloom Banarasi silk sarees — and our full range of other fabrics — wholesale to boutiques across India. And because we are right at the looms, you can now choose your own colour from our shade card and have it woven to order."
+    },
+    {
+      "type": "image_picker",
+      "id": "hero_image",
+      "label": "Hero Image"
+    },
+    {
+      "type": "url",
+      "id": "whatsapp_url",
+      "label": "WhatsApp URL"
+    },
+    {
+      "type": "text",
+      "id": "anchor_text",
+      "label": "Ghost Button Text",
+      "default": "See Custom Colour"
+    },
+    {
+      "type": "text",
+      "id": "anchor_target",
+      "label": "Ghost Button Anchor Target",
+      "default": "#pvs-custom"
+    },
+    {
+      "type": "text",
+      "id": "store_address",
+      "label": "⚠ Store Address (leave blank until confirmed)",
+      "info": "Used in LocalBusiness JSON-LD schema only."
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "select",
+      "id": "container_width",
+      "label": "Container width",
+      "options": [
+        { "value": "narrow", "label": "Narrow (840px)" },
+        { "value": "default", "label": "Default (1180px)" },
+        { "value": "wide", "label": "Wide (1400px)" },
+        { "value": "full", "label": "Full width (100%)" }
+      ],
+      "default": "default"
+    },
+    {
+      "type": "select",
+      "id": "section_padding",
+      "label": "Section padding",
+      "options": [
+        { "value": "none", "label": "None" },
+        { "value": "small", "label": "Small" },
+        { "value": "medium", "label": "Medium" },
+        { "value": "large", "label": "Large" }
+      ],
+      "default": "medium"
+    },
+    {
+      "type": "checkbox",
+      "id": "reverse_columns",
+      "label": "Reverse column order",
+      "default": false
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "label": "Heading size",
+      "options": [
+        { "value": "small", "label": "Small" },
+        { "value": "medium", "label": "Medium" },
+        { "value": "large", "label": "Large" }
+      ],
+      "default": "medium"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Priyuja - Store Hero"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,106 @@
+{%- assign fabric = page.metafields.custom.fabric.value -%}
+{%- if fabric == blank -%}{%- break -%}{%- endif -%}
+{%- assign fabric_name = fabric.name -%}
+
+{%- assign all_fabrics = shop.metaobjects.fabric.values -%}
+{%- if all_fabrics.size <= 1 -%}{%- break -%}{%- endif -%}
+
+<style>
+  #shopify-section-{{ section.id }} {
+    --maroon: var(--priyuja-maroon);
+    --maroon-deep: var(--priyuja-maroon-deep);
+    --maroon-light: var(--priyuja-maroon-light);
+    --gold: var(--priyuja-gold);
+    --gold-light: var(--priyuja-gold-light);
+    --gold-pale: var(--priyuja-gold-pale);
+    --cream: var(--priyuja-cream);
+    --dark: var(--priyuja-dark);
+    --text-mid: var(--priyuja-text-mid);
+    --text-light: var(--priyuja-text-light);
+    --line: var(--priyuja-line, #E6DCC8);
+    --card: var(--priyuja-card, #FFFFFF);
+    --surface: var(--priyuja-surface, #FFFCF6);
+    --font-heading: var(--priyuja-font-heading);
+    --font-body: var(--priyuja-font-body);
+    --section-max-width: {%- case section.settings.container_width -%}{%- when 'narrow' -%}840px{%- when 'wide' -%}1400px{%- when 'full' -%}100%{%- else -%}1180px{%- endcase -%};
+    --section-v-pad: {%- case section.settings.section_padding -%}{%- when 'none' -%}0{%- when 'small' -%}32px{%- when 'large' -%}96px{%- else -%}46px{%- endcase -%};
+    --section-v-pad-mobile: {%- case section.settings.section_padding -%}{%- when 'none' -%}0{%- when 'small' -%}20px{%- when 'large' -%}64px{%- else -%}32px{%- endcase -%};
+  }
+
+  #shopify-section-{{ section.id }} * { box-sizing: border-box; }
+
+  #shopify-section-{{ section.id }} .priyuja-fp-related { font-family: var(--font-body); color: var(--dark); line-height: 1.65; padding: var(--section-v-pad) 0; border-bottom: 1px solid var(--line); }
+  #shopify-section-{{ section.id }} .priyuja-fp-related__wrap { max-width: var(--section-max-width); margin: 0 auto; padding: 0 28px; }
+  #shopify-section-{{ section.id }} .priyuja-fp-related__eyebrow { font-family: var(--font-body); letter-spacing: 2.5px; text-transform: uppercase; font-size: 12px; font-weight: 700; color: var(--gold); }
+  #shopify-section-{{ section.id }} .priyuja-fp-related h2 { font-family: var(--font-heading); color: var(--maroon); font-size: 30px; margin: 6px 0 18px; line-height: 1.12; }
+  #shopify-section-{{ section.id }} .priyuja-fp-related__links { display: flex; gap: 10px; flex-wrap: wrap; }
+  #shopify-section-{{ section.id }} .priyuja-fp-related__link { display: inline-block; padding: 9px 16px; font-size: 13px; border-radius: 7px; font-weight: 700; text-decoration: none; border: 1.5px solid var(--maroon); color: var(--maroon); background: transparent; font-family: var(--font-body); transition: background 0.3s, color 0.3s; }
+  #shopify-section-{{ section.id }} .priyuja-fp-related__link:hover { background: var(--maroon); color: #fff; }
+
+  @media (max-width: 760px) {
+    #shopify-section-{{ section.id }} .priyuja-fp-related { padding: var(--section-v-pad-mobile) 0; }
+    #shopify-section-{{ section.id }} .priyuja-fp-related__wrap { padding: 0 18px; }
+  }
+</style>
+
+<section class="priyuja-fp-related">
+  <div class="priyuja-fp-related__wrap">
+    <div class="priyuja-fp-related__eyebrow reveal">Explore more</div>
+    <h2 class="reveal">Other wholesale Banarasi fabrics</h2>
+    <div class="priyuja-fp-related__links reveal">
+      {%- for other_fabric in all_fabrics -%}
+        {%- if other_fabric.name != fabric_name -%}
+          {%- assign fabric_handle = other_fabric.system.handle -%}
+          <a class="priyuja-fp-related__link" href="{{ routes.root_url }}pages/{{ fabric_handle }}-banarasi-silk-saree-wholesaler">
+            {{ other_fabric.name }}
+          </a>
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{%- render 'priyuja-reveal', section_id: section.id -%}
+
+{% schema %}
+{
+  "name": "Fabric — Related",
+  "tag": "div",
+  "class": "priyuja-section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "select",
+      "id": "container_width",
+      "label": "Container width",
+      "options": [
+        { "value": "narrow", "label": "Narrow (840px)" },
+        { "value": "default", "label": "Default (1180px)" },
+        { "value": "wide", "label": "Wide (1400px)" },
+        { "value": "full", "label": "Full width (100%)" }
+      ],
+      "default": "default"
+    },
+    {
+      "type": "select",
+      "id": "section_padding",
+      "label": "Section padding",
+      "options": [
+        { "value": "none", "label": "None" },
+        { "value": "small", "label": "Small" },
+        { "value": "medium", "label": "Medium" },
+        { "value": "large", "label": "Large" }
+      ],
+      "default": "medium"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Fabric — Related"
+    }
+  ]
+}
+{% endschema %}

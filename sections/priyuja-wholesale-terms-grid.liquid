@@ -1,0 +1,243 @@
+<style>
+  #shopify-section-{{ section.id }} {
+    --maroon: var(--priyuja-maroon);
+    --maroon-deep: var(--priyuja-maroon-deep);
+    --maroon-light: var(--priyuja-maroon-light);
+    --gold: var(--priyuja-gold);
+    --gold-light: var(--priyuja-gold-light);
+    --gold-pale: var(--priyuja-gold-pale);
+    --cream: var(--priyuja-cream);
+    --dark: var(--priyuja-dark);
+    --text-mid: var(--priyuja-text-mid);
+    --text-light: var(--priyuja-text-light);
+    --line: var(--priyuja-line, #E6DCC8);
+    --card: var(--priyuja-card, #FFFFFF);
+    --surface: var(--priyuja-surface, #FFFCF6);
+    --font-heading: var(--priyuja-font-heading);
+    --font-body: var(--priyuja-font-body);
+    --section-max-width: {%- case section.settings.container_width -%}{%- when 'narrow' -%}840px{%- when 'wide' -%}1400px{%- when 'full' -%}100%{%- else -%}1180px{%- endcase -%};
+    --section-v-pad: {%- case section.settings.section_padding -%}{%- when 'none' -%}0{%- when 'small' -%}32px{%- when 'large' -%}96px{%- else -%}54px{%- endcase -%};
+    --heading-font-size: {%- case section.settings.heading_size -%}{%- when 'small' -%}24px{%- when 'large' -%}44px{%- else -%}32px{%- endcase -%};
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-terms {
+    background: var(--maroon);
+    padding: var(--section-v-pad) 24px;
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-terms__inner {
+    max-width: var(--section-max-width);
+    margin: 0 auto;
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-terms__heading {
+    font-family: var(--font-heading);
+    font-size: var(--heading-font-size);
+    color: #fff;
+    text-align: center;
+    margin: 0 0 40px;
+    font-weight: 400;
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-terms__grid {
+    display: grid;
+    grid-template-columns: repeat({{ section.settings.desktop_columns }}, 1fr);
+    gap: 32px 40px;
+    color: #f3e7d8;
+    font-family: var(--font-body);
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-terms__label {
+    color: var(--gold-light);
+    display: block;
+    margin-bottom: 4px;
+    font-weight: 600;
+    font-size: 14px;
+  }
+
+  @media (max-width: 749px) {
+    #shopify-section-{{ section.id }} {
+      --section-v-pad: {%- case section.settings.section_padding -%}{%- when 'none' -%}0{%- when 'small' -%}20px{%- when 'large' -%}64px{%- else -%}40px{%- endcase -%};
+      --heading-font-size: {%- case section.settings.heading_size -%}{%- when 'small' -%}20px{%- when 'large' -%}34px{%- else -%}26px{%- endcase -%};
+    }
+
+    #shopify-section-{{ section.id }} .priyuja-terms {
+      padding: var(--section-v-pad) 20px;
+    }
+
+    #shopify-section-{{ section.id }} .priyuja-terms__heading {
+      font-size: var(--heading-font-size);
+      margin-bottom: 28px;
+    }
+
+    #shopify-section-{{ section.id }} .priyuja-terms__grid {
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+  }
+</style>
+
+<div class="priyuja-terms">
+  <div class="priyuja-terms__inner">
+    <h2 class="priyuja-terms__heading reveal">{{ section.settings.heading }}</h2>
+    <div class="priyuja-terms__grid">
+      {%- for i in (1..6) -%}
+        {%- assign label_key = 'term_' | append: i | append: '_label' -%}
+        {%- assign value_key = 'term_' | append: i | append: '_value' -%}
+        {%- assign label = section.settings[label_key] -%}
+        {%- assign value = section.settings[value_key] -%}
+        {%- if label != blank or value != blank -%}
+          <div class="priyuja-terms__item reveal">
+            <strong class="priyuja-terms__label">{{ label }}</strong>
+            {{ value }}
+          </div>
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
+
+{%- render 'priyuja-reveal', section_id: section.id -%}
+
+{% schema %}
+{
+  "name": "Priyuja Wholesale Terms",
+  "tag": "section",
+  "class": "priyuja-terms-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Wholesale terms"
+    },
+    {
+      "type": "text",
+      "id": "term_1_label",
+      "label": "Term 1 label",
+      "default": "First order MOQ"
+    },
+    {
+      "type": "text",
+      "id": "term_1_value",
+      "label": "Term 1 value",
+      "default": "15 pieces — mix & match any designs"
+    },
+    {
+      "type": "text",
+      "id": "term_2_label",
+      "label": "Term 2 label",
+      "default": "Reorders"
+    },
+    {
+      "type": "text",
+      "id": "term_2_value",
+      "label": "Term 2 value",
+      "default": "No minimum quantity"
+    },
+    {
+      "type": "text",
+      "id": "term_3_label",
+      "label": "Term 3 label",
+      "default": "Custom colour"
+    },
+    {
+      "type": "text",
+      "id": "term_3_value",
+      "label": "Term 3 value",
+      "default": "Minimum applies per shade"
+    },
+    {
+      "type": "text",
+      "id": "term_4_label",
+      "label": "Term 4 label",
+      "default": "Payment"
+    },
+    {
+      "type": "text",
+      "id": "term_4_value",
+      "label": "Term 4 value",
+      "default": "100% advance · no COD"
+    },
+    {
+      "type": "text",
+      "id": "term_5_label",
+      "label": "Term 5 label",
+      "default": "Dispatch"
+    },
+    {
+      "type": "text",
+      "id": "term_5_value",
+      "label": "Term 5 value",
+      "default": "Ready stock within 24 hours, pan-India"
+    },
+    {
+      "type": "text",
+      "id": "term_6_label",
+      "label": "Term 6 label",
+      "default": "Invoice"
+    },
+    {
+      "type": "text",
+      "id": "term_6_value",
+      "label": "Term 6 value",
+      "default": "GST invoice on every order"
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "select",
+      "id": "container_width",
+      "label": "Container width",
+      "options": [
+        { "value": "narrow", "label": "Narrow (840px)" },
+        { "value": "default", "label": "Default (1180px)" },
+        { "value": "wide", "label": "Wide (1400px)" },
+        { "value": "full", "label": "Full width" }
+      ],
+      "default": "default"
+    },
+    {
+      "type": "select",
+      "id": "section_padding",
+      "label": "Section padding",
+      "options": [
+        { "value": "none", "label": "None" },
+        { "value": "small", "label": "Small" },
+        { "value": "medium", "label": "Medium" },
+        { "value": "large", "label": "Large" }
+      ],
+      "default": "medium"
+    },
+    {
+      "type": "range",
+      "id": "desktop_columns",
+      "label": "Desktop columns",
+      "min": 2,
+      "max": 3,
+      "step": 1,
+      "default": 3
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "label": "Heading size",
+      "options": [
+        { "value": "small", "label": "Small" },
+        { "value": "medium", "label": "Medium" },
+        { "value": "large", "label": "Large" }
+      ],
+      "default": "medium"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Priyuja Wholesale Terms"
+    }
+  ]
+}
+{% endschema %}

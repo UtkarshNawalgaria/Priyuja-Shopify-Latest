@@ -1,0 +1,113 @@
+<style>
+  #shopify-section-{{ section.id }} {
+    --maroon: var(--priyuja-maroon);
+    --maroon-deep: var(--priyuja-maroon-deep);
+    --maroon-light: var(--priyuja-maroon-light);
+    --gold: var(--priyuja-gold);
+    --gold-light: var(--priyuja-gold-light);
+    --gold-pale: var(--priyuja-gold-pale);
+    --cream: var(--priyuja-cream);
+    --dark: var(--priyuja-dark);
+    --text-mid: var(--priyuja-text-mid);
+    --text-light: var(--priyuja-text-light);
+    --line: var(--priyuja-line, #E6DCC8);
+    --card: var(--priyuja-card, #FFFFFF);
+    --surface: var(--priyuja-surface, #FFFCF6);
+    --font-heading: var(--priyuja-font-heading);
+    --font-body: var(--priyuja-font-body);
+    --section-v-pad: {%- case section.settings.section_padding -%}{%- when 'none' -%}0{%- when 'small' -%}8px{%- when 'large' -%}32px{%- else -%}18px{%- endcase -%};
+    --section-v-pad-bottom: {%- case section.settings.section_padding -%}{%- when 'none' -%}0{%- when 'small' -%}4px{%- when 'large' -%}16px{%- else -%}8px{%- endcase -%};
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-breadcrumb {
+    background: var(--cream);
+    padding-top: var(--section-v-pad);
+    padding-bottom: var(--section-v-pad-bottom);
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-breadcrumb__inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+    font-family: var(--font-body);
+    font-size: 13px;
+    color: var(--text-light);
+    line-height: 1.5;
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-breadcrumb__link {
+    color: var(--text-light);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-breadcrumb__link:hover {
+    color: var(--maroon);
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-breadcrumb__sep {
+    margin: 0 6px;
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-breadcrumb__current {
+    color: var(--text-mid);
+  }
+</style>
+
+<nav class="priyuja-breadcrumb" aria-label="Breadcrumb">
+  <div class="priyuja-breadcrumb__inner">
+    <a href="/" class="priyuja-breadcrumb__link">Home</a>
+    <span class="priyuja-breadcrumb__sep">›</span>
+    <a href="{{ section.settings.mid_url | default: '/pages/wholesale-banarasi-sarees' }}" class="priyuja-breadcrumb__link">{{ section.settings.mid_label }}</a>
+    <span class="priyuja-breadcrumb__sep">›</span>
+    <span class="priyuja-breadcrumb__current">{{ section.settings.current_label | default: page.title }}</span>
+  </div>
+</nav>
+
+{% schema %}
+{
+  "name": "Priyuja Breadcrumb",
+  "tag": "section",
+  "class": "priyuja-breadcrumb-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "mid_label",
+      "label": "Middle breadcrumb label",
+      "default": "Wholesale Banarasi Sarees"
+    },
+    {
+      "type": "url",
+      "id": "mid_url",
+      "label": "Middle breadcrumb URL"
+    },
+    {
+      "type": "text",
+      "id": "current_label",
+      "label": "Current page label",
+      "info": "Leave blank to use the page title automatically."
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "select",
+      "id": "section_padding",
+      "label": "Section padding",
+      "options": [
+        { "value": "none", "label": "None" },
+        { "value": "small", "label": "Small" },
+        { "value": "medium", "label": "Medium" },
+        { "value": "large", "label": "Large" }
+      ],
+      "default": "medium"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Priyuja Breadcrumb"
+    }
+  ]
+}
+{% endschema %}

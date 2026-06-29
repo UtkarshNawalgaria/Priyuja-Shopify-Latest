@@ -1,0 +1,172 @@
+{%- assign fabric = page.metafields.custom.fabric.value -%}
+{%- if fabric == blank -%}{%- break -%}{%- endif -%}
+{%- assign fabric_name = fabric.name -%}
+{%- assign whatsapp_link = section.settings.whatsapp_url | default: 'https://wa.me/919112044277' -%}
+
+<style>
+  #shopify-section-{{ section.id }} {
+    --maroon: var(--priyuja-maroon);
+    --maroon-deep: var(--priyuja-maroon-deep);
+    --maroon-light: var(--priyuja-maroon-light);
+    --gold: var(--priyuja-gold);
+    --gold-light: var(--priyuja-gold-light);
+    --gold-pale: var(--priyuja-gold-pale);
+    --cream: var(--priyuja-cream);
+    --dark: var(--priyuja-dark);
+    --text-mid: var(--priyuja-text-mid);
+    --text-light: var(--priyuja-text-light);
+    --line: var(--priyuja-line, #E6DCC8);
+    --card: var(--priyuja-card, #FFFFFF);
+    --surface: var(--priyuja-surface, #FFFCF6);
+    --font-heading: var(--priyuja-font-heading);
+    --font-body: var(--priyuja-font-body);
+    --section-max-width: {%- case section.settings.container_width -%}{%- when 'narrow' -%}840px{%- when 'wide' -%}1400px{%- when 'full' -%}100%{%- else -%}1180px{%- endcase -%};
+    --section-v-pad: {%- case section.settings.section_padding -%}{%- when 'none' -%}0{%- when 'small' -%}32px{%- when 'large' -%}96px{%- else -%}46px{%- endcase -%};
+    --section-v-pad-mobile: {%- case section.settings.section_padding -%}{%- when 'none' -%}0{%- when 'small' -%}20px{%- when 'large' -%}64px{%- else -%}32px{%- endcase -%};
+    --heading-font-size: {%- case section.settings.heading_size -%}{%- when 'small' -%}24px{%- when 'large' -%}44px{%- else -%}50px{%- endcase -%};
+  }
+
+  #shopify-section-{{ section.id }} * { box-sizing: border-box; }
+
+  #shopify-section-{{ section.id }} .priyuja-fp-hero { font-family: var(--font-body); color: var(--dark); line-height: 1.65; padding: var(--section-v-pad) 0; border-bottom: 1px solid var(--line); }
+  #shopify-section-{{ section.id }} .priyuja-fp-hero__wrap { max-width: var(--section-max-width); margin: 0 auto; padding: 0 28px; }
+  #shopify-section-{{ section.id }} .priyuja-fp-hero__eyebrow { font-family: var(--font-body); letter-spacing: 2.5px; text-transform: uppercase; font-size: 12px; font-weight: 700; color: var(--gold); }
+  #shopify-section-{{ section.id }} .priyuja-fp-hero__grid { display: grid; grid-template-columns: 1.05fr 0.95fr; align-items: center; gap: 40px; }
+  #shopify-section-{{ section.id }} .priyuja-fp-hero h1 { font-family: var(--font-heading); font-size: var(--heading-font-size); color: var(--maroon); margin: 10px 0 6px; line-height: 1.12; }
+  #shopify-section-{{ section.id }} .priyuja-fp-hero__tagline { font-size: 18px; color: var(--text-mid); max-width: 520px; line-height: 1.6; }
+  #shopify-section-{{ section.id }} .priyuja-fp-hero__ctas { display: flex; gap: 12px; margin-top: 24px; flex-wrap: wrap; }
+  #shopify-section-{{ section.id }} .priyuja-fp-hero__btn { display: inline-block; padding: 13px 26px; border-radius: 7px; font-weight: 700; font-size: 14px; text-decoration: none; border: 1.5px solid var(--maroon); font-family: var(--font-body); cursor: pointer; transition: background 0.3s ease, transform 0.3s ease; }
+  #shopify-section-{{ section.id }} .priyuja-fp-hero__btn--primary { background: var(--maroon); color: #fff; }
+  #shopify-section-{{ section.id }} .priyuja-fp-hero__btn--primary:hover { background: var(--maroon-light); transform: translateY(-2px); }
+  #shopify-section-{{ section.id }} .priyuja-fp-hero__btn--ghost { background: transparent; color: var(--maroon); }
+  #shopify-section-{{ section.id }} .priyuja-fp-hero__btn--ghost:hover { background: var(--maroon); color: #fff; }
+  #shopify-section-{{ section.id }} .priyuja-fp-hero__trust { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 18px; }
+  #shopify-section-{{ section.id }} .priyuja-fp-hero__trust span { font-size: 12px; font-weight: 600; color: var(--text-mid); background: var(--surface); border: 1px solid var(--line); border-radius: 20px; padding: 6px 12px; }
+  #shopify-section-{{ section.id }} .priyuja-fp-hero__img { border-radius: 12px; overflow: hidden; }
+  #shopify-section-{{ section.id }} .priyuja-fp-hero__img img { width: 100%; height: 420px; object-fit: cover; display: block; border-radius: 12px; }
+  #shopify-section-{{ section.id }} .priyuja-fp-hero__img-placeholder { width: 100%; height: 420px; background: linear-gradient(135deg, var(--maroon-deep) 0%, var(--maroon) 50%, var(--gold) 100%); border-radius: 12px; }
+
+  @media (max-width: 760px) {
+    #shopify-section-{{ section.id }} .priyuja-fp-hero__grid { grid-template-columns: 1fr !important; }
+    #shopify-section-{{ section.id }} .priyuja-fp-hero h1 { font-size: 34px; }
+    #shopify-section-{{ section.id }} .priyuja-fp-hero { padding: var(--section-v-pad-mobile) 0; }
+    #shopify-section-{{ section.id }} .priyuja-fp-hero__wrap { padding: 0 18px; }
+  }
+</style>
+
+<section class="priyuja-fp-hero">
+  <div class="priyuja-fp-hero__wrap priyuja-fp-hero__grid">
+    <div>
+      {%- if fabric.eyebrow != blank -%}
+        <div class="priyuja-fp-hero__eyebrow reveal">{{ fabric.eyebrow }} &middot; Wholesale</div>
+      {%- endif -%}
+      <h1 class="reveal">{{ fabric_name }}</h1>
+      {%- if fabric.hero_tagline != blank -%}
+        <p class="priyuja-fp-hero__tagline reveal">{{ fabric.hero_tagline }}</p>
+      {%- endif -%}
+      <div class="priyuja-fp-hero__ctas reveal">
+        <a class="priyuja-fp-hero__btn priyuja-fp-hero__btn--primary" href="{{ whatsapp_link }}" target="_blank" rel="noopener">Enquire on WhatsApp</a>
+        <a class="priyuja-fp-hero__btn priyuja-fp-hero__btn--ghost" href="{{ section.settings.video_call_url | default: whatsapp_link }}" target="_blank" rel="noopener">Book a video call</a>
+      </div>
+      <div class="priyuja-fp-hero__trust reveal">
+        <span>🧵 Pure silk</span>
+        <span>🏭 Woven in Varanasi</span>
+        <span>📦 MOQ 15 pcs</span>
+        <span>📋 GST invoice</span>
+        <span>⚡ 24-hr dispatch</span>
+      </div>
+    </div>
+    <div class="priyuja-fp-hero__img">
+      {%- if fabric.hero_image != blank -%}
+        <img
+          src="{{ fabric.hero_image | image_url: width: 800 }}"
+          alt="{{ fabric_name }}"
+          loading="eager"
+          width="800"
+          height="560"
+        >
+      {%- else -%}
+        <div class="priyuja-fp-hero__img-placeholder"></div>
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+
+{%- if section.settings.reverse_columns -%}
+<style>
+#shopify-section-{{ section.id }} .priyuja-fp-hero__grid { direction: rtl; }
+#shopify-section-{{ section.id }} .priyuja-fp-hero__grid > * { direction: ltr; }
+</style>
+{%- endif -%}
+
+{%- render 'priyuja-reveal', section_id: section.id -%}
+
+{% schema %}
+{
+  "name": "Fabric — Hero",
+  "tag": "div",
+  "class": "priyuja-section",
+  "settings": [
+    {
+      "type": "url",
+      "id": "whatsapp_url",
+      "label": "WhatsApp URL"
+    },
+    {
+      "type": "url",
+      "id": "video_call_url",
+      "label": "Video Call URL (defaults to WhatsApp)"
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "select",
+      "id": "container_width",
+      "label": "Container width",
+      "options": [
+        { "value": "narrow", "label": "Narrow (840px)" },
+        { "value": "default", "label": "Default (1180px)" },
+        { "value": "wide", "label": "Wide (1400px)" },
+        { "value": "full", "label": "Full width (100%)" }
+      ],
+      "default": "default"
+    },
+    {
+      "type": "select",
+      "id": "section_padding",
+      "label": "Section padding",
+      "options": [
+        { "value": "none", "label": "None" },
+        { "value": "small", "label": "Small" },
+        { "value": "medium", "label": "Medium" },
+        { "value": "large", "label": "Large" }
+      ],
+      "default": "medium"
+    },
+    {
+      "type": "checkbox",
+      "id": "reverse_columns",
+      "label": "Reverse column order",
+      "default": false
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "label": "Heading size",
+      "options": [
+        { "value": "small", "label": "Small (24px)" },
+        { "value": "medium", "label": "Medium (default)" },
+        { "value": "large", "label": "Large (44px)" }
+      ],
+      "default": "medium"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Fabric — Hero"
+    }
+  ]
+}
+{% endschema %}

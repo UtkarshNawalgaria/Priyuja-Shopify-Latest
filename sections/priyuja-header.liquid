@@ -1,0 +1,536 @@
+{%- assign width = section.settings.desktop_logo_width | times: 2 -%}
+{%- assign height = section.settings.desktop_logo_width | divided_by: section.settings.logo.aspect_ratio -%}
+
+<style>
+  #shopify-section-{{ section.id }} {
+    --cream: var(--priyuja-cream);
+    --maroon: var(--priyuja-maroon);
+    --maroon-light: var(--priyuja-maroon-light);
+    --maroon-deep: var(--priyuja-maroon-deep);
+    --gold: var(--priyuja-gold);
+    --gold-light: var(--priyuja-gold-light);
+    --gold-pale: var(--priyuja-gold-pale);
+    --dark: var(--priyuja-dark);
+    --text-mid: var(--priyuja-text-mid);
+    --text-light: var(--priyuja-text-light);
+    --font-heading: var(--priyuja-font-heading);
+    --font-body: var(--priyuja-font-body);
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-header {
+    background: var(--cream);
+    font-family: var(--font-body);
+  }
+
+  /* ── Nav bar ── */
+  #shopify-section-{{ section.id }} .priyuja-header__nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 64px;
+    border-bottom: 1px solid rgba(28, 18, 9, 0.08);
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-header__logo {
+    flex-shrink: 0;
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-header__logo img {
+    display: block;
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-header__menu {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-header__menu-item {
+    position: relative;
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-header__menu-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--dark);
+    text-decoration: none;
+    padding: 8px 0;
+    transition: color 0.2s ease;
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-header__menu-link:hover {
+    color: var(--maroon);
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-header__menu-chevron {
+    width: 14px;
+    height: 14px;
+    stroke: var(--text-light);
+    transition: transform 0.2s ease;
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-header__menu-item:hover .priyuja-header__menu-chevron {
+    transform: rotate(180deg);
+    stroke: var(--maroon);
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-header__menu-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 10px 22px;
+    background: var(--maroon);
+    color: #fff;
+    font-size: 13px;
+    font-weight: 500;
+    text-decoration: none;
+    border-radius: 50px;
+    transition: background 0.3s ease, transform 0.3s ease;
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-header__menu-cta:hover {
+    background: var(--maroon-light);
+    transform: translateY(-2px);
+  }
+
+  /* ── Mega menu ── */
+  #shopify-section-{{ section.id }} .priyuja-header__mega {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    min-width: 240px;
+    background: #fff;
+    border: 1px solid rgba(28, 18, 9, 0.1);
+    border-radius: 12px;
+    box-shadow: 0 12px 40px rgba(28, 18, 9, 0.12);
+    padding: 14px 8px;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.25s ease, transform 0.25s ease;
+    transform: translateX(-50%) translateY(8px);
+    z-index: 100;
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-header__menu-item:hover .priyuja-header__mega {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateX(-50%) translateY(0);
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-header__mega-title {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 14px;
+    padding: 0 14px;
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-header__mega-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-header__mega-link {
+    display: block;
+    padding: 10px 14px;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--dark);
+    text-decoration: none;
+    border-radius: 8px;
+    transition: background 0.2s ease, color 0.2s ease;
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-header__mega-link:hover {
+    background: var(--cream);
+    color: var(--maroon);
+  }
+
+  /* ── Mobile hamburger ── */
+  #shopify-section-{{ section.id }} .priyuja-header__hamburger {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 6px;
+    color: var(--dark);
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-header__hamburger svg {
+    width: 26px;
+    height: 26px;
+    stroke: currentColor;
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-header__mobile-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.4);
+    z-index: 998;
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-header__mobile-drawer {
+    display: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 320px;
+    max-width: 85vw;
+    background: #fff;
+    z-index: 999;
+    padding: 24px;
+    overflow-y: auto;
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-header__mobile-drawer.open {
+    transform: translateX(0);
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-header__mobile-close {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    background: none;
+    border: 1px solid rgba(28,18,9,0.1);
+    border-radius: 50%;
+    cursor: pointer;
+    margin-left: auto;
+    margin-bottom: 20px;
+    color: var(--dark);
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-header__mobile-close svg {
+    width: 18px;
+    height: 18px;
+    stroke: currentColor;
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-header__mobile-nav {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-header__mobile-nav-item {
+    border-bottom: 1px solid rgba(28,18,9,0.08);
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-header__mobile-nav-link {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 0;
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--dark);
+    text-decoration: none;
+    font-family: var(--font-body);
+    background: none;
+    border: none;
+    width: 100%;
+    cursor: pointer;
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-header__mobile-sub {
+    display: none;
+    padding: 0 0 12px 12px;
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-header__mobile-sub.open {
+    display: block;
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-header__mobile-sub a {
+    display: block;
+    padding: 8px 0;
+    font-size: 14px;
+    color: var(--text-mid);
+    text-decoration: none;
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-header__mobile-sub a:hover {
+    color: var(--maroon);
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 900px) {
+    #shopify-section-{{ section.id }} .priyuja-header__nav {
+      padding: 14px 24px;
+    }
+
+    #shopify-section-{{ section.id }} .priyuja-header__menu,
+    #shopify-section-{{ section.id }} .priyuja-header__menu-cta-desktop {
+      display: none;
+    }
+
+    #shopify-section-{{ section.id }} .priyuja-header__hamburger {
+      display: block;
+    }
+
+    #shopify-section-{{ section.id }} .priyuja-header__mobile-overlay.open,
+    #shopify-section-{{ section.id }} .priyuja-header__mobile-drawer {
+      display: block;
+    }
+  }
+</style>
+
+<div class="priyuja-header">
+  <nav class="priyuja-header__nav" aria-label="Main navigation">
+    <div class="priyuja-header__logo">
+      <a href="{{ routes.root_url }}">
+        {%- if section.settings.logo != blank -%}
+          {{ section.settings.logo
+            | image_url: width: section.settings.desktop_logo_width
+            | image_tag: alt: section.settings.logo.alt | default: shop.name
+          }}
+        {%- else -%}
+          <span style="font-family: var(--font-heading); font-size: 24px; font-weight: 600; color: var(--maroon);">{{ shop.name }}</span>
+        {%- endif -%}
+      </a>
+    </div>
+
+    {%- assign menu_items = section.blocks | where: 'type', 'menu_item' -%}
+
+    <!-- Desktop menu -->
+    <ul class="priyuja-header__menu" role="menubar">
+      {%- for block in menu_items -%}
+        {%- assign has_mega = false -%}
+        {%- if block.settings.mega_menu != blank -%}
+          {%- assign mega_links = linklists[block.settings.mega_menu].links -%}
+          {%- if mega_links.size > 0 -%}
+            {%- assign has_mega = true -%}
+          {%- endif -%}
+        {%- endif -%}
+
+        <li class="priyuja-header__menu-item" role="none" {{ block.shopify_attributes }}>
+          <a class="priyuja-header__menu-link"
+             href="{{ block.settings.url | default: '#' }}"
+             role="menuitem"
+             {%- if has_mega %} aria-haspopup="true" aria-expanded="false"{% endif -%}>
+            {{ block.settings.label }}
+            {%- if has_mega -%}
+              <svg class="priyuja-header__menu-chevron" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            {%- endif -%}
+          </a>
+
+          {%- if has_mega -%}
+            <div class="priyuja-header__mega" role="menu">
+              {%- if block.settings.mega_title != blank -%}
+                <div class="priyuja-header__mega-title">{{ block.settings.mega_title }}</div>
+              {%- endif -%}
+              <div class="priyuja-header__mega-grid">
+                {%- for link in mega_links -%}
+                  <a class="priyuja-header__mega-link" href="{{ link.url }}" role="menuitem">
+                    {{ link.title }}
+                  </a>
+                {%- endfor -%}
+              </div>
+            </div>
+          {%- endif -%}
+        </li>
+      {%- endfor -%}
+
+      {%- if section.settings.nav_cta_text != blank -%}
+        <li role="none" class="priyuja-header__menu-cta-desktop">
+          <a class="priyuja-header__menu-cta"
+             href="{{ section.settings.nav_cta_url | default: '#' }}"
+             target="_blank"
+             rel="noopener"
+             role="menuitem">
+            {{ section.settings.nav_cta_text }}
+          </a>
+        </li>
+      {%- endif -%}
+    </ul>
+
+    <!-- Mobile hamburger -->
+    <button class="priyuja-header__hamburger" aria-label="Open menu" data-priyuja-menu-open>
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </nav>
+
+  <!-- Mobile drawer -->
+  <div class="priyuja-header__mobile-overlay" data-priyuja-overlay></div>
+  <div class="priyuja-header__mobile-drawer" data-priyuja-drawer>
+    <button class="priyuja-header__mobile-close" aria-label="Close menu" data-priyuja-menu-close>
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+    <ul class="priyuja-header__mobile-nav">
+      {%- for block in menu_items -%}
+        {%- assign has_mega = false -%}
+        {%- if block.settings.mega_menu != blank -%}
+          {%- assign mega_links = linklists[block.settings.mega_menu].links -%}
+          {%- if mega_links.size > 0 -%}
+            {%- assign has_mega = true -%}
+          {%- endif -%}
+        {%- endif -%}
+
+        <li class="priyuja-header__mobile-nav-item">
+          {%- if has_mega -%}
+            <button class="priyuja-header__mobile-nav-link" data-priyuja-toggle>
+              {{ block.settings.label }}
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="priyuja-header__mobile-sub">
+              {%- for link in mega_links -%}
+                <a href="{{ link.url }}">{{ link.title }}</a>
+              {%- endfor -%}
+            </div>
+          {%- else -%}
+            <a class="priyuja-header__mobile-nav-link" href="{{ block.settings.url | default: '#' }}">
+              {{ block.settings.label }}
+            </a>
+          {%- endif -%}
+        </li>
+      {%- endfor -%}
+
+      {%- if section.settings.nav_cta_text != blank -%}
+        <li style="padding-top: 16px;">
+          <a class="priyuja-header__menu-cta" href="{{ section.settings.nav_cta_url | default: '#' }}" target="_blank" rel="noopener" style="display: flex; justify-content: center;">
+            {{ section.settings.nav_cta_text }}
+          </a>
+        </li>
+      {%- endif -%}
+    </ul>
+  </div>
+</div>
+
+<script>
+  (function() {
+    var section = document.getElementById('shopify-section-{{ section.id }}');
+    if (!section) return;
+
+    var openBtn = section.querySelector('[data-priyuja-menu-open]');
+    var closeBtn = section.querySelector('[data-priyuja-menu-close]');
+    var overlay = section.querySelector('[data-priyuja-overlay]');
+    var drawer = section.querySelector('[data-priyuja-drawer]');
+
+    function openMenu() {
+      overlay.classList.add('open');
+      drawer.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeMenu() {
+      overlay.classList.remove('open');
+      drawer.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    if (openBtn) openBtn.addEventListener('click', openMenu);
+    if (closeBtn) closeBtn.addEventListener('click', closeMenu);
+    if (overlay) overlay.addEventListener('click', closeMenu);
+
+    var toggles = section.querySelectorAll('[data-priyuja-toggle]');
+    toggles.forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var sub = btn.nextElementSibling;
+        if (sub) sub.classList.toggle('open');
+        var svg = btn.querySelector('svg');
+        if (svg) svg.style.transform = sub && sub.classList.contains('open') ? 'rotate(180deg)' : '';
+      });
+    });
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Priyuja - Header",
+  "tag": "section",
+  "class": "priyuja-header-section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Logo"
+    },
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Logo"
+    },
+    {
+      "type": "range",
+      "id": "desktop_logo_width",
+      "label": "Desktop logo width",
+      "default": 200,
+      "min": 100,
+      "max": 400,
+      "step": 10,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "mobile_logo_width",
+      "label": "Mobile logo width",
+      "default": 140,
+      "min": 60,
+      "max": 200,
+      "step": 10,
+      "unit": "px"
+    },
+    {
+      "type": "header",
+      "content": "Nav CTA button"
+    },
+    {
+      "type": "text",
+      "id": "nav_cta_text",
+      "label": "CTA Button Text",
+      "default": "WhatsApp"
+    },
+    {
+      "type": "url",
+      "id": "nav_cta_url",
+      "label": "CTA Button URL"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "menu_item",
+      "name": "Menu Item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Label",
+          "default": "Menu item"
+        },
+        {
+          "type": "url",
+          "id": "url",
+          "label": "Link URL"
+        },
+        {
+          "type": "link_list",
+          "id": "mega_menu",
+          "label": "Mega Menu",
+          "info": "Select a Shopify navigation menu to show as a dropdown. Leave empty for a simple link."
+        },
+        {
+          "type": "text",
+          "id": "mega_title",
+          "label": "Mega Menu Title",
+          "info": "Optional heading above mega menu links."
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,162 @@
+<style>
+  #shopify-section-{{ section.id }} {
+    --maroon: var(--priyuja-maroon);
+    --maroon-deep: var(--priyuja-maroon-deep);
+    --gold: var(--priyuja-gold);
+    --cream: var(--priyuja-cream);
+    --dark: var(--priyuja-dark);
+    --text-mid: var(--priyuja-text-mid);
+    --text-light: var(--priyuja-text-light);
+    --line: var(--priyuja-line, #E6DCC8);
+    --card: var(--priyuja-card, #FFFFFF);
+    --surface: var(--priyuja-surface, #FFFCF6);
+    --font-heading: var(--priyuja-font-heading);
+    --font-body: var(--priyuja-font-body);
+    --section-max-width: {%- case section.settings.container_width -%}{%- when 'narrow' -%}840px{%- when 'wide' -%}1400px{%- when 'full' -%}100%{%- else -%}1180px{%- endcase -%};
+    --section-v-pad: {%- case section.settings.section_padding -%}{%- when 'none' -%}0{%- when 'small' -%}24px{%- when 'large' -%}72px{%- else -%}48px{%- endcase -%};
+    --heading-font-size: {%- case section.settings.heading_size -%}{%- when 'small' -%}24px{%- when 'large' -%}44px{%- else -%}30px{%- endcase -%};
+  }
+  #shopify-section-{{ section.id }} .pst-grid { background: var(--cream); font-family: var(--font-body); padding: var(--section-v-pad) 0; border-bottom: 1px solid var(--line); }
+  #shopify-section-{{ section.id }} .pst-grid__wrap { max-width: var(--section-max-width); margin: 0 auto; padding: 0 28px; }
+  #shopify-section-{{ section.id }} .pst-grid__eyebrow { letter-spacing: 2.5px; text-transform: uppercase; font-size: 12px; font-weight: 700; color: var(--gold); }
+  #shopify-section-{{ section.id }} .pst-grid h2 { font-family: var(--font-heading); font-size: var(--heading-font-size); color: var(--maroon); margin: 6px 0 0; line-height: 1.12; }
+  #shopify-section-{{ section.id }} .pst-grid__cards { display: grid; grid-template-columns: repeat({{ section.settings.desktop_columns }}, 1fr); gap: 22px; margin-top: 28px; }
+  #shopify-section-{{ section.id }} .pst-grid__card { display: block; background: var(--card); border: 1px solid var(--line); border-radius: 12px; overflow: hidden; text-decoration: none; color: inherit; transition: box-shadow 0.15s ease, transform 0.15s ease; }
+  #shopify-section-{{ section.id }} .pst-grid__card:hover { box-shadow: 0 10px 28px rgba(74, 15, 28, 0.10); transform: translateY(-2px); }
+  #shopify-section-{{ section.id }} .pst-grid__card-img { aspect-ratio: 4 / 5; overflow: hidden; background: var(--surface); }
+  #shopify-section-{{ section.id }} .pst-grid__card-img img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s ease; }
+  #shopify-section-{{ section.id }} .pst-grid__card:hover .pst-grid__card-img img { transform: scale(1.04); }
+  #shopify-section-{{ section.id }} .pst-grid__card-ph { width: 100%; height: 100%; background: repeating-linear-gradient(45deg, #efe7d6, #efe7d6 10px, #f3ecdd 10px, #f3ecdd 20px); display: flex; align-items: center; justify-content: center; color: var(--text-light); font-size: 12px; text-align: center; padding: 10px; }
+  #shopify-section-{{ section.id }} .pst-grid__card-body { padding: 14px 16px; }
+  #shopify-section-{{ section.id }} .pst-grid__card-body h3 { font-family: var(--font-heading); font-size: 21px; color: var(--maroon); margin: 0 0 4px; line-height: 1.12; }
+  #shopify-section-{{ section.id }} .pst-grid__card-body p { font-size: 13px; color: var(--text-mid); margin: 0; }
+  #shopify-section-{{ section.id }} .pst-grid__card-more { display: inline-block; margin-top: 8px; font-size: 13px; font-weight: 700; color: var(--gold); }
+  @media (max-width: 900px) { #shopify-section-{{ section.id }} .pst-grid__cards { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 520px) {
+    #shopify-section-{{ section.id }} {
+      --section-v-pad: {%- case section.settings.section_padding -%}{%- when 'none' -%}0{%- when 'small' -%}16px{%- when 'large' -%}48px{%- else -%}32px{%- endcase -%};
+      --heading-font-size: {%- case section.settings.heading_size -%}{%- when 'small' -%}20px{%- when 'large' -%}34px{%- else -%}24px{%- endcase -%};
+    }
+    #shopify-section-{{ section.id }} .pst-grid__cards { grid-template-columns: 1fr; }
+    #shopify-section-{{ section.id }} .pst-grid { padding: var(--section-v-pad) 0; }
+    #shopify-section-{{ section.id }} .pst-grid__wrap { padding: 0 18px; }
+    #shopify-section-{{ section.id }} .pst-grid h2 { font-size: var(--heading-font-size); }
+  }
+</style>
+
+{%- assign fabric_entries = shop.metaobjects.fabric.values -%}
+
+<div class="pst-grid">
+  <div class="pst-grid__wrap">
+    <div class="pst-grid__eyebrow reveal">{{ section.settings.eyebrow | default: 'All varieties' }}</div>
+    <h2 class="reveal">{{ section.settings.heading | default: 'Explore each Banarasi fabric' }}</h2>
+
+    <div class="pst-grid__cards">
+      {%- for fabric in fabric_entries -%}
+        {%- assign card_url = fabric.page_url | default: '#' -%}
+        <a class="pst-grid__card reveal" href="{{ card_url }}">
+          <div class="pst-grid__card-img">
+            {%- if fabric.hero_image != blank -%}
+              <img src="{{ fabric.hero_image | image_url: width: 600 }}" alt="{{ fabric.name }}" loading="lazy" width="600" height="750">
+            {%- elsif fabric.about_image != blank -%}
+              <img src="{{ fabric.about_image | image_url: width: 600 }}" alt="{{ fabric.name }}" loading="lazy" width="600" height="750">
+            {%- else -%}
+              <div class="pst-grid__card-ph">{{ fabric.name }}</div>
+            {%- endif -%}
+          </div>
+          <div class="pst-grid__card-body">
+            <h3>{{ fabric.name }}</h3>
+            {%- if fabric.hero_tagline != blank -%}
+              <p>{{ fabric.hero_tagline | truncate: 80 }}</p>
+            {%- endif -%}
+            <span class="pst-grid__card-more">Explore →</span>
+          </div>
+        </a>
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "Types of Banarasi Sarees",
+  "description": "All varieties of Banarasi sarees available wholesale from Priyuja.",
+  "numberOfItems": {{ fabric_entries.size }},
+  "itemListElement": [
+    {%- for fabric in fabric_entries -%}
+      {
+        "@type": "ListItem",
+        "position": {{ forloop.index }},
+        "name": {{ fabric.name | json }},
+        "url": "{{ shop.url }}{{ fabric.page_url }}"
+      }{%- unless forloop.last -%},{%- endunless -%}
+    {%- endfor -%}
+  ]
+}
+</script>
+
+{%- render 'priyuja-reveal', section_id: section.id -%}
+
+{% schema %}
+{
+  "name": "Priyuja - Saree Grid",
+  "tag": "section",
+  "class": "priyuja-section",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "All varieties" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Explore each Banarasi fabric" },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "select",
+      "id": "container_width",
+      "label": "Container width",
+      "options": [
+        { "value": "narrow", "label": "Narrow (840px)" },
+        { "value": "default", "label": "Default (1180px)" },
+        { "value": "wide", "label": "Wide (1400px)" },
+        { "value": "full", "label": "Full width" }
+      ],
+      "default": "default"
+    },
+    {
+      "type": "select",
+      "id": "section_padding",
+      "label": "Section padding",
+      "options": [
+        { "value": "none", "label": "None" },
+        { "value": "small", "label": "Small" },
+        { "value": "medium", "label": "Medium" },
+        { "value": "large", "label": "Large" }
+      ],
+      "default": "medium"
+    },
+    {
+      "type": "range",
+      "id": "desktop_columns",
+      "label": "Desktop columns",
+      "min": 2,
+      "max": 4,
+      "step": 1,
+      "default": 4
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "label": "Heading size",
+      "options": [
+        { "value": "small", "label": "Small" },
+        { "value": "medium", "label": "Medium" },
+        { "value": "large", "label": "Large" }
+      ],
+      "default": "medium"
+    }
+  ],
+  "blocks": [],
+  "presets": [{ "name": "Priyuja - Saree Grid" }]
+}
+{% endschema %}

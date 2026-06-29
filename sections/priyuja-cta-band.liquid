@@ -1,0 +1,174 @@
+<style>
+  #shopify-section-{{ section.id }} {
+    --maroon: var(--priyuja-maroon);
+    --maroon-deep: var(--priyuja-maroon-deep);
+    --maroon-light: var(--priyuja-maroon-light);
+    --gold: var(--priyuja-gold);
+    --gold-light: var(--priyuja-gold-light);
+    --gold-pale: var(--priyuja-gold-pale);
+    --cream: var(--priyuja-cream);
+    --dark: var(--priyuja-dark);
+    --text-mid: var(--priyuja-text-mid);
+    --text-light: var(--priyuja-text-light);
+    --line: var(--priyuja-line, #E6DCC8);
+    --card: var(--priyuja-card, #FFFFFF);
+    --surface: var(--priyuja-surface, #FFFCF6);
+    --font-heading: var(--priyuja-font-heading);
+    --font-body: var(--priyuja-font-body);
+    --section-max-width: {%- case section.settings.container_width -%}{%- when 'narrow' -%}840px{%- when 'wide' -%}1400px{%- when 'full' -%}100%{%- else -%}1180px{%- endcase -%};
+    --section-v-pad: {%- case section.settings.section_padding -%}{%- when 'none' -%}0{%- when 'small' -%}32px{%- when 'large' -%}96px{%- else -%}72px{%- endcase -%};
+    --heading-font-size: {%- case section.settings.heading_size -%}{%- when 'small' -%}24px{%- when 'large' -%}44px{%- else -%}36px{%- endcase -%};
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-cta-band {
+    background: var(--maroon-deep);
+    padding: var(--section-v-pad) 24px;
+    text-align: center;
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-cta-band__inner {
+    max-width: var(--section-max-width);
+    margin: 0 auto;
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-cta-band__heading {
+    font-family: var(--font-heading);
+    font-size: var(--heading-font-size);
+    color: #fff;
+    margin: 0 0 16px;
+    font-weight: 400;
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-cta-band__body {
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--gold-pale);
+    max-width: 560px;
+    margin: 0 auto 32px;
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-cta-band__btn {
+    display: inline-block;
+    background: var(--gold);
+    color: var(--maroon-deep);
+    font-family: var(--font-body);
+    font-size: 15px;
+    font-weight: 600;
+    padding: 14px 36px;
+    border-radius: 7px;
+    text-decoration: none;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+
+  #shopify-section-{{ section.id }} .priyuja-cta-band__btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  }
+
+  @media (max-width: 749px) {
+    #shopify-section-{{ section.id }} {
+      --section-v-pad: {%- case section.settings.section_padding -%}{%- when 'none' -%}0{%- when 'small' -%}20px{%- when 'large' -%}64px{%- else -%}48px{%- endcase -%};
+      --heading-font-size: {%- case section.settings.heading_size -%}{%- when 'small' -%}20px{%- when 'large' -%}34px{%- else -%}28px{%- endcase -%};
+    }
+
+    #shopify-section-{{ section.id }} .priyuja-cta-band {
+      padding: var(--section-v-pad) 20px;
+    }
+
+    #shopify-section-{{ section.id }} .priyuja-cta-band__heading {
+      font-size: var(--heading-font-size);
+    }
+
+    #shopify-section-{{ section.id }} .priyuja-cta-band__body {
+      font-size: 15px;
+    }
+  }
+</style>
+
+<div class="priyuja-cta-band">
+  <div class="priyuja-cta-band__inner">
+    <h2 class="priyuja-cta-band__heading reveal">{{ section.settings.heading }}</h2>
+    <p class="priyuja-cta-band__body reveal">{{ section.settings.body }}</p>
+    <a href="{{ section.settings.cta_url | default: 'https://wa.me/919112044277' }}" class="priyuja-cta-band__btn reveal" target="_blank" rel="noopener">{{ section.settings.cta_text }}</a>
+  </div>
+</div>
+
+{%- render 'priyuja-reveal', section_id: section.id -%}
+
+{% schema %}
+{
+  "name": "Priyuja CTA Band",
+  "tag": "section",
+  "class": "priyuja-cta-band-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Ready to get started?"
+    },
+    {
+      "type": "textarea",
+      "id": "body",
+      "label": "Body text",
+      "default": "Start with 15 pieces, mix & match. See the live collection on a video call."
+    },
+    {
+      "type": "text",
+      "id": "cta_text",
+      "label": "Button text",
+      "default": "Enquire on WhatsApp"
+    },
+    {
+      "type": "url",
+      "id": "cta_url",
+      "label": "Button URL"
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "select",
+      "id": "container_width",
+      "label": "Container width",
+      "options": [
+        { "value": "narrow", "label": "Narrow (840px)" },
+        { "value": "default", "label": "Default (1180px)" },
+        { "value": "wide", "label": "Wide (1400px)" },
+        { "value": "full", "label": "Full width" }
+      ],
+      "default": "default"
+    },
+    {
+      "type": "select",
+      "id": "section_padding",
+      "label": "Section padding",
+      "options": [
+        { "value": "none", "label": "None" },
+        { "value": "small", "label": "Small" },
+        { "value": "medium", "label": "Medium" },
+        { "value": "large", "label": "Large" }
+      ],
+      "default": "medium"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "label": "Heading size",
+      "options": [
+        { "value": "small", "label": "Small" },
+        { "value": "medium", "label": "Medium" },
+        { "value": "large", "label": "Large" }
+      ],
+      "default": "medium"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Priyuja CTA Band"
+    }
+  ]
+}
+{% endschema %}
