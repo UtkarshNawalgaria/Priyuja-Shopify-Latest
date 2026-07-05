@@ -84,35 +84,6 @@
   </div>
 </section>
 
-<script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "name": "Priyuja — Varanasi Store",
-    "description": "Wholesale Banarasi saree manufacturer in Varanasi. Pure handloom Banarasi silk sarees and custom-colour weaves, wholesale to boutiques across India.",
-    "telephone": "+91-91120-44277",
-    "url": "{{ shop.url }}{{ page.url }}",
-    "areaServed": {
-      "@type": "Country",
-      "name": "IN"
-    },
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Varanasi",
-      "addressRegion": "Uttar Pradesh",
-      "addressCountry": "IN"
-      {%- if section.settings.store_address != blank -%}
-        ,"streetAddress": {{ section.settings.store_address | json }}
-      {%- endif -%}
-    },
-    "parentOrganization": {
-      "@type": "Organization",
-      "name": "Olivecloud Tech Pvt Ltd",
-      "taxID": "27AADCO1764H1ZE"
-    }
-  }
-</script>
-
 {%- render 'priyuja-reveal', section_id: section.id -%}
 
 {% schema %}
@@ -160,12 +131,6 @@
       "id": "anchor_target",
       "label": "Ghost Button Anchor Target",
       "default": "#pvs-custom"
-    },
-    {
-      "type": "text",
-      "id": "store_address",
-      "label": "⚠ Store Address (leave blank until confirmed)",
-      "info": "Used in LocalBusiness JSON-LD schema only."
     },
     {
       "type": "header",

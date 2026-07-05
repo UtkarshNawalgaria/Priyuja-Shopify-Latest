@@ -9,220 +9,275 @@
  */
 {
   "sections": {
-    "varanasi-store": {
-      "type": "priyuja-varanasi-store",
+    "topbar": {
+      "type": "priyuja-store-topbar",
+      "settings": {
+        "topbar_text": "Wholesale only · <strong>Now open in Varanasi</strong> · Custom colour from our shade card · GST invoice · 24-hour dispatch"
+      }
+    },
+    "hero": {
+      "type": "priyuja-store-hero",
+      "settings": {
+        "eyebrow": "Direct from Varanasi · Wholesale for boutiques",
+        "heading": "Wholesale Banarasi Saree Manufacturer in Varanasi",
+        "subheading": "Our Varanasi store puts us at the source. We supply pure handloom Banarasi silk sarees — and our full range of other fabrics — wholesale to boutiques across India. And because we are right at the looms, you can now choose your own colour from our shade card and have it woven to order.",
+        "anchor_text": "See Custom Colour",
+        "anchor_target": "#pvs-custom"
+      }
+    },
+    "intro": {
+      "type": "priyuja-store-intro",
+      "settings": {
+        "eyebrow": "Now at the source",
+        "heading": "A Priyuja store in Varanasi",
+        "body_1": "For years we served boutiques from our Mumbai base. Now, with our own store in Varanasi, we are right where the handloom Banarasi saree is born. That means we select straight from the weavers, see fresh designs first, and pass on true at-source value to you — alongside the same trusted terms, GST billing and 24-hour dispatch you already know us for.",
+        "body_2": "You get the heritage handloom sarees from Varanasi, plus our wider range of other fabrics, all from one wholesale partner.",
+        "store_address": "D 47/195, 2nd Floor, Luxa Rd, opp. PDR Mall, Ramapura, Varanasi, Uttar Pradesh 221010"
+      }
+    },
+    "local": {
+      "type": "priyuja-store-local",
+      "settings": {
+        "heading": "In the heart of Varanasi's saree wholesale market",
+        "body": "<p>Our store sits on Luxa Road in Ramapura — minutes from Godowlia, Chowk and the traditional weaving hubs where Banarasi sarees have been woven for generations. Boutique owners visiting Varanasi's saree wholesale market can walk in, see fresh handloom stock straight from the weavers, and place a wholesale order the same day. We are about 15 minutes from Varanasi Junction (Cantt) railway station and around 45 minutes from Lal Bahadur Shastri International Airport — easy to fit into a single buying trip.</p>"
+      }
+    },
+    "custom": {
+      "type": "priyuja-store-custom-colour",
+      "settings": {
+        "eyebrow": "Only possible from Varanasi",
+        "heading": "Choose your own colour",
+        "intro": "Pick any shade from our colour chart and we weave it to order at our Varanasi looms — in the exact colour your customers are asking for. This is something we simply could not offer from Mumbai. It lets your boutique stand apart with colours no one else is stocking.",
+        "custom_min_per_shade": "",
+        "custom_lead_time": ""
+      },
       "blocks": {
-        "custom_step_1": {
-          "type": "custom_step",
+        "step_1": {
+          "type": "step",
           "settings": {
             "step_number": "01",
             "step_title": "Pick your shade",
             "step_text": "Browse our shade card or tell us the exact colour you need — Pantone, a fabric swatch, even a photo."
           }
         },
-        "custom_step_2": {
-          "type": "custom_step",
+        "step_2": {
+          "type": "step",
           "settings": {
             "step_number": "02",
             "step_title": "Confirm design & quantity",
             "step_text": "Choose from our running designs or request a variation. Minimum per shade applies."
           }
         },
-        "custom_step_3": {
-          "type": "custom_step",
+        "step_3": {
+          "type": "step",
           "settings": {
             "step_number": "03",
             "step_title": "Woven to order",
             "step_text": "Your sarees are woven on handlooms in Varanasi in your chosen colour. We share progress photos."
           }
         },
-        "custom_step_4": {
-          "type": "custom_step",
+        "step_4": {
+          "type": "step",
           "settings": {
             "step_number": "04",
             "step_title": "Dispatched to you",
             "step_text": "Quality-checked, packed, and shipped pan-India with tracking and GST invoice."
           }
-        },
-        "swatch_01": {
-          "type": "colour_swatch",
-          "settings": {
-            "swatch_color": "#6b1628",
-            "swatch_name": "Maroon"
-          }
-        },
-        "swatch_02": {
-          "type": "colour_swatch",
-          "settings": {
-            "swatch_color": "#d4a84a",
-            "swatch_name": "Gold"
-          }
-        },
-        "swatch_03": {
-          "type": "colour_swatch",
-          "settings": {
-            "swatch_color": "#1b4332",
-            "swatch_name": "Forest"
-          }
-        },
-        "swatch_04": {
-          "type": "colour_swatch",
-          "settings": {
-            "swatch_color": "#1a1a6b",
-            "swatch_name": "Navy"
-          }
-        },
-        "swatch_05": {
-          "type": "colour_swatch",
-          "settings": {
-            "swatch_color": "#8b0000",
-            "swatch_name": "Red"
-          }
-        },
-        "swatch_06": {
-          "type": "colour_swatch",
-          "settings": {
-            "swatch_color": "#ff69b4",
-            "swatch_name": "Pink"
-          }
-        },
-        "swatch_07": {
-          "type": "colour_swatch",
-          "settings": {
-            "swatch_color": "#4a0f1c",
-            "swatch_name": "Wine"
-          }
-        },
-        "swatch_08": {
-          "type": "colour_swatch",
-          "settings": {
-            "swatch_color": "#daa520",
-            "swatch_name": "Mustard"
-          }
-        },
-        "swatch_09": {
-          "type": "colour_swatch",
-          "settings": {
-            "swatch_color": "#008080",
-            "swatch_name": "Teal"
-          }
-        },
-        "swatch_10": {
-          "type": "colour_swatch",
-          "settings": {
-            "swatch_color": "#800080",
-            "swatch_name": "Purple"
-          }
-        },
-        "swatch_11": {
-          "type": "colour_swatch",
-          "settings": {
-            "swatch_color": "#ff6347",
-            "swatch_name": "Coral"
-          }
-        },
-        "swatch_12": {
-          "type": "colour_swatch",
-          "settings": {
-            "swatch_color": "#f7f2e8",
-            "swatch_name": "Ivory"
-          }
-        },
+        }
+      },
+      "block_order": ["step_1", "step_2", "step_3", "step_4"]
+    },
+    "offers": {
+      "type": "priyuja-store-offers",
+      "settings": {
+        "eyebrow": "From our Varanasi store",
+        "heading": "Handloom Banarasi silks, and much more",
+        "subheading": "Pure handloom Banarasi silks woven in Varanasi, plus the full Priyuja range of other fabrics — all wholesale, all from one partner."
+      },
+      "blocks": {
         "offer_1": {
-          "type": "offer_card",
+          "type": "card",
           "settings": {
             "title": "Handloom Banarasi silk sarees",
             "text": "Katan, organza, georgette, tissue and more — woven in Varanasi on traditional handlooms. Now sourced direct from the weavers through our Varanasi store."
           }
         },
         "offer_2": {
-          "type": "offer_card",
+          "type": "card",
           "settings": {
             "title": "Everyday & contemporary fabrics",
             "text": "Cotton-silk, chiffon, crepe, linen, chanderi and more from our wider range — the same trusted quality and wholesale terms, shipped from one place."
           }
         },
         "offer_3": {
-          "type": "offer_card",
+          "type": "card",
           "settings": {
             "title": "Custom-colour weaves",
             "text": "Pick any shade from our colour chart and we have it woven to order at our Varanasi looms — exclusive colours for your boutique."
           }
-        },
+        }
+      },
+      "block_order": ["offer_1", "offer_2", "offer_3"]
+    },
+    "advantages": {
+      "type": "priyuja-store-advantages",
+      "settings": {
+        "eyebrow": "Why buy from our Varanasi store",
+        "heading": "At-source advantages"
+      },
+      "blocks": {
         "adv_1": {
-          "type": "advantage_card",
+          "type": "card",
           "settings": {
             "title": "Your colour, woven to order",
             "text": "Choose any shade from our colour chart. We weave it on Varanasi handlooms so your boutique stocks colours no one else has."
           }
         },
         "adv_2": {
-          "type": "advantage_card",
+          "type": "card",
           "settings": {
             "title": "Direct from the looms",
             "text": "Our Varanasi store sources straight from the weavers — no middlemen, true at-source value passed on to you."
           }
         },
         "adv_3": {
-          "type": "advantage_card",
+          "type": "card",
           "settings": {
             "title": "Fresh designs first",
             "text": "Being at the source means we see new weaves and patterns before anyone else. You get first pick of the latest designs."
           }
         },
         "adv_4": {
-          "type": "advantage_card",
+          "type": "card",
           "settings": {
             "title": "Authentic handloom",
             "text": "Every Banarasi saree from our Varanasi store is handloom-woven. We verify at the loom, so you sell with confidence."
           }
         },
         "adv_5": {
-          "type": "advantage_card",
+          "type": "card",
           "settings": {
             "title": "Same trusted terms",
             "text": "MOQ 15, mix and match, 100% advance, GST invoice, 24-hour dispatch — the Priyuja terms you already know, now with at-source advantages."
           }
         },
         "adv_6": {
-          "type": "advantage_card",
+          "type": "card",
           "settings": {
             "title": "Buy by video call",
             "text": "Can't travel to Varanasi? Book a video-call buying session — see the collection live and pick your pieces from your own shop."
           }
-        },
-        "order_step_1": {
-          "type": "order_step",
+        }
+      },
+      "block_order": ["adv_1", "adv_2", "adv_3", "adv_4", "adv_5", "adv_6"]
+    },
+    "terms": {
+      "type": "priyuja-wholesale-terms-grid",
+      "settings": {
+        "heading": "Wholesale terms",
+        "term_1_label": "First order MOQ",
+        "term_1_value": "15 pieces — mix & match any designs",
+        "term_2_label": "Reorders",
+        "term_2_value": "No minimum quantity",
+        "term_3_label": "Custom colour",
+        "term_3_value": "Minimum applies per shade",
+        "term_4_label": "Payment",
+        "term_4_value": "100% advance · no COD",
+        "term_5_label": "Dispatch",
+        "term_5_value": "Ready stock within 24 hours, pan-India",
+        "term_6_label": "Invoice",
+        "term_6_value": "GST invoice on every order"
+      }
+    },
+    "how-it-works": {
+      "type": "priyuja-how-it-works",
+      "settings": {
+        "section_label": "The Process",
+        "h2_line1": "How Ordering",
+        "h2_line2": "Works",
+        "descriptor": "From your first WhatsApp message to doorstep delivery — our streamlined process is designed for busy boutique owners."
+      },
+      "blocks": {
+        "step_1": {
+          "type": "step",
           "settings": {
-            "step_number": "01",
-            "step_title": "Message us on WhatsApp",
-            "step_text": "Tell us what you are looking for — fabric type, quantity, any colour preferences."
+            "icon": "💬",
+            "title": "Message us on WhatsApp",
+            "description": "Tell us what you are looking for — fabric type, quantity, any colour preferences.",
+            "detail": "Reply within 30 min"
           }
         },
-        "order_step_2": {
-          "type": "order_step",
+        "step_2": {
+          "type": "step",
           "settings": {
-            "step_number": "02",
-            "step_title": "Video call or visit",
-            "step_text": "See the collection live — in person at our Varanasi store or on a video call from anywhere."
+            "icon": "📹",
+            "title": "Video call or visit",
+            "description": "See the collection live — in person at our Varanasi store or on a video call from anywhere.",
+            "detail": "From your own shop"
           }
         },
-        "order_step_3": {
-          "type": "order_step",
+        "step_3": {
+          "type": "step",
           "settings": {
-            "step_number": "03",
-            "step_title": "Confirm & pay",
-            "step_text": "Finalise your selection, confirm quantities, and complete payment (100% advance, UPI / bank transfer)."
+            "icon": "✅",
+            "title": "Confirm & pay",
+            "description": "Finalise your selection, confirm quantities, and complete payment (100% advance, UPI / bank transfer).",
+            "detail": "UPI / bank transfer"
           }
         },
-        "order_step_4": {
-          "type": "order_step",
+        "step_4": {
+          "type": "step",
           "settings": {
-            "step_number": "04",
-            "step_title": "Dispatch & track",
-            "step_text": "Ready stock dispatched within 24 hours, pan-India. Custom-colour orders ship once weaving is complete. GST invoice on every order."
+            "icon": "🚚",
+            "title": "Dispatch & track",
+            "description": "Ready stock dispatched within 24 hours, pan-India. Custom-colour orders ship once weaving is complete. GST invoice on every order.",
+            "detail": "Tracked · pan-India"
           }
-        },
+        }
+      },
+      "block_order": ["step_1", "step_2", "step_3", "step_4"]
+    },
+    "fabric-links": {
+      "type": "priyuja-fabric-links",
+      "settings": {
+        "heading": "Banarasi saree fabrics we wholesale from Varanasi",
+        "intro": "Every fabric below is stocked or woven to order at our Varanasi store, at wholesale terms with GST invoice and pan-India dispatch:"
+      },
+      "blocks": {
+        "l1": { "type": "link", "settings": { "label": "Katan Banarasi silk saree wholesaler", "url": "/pages/katan-banarasi-silk-saree-wholesaler" } },
+        "l2": { "type": "link", "settings": { "label": "Banarasi organza saree wholesaler", "url": "/pages/banarasi-organza-saree-wholesaler" } },
+        "l3": { "type": "link", "settings": { "label": "Banarasi georgette saree wholesaler", "url": "/pages/banarasi-georgette-saree-wholesaler" } },
+        "l4": { "type": "link", "settings": { "label": "Banarasi tissue silk saree wholesaler", "url": "/pages/banarasi-tissue-saree-wholesaler" } },
+        "l5": { "type": "link", "settings": { "label": "Chiniya silk saree wholesaler", "url": "/pages/banarasi-chiniya-silk-saree-wholesaler" } },
+        "l6": { "type": "link", "settings": { "label": "Banarasi chanderi silk saree wholesaler", "url": "/pages/banarasi-chanderi-silk-saree-wholesaler" } },
+        "l7": { "type": "link", "settings": { "label": "Banarasi crepe silk saree wholesaler", "url": "/pages/banarasi-crepe-silk-saree-wholesaler" } },
+        "l8": { "type": "link", "settings": { "label": "Banarasi chiffon saree wholesaler", "url": "/pages/banarasi-chiffon-saree-wholesaler" } },
+        "l9": { "type": "link", "settings": { "label": "Banarasi tussar silk saree wholesaler", "url": "/pages/banarasi-tussar-silk-saree-wholesaler" } },
+        "l10": { "type": "link", "settings": { "label": "Banarasi cotton-silk saree wholesaler", "url": "/pages/banarasi-cotton-silk-saree-wholesaler" } },
+        "l11": { "type": "link", "settings": { "label": "Dola silk saree wholesaler", "url": "/pages/dola-silk-saree-wholesaler-and-manufacturer" } },
+        "l12": { "type": "link", "settings": { "label": "Satin Banarasi saree wholesaler", "url": "/pages/satin-banarasi-saree-wholesaler" } },
+        "l13": { "type": "link", "settings": { "label": "Linen Banarasi saree wholesaler", "url": "/pages/linen-banarasi-saree-wholesaler" } }
+      },
+      "block_order": ["l1", "l2", "l3", "l4", "l5", "l6", "l7", "l8", "l9", "l10", "l11", "l12", "l13"]
+    },
+    "visit": {
+      "type": "priyuja-store-visit",
+      "settings": {
+        "store_address": "D 47/195, 2nd Floor, Luxa Rd, opp. PDR Mall, Ramapura, Varanasi, Uttar Pradesh 221010",
+        "map_embed_url": "",
+        "video_call_hours": "",
+        "include_schema": true,
+        "store_latitude": "",
+        "store_longitude": ""
+      }
+    },
+    "faq": {
+      "type": "priyuja-faq",
+      "settings": {
+        "eyebrow": "FAQs",
+        "heading": "Common questions"
+      },
+      "blocks": {
         "faq_1": {
           "type": "faq",
           "settings": {
@@ -273,86 +328,30 @@
           }
         }
       },
-      "block_order": [
-        "custom_step_1",
-        "custom_step_2",
-        "custom_step_3",
-        "custom_step_4",
-        "swatch_01",
-        "swatch_02",
-        "swatch_03",
-        "swatch_04",
-        "swatch_05",
-        "swatch_06",
-        "swatch_07",
-        "swatch_08",
-        "swatch_09",
-        "swatch_10",
-        "swatch_11",
-        "swatch_12",
-        "offer_1",
-        "offer_2",
-        "offer_3",
-        "adv_1",
-        "adv_2",
-        "adv_3",
-        "adv_4",
-        "adv_5",
-        "adv_6",
-        "order_step_1",
-        "order_step_2",
-        "order_step_3",
-        "order_step_4",
-        "faq_1",
-        "faq_2",
-        "faq_3",
-        "faq_4",
-        "faq_5",
-        "faq_6",
-        "faq_7"
-      ],
+      "block_order": ["faq_1", "faq_2", "faq_3", "faq_4", "faq_5", "faq_6", "faq_7"]
+    },
+    "cta": {
+      "type": "priyuja-cta-band",
       "settings": {
-        "whatsapp_url": "",
-        "topbar_text": "Wholesale only · <strong>Now open in Varanasi</strong> · Custom colour from our shade card · GST invoice · 24-hour dispatch",
-        "hero_eyebrow": "Direct from Varanasi · Wholesale for boutiques",
-        "hero_heading": "Wholesale Banarasi Saree Manufacturer in Varanasi",
-        "hero_subheading": "Our Varanasi store puts us at the source. We supply pure handloom Banarasi silk sarees — and our full range of other fabrics — wholesale to boutiques across India. And because we are right at the looms, you can now choose your own colour from our shade card and have it woven to order.",
-        "store_eyebrow": "Now at the source",
-        "store_heading": "A Priyuja store in Varanasi",
-        "store_body_1": "For years we served boutiques from our Mumbai base. Now, with our own store in Varanasi, we are right where the handloom Banarasi saree is born. That means we select straight from the weavers, see fresh designs first, and pass on true at-source value to you — alongside the same trusted terms, GST billing and 24-hour dispatch you already know us for.",
-        "store_body_2": "You get the heritage handloom sarees from Varanasi, plus our wider range of other fabrics, all from one wholesale partner.",
-        "store_address": "D 47/195, 2nd Floor, Luxa Rd, opp. PDR Mall, Ramapura, Varanasi, Uttar Pradesh 221010",
-        "custom_eyebrow": "Only possible from Varanasi",
-        "custom_heading": "Choose your own colour",
-        "custom_intro": "Pick any shade from our colour chart and we weave it to order at our Varanasi looms — in the exact colour your customers are asking for. This is something we simply could not offer from Mumbai. It lets your boutique stand apart with colours no one else is stocking.",
-        "custom_min_per_shade": "",
-        "custom_lead_time": "",
-        "offer_eyebrow": "From our Varanasi store",
-        "offer_heading": "Handloom Banarasi silks, and much more",
-        "offer_subheading": "Pure handloom Banarasi silks woven in Varanasi, plus the full Priyuja range of other fabrics — all wholesale, all from one partner.",
-        "fabric_collections_url": "",
-        "adv_eyebrow": "Why buy from our Varanasi store",
-        "adv_heading": "At-source advantages",
-        "term_1_label": "First order MOQ",
-        "term_1_value": "15 pieces — mix & match any designs",
-        "term_2_label": "Reorders",
-        "term_2_value": "No minimum quantity",
-        "term_3_label": "Custom colour",
-        "term_3_value": "Minimum applies per shade",
-        "term_4_label": "Payment",
-        "term_4_value": "100% advance · no COD",
-        "term_5_label": "Dispatch",
-        "term_5_value": "Ready stock within 24 hours, pan-India",
-        "term_6_label": "Invoice",
-        "term_6_value": "GST invoice on every order",
-        "map_embed_url": "",
-        "video_call_hours": "",
-        "cta_heading": "Stock colours no one else has",
-        "cta_body": "Handloom Banarasi sarees direct from our Varanasi store, plus custom colours woven to order. Start with 15 pieces."
+        "heading": "Stock colours no one else has",
+        "body": "Handloom Banarasi sarees direct from our Varanasi store, plus custom colours woven to order. Start with 15 pieces.",
+        "cta_text": "Enquire on WhatsApp"
       }
     }
   },
   "order": [
-    "varanasi-store"
+    "topbar",
+    "hero",
+    "intro",
+    "local",
+    "custom",
+    "offers",
+    "advantages",
+    "terms",
+    "how-it-works",
+    "fabric-links",
+    "visit",
+    "faq",
+    "cta"
   ]
 }

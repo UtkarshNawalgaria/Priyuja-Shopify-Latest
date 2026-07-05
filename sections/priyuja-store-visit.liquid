@@ -53,11 +53,11 @@
       <div class="pvs-visit__eyebrow">Visit our store</div>
       <h3 class="reveal" style="font-size:var(--heading-font-size);margin:6px 0 10px;">Priyuja — Varanasi</h3>
       {%- if section.settings.store_address != blank -%}
-        <p class="reveal" style="color:var(--text-mid);">{{ section.settings.store_address }}<br>Varanasi, Uttar Pradesh</p>
+        <p class="reveal" style="color:var(--text-mid);">{{ section.settings.store_address }}</p>
       {%- else -%}
         <p><span style="background:var(--gold-pale);border:1px dashed var(--gold);color:#6b4a05;font-size:12px;border-radius:6px;padding:2px 8px;font-weight:600;">⚠ Add full Varanasi store address</span><br><span style="color:var(--text-mid);">Varanasi, Uttar Pradesh</span></p>
       {%- endif -%}
-      <p class="reveal" style="color:var(--text-mid);">Phone / WhatsApp: +91 91120 44277<br>GSTIN: 27AADCO1764H1ZE</p>
+      <p class="reveal" style="color:var(--text-mid);">Phone / WhatsApp: +91 91120 44277<br>GSTIN: 09AADCO1764H1ZC</p>
       {%- if section.settings.map_embed_url != blank -%}
         <iframe class="pvs-visit__map" src="{{ section.settings.map_embed_url }}" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Priyuja Varanasi Store Map"></iframe>
       {%- else -%}
@@ -77,6 +77,48 @@
     </div>
   </div>
 </section>
+
+{%- if section.settings.include_schema -%}
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Store",
+    "name": "Priyuja — Wholesale Banarasi Saree Store, Varanasi",
+    "description": "Wholesale Banarasi saree manufacturer in Varanasi. Pure handloom Banarasi silk sarees and custom-colour weaves, wholesale to boutiques across India.",
+    "image": "https://www.priyuja.com/cdn/shop/files/Banarasi_Handloom_Silk_Sarees.png",
+    "url": "{{ shop.url }}{{ page.url }}",
+    "telephone": "+91-91120-44277",
+    "priceRange": "₹₹",
+    "currenciesAccepted": "INR",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "D 47/195, 2nd Floor, Luxa Rd, opp. PDR Mall, Ramapura",
+      "addressLocality": "Varanasi",
+      "addressRegion": "Uttar Pradesh",
+      "postalCode": "221010",
+      "addressCountry": "IN"
+    },
+    {%- if section.settings.store_latitude != blank and section.settings.store_longitude != blank -%}
+    "geo": { "@type": "GeoCoordinates", "latitude": {{ section.settings.store_latitude }}, "longitude": {{ section.settings.store_longitude }} },
+    {%- endif -%}
+    "openingHoursSpecification": {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
+      "opens": "10:00",
+      "closes": "20:00"
+    },
+    "areaServed": { "@type": "Country", "name": "IN" },
+    "taxID": "09AADCO1764H1ZC",
+    "parentOrganization": {
+      "@type": "Organization",
+      "name": "Priyuja",
+      "legalName": "Olivecloud Tech Private Limited",
+      "url": "https://www.priyuja.com"
+    },
+    "sameAs": ["https://www.instagram.com/priyujafashion"]
+  }
+</script>
+{%- endif -%}
 
 {%- render 'priyuja-reveal', section_id: section.id -%}
 
@@ -108,6 +150,29 @@
       "type": "url",
       "id": "whatsapp_url",
       "label": "WhatsApp URL"
+    },
+    {
+      "type": "header",
+      "content": "Store schema (SEO)"
+    },
+    {
+      "type": "checkbox",
+      "id": "include_schema",
+      "label": "Output Store structured data (JSON-LD)",
+      "default": true,
+      "info": "Turn off if reusing this section on a non-store page."
+    },
+    {
+      "type": "text",
+      "id": "store_latitude",
+      "label": "Store Latitude",
+      "info": "Decimal, e.g. 25.3123. Adds geo coordinates to the Store schema."
+    },
+    {
+      "type": "text",
+      "id": "store_longitude",
+      "label": "Store Longitude",
+      "info": "Decimal, e.g. 82.9876."
     },
     {
       "type": "header",

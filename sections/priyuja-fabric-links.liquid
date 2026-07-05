@@ -1,0 +1,156 @@
+<style>
+  #shopify-section-{{ section.id }} {
+    --maroon: var(--priyuja-maroon);
+    --gold: var(--priyuja-gold);
+    --gold-pale: var(--priyuja-gold-pale);
+    --cream: var(--priyuja-cream);
+    --dark: var(--priyuja-dark);
+    --text-mid: var(--priyuja-text-mid);
+    --line: var(--priyuja-line, #E6DCC8);
+    --font-heading: var(--priyuja-font-heading);
+    --font-body: var(--priyuja-font-body);
+    --section-max-width: {%- case section.settings.container_width -%}{%- when 'narrow' -%}840px{%- when 'wide' -%}1400px{%- when 'full' -%}100%{%- else -%}1180px{%- endcase -%};
+    --section-v-pad: {%- case section.settings.section_padding -%}{%- when 'none' -%}0{%- when 'small' -%}32px{%- when 'large' -%}96px{%- else -%}54px{%- endcase -%};
+    --heading-font-size: {%- case section.settings.heading_size -%}{%- when 'small' -%}24px{%- when 'large' -%}44px{%- else -%}34px{%- endcase -%};
+  }
+  #shopify-section-{{ section.id }} * { box-sizing: border-box; }
+
+  .pvs-flinks { font-family: var(--font-body); color: var(--dark); line-height: 1.65; background: var(--cream); padding: var(--section-v-pad) 0; border-bottom: 1px solid var(--line); }
+  .pvs-flinks h2 { font-family: var(--font-heading); color: var(--maroon); font-size: var(--heading-font-size); margin: 0 0 8px; line-height: 1.12; }
+  .pvs-flinks__wrap { max-width: var(--section-max-width); margin: 0 auto; padding: 0 28px; }
+  .pvs-flinks__eyebrow { font-family: var(--font-body); letter-spacing: 2.5px; text-transform: uppercase; font-size: 12px; font-weight: 700; color: var(--gold); margin-bottom: 6px; }
+  .pvs-flinks__intro { color: var(--text-mid); font-size: 16px; margin: 0 0 18px; }
+  .pvs-flinks__list { list-style: none; padding: 0; margin: 0; columns: {{ section.settings.columns | default: 3 }}; column-gap: 40px; }
+  .pvs-flinks__list li { break-inside: avoid; margin-bottom: 10px; }
+  .pvs-flinks__list a { color: var(--maroon); font-weight: 600; text-decoration: none; border-bottom: 1px solid var(--gold-pale); transition: color 0.2s, border-color 0.2s; }
+  .pvs-flinks__list a:hover { color: var(--gold); border-color: var(--gold); }
+
+  @media (max-width: 900px) { .pvs-flinks__list { columns: 2; } }
+  @media (max-width: 560px) {
+    .pvs-flinks { padding: calc(var(--section-v-pad) * 0.65) 0; }
+    .pvs-flinks__wrap { padding: 0 18px; }
+    .pvs-flinks__list { columns: 1; }
+  }
+</style>
+
+<section class="pvs-flinks">
+  <div class="pvs-flinks__wrap">
+    {%- if section.settings.eyebrow != blank -%}
+      <div class="pvs-flinks__eyebrow reveal">{{ section.settings.eyebrow }}</div>
+    {%- endif -%}
+    {%- if section.settings.heading != blank -%}
+      <h2 class="reveal">{{ section.settings.heading }}</h2>
+    {%- endif -%}
+    {%- if section.settings.intro != blank -%}
+      <p class="pvs-flinks__intro reveal">{{ section.settings.intro }}</p>
+    {%- endif -%}
+    {%- if section.blocks.size > 0 -%}
+      <ul class="pvs-flinks__list reveal">
+        {%- for block in section.blocks -%}
+          <li {{ block.shopify_attributes }}><a href="{{ block.settings.url }}">{{ block.settings.label }}</a></li>
+        {%- endfor -%}
+      </ul>
+    {%- endif -%}
+  </div>
+</section>
+
+{%- render 'priyuja-reveal', section_id: section.id -%}
+
+{% schema %}
+{
+  "name": "Priyuja - Fabric Links",
+  "tag": "section",
+  "class": "priyuja-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Banarasi saree fabrics we wholesale from Varanasi"
+    },
+    {
+      "type": "textarea",
+      "id": "intro",
+      "label": "Intro",
+      "default": "Every fabric below is stocked or woven to order at our Varanasi store, at wholesale terms with GST invoice and pan-India dispatch:"
+    },
+    {
+      "type": "range",
+      "id": "columns",
+      "label": "Desktop columns",
+      "min": 1,
+      "max": 4,
+      "step": 1,
+      "default": 3
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "select",
+      "id": "container_width",
+      "label": "Container width",
+      "options": [
+        { "value": "narrow", "label": "Narrow (840px)" },
+        { "value": "default", "label": "Default (1180px)" },
+        { "value": "wide", "label": "Wide (1400px)" },
+        { "value": "full", "label": "Full width (100%)" }
+      ],
+      "default": "default"
+    },
+    {
+      "type": "select",
+      "id": "section_padding",
+      "label": "Section padding",
+      "options": [
+        { "value": "none", "label": "None" },
+        { "value": "small", "label": "Small" },
+        { "value": "medium", "label": "Medium" },
+        { "value": "large", "label": "Large" }
+      ],
+      "default": "medium"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "label": "Heading size",
+      "options": [
+        { "value": "small", "label": "Small" },
+        { "value": "medium", "label": "Medium" },
+        { "value": "large", "label": "Large" }
+      ],
+      "default": "medium"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "link",
+      "name": "Link",
+      "settings": [
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Label",
+          "default": "Fabric wholesaler"
+        },
+        {
+          "type": "url",
+          "id": "url",
+          "label": "URL"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Priyuja - Fabric Links"
+    }
+  ]
+}
+{% endschema %}

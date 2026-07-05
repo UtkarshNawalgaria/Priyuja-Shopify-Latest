@@ -1,0 +1,114 @@
+<style>
+  #shopify-section-{{ section.id }} {
+    --maroon: var(--priyuja-maroon);
+    --gold: var(--priyuja-gold);
+    --cream: var(--priyuja-cream);
+    --dark: var(--priyuja-dark);
+    --text-mid: var(--priyuja-text-mid);
+    --line: var(--priyuja-line, #E6DCC8);
+    --font-heading: var(--priyuja-font-heading);
+    --font-body: var(--priyuja-font-body);
+    --section-max-width: {%- case section.settings.container_width -%}{%- when 'narrow' -%}840px{%- when 'wide' -%}1400px{%- when 'full' -%}100%{%- else -%}1180px{%- endcase -%};
+    --section-v-pad: {%- case section.settings.section_padding -%}{%- when 'none' -%}0{%- when 'small' -%}32px{%- when 'large' -%}96px{%- else -%}54px{%- endcase -%};
+    --heading-font-size: {%- case section.settings.heading_size -%}{%- when 'small' -%}24px{%- when 'large' -%}44px{%- else -%}34px{%- endcase -%};
+  }
+  #shopify-section-{{ section.id }} * { box-sizing: border-box; }
+
+  .pvs-local { font-family: var(--font-body); color: var(--dark); line-height: 1.75; background: var(--cream); padding: var(--section-v-pad) 0; border-bottom: 1px solid var(--line); }
+  .pvs-local h2 { font-family: var(--font-heading); color: var(--maroon); font-size: var(--heading-font-size); margin: 8px 0 14px; line-height: 1.12; }
+  .pvs-local__wrap { max-width: var(--section-max-width); margin: 0 auto; padding: 0 28px; }
+  .pvs-local__eyebrow { font-family: var(--font-body); letter-spacing: 2.5px; text-transform: uppercase; font-size: 12px; font-weight: 700; color: var(--gold); }
+  .pvs-local__body { color: var(--text-mid); font-size: 16px; }
+  .pvs-local__body p { margin: 0 0 12px; }
+  .pvs-local__body p:last-child { margin-bottom: 0; }
+
+  @media (max-width: 820px) {
+    .pvs-local { padding: calc(var(--section-v-pad) * 0.65) 0; }
+    .pvs-local__wrap { padding: 0 18px; }
+  }
+</style>
+
+<section class="pvs-local">
+  <div class="pvs-local__wrap">
+    {%- if section.settings.eyebrow != blank -%}
+      <div class="pvs-local__eyebrow reveal">{{ section.settings.eyebrow }}</div>
+    {%- endif -%}
+    {%- if section.settings.heading != blank -%}
+      <h2 class="reveal">{{ section.settings.heading }}</h2>
+    {%- endif -%}
+    <div class="pvs-local__body reveal">{{ section.settings.body }}</div>
+  </div>
+</section>
+
+{%- render 'priyuja-reveal', section_id: section.id -%}
+
+{% schema %}
+{
+  "name": "Priyuja - Store Local",
+  "tag": "section",
+  "class": "priyuja-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "In the heart of Varanasi's saree wholesale market"
+    },
+    {
+      "type": "richtext",
+      "id": "body",
+      "label": "Body",
+      "default": "<p>Our store sits on Luxa Road in Ramapura — minutes from Godowlia, Chowk and the traditional weaving hubs where Banarasi sarees have been woven for generations. Boutique owners visiting Varanasi's saree wholesale market can walk in, see fresh handloom stock straight from the weavers, and place a wholesale order the same day. We are about 15 minutes from Varanasi Junction (Cantt) railway station and around 45 minutes from Lal Bahadur Shastri International Airport — easy to fit into a single buying trip.</p>"
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "select",
+      "id": "container_width",
+      "label": "Container width",
+      "options": [
+        { "value": "narrow", "label": "Narrow (840px)" },
+        { "value": "default", "label": "Default (1180px)" },
+        { "value": "wide", "label": "Wide (1400px)" },
+        { "value": "full", "label": "Full width (100%)" }
+      ],
+      "default": "default"
+    },
+    {
+      "type": "select",
+      "id": "section_padding",
+      "label": "Section padding",
+      "options": [
+        { "value": "none", "label": "None" },
+        { "value": "small", "label": "Small" },
+        { "value": "medium", "label": "Medium" },
+        { "value": "large", "label": "Large" }
+      ],
+      "default": "medium"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "label": "Heading size",
+      "options": [
+        { "value": "small", "label": "Small" },
+        { "value": "medium", "label": "Medium" },
+        { "value": "large", "label": "Large" }
+      ],
+      "default": "medium"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Priyuja - Store Local"
+    }
+  ]
+}
+{% endschema %}
