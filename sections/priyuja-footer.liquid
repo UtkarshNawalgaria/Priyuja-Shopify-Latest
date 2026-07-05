@@ -1,4 +1,11 @@
-{%- assign wa = section.settings.whatsapp_url | default: 'https://wa.me/919112044277' -%}
+{%- assign wa_raw = section.settings.whatsapp_url | default: '919112044277' -%}
+{%- if wa_raw contains 'http' -%}
+  {%- assign wa = wa_raw -%}
+{%- else -%}
+  {%- assign wa_digits = wa_raw | remove: ' ' | remove: '+' | remove: '-' -%}
+  {%- if wa_digits.size == 10 -%}{%- assign wa_digits = wa_digits | prepend: '91' -%}{%- endif -%}
+  {%- assign wa = wa_digits | prepend: 'https://wa.me/' -%}
+{%- endif -%}
 {%- assign phone = section.settings.phone | default: '+91 91120 44277' -%}
 {%- assign phone_tel = phone | remove: ' ' | remove: '-' -%}
 
@@ -172,10 +179,11 @@
       "default": "+91 91120 44277"
     },
     {
-      "type": "url",
+      "type": "text",
       "id": "whatsapp_url",
-      "label": "WhatsApp link",
-      "default": "https://wa.me/919112044277"
+      "label": "WhatsApp link or number",
+      "info": "A full https://wa.me/... URL, or just the phone number (91 is added automatically for 10-digit numbers).",
+      "default": "9112044277"
     },
     {
       "type": "text",
@@ -183,7 +191,7 @@
       "label": "Email (optional)"
     },
     {
-      "type": "url",
+      "type": "text",
       "id": "instagram_url",
       "label": "Instagram URL",
       "default": "https://www.instagram.com/priyujafashion"
@@ -269,8 +277,7 @@
     {
       "type": "link_list",
       "id": "policy_menu",
-      "label": "Policy links (bottom bar)",
-      "default": "policies"
+      "label": "Policy links (bottom bar)"
     },
     {
       "type": "header",
