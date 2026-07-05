@@ -1,0 +1,295 @@
+{%- assign wa = section.settings.whatsapp_url | default: 'https://wa.me/919112044277' -%}
+{%- assign phone = section.settings.phone | default: '+91 91120 44277' -%}
+{%- assign phone_tel = phone | remove: ' ' | remove: '-' -%}
+
+<style>
+  #shopify-section-{{ section.id }} {
+    --maroon: var(--priyuja-maroon, #6B1628);
+    --maroon-deep: var(--priyuja-maroon-deep, #4A0F1C);
+    --gold: var(--priyuja-gold, #C79A3B);
+    --gold-light: var(--priyuja-gold-light, #E3C877);
+    --font-heading: var(--priyuja-font-heading, serif);
+    --font-body: var(--priyuja-font-body, sans-serif);
+  }
+  #shopify-section-{{ section.id }} * { box-sizing: border-box; }
+
+  .pf { background: var(--maroon-deep); color: #ecdcc6; font-family: var(--font-body); line-height: 1.6; }
+  .pf__wrap { max-width: 1180px; margin: 0 auto; padding: 56px 28px 26px; }
+  .pf__grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 0.9fr; gap: 40px; }
+
+  .pf__brand-logo { display: block; height: auto; margin-bottom: 14px; }
+  .pf__brand-name { font-family: var(--font-heading); color: #fff; font-size: 30px; line-height: 1; letter-spacing: .5px; }
+  .pf__tag { color: #d9c4a9; font-size: 14px; margin: 12px 0 0; max-width: 320px; }
+  .pf__contact { list-style: none; padding: 0; margin: 18px 0 0; }
+  .pf__contact li { margin-bottom: 7px; font-size: 13.5px; }
+  .pf__contact a { color: #ecdcc6; text-decoration: none; }
+  .pf__contact a:hover { color: var(--gold-light); }
+  .pf__contact .lbl { color: var(--gold-light); font-weight: 600; margin-right: 4px; }
+
+  .pf__col h4 { font-family: var(--font-body); text-transform: uppercase; letter-spacing: 1.6px; font-size: 11.5px; font-weight: 700; color: var(--gold-light); margin: 0 0 14px; }
+  .pf__store-name { color: #fff; font-weight: 700; font-size: 15px; margin: 0 0 8px; }
+  .pf__store address { font-style: normal; color: #d9c4a9; font-size: 13.5px; margin: 0; }
+  .pf__store .row { margin-top: 8px; }
+  .pf__store .lbl { color: var(--gold-light); font-weight: 600; }
+
+  .pf__links { list-style: none; padding: 0; margin: 0; }
+  .pf__links li { margin-bottom: 9px; }
+  .pf__links a { color: #d9c4a9; text-decoration: none; font-size: 13.5px; }
+  .pf__links a:hover { color: var(--gold-light); }
+
+  .pf__bottom { border-top: 1px solid rgba(255,255,255,.14); margin-top: 40px; padding-top: 18px; display: flex; justify-content: space-between; align-items: center; gap: 14px; flex-wrap: wrap; font-size: 12.5px; color: #c2ab90; }
+  .pf__bottom a { color: #c2ab90; text-decoration: none; }
+  .pf__bottom a:hover { color: var(--gold-light); }
+  .pf__policies { display: flex; gap: 8px; flex-wrap: wrap; }
+
+  @media (max-width: 900px) {
+    .pf__grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+  }
+  @media (max-width: 560px) {
+    .pf__wrap { padding: 40px 20px 22px; }
+    .pf__grid { grid-template-columns: 1fr; gap: 28px; }
+    .pf__bottom { flex-direction: column; align-items: flex-start; }
+  }
+</style>
+
+<footer class="pf" role="contentinfo">
+  <div class="pf__wrap">
+    <div class="pf__grid">
+
+      <!-- Brand + contact -->
+      <div class="pf__col pf__brand">
+        {%- if section.settings.logo != blank -%}
+          <img class="pf__brand-logo" src="{{ section.settings.logo | image_url: width: 320 }}" alt="{{ shop.name }}" width="160" height="auto" loading="lazy">
+        {%- else -%}
+          <div class="pf__brand-name">{{ section.settings.brand_name | default: 'Priyuja' }}</div>
+        {%- endif -%}
+        {%- if section.settings.tagline != blank -%}
+          <p class="pf__tag">{{ section.settings.tagline }}</p>
+        {%- endif -%}
+        <ul class="pf__contact">
+          <li><span class="lbl">Call / WhatsApp:</span><a href="tel:{{ phone_tel }}">{{ phone }}</a></li>
+          {%- if section.settings.email != blank -%}
+            <li><span class="lbl">Email:</span><a href="mailto:{{ section.settings.email }}">{{ section.settings.email }}</a></li>
+          {%- endif -%}
+          {%- if section.settings.instagram_url != blank -%}
+            <li><span class="lbl">Instagram:</span><a href="{{ section.settings.instagram_url }}" target="_blank" rel="noopener">{{ section.settings.instagram_handle | default: '@priyujafashion' }}</a></li>
+          {%- endif -%}
+          <li><a href="{{ wa }}" target="_blank" rel="noopener">Enquire on WhatsApp →</a></li>
+        </ul>
+      </div>
+
+      <!-- Mumbai -->
+      <div class="pf__col pf__store">
+        <h4>{{ section.settings.mumbai_label | default: 'Mumbai — Sales Office' }}</h4>
+        <p class="pf__store-name">Priyuja</p>
+        <address>
+          {{ section.settings.mumbai_address }}
+          {%- if section.settings.mumbai_hours != blank -%}
+            <span class="row"><span class="lbl">Hours:</span> {{ section.settings.mumbai_hours }}</span>
+          {%- endif -%}
+          {%- if section.settings.mumbai_gst != blank -%}
+            <span class="row"><span class="lbl">GSTIN:</span> {{ section.settings.mumbai_gst }}</span>
+          {%- endif -%}
+        </address>
+      </div>
+
+      <!-- Varanasi -->
+      <div class="pf__col pf__store">
+        <h4>{{ section.settings.varanasi_label | default: 'Varanasi — Store & Sourcing' }}</h4>
+        <p class="pf__store-name">Priyuja</p>
+        <address>
+          {{ section.settings.varanasi_address }}
+          {%- if section.settings.varanasi_hours != blank -%}
+            <span class="row"><span class="lbl">Hours:</span> {{ section.settings.varanasi_hours }}</span>
+          {%- endif -%}
+          {%- if section.settings.varanasi_gst != blank -%}
+            <span class="row"><span class="lbl">GSTIN:</span> {{ section.settings.varanasi_gst }}</span>
+          {%- endif -%}
+        </address>
+      </div>
+
+      <!-- Links -->
+      {%- if section.settings.menu != blank and linklists[section.settings.menu].links.size > 0 -%}
+        <div class="pf__col">
+          <h4>{{ section.settings.menu_title | default: 'Explore' }}</h4>
+          <ul class="pf__links">
+            {%- for link in linklists[section.settings.menu].links -%}
+              <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+            {%- endfor -%}
+          </ul>
+        </div>
+      {%- endif -%}
+
+    </div>
+
+    <div class="pf__bottom">
+      <div>© {{ 'now' | date: '%Y' }} {{ section.settings.brand_name | default: 'Priyuja' }}{%- if section.settings.copyright_text != blank -%} · {{ section.settings.copyright_text }}{%- endif -%}</div>
+      {%- if section.settings.policy_menu != blank and linklists[section.settings.policy_menu].links.size > 0 -%}
+        <div class="pf__policies">
+          {%- for link in linklists[section.settings.policy_menu].links -%}
+            <a href="{{ link.url }}">{{ link.title }}</a>{%- unless forloop.last -%}<span aria-hidden="true">·</span>{%- endunless -%}
+          {%- endfor -%}
+        </div>
+      {%- endif -%}
+    </div>
+  </div>
+</footer>
+
+{% schema %}
+{
+  "name": "Priyuja Footer",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Brand"
+    },
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Logo (optional)",
+      "info": "If blank, the brand name text is shown."
+    },
+    {
+      "type": "text",
+      "id": "brand_name",
+      "label": "Brand name",
+      "default": "Priyuja"
+    },
+    {
+      "type": "textarea",
+      "id": "tagline",
+      "label": "Tagline",
+      "default": "Wholesale Banarasi silk sarees for boutiques across India — direct from our Varanasi store, with custom colours woven to order."
+    },
+    {
+      "type": "header",
+      "content": "Contact"
+    },
+    {
+      "type": "text",
+      "id": "phone",
+      "label": "Phone / WhatsApp (display)",
+      "default": "+91 91120 44277"
+    },
+    {
+      "type": "url",
+      "id": "whatsapp_url",
+      "label": "WhatsApp link",
+      "default": "https://wa.me/919112044277"
+    },
+    {
+      "type": "text",
+      "id": "email",
+      "label": "Email (optional)"
+    },
+    {
+      "type": "url",
+      "id": "instagram_url",
+      "label": "Instagram URL",
+      "default": "https://www.instagram.com/priyujafashion"
+    },
+    {
+      "type": "text",
+      "id": "instagram_handle",
+      "label": "Instagram handle",
+      "default": "@priyujafashion"
+    },
+    {
+      "type": "header",
+      "content": "Mumbai location"
+    },
+    {
+      "type": "text",
+      "id": "mumbai_label",
+      "label": "Heading",
+      "default": "Mumbai — Sales Office"
+    },
+    {
+      "type": "textarea",
+      "id": "mumbai_address",
+      "label": "Address",
+      "default": "B-39, 2nd Floor, Flameproof House, Veera Desai Industrial Estate, New Link Road, Andheri West, Mumbai, Maharashtra 400053"
+    },
+    {
+      "type": "text",
+      "id": "mumbai_hours",
+      "label": "Hours",
+      "info": "e.g. Mon–Sat, 11 AM – 7 PM. Leave blank to hide."
+    },
+    {
+      "type": "text",
+      "id": "mumbai_gst",
+      "label": "GSTIN",
+      "default": "27AADCO1764H1ZE"
+    },
+    {
+      "type": "header",
+      "content": "Varanasi location"
+    },
+    {
+      "type": "text",
+      "id": "varanasi_label",
+      "label": "Heading",
+      "default": "Varanasi — Store & Sourcing"
+    },
+    {
+      "type": "textarea",
+      "id": "varanasi_address",
+      "label": "Address",
+      "default": "D 47/195, 2nd Floor, Luxa Rd, opp. PDR Mall, Ramapura, Varanasi, Uttar Pradesh 221010"
+    },
+    {
+      "type": "text",
+      "id": "varanasi_hours",
+      "label": "Hours",
+      "default": "Mon–Sat, 10 AM – 8 PM"
+    },
+    {
+      "type": "text",
+      "id": "varanasi_gst",
+      "label": "GSTIN",
+      "default": "09AADCO1764H1ZC"
+    },
+    {
+      "type": "header",
+      "content": "Links"
+    },
+    {
+      "type": "text",
+      "id": "menu_title",
+      "label": "Links column title",
+      "default": "Explore"
+    },
+    {
+      "type": "link_list",
+      "id": "menu",
+      "label": "Links menu",
+      "default": "new-footer-menu"
+    },
+    {
+      "type": "link_list",
+      "id": "policy_menu",
+      "label": "Policy links (bottom bar)",
+      "default": "policies"
+    },
+    {
+      "type": "header",
+      "content": "Bottom bar"
+    },
+    {
+      "type": "text",
+      "id": "copyright_text",
+      "label": "Copyright suffix",
+      "default": "Powered by Olivecloud"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Priyuja Footer"
+    }
+  ],
+  "enabled_on": {
+    "groups": ["footer"]
+  }
+}
+{% endschema %}

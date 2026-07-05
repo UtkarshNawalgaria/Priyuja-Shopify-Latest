@@ -126,6 +126,13 @@
         "section_padding": "medium"
       }
     },
+    "varanasi-link": {
+      "type": "priyuja-fabric-varanasi-crosslink",
+      "settings": {
+        "container_width": "default",
+        "section_padding": "medium"
+      }
+    },
     "cta": {
       "type": "priyuja-cta-band",
       "settings": {
@@ -152,6 +159,7 @@
     "how-it-works",
     "faq",
     "related",
+    "varanasi-link",
     "cta"
   ]
 }

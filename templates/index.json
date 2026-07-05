@@ -12,7 +12,7 @@
     "priyuja-hero": {
       "type": "priyuja-hero",
       "settings": {
-        "eyebrow": "Wholesale Sarees — Direct from Varanasi & Kolkata",
+        "eyebrow": "Wholesale Sarees — Direct from Varanasi & Mumbai",
         "h1_line1": "Curated Sarees for",
         "h1_line2": "Discerning Boutiques",
         "h1_line3": "Across India",
@@ -23,7 +23,7 @@
         "secondary_cta_url": "#how-it-works",
         "hero_image": "shopify://shop_images/1_e25d13d2-98a6-4900-ba4b-cd4eefb67cde.png",
         "image_tag_origin": "Handpicked from",
-        "image_tag_name": "Varanasi & Kolkata",
+        "image_tag_name": "Varanasi & Mumbai",
         "stat_1_number": "20+",
         "stat_1_label": "Years of Legacy",
         "stat_2_number": "500+",
@@ -39,7 +39,7 @@
           "type": "trust_item",
           "settings": {
             "icon": "🏭",
-            "text_bold": "Varanasi & Kolkata",
+            "text_bold": "Varanasi",
             "text_rest": "Sourced Directly"
           }
         },
@@ -92,7 +92,7 @@
           "type": "pillar",
           "settings": {
             "title": "Direct Sourcing",
-            "description": "Personal relationships with master weavers in Varanasi and manufacturers in Kolkata"
+            "description": "Personal relationships with master weavers and handloom units in Varanasi"
           }
         },
         "pillar-2": {
@@ -128,8 +128,8 @@
         "h2_line1": "A Legacy Woven in",
         "h2_line2": "Tradition & Trust",
         "paragraph_1": "For over two decades, the Nawalgaria family has been at the heart of India's textile trade. What began as a small operation in the bustling markets of Varanasi has grown into a trusted wholesale network serving hundreds of boutiques across India.",
-        "paragraph_2": "Founded by Anvi and Rama Nawalgaria, Priyuja brings three generations of textile knowledge to every piece we curate. We personally visit the looms and workshops of Varanasi and Kolkata, selecting only the finest weaves that meet our exacting standards.",
-        "paragraph_3": "Today, from our base in Mumbai, we serve boutique owners who value quality, authenticity, and a partner who understands the business of beautiful sarees.",
+        "paragraph_2": "Founded by Anvi and Rama Nawalgaria, Priyuja brings three generations of textile knowledge to every piece we curate. We personally visit the looms and workshops of Varanasi, selecting only the finest weaves that meet our exacting standards.",
+        "paragraph_3": "Today, with our own store in Varanasi and our sales base in Mumbai, we serve boutique owners who value quality, authenticity, and a partner who understands the business of beautiful sarees.",
         "badge_number": "20+",
         "badge_label": "Years in Textiles"
       }
@@ -203,7 +203,7 @@
         "col-2": {
           "type": "collection_card",
           "settings": {
-            "origin": "Kolkata, West Bengal",
+            "origin": "Varanasi, Uttar Pradesh",
             "name": "Georgette Sarees",
             "price": "",
             "url": ""
@@ -248,7 +248,7 @@
         "section_label": "Our Collections",
         "h2_line1": "Curated Collections",
         "h2_line2": "for Every Boutique",
-        "subtitle": "From the silk looms of Varanasi to the powerlooms of Kolkata — each collection is handpicked for quality, design, and wholesale value.",
+        "subtitle": "From the handlooms of Varanasi to your boutique — each collection is handpicked for quality, design, and wholesale value.",
         "cta_text": "View All Collections on WhatsApp",
         "cta_url": "https://wa.me/919112044277?text=Hi%20Priyuja%2C%20I%27d%20like%20to%20see%20your%20full%20collection%20catalog."
       }
@@ -261,7 +261,7 @@
           "settings": {
             "icon": "🏭",
             "title": "Direct Manufacturer Access",
-            "description": "Skip the middlemen. We source directly from master weavers in Varanasi and trusted manufacturers in Kolkata, ensuring authentic products at the best wholesale prices."
+            "description": "Skip the middlemen. We source directly from master weavers in Varanasi, ensuring authentic products at the best wholesale prices."
           }
         },
         "why-2": {
@@ -383,9 +383,9 @@
             "item_2_label": "GST Number",
             "item_2_text": "27AADCO1764H1ZE",
             "item_3_label": "Location",
-            "item_3_text": "Mumbai, Maharashtra",
+            "item_3_text": "Mumbai & Varanasi",
             "item_4_label": "Sourcing",
-            "item_4_text": "Varanasi (UP) and Kolkata (West Bengal)",
+            "item_4_text": "Varanasi, Uttar Pradesh",
             "item_5_label": "",
             "item_5_text": ""
           }
@@ -511,7 +511,7 @@
           "type": "contact_detail",
           "settings": {
             "label": "Dispatch From",
-            "value": "Varanasi & Varanasi"
+            "value": "Varanasi & Mumbai"
           }
         }
       },

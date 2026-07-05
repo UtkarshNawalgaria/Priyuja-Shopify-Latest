@@ -159,9 +159,8 @@
           {{ content_for_layout }}
         </main>
 
-        {% if template.name != "index" or settings.use_landing_page == false %}
-          {%- sections 'footer-group' -%}
-        {% endif %}
+        {%- comment -%} Unified Priyuja footer renders on every page, home included {%- endcomment -%}
+        {%- sections 'footer-group' -%}
       </div>
     </div>
 

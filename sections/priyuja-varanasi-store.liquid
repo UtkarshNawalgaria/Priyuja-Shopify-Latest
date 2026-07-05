@@ -39,6 +39,11 @@
   .pvs__num { color: var(--gold); font-family: var(--font-heading); font-size: 30px; font-weight: 700; }
   .pvs__placeholder { display: none; background: var(--gold-pale); border: 1px dashed var(--gold); color: #6b4a05; font-size: 12px; border-radius: 6px; padding: 2px 8px; font-weight: 600; }
   .pvs__img-ph { width: 100%; background: linear-gradient(135deg, var(--maroon-deep) 0%, var(--maroon) 50%, var(--gold) 100%); border-radius: 12px; }
+  .pvs__fabric-links { list-style: none; padding: 0; margin: 0; columns: 2; column-gap: 40px; max-width: 820px; }
+  .pvs__fabric-links li { break-inside: avoid; margin-bottom: 10px; }
+  .pvs__fabric-links a { color: var(--maroon); font-weight: 600; text-decoration: none; border-bottom: 1px solid var(--gold-pale); transition: color 0.2s, border-color 0.2s; }
+  .pvs__fabric-links a:hover { color: var(--gold); border-color: var(--gold); }
+  @media (max-width: 640px) { .pvs__fabric-links { columns: 1; } }
 
   /* Topbar */
   .pvs__topbar { background: var(--maroon-deep); color: #f3e7d8; font-size: 12.5px; text-align: center; padding: 9px 14px; letter-spacing: .3px; }
@@ -183,6 +188,14 @@
     </div>
   </section>
 
+  <!-- ===== 3.5 LOCAL RELEVANCE ===== -->
+  <section class="pvs__sec">
+    <div class="pvs__wrap">
+      <h2 class="reveal" style="font-size:34px;margin-bottom:14px;">In the heart of Varanasi's saree wholesale market</h2>
+      <p class="reveal" style="color:var(--text-mid);max-width:900px;">Our store sits on Luxa Road in Ramapura — minutes from Godowlia, Chowk and the traditional weaving hubs where Banarasi sarees have been woven for generations. Boutique owners visiting Varanasi's saree wholesale market can walk in, see fresh handloom stock straight from the weavers, and place a wholesale order the same day. We are about 15 minutes from Varanasi Junction (Cantt) railway station and around 45 minutes from Lal Bahadur Shastri International Airport — easy to fit into a single buying trip.</p>
+    </div>
+  </section>
+
   <!-- ===== 4. CUSTOM COLOUR ===== -->
   <section class="pvs__sec pvs__custom" id="pvs-custom">
     <div class="pvs__wrap">
@@ -316,11 +329,11 @@
         <div class="pvs__eyebrow">Visit our store</div>
         <h3 class="reveal" style="font-size:24px;margin:6px 0 10px;">Priyuja — Varanasi</h3>
         {%- if section.settings.store_address != blank -%}
-          <p class="reveal" style="color:var(--text-mid);">{{ section.settings.store_address }}<br>Varanasi, Uttar Pradesh</p>
+          <p class="reveal" style="color:var(--text-mid);">{{ section.settings.store_address }}</p>
         {%- else -%}
           <p><span style="background:var(--gold-pale);border:1px dashed var(--gold);color:#6b4a05;font-size:12px;border-radius:6px;padding:2px 8px;font-weight:600;">⚠ Add full Varanasi store address</span><br><span style="color:var(--text-mid);">Varanasi, Uttar Pradesh</span></p>
         {%- endif -%}
-        <p class="reveal" style="color:var(--text-mid);">Phone / WhatsApp: +91 91120 44277<br>GSTIN: 27AADCO1764H1ZE</p>
+        <p class="reveal" style="color:var(--text-mid);">Phone / WhatsApp: +91 91120 44277<br>GSTIN: 09AADCO1764H1ZC</p>
         {%- if section.settings.map_embed_url != blank -%}
           <iframe class="pvs__map-embed" src="{{ section.settings.map_embed_url }}" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Priyuja Varanasi Store Map"></iframe>
         {%- else -%}
@@ -338,6 +351,29 @@
         {%- endif -%}
         <a class="pvs__btn pvs__btn--primary reveal" href="{{ wa_link }}" target="_blank" rel="noopener" style="margin-top:6px;">Book a video call</a>
       </div>
+    </div>
+  </section>
+
+  <!-- ===== 9.5 FABRIC LINKS ===== -->
+  <section class="pvs__sec">
+    <div class="pvs__wrap">
+      <h2 class="reveal" style="font-size:34px;margin-bottom:8px;">Banarasi saree fabrics we wholesale from Varanasi</h2>
+      <p class="reveal" style="color:var(--text-mid);max-width:900px;margin-bottom:18px;">Every fabric below is stocked or woven to order at our Varanasi store, at wholesale terms with GST invoice and pan-India dispatch:</p>
+      <ul class="reveal pvs__fabric-links">
+        <li><a href="{{ routes.root_url }}pages/katan-banarasi-silk-saree-wholesaler">Katan Banarasi silk saree wholesaler</a></li>
+        <li><a href="{{ routes.root_url }}pages/banarasi-organza-saree-wholesaler">Banarasi organza saree wholesaler</a></li>
+        <li><a href="{{ routes.root_url }}pages/banarasi-georgette-saree-wholesaler">Banarasi georgette saree wholesaler</a></li>
+        <li><a href="{{ routes.root_url }}pages/banarasi-tissue-saree-wholesaler">Banarasi tissue silk saree wholesaler</a></li>
+        <li><a href="{{ routes.root_url }}pages/banarasi-chiniya-silk-saree-wholesaler">Chiniya silk saree wholesaler</a></li>
+        <li><a href="{{ routes.root_url }}pages/banarasi-chanderi-silk-saree-wholesaler">Banarasi chanderi silk saree wholesaler</a></li>
+        <li><a href="{{ routes.root_url }}pages/banarasi-crepe-silk-saree-wholesaler">Banarasi crepe silk saree wholesaler</a></li>
+        <li><a href="{{ routes.root_url }}pages/banarasi-chiffon-saree-wholesaler">Banarasi chiffon saree wholesaler</a></li>
+        <li><a href="{{ routes.root_url }}pages/banarasi-tussar-silk-saree-wholesaler">Banarasi tussar silk saree wholesaler</a></li>
+        <li><a href="{{ routes.root_url }}pages/banarasi-cotton-silk-saree-wholesaler">Banarasi cotton-silk saree wholesaler</a></li>
+        <li><a href="{{ routes.root_url }}pages/dola-silk-saree-wholesaler-and-manufacturer">Dola silk saree wholesaler</a></li>
+        <li><a href="{{ routes.root_url }}pages/satin-banarasi-saree-wholesaler">Satin Banarasi saree wholesaler</a></li>
+        <li><a href="{{ routes.root_url }}pages/linen-banarasi-saree-wholesaler">Linen Banarasi saree wholesaler</a></li>
+      </ul>
     </div>
   </section>
 
@@ -398,33 +434,44 @@
   </script>
 {%- endif -%}
 
-<!-- ===== LocalBusiness JSON-LD ===== -->
+<!-- ===== Store JSON-LD ===== -->
 <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "name": "Priyuja — Varanasi Store",
+    "@type": "Store",
+    "name": "Priyuja — Wholesale Banarasi Saree Store, Varanasi",
     "description": "Wholesale Banarasi saree manufacturer in Varanasi. Pure handloom Banarasi silk sarees and custom-colour weaves, wholesale to boutiques across India.",
-    "telephone": "+91-91120-44277",
+    "image": {%- if section.settings.store_image != blank -%}{{ section.settings.store_image | image_url: width: 1200 | prepend: 'https:' | json }}{%- elsif section.settings.hero_image != blank -%}{{ section.settings.hero_image | image_url: width: 1200 | prepend: 'https:' | json }}{%- else -%}"https://www.priyuja.com/cdn/shop/files/Banarasi_Handloom_Silk_Sarees.png"{%- endif -%},
     "url": "{{ shop.url }}{{ page.url }}",
-    "areaServed": {
-      "@type": "Country",
-      "name": "IN"
-    },
+    "telephone": "+91-91120-44277",
+    "priceRange": "₹₹",
+    "currenciesAccepted": "INR",
     "address": {
       "@type": "PostalAddress",
+      "streetAddress": "D 47/195, 2nd Floor, Luxa Rd, opp. PDR Mall, Ramapura",
       "addressLocality": "Varanasi",
       "addressRegion": "Uttar Pradesh",
+      "postalCode": "221010",
       "addressCountry": "IN"
-      {%- if section.settings.store_address != blank -%}
-        ,"streetAddress": {{ section.settings.store_address | json }}
-      {%- endif -%}
     },
+    {%- if section.settings.store_latitude != blank and section.settings.store_longitude != blank -%}
+    "geo": { "@type": "GeoCoordinates", "latitude": {{ section.settings.store_latitude }}, "longitude": {{ section.settings.store_longitude }} },
+    {%- endif -%}
+    "openingHoursSpecification": {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
+      "opens": "10:00",
+      "closes": "20:00"
+    },
+    "areaServed": { "@type": "Country", "name": "IN" },
+    "taxID": "09AADCO1764H1ZC",
     "parentOrganization": {
       "@type": "Organization",
-      "name": "Olivecloud Tech Pvt Ltd",
-      "taxID": "27AADCO1764H1ZE"
-    }
+      "name": "Priyuja",
+      "legalName": "Olivecloud Tech Private Limited",
+      "url": "https://www.priyuja.com"
+    },
+    "sameAs": ["https://www.instagram.com/priyujafashion"]
   }
 </script>
 
@@ -730,6 +777,18 @@
       "id": "map_embed_url",
       "label": "Google Map Embed URL",
       "info": "Paste the 'src' URL from a Google Maps embed iframe."
+    },
+    {
+      "type": "text",
+      "id": "store_latitude",
+      "label": "Store Latitude",
+      "info": "Decimal, e.g. 25.3123. Used for the Store schema geo coordinates."
+    },
+    {
+      "type": "text",
+      "id": "store_longitude",
+      "label": "Store Longitude",
+      "info": "Decimal, e.g. 82.9876. Used for the Store schema geo coordinates."
     },
     {
       "type": "text",

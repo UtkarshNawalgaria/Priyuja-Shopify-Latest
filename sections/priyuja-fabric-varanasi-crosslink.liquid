@@ -1,0 +1,124 @@
+{%- comment -%}
+  Per-fabric backlink to the Varanasi wholesale store page.
+  Varied, natural anchor text per fabric handle (no two identical).
+  Renders nothing on pages whose handle is not matched below.
+{%- endcomment -%}
+{%- assign store_url = routes.root_url | append: 'pages/best-wholesale-saree-store-in-varanasi' -%}
+
+{%- capture crosslink_body -%}
+  {%- case page.handle -%}
+    {%- when 'katan-banarasi-silk-saree-wholesaler' -%}
+      Katan is the backbone of the true Banarasi weave — and there's no better place to buy it than at the source. Visit our <a href="{{ store_url }}">wholesale Banarasi saree store in Varanasi</a> on Luxa Road to see fresh katan silk stock straight from the looms, or order over a video call.
+    {%- when 'banarasi-organza-saree-wholesaler' -%}
+      Our organza Banarasis are woven and quality-checked in Varanasi before dispatch. Boutique buyers can inspect the full range in person at our <a href="{{ store_url }}">saree wholesale store on Luxa Road, Varanasi</a> — MOQ 15 pieces, mix and match across fabrics.
+    {%- when 'banarasi-georgette-saree-wholesaler' -%}
+      Buying in bulk? Our <a href="{{ store_url }}">Varanasi wholesale store</a> stocks the complete Banarasi georgette range, with custom colours woven to order — pick a shade from a Pantone code or swatch and we'll weave it for you.
+    {%- when 'banarasi-tissue-saree-wholesaler' -%}
+      Tissue silk moves fast in wedding season. Reserve stock early through our <a href="{{ store_url }}">wholesale saree store in Varanasi</a>, or set up a video-call session to pick pieces live from your own shop.
+    {%- when 'banarasi-chiniya-silk-saree-wholesaler' -%}
+      Chiniya silk is a Varanasi speciality, and we wholesale it from where it's made. Walk into our <a href="{{ store_url }}">Banarasi saree wholesale store near Godowlia, Varanasi</a> or order remotely with GST invoice and 24-hour dispatch.
+    {%- when 'banarasi-chanderi-silk-saree-wholesaler' -%}
+      Alongside Banarasi weaves, our <a href="{{ store_url }}">wholesale store in Varanasi</a> stocks chanderi at trade prices — one supplier, one GST invoice, one dispatch for your entire mixed order.
+    {%- when 'banarasi-crepe-silk-saree-wholesaler' -%}
+      Add crepe to a mixed wholesale order — the 15-piece first-order minimum works across every fabric at our <a href="{{ store_url }}">Varanasi saree wholesale store</a>.
+    {%- when 'banarasi-chiffon-saree-wholesaler' -%}
+      See how our chiffons drape before you commit: book a video-call buying session with our <a href="{{ store_url }}">Varanasi wholesale store on Luxa Road</a> and pick pieces live.
+    {%- when 'banarasi-tussar-silk-saree-wholesaler' -%}
+      Our tussar range is curated at our Varanasi store alongside the handloom Banarasi collection. Visit the <a href="{{ store_url }}">wholesale Banarasi saree manufacturer store on Luxa Road</a> or order pan-India with tracking.
+    {%- when 'banarasi-cotton-silk-saree-wholesaler' -%}
+      Cotton-silk is the volume seller for most boutiques. Stock it at trade prices from our <a href="{{ store_url }}">saree wholesale store in Ramapura, Varanasi</a> — reorders have no minimum.
+    {%- when 'dola-silk-saree-wholesaler-and-manufacturer' -%}
+      Dola silk's soft sheen makes it an easy boutique bestseller. Source it wholesale alongside our handloom Banarasi range at our <a href="{{ store_url }}">Banarasi saree wholesale store in Varanasi</a> — MOQ 15, GST invoice, 24-hour dispatch.
+    {%- when 'satin-banarasi-saree-wholesaler' -%}
+      Satin Banarasi drapes with a glossy finish that sells itself. Add it to a mixed wholesale order at our <a href="{{ store_url }}">wholesale store on Luxa Road in Varanasi</a> and pair it with custom-colour weaves woven to order.
+    {%- when 'linen-banarasi-saree-wholesaler' -%}
+      Linen Banarasi is the breathable pick for summer stock. Buy it at trade prices from our <a href="{{ store_url }}">Priyuja wholesale store in Varanasi</a>, and mix and match with silks across your first 15-piece order.
+  {%- endcase -%}
+{%- endcapture -%}
+{%- assign crosslink_body = crosslink_body | strip -%}
+
+{%- if crosslink_body != blank -%}
+<style>
+  #shopify-section-{{ section.id }} {
+    --maroon: var(--priyuja-maroon);
+    --maroon-deep: var(--priyuja-maroon-deep);
+    --gold: var(--priyuja-gold);
+    --gold-pale: var(--priyuja-gold-pale);
+    --line: var(--priyuja-line, #E6DCC8);
+    --surface: var(--priyuja-surface, #FFFCF6);
+    --text-mid: var(--priyuja-text-mid);
+    --font-heading: var(--priyuja-font-heading);
+    --font-body: var(--priyuja-font-body);
+    --section-max-width: {%- case section.settings.container_width -%}{%- when 'narrow' -%}840px{%- when 'wide' -%}1400px{%- when 'full' -%}100%{%- else -%}1180px{%- endcase -%};
+    --section-v-pad: {%- case section.settings.section_padding -%}{%- when 'none' -%}0{%- when 'small' -%}32px{%- when 'large' -%}96px{%- else -%}46px{%- endcase -%};
+    --section-v-pad-mobile: {%- case section.settings.section_padding -%}{%- when 'none' -%}0{%- when 'small' -%}20px{%- when 'large' -%}64px{%- else -%}32px{%- endcase -%};
+  }
+  #shopify-section-{{ section.id }} * { box-sizing: border-box; }
+  #shopify-section-{{ section.id }} .priyuja-fp-varanasi { font-family: var(--font-body); padding: var(--section-v-pad) 0; border-bottom: 1px solid var(--line); }
+  #shopify-section-{{ section.id }} .priyuja-fp-varanasi__wrap { max-width: var(--section-max-width); margin: 0 auto; padding: 0 28px; }
+  #shopify-section-{{ section.id }} .priyuja-fp-varanasi__card { background: var(--surface); border: 1px solid var(--line); border-left: 4px solid var(--maroon); border-radius: 12px; padding: 24px 28px; }
+  #shopify-section-{{ section.id }} .priyuja-fp-varanasi__eyebrow { font-family: var(--font-body); letter-spacing: 2.5px; text-transform: uppercase; font-size: 12px; font-weight: 700; color: var(--gold); margin-bottom: 8px; }
+  #shopify-section-{{ section.id }} .priyuja-fp-varanasi__text { color: var(--text-mid); font-size: 16px; line-height: 1.7; margin: 0; }
+  #shopify-section-{{ section.id }} .priyuja-fp-varanasi__text a { color: var(--maroon); font-weight: 700; text-decoration: none; border-bottom: 1.5px solid var(--gold-pale); transition: border-color 0.2s; }
+  #shopify-section-{{ section.id }} .priyuja-fp-varanasi__text a:hover { border-color: var(--maroon); }
+  @media (max-width: 760px) {
+    #shopify-section-{{ section.id }} .priyuja-fp-varanasi { padding: var(--section-v-pad-mobile) 0; }
+    #shopify-section-{{ section.id }} .priyuja-fp-varanasi__wrap { padding: 0 18px; }
+    #shopify-section-{{ section.id }} .priyuja-fp-varanasi__card { padding: 20px 20px; }
+  }
+</style>
+
+<section class="priyuja-fp-varanasi">
+  <div class="priyuja-fp-varanasi__wrap">
+    <div class="priyuja-fp-varanasi__card reveal">
+      <div class="priyuja-fp-varanasi__eyebrow">Buy at the source · Varanasi</div>
+      <p class="priyuja-fp-varanasi__text">{{ crosslink_body }}</p>
+    </div>
+  </div>
+</section>
+
+{%- render 'priyuja-reveal', section_id: section.id -%}
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Fabric — Varanasi Link",
+  "tag": "div",
+  "class": "priyuja-section",
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "Shows a store-visit backlink with fabric-specific wording. Text is chosen automatically from the page handle."
+    },
+    {
+      "type": "select",
+      "id": "container_width",
+      "label": "Container width",
+      "options": [
+        { "value": "narrow", "label": "Narrow (840px)" },
+        { "value": "default", "label": "Default (1180px)" },
+        { "value": "wide", "label": "Wide (1400px)" },
+        { "value": "full", "label": "Full width (100%)" }
+      ],
+      "default": "default"
+    },
+    {
+      "type": "select",
+      "id": "section_padding",
+      "label": "Section padding",
+      "options": [
+        { "value": "none", "label": "None" },
+        { "value": "small", "label": "Small" },
+        { "value": "medium", "label": "Medium" },
+        { "value": "large", "label": "Large" }
+      ],
+      "default": "medium"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Fabric — Varanasi Link"
+    }
+  ]
+}
+{% endschema %}
