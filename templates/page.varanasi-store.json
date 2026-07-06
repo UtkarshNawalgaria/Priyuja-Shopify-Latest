@@ -430,6 +430,13 @@
     "faq": {
       "type": "priyuja-faq",
       "blocks": {
+        "faq_6": {
+          "type": "faq",
+          "settings": {
+            "question": "Where can I buy Banarasi sarees at wholesale price in Varanasi?",
+            "answer": "Priyuja's wholesale store at D 47/195, Luxa Rd, opp. PDR Mall, Ramapura, Varanasi supplies pure handloom Banarasi silk sarees at wholesale rates to boutiques and resellers. First order MOQ is 15 pieces (mix and match), with GST invoice and 24-hour dispatch pan-India."
+          }
+        },
         "faq_1": {
           "type": "faq",
           "settings": {
@@ -465,13 +472,6 @@
             "answer": "Ready-stock orders are dispatched within 24 hours via trusted courier, pan-India. Custom-colour orders ship once weaving is complete. You receive a tracking link and GST invoice with every order."
           }
         },
-        "faq_6": {
-          "type": "faq",
-          "settings": {
-            "question": "Where can I buy Banarasi sarees at wholesale price in Varanasi?",
-            "answer": "Priyuja's wholesale store at D 47/195, Luxa Rd, opp. PDR Mall, Ramapura, Varanasi supplies pure handloom Banarasi silk sarees at wholesale rates to boutiques and resellers. First order MOQ is 15 pieces (mix and match), with GST invoice and 24-hour dispatch pan-India."
-          }
-        },
         "faq_7": {
           "type": "faq",
           "settings": {
@@ -481,12 +481,12 @@
         }
       },
       "block_order": [
+        "faq_6",
         "faq_1",
         "faq_2",
         "faq_3",
         "faq_4",
         "faq_5",
-        "faq_6",
         "faq_7"
       ],
       "settings": {
