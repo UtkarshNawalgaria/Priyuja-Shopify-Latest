@@ -36,6 +36,7 @@
     "intro": {
       "type": "priyuja-store-intro",
       "settings": {
+        "store_image": "shopify://shop_images/varanasi_store.png",
         "eyebrow": "Now at the source",
         "heading": "A Priyuja store in Varanasi",
         "body_1": "For years we served boutiques from our Mumbai base. Now, with our own store in Varanasi, we are right where the handloom Banarasi saree is born. That means we select straight from the weavers, see fresh designs first, and pass on true at-source value to you — alongside the same trusted terms, GST billing and 24-hour dispatch you already know us for.",
