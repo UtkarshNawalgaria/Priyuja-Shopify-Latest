@@ -14,6 +14,16 @@
     "priyuja-footer": {
       "type": "priyuja-footer",
       "settings": {
+        "mumbai_label": "Mumbai Office",
+        "mumbai_address": "B-39, 2nd Floor, Flameproof House, Veera Desai Industrial Estate, New Link Road, Andheri West, Mumbai, Maharashtra 400053",
+        "mumbai_hours": "",
+        "mumbai_gst": "27AADCO1764H1ZE",
+        "varanasi_label": "Varanasi Store",
+        "varanasi_address": "D 47/195, 1st Floor, Luxa Rd, opp. PDR Mall, Ramapura, Varanasi, Uttar Pradesh 221010",
+        "varanasi_hours": "Mon–Sat, 10 AM – 8 PM",
+        "varanasi_gst": "09AADCO1764H1ZC",
+        "brand_name": "Priyuja",
+        "copyright_text": "Powered by Olivecloud"
       }
     }
   },
