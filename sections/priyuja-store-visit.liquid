@@ -57,7 +57,7 @@
       {%- else -%}
         <p><span style="background:var(--gold-pale);border:1px dashed var(--gold);color:#6b4a05;font-size:12px;border-radius:6px;padding:2px 8px;font-weight:600;">⚠ Add full Varanasi store address</span><br><span style="color:var(--text-mid);">Varanasi, Uttar Pradesh</span></p>
       {%- endif -%}
-      <p class="reveal" style="color:var(--text-mid);">Phone / WhatsApp: +91 91120 44277<br>GSTIN: 09AADCO1764H1ZC</p>
+      <p class="reveal" style="color:var(--text-mid);">Phone / WhatsApp: {{ section.settings.store_phone | default: '+91 91120 44277' }}<br>GSTIN: {{ section.settings.store_gstin | default: '09AADCO1764H1ZC' }}</p>
       {%- if section.settings.map_embed_url != blank -%}
         <iframe class="pvs-visit__map" src="{{ section.settings.map_embed_url }}" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Priyuja Varanasi Store Map"></iframe>
       {%- else -%}
@@ -83,16 +83,16 @@
   {
     "@context": "https://schema.org",
     "@type": "Store",
-    "name": "Priyuja — Wholesale Banarasi Saree Store, Varanasi",
-    "description": "Wholesale Banarasi saree manufacturer in Varanasi. Pure handloom Banarasi silk sarees and custom-colour weaves, wholesale to boutiques across India.",
+    "name": {{ section.settings.schema_name | default: 'Priyuja — Wholesale Banarasi Saree Store, Varanasi' | json }},
+    "description": {{ section.settings.schema_description | default: 'Wholesale Banarasi saree manufacturer in Varanasi. Pure handloom Banarasi silk sarees and custom-colour weaves, wholesale to boutiques across India.' | json }},
     "image": "https://www.priyuja.com/cdn/shop/files/Banarasi_Handloom_Silk_Sarees.png",
     "url": "{{ shop.url }}{{ page.url }}",
-    "telephone": "+91-91120-44277",
+    "telephone": {{ section.settings.schema_telephone | default: '+91-91120-44277' | json }},
     "priceRange": "₹₹",
     "currenciesAccepted": "INR",
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "D 47/195, 2nd Floor, Luxa Rd, opp. PDR Mall, Ramapura",
+      "streetAddress": {{ section.settings.schema_street_address | default: 'D 47/195, 2nd Floor, Luxa Rd, opp. PDR Mall, Ramapura' | json }},
       "addressLocality": "Varanasi",
       "addressRegion": "Uttar Pradesh",
       "postalCode": "221010",
@@ -161,6 +161,42 @@
       "label": "Output Store structured data (JSON-LD)",
       "default": true,
       "info": "Turn off if reusing this section on a non-store page."
+    },
+    {
+      "type": "text",
+      "id": "store_phone",
+      "label": "Visible phone / WhatsApp",
+      "info": "Shown in the store card. Leave blank to use the default +91 91120 44277."
+    },
+    {
+      "type": "text",
+      "id": "store_gstin",
+      "label": "Visible GSTIN",
+      "info": "Leave blank to use the default 09AADCO1764H1ZC."
+    },
+    {
+      "type": "text",
+      "id": "schema_name",
+      "label": "Schema: business name",
+      "info": "Store name in the JSON-LD. Leave blank to keep the wholesale default."
+    },
+    {
+      "type": "text",
+      "id": "schema_description",
+      "label": "Schema: description",
+      "info": "Leave blank to keep the wholesale default."
+    },
+    {
+      "type": "text",
+      "id": "schema_telephone",
+      "label": "Schema: telephone (E.164-ish)",
+      "info": "E.g. +91-99215-44277. Leave blank to keep the default."
+    },
+    {
+      "type": "text",
+      "id": "schema_street_address",
+      "label": "Schema: street address",
+      "info": "Leave blank to keep the default. Keep identical to your Google Business Profile."
     },
     {
       "type": "text",

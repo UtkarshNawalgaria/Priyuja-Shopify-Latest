@@ -1,0 +1,241 @@
+{
+  "sections": {
+    "topbar": {
+      "type": "priyuja-store-topbar",
+      "settings": {
+        "topbar_text": "Now open in Varanasi · <strong>Retail &amp; wholesale</strong> · Loom-direct Banarasi sarees · Custom colours woven to order · GST invoice",
+        "container_width": "full",
+        "section_padding": "medium"
+      }
+    },
+    "hero": {
+      "type": "priyuja-store-hero",
+      "settings": {
+        "eyebrow": "Priyuja Banaras · Luxa Road, Varanasi",
+        "heading": "Best Banarasi Saree Shop in Varanasi",
+        "subheading": "A weaving house you can walk into. Every saree at Priyuja Banaras is woven on our own looms in the city — pure silk, real zari, and an honest price, whether you're buying one piece or fifteen.",
+        "hero_image": "shopify://shop_images/banarasi_saree.jpg",
+        "whatsapp_url": "https://wa.me/919921544277",
+        "anchor_text": "Call +91 99215 44277",
+        "anchor_target": "tel:+919921544277",
+        "container_width": "default",
+        "section_padding": "medium",
+        "reverse_columns": false,
+        "heading_size": "medium"
+      }
+    },
+    "intro": {
+      "type": "priyuja-store-intro",
+      "settings": {
+        "store_image": "shopify://shop_images/varanasi_store.png",
+        "eyebrow": "Why this shop",
+        "heading": "A weaving house, not a reseller",
+        "body_1": "Varanasi has hundreds of saree shops, and most of them are resellers — they buy finished sarees from a middleman and can't tell you much about how the piece in your hands was actually made. Priyuja Banaras is different. We are a Banarasi saree manufacturer, and the sarees on our shelves come straight off our own looms in the city. That means we can show you the weave up close, tell you exactly which silk and zari went into it, and give you a fair, loom-direct price.",
+        "body_2": "Whether you want a single wedding saree to take home, or you run a boutique and need a dependable Varanasi supplier, you're buying from the people who made it.",
+        "store_address": "1st Floor, D 47/195, Luxa Rd, opp. PDR Mall, Ramapura, Varanasi, Uttar Pradesh 221010",
+        "container_width": "default",
+        "section_padding": "medium",
+        "reverse_columns": false,
+        "heading_size": "medium"
+      }
+    },
+    "advantages": {
+      "type": "priyuja-store-advantages",
+      "blocks": {
+        "adv_1": {
+          "type": "card",
+          "settings": {
+            "title": "Woven, not resold",
+            "text": "Our own looms in Varanasi. You see the fabric, the zari and the weaver's technique — not a sealed packet bought from a wholesaler."
+          }
+        },
+        "adv_2": {
+          "type": "card",
+          "settings": {
+            "title": "Genuine silk, Silk Mark",
+            "text": "Pure Katan and silk weaves carry the Silk Mark of India, with real or tested zari that warms in the light rather than glaring."
+          }
+        },
+        "adv_3": {
+          "type": "card",
+          "settings": {
+            "title": "GST invoice, proper billing",
+            "text": "A GST invoice on every purchase, retail or wholesale. No 'cash only, no bill' — you get a clean paper trail."
+          }
+        },
+        "adv_4": {
+          "type": "card",
+          "settings": {
+            "title": "Your colour, woven to order",
+            "text": "Like a design but want your own shade? Pick the colour and zari and we weave it to order at our Varanasi looms."
+          }
+        },
+        "adv_5": {
+          "type": "card",
+          "settings": {
+            "title": "Retail and wholesale together",
+            "text": "Buy one saree over the counter, or order in bulk for your boutique from the same shop — first order 15 pieces, mix & match."
+          }
+        },
+        "adv_6": {
+          "type": "card",
+          "settings": {
+            "title": "A family of weavers",
+            "text": "Generations in the Banarasi trade. Ask us anything about a weave and you'll hear it from someone who has actually made it."
+          }
+        }
+      },
+      "block_order": ["adv_1", "adv_2", "adv_3", "adv_4", "adv_5", "adv_6"],
+      "settings": {
+        "eyebrow": "What you get at Priyuja",
+        "heading": "Loom-direct, and everything that comes with it",
+        "container_width": "default",
+        "section_padding": "medium",
+        "desktop_columns": 3,
+        "heading_size": "medium"
+      }
+    },
+    "local": {
+      "type": "priyuja-store-local",
+      "settings": {
+        "eyebrow": "",
+        "heading": "In the heart of Varanasi, easy to visit",
+        "body": "<p>Our shop is on Luxa Road in Ramapura, opposite PDR Mall — minutes from Godowlia, Chowk and Dashashwamedh Ghat, in the same part of the city where Banarasi sarees have been woven for generations. We're about 15 minutes from Varanasi Junction (Cantt) railway station and around 45 minutes from Lal Bahadur Shastri International Airport, so it's easy to fit a visit into a day of sightseeing or a buying trip. Walk in Monday to Saturday, 10 am to 8 pm.</p>",
+        "container_width": "default",
+        "section_padding": "medium",
+        "heading_size": "medium"
+      }
+    },
+    "fabric-links": {
+      "type": "priyuja-fabric-links",
+      "blocks": {
+        "l1": { "type": "link", "settings": { "label": "Katan Banarasi silk saree", "url": "/pages/katan-banarasi-silk-saree-wholesaler" } },
+        "l2": { "type": "link", "settings": { "label": "Banarasi organza saree", "url": "/pages/banarasi-organza-saree-wholesaler" } },
+        "l3": { "type": "link", "settings": { "label": "Banarasi georgette saree", "url": "/pages/banarasi-georgette-saree-wholesaler" } },
+        "l4": { "type": "link", "settings": { "label": "Banarasi tissue saree", "url": "/pages/banarasi-tissue-saree-wholesaler" } },
+        "l5": { "type": "link", "settings": { "label": "Chiniya silk saree", "url": "/pages/banarasi-chiniya-silk-saree-wholesaler" } },
+        "l6": { "type": "link", "settings": { "label": "Banarasi chanderi silk saree", "url": "/pages/banarasi-chanderi-silk-saree-wholesaler" } },
+        "l7": { "type": "link", "settings": { "label": "Banarasi crepe silk saree", "url": "/pages/banarasi-crepe-silk-saree-wholesaler" } },
+        "l8": { "type": "link", "settings": { "label": "Banarasi chiffon saree", "url": "/pages/banarasi-chiffon-saree-wholesaler" } },
+        "l9": { "type": "link", "settings": { "label": "Banarasi tussar silk saree", "url": "/pages/banarasi-tussar-silk-saree-wholesaler" } },
+        "l10": { "type": "link", "settings": { "label": "Banarasi cotton-silk saree", "url": "/pages/banarasi-cotton-silk-saree-wholesaler" } },
+        "l11": { "type": "link", "settings": { "label": "Dola silk saree", "url": "/pages/dola-silk-saree-wholesaler-and-manufacturer" } },
+        "l12": { "type": "link", "settings": { "label": "Satin Banarasi saree", "url": "/pages/satin-banarasi-saree-wholesaler" } },
+        "l13": { "type": "link", "settings": { "label": "Linen Banarasi saree", "url": "/pages/linen-banarasi-saree-wholesaler" } }
+      },
+      "block_order": ["l1", "l2", "l3", "l4", "l5", "l6", "l7", "l8", "l9", "l10", "l11", "l12", "l13"],
+      "settings": {
+        "eyebrow": "",
+        "heading": "Every Banarasi weave, under one roof",
+        "intro": "From wedding-grade pure Katan to light everyday drapes — tap any weave to see it in detail, with prices and wholesale terms:",
+        "columns": 3,
+        "container_width": "default",
+        "section_padding": "medium",
+        "heading_size": "medium"
+      }
+    },
+    "terms": {
+      "type": "priyuja-wholesale-terms-grid",
+      "settings": {
+        "heading": "Retail & wholesale terms",
+        "term_1_label": "Walk-in retail",
+        "term_1_value": "Single pieces welcome, over the counter",
+        "term_2_label": "Wholesale MOQ",
+        "term_2_value": "15 pieces — mix & match any designs",
+        "term_3_label": "Pricing",
+        "term_3_value": "Loom-direct; wholesale from ₹1,000/piece",
+        "term_4_label": "Custom colour",
+        "term_4_value": "Woven to order from our shade card",
+        "term_5_label": "Invoice",
+        "term_5_value": "GST invoice on every order",
+        "term_6_label": "Dispatch",
+        "term_6_value": "Ready stock within 24 hours, pan-India",
+        "container_width": "default",
+        "section_padding": "medium",
+        "desktop_columns": 3,
+        "heading_size": "medium"
+      }
+    },
+    "how-it-works": {
+      "type": "priyuja-how-it-works",
+      "blocks": {
+        "step_1": { "type": "step", "settings": { "icon": "💬", "title": "Message or call us", "description": "Tell us what you're looking for — weave, occasion, budget, and any colour you have in mind.", "detail": "Reply within 30 min" } },
+        "step_2": { "type": "step", "settings": { "icon": "🏬", "title": "Visit or video call", "description": "Come to the Luxa Road store, or see the full collection live on a video call from anywhere.", "detail": "Mon–Sat, 10–8" } },
+        "step_3": { "type": "step", "settings": { "icon": "✅", "title": "Choose & confirm", "description": "Pick your sarees — a single piece or a bulk order — and confirm. Custom colours woven to order.", "detail": "GST invoice" } },
+        "step_4": { "type": "step", "settings": { "icon": "🚚", "title": "Carry home or ship", "description": "Take it with you from the store, or we dispatch pan-India within 24 hours with tracking.", "detail": "Tracked · pan-India" } }
+      },
+      "block_order": ["step_1", "step_2", "step_3", "step_4"],
+      "settings": {
+        "section_label": "The Process",
+        "h2_line1": "How Buying",
+        "h2_line2": "Works",
+        "descriptor": "Whether you visit the Varanasi store or shop with us remotely, here's how it goes from your first message to a saree in hand."
+      }
+    },
+    "visit": {
+      "type": "priyuja-store-visit",
+      "settings": {
+        "store_address": "1st Floor, D 47/195, Luxa Rd, opp. PDR Mall, Ramapura, Varanasi, Uttar Pradesh 221010",
+        "store_phone": "+91 99215 44277",
+        "map_embed_url": "https://www.google.com/maps?q=Priyuja%20Banaras%2C%20Luxa%20Road%2C%20Ramapura%2C%20Varanasi&output=embed",
+        "video_call_hours": "Mon–Sat, 10 AM – 8 PM",
+        "whatsapp_url": "https://wa.me/919921544277",
+        "include_schema": true,
+        "schema_name": "Priyuja Banaras — Banarasi Saree Shop, Varanasi",
+        "schema_description": "Banarasi saree shop and weaving house in Varanasi — loom-direct pure silk sarees, retail and wholesale, with custom-colour weaving to order.",
+        "schema_telephone": "+91-99215-44277",
+        "schema_street_address": "1st Floor, D 47/195, Luxa Rd, opp. PDR Mall, Ramapura",
+        "store_latitude": "",
+        "store_longitude": "",
+        "container_width": "default",
+        "section_padding": "medium",
+        "reverse_columns": false,
+        "heading_size": "medium"
+      }
+    },
+    "faq": {
+      "type": "priyuja-faq",
+      "blocks": {
+        "faq_1": { "type": "faq", "settings": { "question": "Which is the best saree shop in Varanasi?", "answer": "\"Best\" depends on what you want, but if genuine handloom matters to you, buy from a weaving house rather than a reseller. Priyuja Banaras weaves its own Banarasi sarees on looms in the city and sells them directly at the Luxa Road shop — so you get authentic silk, Silk Mark assurance, a GST invoice and a fair, loom-direct price." } },
+        "faq_2": { "type": "faq", "settings": { "question": "Where can I buy an original Banarasi saree in Varanasi?", "answer": "At our store on the 1st floor, D 47/195, Luxa Road, opposite PDR Mall, Ramapura. Because we manufacture the sarees ourselves, every piece is a genuine Banarasi weave — not a powerloom copy sold as handloom." } },
+        "faq_3": { "type": "faq", "settings": { "question": "How do I know a Banarasi saree is genuine handloom?", "answer": "Look for the Silk Mark tag on pure-silk pieces, check that the zari warms rather than glares, and turn the saree over — on genuine kadhwa weaving the motif threads are cut by hand and the back stays clean. We're happy to show you all of this in person before you buy." } },
+        "faq_4": { "type": "faq", "settings": { "question": "What is the price of a pure Banarasi silk saree at Priyuja?", "answer": "Everyday and lighter weaves start modestly, while pure Katan and heavy bridal pieces sit at the premium end. Wholesale pricing starts from ₹1,000 per saree. Visit the store or message us on WhatsApp for current rates on the specific weave you want." } },
+        "faq_5": { "type": "faq", "settings": { "question": "Do you sell wholesale to boutiques and resellers?", "answer": "Yes. We supply boutiques and shop owners across India at wholesale rates — first order minimum 15 pieces, from ₹1,000 per saree, with a GST invoice and 24-hour pan-India dispatch. You can also order your own colours in bulk, woven to order." } },
+        "faq_6": { "type": "faq", "settings": { "question": "Where is the Priyuja Banaras store and when is it open?", "answer": "We're on the 1st floor, D 47/195, Luxa Road, opposite PDR Mall, Ramapura, Varanasi 221010 — open Monday to Saturday, 10 am to 8 pm (closed Sunday). We're about 15 minutes from Varanasi Junction (Cantt) station and a short walk from Godowlia." } }
+      },
+      "block_order": ["faq_1", "faq_2", "faq_3", "faq_4", "faq_5", "faq_6"],
+      "settings": {
+        "eyebrow": "FAQs",
+        "heading": "Common questions",
+        "container_width": "narrow",
+        "section_padding": "medium",
+        "heading_size": "medium"
+      }
+    },
+    "cta": {
+      "type": "priyuja-cta-band",
+      "settings": {
+        "heading": "Come see the sarees in person",
+        "body": "Visit our Luxa Road store in Varanasi, or message us on WhatsApp to shop by video call — retail or wholesale, we'll look after you either way.",
+        "cta_text": "Message on WhatsApp",
+        "cta_url": "https://wa.me/919921544277",
+        "container_width": "default",
+        "section_padding": "medium",
+        "heading_size": "medium"
+      }
+    }
+  },
+  "order": [
+    "topbar",
+    "hero",
+    "intro",
+    "advantages",
+    "local",
+    "fabric-links",
+    "terms",
+    "how-it-works",
+    "visit",
+    "faq",
+    "cta"
+  ]
+}
