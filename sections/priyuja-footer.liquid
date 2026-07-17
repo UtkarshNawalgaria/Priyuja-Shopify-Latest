@@ -9,16 +9,24 @@
   #shopify-section-{{ section.id }} * { box-sizing: border-box; }
 
   .pf { background: var(--maroon-deep); color: #ecdcc6; font-family: var(--font-body); line-height: 1.65; }
-  .pf__wrap { max-width: 960px; margin: 0 auto; padding: 48px 28px 24px; }
-  .pf__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; }
+  .pf__wrap { max-width: 1100px; margin: 0 auto; padding: 48px 28px 24px; }
+  .pf__grid { display: grid; grid-template-columns: 1.15fr 1.15fr 1fr; gap: 44px; }
 
   .pf__col h4 { font-family: var(--font-body); text-transform: uppercase; letter-spacing: 1.6px; font-size: 12px; font-weight: 700; color: var(--gold-light); margin: 0 0 12px; }
   .pf__store address { font-style: normal; color: #e0cdb2; font-size: 14px; margin: 0; }
   .pf__store .row { display: block; margin-top: 8px; }
   .pf__store .lbl { color: var(--gold-light); font-weight: 600; }
 
+  .pf__links ul { list-style: none; margin: 0; padding: 0; }
+  .pf__links li { margin: 0 0 9px; }
+  .pf__links a { color: #e0cdb2; text-decoration: none; font-size: 14px; transition: color .2s ease; }
+  .pf__links a:hover, .pf__links a:focus-visible { color: var(--gold-light); text-decoration: underline; }
+
   .pf__bottom { border-top: 1px solid rgba(255,255,255,.14); margin-top: 36px; padding-top: 18px; text-align: center; font-size: 12.5px; color: #c2ab90; }
 
+  @media (max-width: 820px) {
+    .pf__grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+  }
   @media (max-width: 600px) {
     .pf__wrap { padding: 36px 20px 20px; }
     .pf__grid { grid-template-columns: 1fr; gap: 28px; }
@@ -53,6 +61,18 @@
             <span class="row"><span class="lbl">GSTIN:</span> {{ section.settings.varanasi_gst }}</span>
           {%- endif -%}
         </address>
+      </div>
+
+      <div class="pf__col pf__links">
+        <h4>Sarees &amp; Wholesale</h4>
+        <ul>
+          <li><a href="/pages/best-banarasi-saree-shop-in-varanasi">Best Banarasi Saree Shop in Varanasi</a></li>
+          <li><a href="/pages/best-wholesale-saree-store-in-varanasi">Wholesale Saree Store in Varanasi</a></li>
+          <li><a href="/pages/katan-banarasi-silk-saree-wholesaler">Katan Banarasi Silk Sarees</a></li>
+          <li><a href="/pages/banarasi-organza-saree-wholesaler">Banarasi Organza Sarees</a></li>
+          <li><a href="/pages/banarasi-georgette-saree-wholesaler">Banarasi Georgette Sarees</a></li>
+          <li><a href="/pages/banarasi-tissue-saree-wholesaler">Banarasi Tissue Sarees</a></li>
+        </ul>
       </div>
 
     </div>
