@@ -205,6 +205,7 @@
         "col-2": {
           "type": "collection_card",
           "settings": {
+            "image": "shopify://shop_images/Purple_and_golden_Khaddi_Georgette_Saree.jpg",
             "origin": "Varanasi, Uttar Pradesh",
             "name": "Georgette Sarees",
             "price": "",
@@ -232,8 +233,9 @@
         "col-5": {
           "type": "collection_card",
           "settings": {
+            "image": "shopify://shop_images/Pure_Handloom_Katan_Silk_Saree.jpg",
             "origin": "Varanasi, Uttar Pradesh",
-            "name": "Tussar Silk Sarees",
+            "name": "Katan Silk Sarees",
             "price": "",
             "url": ""
           }
