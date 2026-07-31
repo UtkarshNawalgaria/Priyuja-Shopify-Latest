@@ -18,7 +18,7 @@
         "h1_line3": "Across India",
         "description": "Three generations of textile expertise, now serving boutique owners with handpicked wholesale sarees. Browse via video call, order with confidence, receive within 24 hours.",
         "primary_cta_text": "Start on WhatsApp",
-        "primary_cta_url": "https://wa.me/919112044277?text=Hi%20Priyuja%2C%20I%27m%20a%20boutique%20owner%20and%20I%27d%20like%20to%20explore%20your%20wholesale%20collection.",
+        "primary_cta_url": "https://wa.me/919921544277?text=Hi%20Priyuja%2C%20I%27m%20a%20boutique%20owner%20and%20I%27d%20like%20to%20explore%20your%20wholesale%20collection.",
         "secondary_cta_text": "See How It Works",
         "secondary_cta_url": "#how-it-works",
         "hero_image": "shopify://shop_images/1_e25d13d2-98a6-4900-ba4b-cd4eefb67cde.png",
@@ -254,7 +254,7 @@
         "h2_line2": "for Every Boutique",
         "subtitle": "From the handlooms of Varanasi to your boutique — each collection is handpicked for quality, design, and wholesale value.",
         "cta_text": "View All Collections on WhatsApp",
-        "cta_url": "https://wa.me/919112044277?text=Hi%20Priyuja%2C%20I%27d%20like%20to%20see%20your%20full%20collection%20catalog."
+        "cta_url": "https://wa.me/919921544277?text=Hi%20Priyuja%2C%20I%27d%20like%20to%20see%20your%20full%20collection%20catalog."
       }
     },
     "priyuja-why-us": {
@@ -531,15 +531,15 @@
         "h2_line2": "Beautiful Sarees?",
         "body": "Join 500+ boutique owners who trust Priyuja for authentic, wholesale sarees. Start with just 15 pieces — no fixed sets, no showroom visits, just great sarees delivered to your door.",
         "primary_cta_text": "Start on WhatsApp",
-        "primary_cta_url": "https://wa.me/919112044277?text=Hi%20Priyuja%2C%20I%27m%20a%20boutique%20owner%20and%20I%27d%20like%20to%20place%20my%20first%20wholesale%20order.",
+        "primary_cta_url": "https://wa.me/919921544277?text=Hi%20Priyuja%2C%20I%27m%20a%20boutique%20owner%20and%20I%27d%20like%20to%20place%20my%20first%20wholesale%20order.",
         "secondary_cta_text": "Call Us Now",
-        "secondary_cta_url": "tel:+919112044277"
+        "secondary_cta_url": "tel:+919921544277"
       }
     },
     "priyuja-whatsapp-float": {
       "type": "priyuja-whatsapp-float",
       "settings": {
-        "whatsapp_url": "https://wa.me/919112044277?text=Hi%20Priyuja%2C%20I%27m%20interested%20in%20your%20wholesale%20saree%20collection.",
+        "whatsapp_url": "https://wa.me/919921544277?text=Hi%20Priyuja%2C%20I%27m%20interested%20in%20your%20wholesale%20saree%20collection.",
         "tooltip_text": "Chat with us"
       }
     }
