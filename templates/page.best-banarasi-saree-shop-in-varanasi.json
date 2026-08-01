@@ -114,10 +114,25 @@
     "legacy": {
       "type": "priyuja-legacy",
       "blocks": {
-        "p1": { "type": "pillar", "settings": { "title": "Sharad Nawalgaria", "description": "Founder · nearly 30 years in the saree & textile trade" } },
-        "p2": { "type": "pillar", "settings": { "title": "Anvi Nawalgaria", "description": "Runs the Varanasi store, working directly with the weavers" } }
+        "p1": {
+          "type": "pillar",
+          "settings": {
+            "title": "Sharad Nawalgaria",
+            "description": "Founder · nearly 30 years in the saree & textile trade"
+          }
+        },
+        "p2": {
+          "type": "pillar",
+          "settings": {
+            "title": "Anvi Nawalgaria",
+            "description": "Runs the Varanasi store, working directly with the weavers"
+          }
+        }
       },
-      "block_order": ["p1", "p2"],
+      "block_order": [
+        "p1",
+        "p2"
+      ],
       "settings": {
         "section_label": "The family behind Priyuja",
         "h2_line1": "Three decades in",
@@ -125,6 +140,8 @@
         "paragraph_1": "Priyuja Banaras is led by Sharad Nawalgaria, who has spent nearly 30 years in the textile and saree trade. Before Priyuja he built and ran the ethnic-wear label fida — and the same eye for quality and the same weaver relationships now go into every Banarasi saree we sell.",
         "paragraph_2": "Today the Varanasi store is run day to day by his daughter, Anvi Nawalgaria, who works directly with the weavers and looks after boutique and retail customers alike.",
         "paragraph_3": "Two generations, one standard: genuine handloom, honest prices, and a name that boutique owners have trusted for years.",
+        "main_image": "shopify://shop_images/DSC_0238.jpg",
+        "accent_image": "shopify://shop_images/IMG-20161104-WA0001.jpg",
         "badge_number": "30",
         "badge_label": "Years in the saree trade"
       }
