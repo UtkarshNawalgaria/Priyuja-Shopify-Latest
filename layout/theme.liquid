@@ -23,6 +23,36 @@
       })();
     </script>
 
+    <!-- Priyuja: capture Google click ID (gclid) and stamp it into WhatsApp messages so each chat is traceable to its ad click -->
+    <script>
+      (function () {
+        // ponytail: also captures iOS wbraid/gbraid; Ref is lost only if the user edits out the prefilled text before sending
+        try {
+          var p = new URLSearchParams(window.location.search);
+          var g = p.get('gclid') || p.get('wbraid') || p.get('gbraid');
+          if (g) document.cookie = 'priyuja_gclid=' + encodeURIComponent(g) + ';path=/;max-age=' + (60 * 60 * 24 * 90) + ';SameSite=Lax';
+        } catch (e) {}
+        function getGclid() {
+          var m = document.cookie.match(/(?:^|;\s*)priyuja_gclid=([^;]+)/);
+          return m ? decodeURIComponent(m[1]) : '';
+        }
+        document.addEventListener('click', function (e) {
+          var a = e.target.closest && e.target.closest('a[href*="wa.me"], a[href*="api.whatsapp.com"], a[href*="web.whatsapp.com"]');
+          if (!a) return;
+          var g = getGclid();
+          if (!g) return;
+          try {
+            var u = new URL(a.href);
+            var text = u.searchParams.get('text') || 'Hi Priyuja, I would like wholesale details.';
+            if (text.indexOf('Ref:') === -1) {
+              u.searchParams.set('text', text + ' (Ref: ' + g + ')');
+              a.href = u.toString();
+            }
+          } catch (err) {}
+        }, true);
+      })();
+    </script>
+
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="theme-color" content="{{ settings.color_button }}">
