@@ -12,6 +12,17 @@
       gtag('config', 'AW-18312620256');
     </script>
 
+    <!-- Priyuja: fire "Whatsapp Enquiry" conversion on any WhatsApp button click -->
+    <script>
+      (function () {
+        document.addEventListener('click', function (e) {
+          var a = e.target.closest && e.target.closest('a[href*="wa.me"], a[href*="api.whatsapp.com"], a[href*="web.whatsapp.com"]');
+          if (!a || typeof gtag !== 'function') return;
+          gtag('event', 'conversion', {'send_to': 'AW-18312620256/3YVlCIfx6NkcEODRkZxE'});
+        }, true);
+      })();
+    </script>
+
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="theme-color" content="{{ settings.color_button }}">
