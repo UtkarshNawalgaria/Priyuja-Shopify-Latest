@@ -40,7 +40,7 @@
           "settings": {
             "icon": "🏭",
             "text_bold": "Varanasi",
-            "text_rest": "Sourced Directly"
+            "text_rest": "Manufacturing and Wholesale"
           }
         },
         "trust-2": {
@@ -383,9 +383,9 @@
             "icon": "📋",
             "title": "Business Details",
             "item_1_label": "Registered As",
-            "item_1_text": "Olivecloud Tech Private Limited",
+            "item_1_text": "THE NAWALGARIA COLLECTIVE PVT LTD",
             "item_2_label": "GST Number",
-            "item_2_text": "27AADCO1764H1ZE",
+            "item_2_text": "27AADCO1764H1ZE, 09AADCO1764H1ZC",
             "item_3_label": "Location",
             "item_3_text": "Mumbai & Varanasi",
             "item_4_label": "Sourcing",
