@@ -12,8 +12,8 @@
     "breadcrumb": {
       "type": "priyuja-breadcrumb",
       "settings": {
-        "mid_label": "Banarasi Saree Types",
-        "mid_url": "/pages/wholesale-banarasi-sarees",
+        "mid_label": "Wholesale",
+        "mid_url": "/pages/wholesale",
         "current_label": "",
         "section_padding": "medium"
       }
@@ -23,7 +23,7 @@
       "settings": {
         "whatsapp_url": "",
         "video_call_url": "",
-        "container_width": "wide",
+        "container_width": "default",
         "section_padding": "medium",
         "reverse_columns": false,
         "heading_size": "medium"
@@ -51,7 +51,7 @@
     "process": {
       "type": "priyuja-fabric-process",
       "settings": {
-        "container_width": "wide",
+        "container_width": "default",
         "section_padding": "medium",
         "heading_size": "medium"
       }
@@ -114,7 +114,7 @@
       "settings": {
         "eyebrow": "FAQs",
         "heading": "Common questions",
-        "container_width": "narrow",
+        "container_width": "default",
         "section_padding": "medium",
         "heading_size": "medium"
       }

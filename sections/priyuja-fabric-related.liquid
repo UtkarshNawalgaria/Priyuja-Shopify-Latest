@@ -49,9 +49,8 @@
     <h2 class="reveal">Other wholesale Banarasi fabrics</h2>
     <div class="priyuja-fp-related__links reveal">
       {%- for other_fabric in all_fabrics -%}
-        {%- if other_fabric.name != fabric_name -%}
-          {%- assign fabric_handle = other_fabric.system.handle -%}
-          <a class="priyuja-fp-related__link" href="{{ routes.root_url }}pages/{{ fabric_handle }}-banarasi-silk-saree-wholesaler">
+        {%- if other_fabric.name != fabric_name and other_fabric.page_url != blank -%}
+          <a class="priyuja-fp-related__link" href="{{ other_fabric.page_url }}">
             {{ other_fabric.name }}
           </a>
         {%- endif -%}
