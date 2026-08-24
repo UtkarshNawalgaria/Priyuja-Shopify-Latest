@@ -215,6 +215,7 @@
         "col-3": {
           "type": "collection_card",
           "settings": {
+            "image": "shopify://shop_images/WhatsApp_Image_2026-08-12_at_5.50.06_PM.jpg",
             "origin": "Varanasi, Uttar Pradesh",
             "name": "Organza Sarees",
             "price": "",
