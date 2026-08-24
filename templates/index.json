@@ -225,8 +225,9 @@
         "col-4": {
           "type": "collection_card",
           "settings": {
+            "image": "shopify://shop_images/WhatsApp_Image_2026-08-19_at_14.19.01.jpg",
             "origin": "Varanasi, Uttar Pradesh",
-            "name": "Paper Silk Sarees",
+            "name": "Pure Tissue Silk",
             "price": "",
             "url": ""
           }
