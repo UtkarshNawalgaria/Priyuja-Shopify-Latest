@@ -49,17 +49,7 @@
                 {%- endif -%}
               {%- when 'product_grid' -%}
                 <div data-scroll-to>
-                  {% render 'collection-grid',
-                    collection: collection,
-                    items: collection.products | sort_by: 'created-descending',
-                    enable_sidebar: section.settings.enable_sidebar,
-                    filter_style: section.settings.filter_style,
-                    enable_sort: section.settings.enable_sort,
-                    enable_collection_count: block.settings.enable_collection_count,
-                    per_row: block.settings.per_row,
-                    mobile_flush_grid: block.settings.mobile_flush_grid,
-                    quick_shop_enable: settings.quick_shop_enable
-                  %}
+                  {% render 'collection-grid', collection: collection, items: collection.products, sort_by: 'created-descending', enable_sidebar: section.settings.enable_sidebar, filter_style: section.settings.filter_style, enable_sort: section.settings.enable_sort, enable_collection_count: block.settings.enable_collection_count, per_row: block.settings.per_row, mobile_flush_grid: block.settings.mobile_flush_grid, quick_shop_enable: settings.quick_shop_enable %}
                   {%- if paginate.pages > 1 -%}
                     {%- render 'pagination', paginate: paginate -%}
                   {%- endif -%}
@@ -233,3 +223,29 @@
   ]
 }
 {% endschema %}
+{% comment %}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: |-
+    {% render 'collection-grid',
+                        collection: collection,
+                        items: collection.products | sort_by: 'created-descending',
+                        enable_sidebar: section.settings.enable_sidebar,
+                        filter_style: section.settings.filter_style,
+                        enable_sort: section.settings.enable_sort,
+                        enable_collection_count: block.settings.enable_collection_count,
+                        per_row: block.settings.per_row,
+                        mobile_flush_grid: block.settings.mobile_flush_grid,
+                        quick_shop_enable: settings.quick_shop_enable
+                      %}
+  to: "{% render 'collection-grid', collection: collection, items: collection.products,
+    sort_by: 'created-descending', enable_sidebar: section.settings.enable_sidebar,
+    filter_style: section.settings.filter_style, enable_sort: section.settings.enable_sort,
+    enable_collection_count: block.settings.enable_collection_count, per_row: block.settings.per_row,
+    mobile_flush_grid: block.settings.mobile_flush_grid, quick_shop_enable: settings.quick_shop_enable
+    %}"
+  position: 2156..2604
+{% endcomment %}
